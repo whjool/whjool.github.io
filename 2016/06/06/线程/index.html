@@ -3,24 +3,36 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | 大大之家</title>
+    <title>线程 | 大大之家</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+    <meta name="description" content="思路:如何创建，如何使用，注意点
+
+#主要讲两种
+
+#NSThread直接把创建和使用直接show给大家，比较简单.
+123456789101112131415161718NSThread *thread1=[[NSThread alloc]initWithTarget:self selector:@selector(threadWay:) object:@&amp;quot;线程1&amp;quot;];thr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/06/03/hello-world/index.html">
+<meta property="og:title" content="线程">
+<meta property="og:url" content="http://yoursite.com/2016/06/06/线程/index.html">
 <meta property="og:site_name" content="大大之家">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-06-03T03:46:04.000Z">
+<meta property="og:description" content="思路:如何创建，如何使用，注意点
+
+#主要讲两种
+
+#NSThread直接把创建和使用直接show给大家，比较简单.
+123456789101112131415161718NSThread *thread1=[[NSThread alloc]initWithTarget:self selector:@selector(threadWay:) object:@&amp;quot;线程1&amp;quot;];thr">
+<meta property="og:updated_time" content="2016-06-06T05:23:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="线程">
+<meta name="twitter:description" content="思路:如何创建，如何使用，注意点
+
+#主要讲两种
+
+#NSThread直接把创建和使用直接show给大家，比较简单.
+123456789101112131415161718NSThread *thread1=[[NSThread alloc]initWithTarget:self selector:@selector(threadWay:) object:@&amp;quot;线程1&amp;quot;];thr">
     
 
     
@@ -136,35 +148,53 @@ Quick">
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-hello-world" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-线程" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Hello World
+        线程
         </h1>
     
 
             </header>
         
         <div class="article-subtitle">
-            <a href="/2016/06/03/hello-world/" class="article-date">
-    <time datetime="2016-06-03T03:46:04.000Z" itemprop="datePublished">2016-06-03</time>
+            <a href="/2016/06/06/线程/" class="article-date">
+    <time datetime="2016-06-06T04:34:05.000Z" itemprop="datePublished">2016-06-06</time>
 </a>
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>思路:如何创建，如何使用，注意点</p>
+<blockquote>
+<p>#主要讲两种</p>
+</blockquote>
+<p>#NSThread<br>直接把创建和使用直接show给大家，比较简单.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">NSThread *thread1=[[NSThread alloc]initWithTarget:self selector:@selector(threadWay:) object:@&quot;线程1&quot;];</span><br><span class="line">thread1.name=@&quot;thread1&quot;;</span><br><span class="line">[thread1 start];</span><br><span class="line"></span><br><span class="line">NSThread *thread2=[[NSThread alloc]initWithTarget:self selector:@selector(threadWay:) object:@&quot;线程2&quot;];</span><br><span class="line">thread2.name=@&quot;thread2&quot;;</span><br><span class="line">[thread2 start];</span><br><span class="line"></span><br><span class="line">//隐士创建线程//不能创建name</span><br><span class="line">[NSThread detachNewThreadSelector:@selector(threadWay:) toTarget:self withObject:@&quot;nothing&quot;];</span><br><span class="line"></span><br><span class="line">//主线程</span><br><span class="line">NSThread *main=[NSThread mainThread];</span><br><span class="line">NSLog(@&quot;%@&quot;,main);</span><br><span class="line"></span><br><span class="line">//自己调用线程的方法</span><br><span class="line">//    self performSelector:&lt;#(nonnull SEL)#&gt; onThread:&lt;#(nonnull NSThread *)#&gt; withObject:&lt;#(nullable id)#&gt; waitUntilDone:&lt;#(BOOL)#&gt;</span><br><span class="line">//    self performSelectorOnMainThread:&lt;#(nonnull SEL)#&gt; withObject:&lt;#(nullable id)#&gt; waitUntilDone:&lt;#(BOOL)#&gt;</span><br></pre></td></tr></table></figure>
+<p>#GCD</p>
+<h2 id="gt-创建以及使用"><a href="#gt-创建以及使用" class="headerlink" title="####&gt;创建以及使用"></a>####&gt;<font color="#00ff00" size="6" face="宋体">创建以及使用</font></h2><ul>
+<li>[x] 创建并发队列：</li>
+<li><i class="icon ion-plane"><font color="#ff0000" size="3" face="宋体">值得注意的地方就是，这里可以设置优先级，也就是线程创建时候可以有不同的优先级</font><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_t globalQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</span><br><span class="line"></span><br><span class="line">    //下面的方法有两个不同的</span><br><span class="line">    /*</span><br><span class="line">     #define DISPATCH_QUEUE_PRIORITY_HIGH 2</span><br><span class="line">     #define DISPATCH_QUEUE_PRIORITY_DEFAULT 0</span><br><span class="line">     #define DISPATCH_QUEUE_PRIORITY_LOW (-2)</span><br><span class="line">     #define DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN</span><br><span class="line">     */</span><br><span class="line">    //这是并行队列，可以设置以上的优先级</span><br></pre></td></tr></table></figure>
+</i></li>
+</ul>
+<blockquote>
+<p>##<font color="#0099ff" size="5" face="宋体">并发队列</font></p>
+<p>######开启异步任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dispatch_async(globalQueue, ^&#123;                  //这个会输出线程序号：2</span><br><span class="line">       NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">       dispatch_async(globalQueue, ^&#123;              //这个会输出线程序号：2 注意，因为这里有点串行的意思，前面执行完后又被分配了</span><br><span class="line">           NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">       &#125;);</span><br><span class="line">       dispatch_async(globalQueue, ^&#123;              //这个会输出线程序号：3</span><br><span class="line">           NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">       &#125;);</span><br><span class="line">       dispatch_async(globalQueue, ^&#123;              //这个会输出线程序号：4</span><br><span class="line">           NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>######开启同步任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//由于串行队列，所以每一个队列执行完再依次执行，队列序号是一致的</span><br><span class="line">    dispatch_async(globalQueue, ^&#123;                  //这个会输出线程序号：2</span><br><span class="line">        NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">        dispatch_sync(globalQueue, ^&#123;              //这个会输出线程序号：2</span><br><span class="line">            NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">        &#125;);</span><br><span class="line">        dispatch_sync(globalQueue, ^&#123;              //这个会输出线程序号：2</span><br><span class="line">            NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">        &#125;);</span><br><span class="line">        dispatch_sync(globalQueue, ^&#123;              //这个会输出线程序号：2</span><br><span class="line">            NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>##<font color="#0099ff" size="5" face="宋体">串行队列</font></p>
+<ul>
+<li>[x] 创建串行队列</li>
+<li><i class="icon ion-plane"><font color="#ff0000" size="3" face="宋体">值得注意的地方就是，这里的Null或者DISPATCH_QUEUE_SERIAL，默认都是创建串行队列，如果是DISPATCH_QUEUE_CONCURREN可以创建并发队列，和上面一致，只是不能像上面一样设置优先级</font></i></li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nomalQueue =dispatch_queue_create(&quot;queue1&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">    /*</span><br><span class="line">     #define DISPATCH_QUEUE_SERIAL NULL</span><br><span class="line">     两个参数，如果后面传null或者segial就是传入</span><br><span class="line">     #define DISPATCH_QUEUE_CONCURRENT \</span><br><span class="line">     </span><br><span class="line">    */</span><br></pre></td></tr></table></figure>
+<h2 id="gt-创建"><a href="#gt-创建" class="headerlink" title="####&gt;创建"></a>####&gt;<font color="#00ff00" size="6" face="宋体">创建</font></h2><p>这里说的就是如果线程用了主线程的话，在用同步的话会出现一个问题，就是当前的任务没有执行完，线程开启一直处于等待，这个需要注意，可以自己复制以下代码自己尝试，这里只会出现一直停住，处于等待的状态.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> 注意：不可以使用同步，家主线程类似下面这样，会直接死</span><br><span class="line"> */</span><br><span class="line">dispatch_queue_t mainQueue=dispatch_get_main_queue();</span><br><span class="line">        NSLog(@&quot;1&quot;);</span><br><span class="line">//这样会出现一直等待主线程执行完之后才开始，所以才会有这个问题，如果要解决只能是开异步任务</span><br><span class="line">dispatch_sync(mainQueue, ^&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;,[NSThread currentThread]);</span><br><span class="line">    NSLog(@&quot;2&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 
         </div>
         <footer class="article-footer">
@@ -172,7 +202,7 @@ Quick">
 
 
 
-    <a data-url="http://yoursite.com/2016/06/03/hello-world/" data-id="cip3knjvs0001t79kkjpoto4w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2016/06/06/线程/" data-id="cip3knjvh0000t79k8sioekzl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,16 +338,12 @@ Quick">
         
 <nav id="article-nav">
     
-        <a href="/2016/06/03/hello/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            hello
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
+        <a href="/2016/06/03/hexo图片/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">hexo图片</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
@@ -498,7 +524,7 @@ Quick">
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2016/06/03/hello-world/';
+    var disqus_url = 'http://yoursite.com/2016/06/06/线程/';
     
     (function() {
     var dsq = document.createElement('script');
