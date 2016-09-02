@@ -1,0 +1,657 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="##目录
+
+[IOS开发攻略含demo] - js传值(一) (WKWebView)
+[IOS开发攻略含demo] - js传值(二) (原生UIWebView)
+[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)
+
+
+前言
+
+由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]---js与OC交互(三)-(JavaScriptCore-framework)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##目录
+
+[IOS开发攻略含demo] - js传值(一) (WKWebView)
+[IOS开发攻略含demo] - js传值(二) (原生UIWebView)
+[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)
+
+
+前言
+
+由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-238a758ec03121a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-872bffc5c535fc5c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-09-02T01:04:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="##目录
+
+[IOS开发攻略含demo] - js传值(一) (WKWebView)
+[IOS开发攻略含demo] - js传值(二) (原生UIWebView)
+[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)
+
+
+前言
+
+由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-238a758ec03121a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]---js与OC交互(三)-(JavaScriptCore-framework)/"/>
+
+  <title>  | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##目录</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/fee5957ad946" target="_blank" rel="external">[IOS开发攻略含demo] - js传值(一) (WKWebView)</a></li>
+<li><a href="http://www.jianshu.com/p/5c2b5d4952c9" target="_blank" rel="external">[IOS开发攻略含demo] - js传值(二) (原生UIWebView)</a></li>
+<li><a href="http://www.jianshu.com/p/8b98eca4da63" target="_blank" rel="external">[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)</a></li>
+</ul>
+<blockquote>
+<p>前言</p>
+</blockquote>
+<p>由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习讨论,稍后我会录制这个系列的视频如果不懂得的朋友也可以看视频学习,不过暂时没出,出了我会发布出来,这是本文的demo地址<br><a href="https://github.com/OneHundredSir/JSAndOC" target="_blank" rel="external">如果喜欢的话给我github右上角个star,谢谢</a></p>
+<blockquote>
+<p>本文用到的Html源码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;header&gt;</div><div class="line">        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</div><div class="line">        &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">        </div><div class="line">            function secondClick() &#123;</div><div class="line">                share(&apos;分享的标题&apos;,&apos;分享的内容&apos;,&apos;图片地址&apos;);</div><div class="line">            &#125;</div><div class="line">        </div><div class="line">        function showAlert(message)&#123;</div><div class="line">            alert(message);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/header&gt;</div><div class="line">    </div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;h2&gt; 这里是JavaScriptCore方式 &lt;/h2&gt;</div><div class="line">        &lt;h2&gt; 我是简书:香蕉大大 &lt;/h2&gt;</div><div class="line">        &lt;br/&gt;</div><div class="line">        &lt;br/&gt;</div><div class="line">        &lt;button type=&quot;button&quot; onclick=&quot;secondClick()&quot;&gt;Click Me!&lt;/button&gt;</div><div class="line">        </div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>代码分解</p>
+</blockquote>
+<p>首先导入库<br><img src="http://upload-images.jianshu.io/upload_images/1730495-238a758ec03121a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跟着箭头走导入库JavaScriptCore"></p>
+<p>.m文件,只需要一个UIWebView对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &lt;JavaScriptCore/JavaScriptCore.h&gt;</div><div class="line"></div><div class="line">#import &quot;SeondViewController.h&quot;</div><div class="line"></div><div class="line">@interface SeondViewController ()</div><div class="line"></div><div class="line">@property (weak, nonatomic) IBOutlet UIWebView *webView;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p><strong>####配置</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view.</div><div class="line">    </div><div class="line">    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@&quot;调JS&quot; style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];</div><div class="line">    self.navigationItem.rightBarButtonItem = rightItem;</div><div class="line">    </div><div class="line">    NSString *path = [[NSBundle mainBundle] pathForResource:@&quot;Second&quot; ofType:@&quot;html&quot;];</div><div class="line">    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];</div><div class="line">    [_webView loadRequest:request];</div><div class="line">    </div><div class="line">    JSContext *context = [self.webView valueForKeyPath:@&quot;documentView.webView.mainFrame.javaScriptContext&quot;];</div><div class="line">    </div><div class="line">    //定义好JS要调用的方法, share就是调用的share方法名</div><div class="line">    context[@&quot;share&quot;] = ^() &#123;</div><div class="line">        NSLog(@&quot;+++++++Begin Log+++++++&quot;);</div><div class="line">        NSArray *args = [JSContext currentArguments];</div><div class="line">        </div><div class="line">        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@&quot;方式二&quot; message:@&quot;这是OC原生的弹出窗&quot; delegate:self cancelButtonTitle:@&quot;收到&quot; otherButtonTitles:nil];</div><div class="line">        [alertView show];</div><div class="line">        </div><div class="line">        for (JSValue *jsVal in args) &#123;</div><div class="line">            NSLog(@&quot;%@&quot;, jsVal.toString);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        NSLog(@&quot;-------End Log-------&quot;);</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解释:这里直接调用了<code>context[@&quot;share&quot;]</code>这个block,直接实现了回调,所以不用进行代理就可以与网页进行js-oc的回调,这我觉得是三种方法中的最简单的了!</p>
+<p><strong>调用H5的JS</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//按钮点击,传入JS</div><div class="line">- (void)rightAction</div><div class="line">&#123;</div><div class="line">    JSContext *context = [self.webView valueForKeyPath:@&quot;documentView.webView.mainFrame.javaScriptContext&quot;];</div><div class="line">    NSString *textJS = @&quot;showAlert(&apos;这里是JS中alert弹出的message&apos;)&quot;;</div><div class="line">    [context evaluateScript:textJS];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-872bffc5c535fc5c.gif?imageMogr2/auto-orient/strip" alt="展示图"></p>
+<blockquote>
+<p>源码下载</p>
+</blockquote>
+<p>源码地址:<a href="https://github.com/OneHundredSir/JSAndOC" target="_blank" rel="external">如果喜欢的话给我github右上角个star,谢谢</a></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>如需转载以上文章请记得备注来源,尊重作者劳动果实!</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/-ios开发-IOS操作易用篇/IOS开发-键盘处理(入门必学)/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS提交版本]---遇到的各种坑汇总/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

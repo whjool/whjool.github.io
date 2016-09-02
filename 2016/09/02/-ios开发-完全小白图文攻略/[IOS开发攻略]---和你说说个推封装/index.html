@@ -84,19 +84,24 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="个推 这个只能消息透传个推封装参考文章:个推封装文档阅读:文档阅读 
+
+注意点:(封装和调用的时候都要注意在runtime时候的一些调用)123如果，第三库中没有 category，Other Linker Flags 无需设置如果，第三方库中有 category，需要设置为 -ObjC如果，某些 Xcode 版本中，出现问题，修改设置为 -all_load">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/09/02/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-09-02T01:46:10.000Z">
+<meta property="og:description" content="个推 这个只能消息透传个推封装参考文章:个推封装文档阅读:文档阅读 
+
+注意点:(封装和调用的时候都要注意在runtime时候的一些调用)123如果，第三库中没有 category，Other Linker Flags 无需设置如果，第三方库中有 category，需要设置为 -ObjC如果，某些 Xcode 版本中，出现问题，修改设置为 -all_load">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-30d641c29d4bb5e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-09-02T01:04:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="个推 这个只能消息透传个推封装参考文章:个推封装文档阅读:文档阅读 
+
+注意点:(封装和调用的时候都要注意在runtime时候的一些调用)123如果，第三库中没有 category，Other Linker Flags 无需设置如果，第三方库中有 category，需要设置为 -ObjC如果，某些 Xcode 版本中，出现问题，修改设置为 -all_load">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-30d641c29d4bb5e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -117,9 +122,9 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/02/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/"/>
 
-  <title> Hello World | Hexo </title>
+  <title>  | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -239,7 +244,7 @@ Quick">
             
             
               
-                Hello World
+                
               
             
           </h1>
@@ -251,7 +256,7 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T09:46:10+08:00" content="2016-09-02">
+            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
               2016-09-02
             </time>
           </span>
@@ -279,15 +284,9 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p><a href="https://dev.getui.com/dos4.0/index.html#app/70368744265114/custom-push" target="_blank" rel="external">个推</a> <strong>这个只能消息透传</strong><br>个推封装参考文章:<a href="http://www.cnblogs.com/wujy/archive/2016/07/07/5651089.html" target="_blank" rel="external">个推封装</a><br>文档阅读:<a href="http://docs.getui.com/mobile/ios/xcode/" target="_blank" rel="external">文档阅读 </a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-30d641c29d4bb5e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>注意点:(封装和调用的时候都要注意在runtime时候的一些调用)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">如果，第三库中没有 category，Other Linker Flags 无需设置</div><div class="line">如果，第三方库中有 category，需要设置为 -ObjC</div><div class="line">如果，某些 Xcode 版本中，出现问题，修改设置为 -all_load</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -313,13 +312,17 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/02/-ios开发-OC项目仿写/蓝牙加密解密方法/" rel="next" title="">
+              <a href="/2016/09/02/-ios开发-大大闭门造轮子/IOS开发[控件封装]---alertView封装/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -419,7 +422,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
