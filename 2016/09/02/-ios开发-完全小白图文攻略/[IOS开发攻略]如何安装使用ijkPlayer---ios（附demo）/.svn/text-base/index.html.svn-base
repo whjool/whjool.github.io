@@ -1,0 +1,671 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="安装过程，注意#只是注释不放在终端(如果大家不知道哪个是终端金可以百度，我截图就是啦～)
+
+
+#开始我们的IJK奇妙之旅吧
+
+安装 注意错误的地方我会尽可能的截图，若有不好的地方请指出
+
+##1、介绍环境首先是安装必要的工具homebrew：MAC OSX上必备的软件包管理工具，有了它之后可以很方便的安装开发套件，首先我们打开命令终端输入以下命令安装homebrew：具体指令如下
+1ruby -e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="香蕉大大的家">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/index.html">
+<meta property="og:site_name" content="香蕉大大的家">
+<meta property="og:description" content="安装过程，注意#只是注释不放在终端(如果大家不知道哪个是终端金可以百度，我截图就是啦～)
+
+
+#开始我们的IJK奇妙之旅吧
+
+安装 注意错误的地方我会尽可能的截图，若有不好的地方请指出
+
+##1、介绍环境首先是安装必要的工具homebrew：MAC OSX上必备的软件包管理工具，有了它之后可以很方便的安装开发套件，首先我们打开命令终端输入以下命令安装homebrew：具体指令如下
+1ruby -e">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-4a53dc61edf5c192.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-ca87dba8fd77afec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-18b320f678aeacfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-8e581e8d1814c433.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-97beda00d16d22b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-023352220e89db9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-f22475063e14e775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-886fce8356d427ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-a4df8209818ef05c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-09-02T01:04:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉大大的家">
+<meta name="twitter:description" content="安装过程，注意#只是注释不放在终端(如果大家不知道哪个是终端金可以百度，我截图就是啦～)
+
+
+#开始我们的IJK奇妙之旅吧
+
+安装 注意错误的地方我会尽可能的截图，若有不好的地方请指出
+
+##1、介绍环境首先是安装必要的工具homebrew：MAC OSX上必备的软件包管理工具，有了它之后可以很方便的安装开发套件，首先我们打开命令终端输入以下命令安装homebrew：具体指令如下
+1ruby -e">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-4a53dc61edf5c192.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/"/>
+
+  <title>  | 香蕉大大的家 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">香蕉大大的家</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">就只想简简单单的和你分享一下我的学习之路~QQ群""</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>安装过程，注意#只是注释不放在终端(如果大家不知道哪个是终端金可以百度，我截图就是啦～)</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-4a53dc61edf5c192.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是终端"></p>
+<hr>
+<p>#开始我们的IJK奇妙之旅吧</p>
+<blockquote>
+<p>安装 注意错误的地方我会尽可能的截图，若有不好的地方请指出</p>
+</blockquote>
+<p>##1、介绍环境<br>首先是安装必要的工具homebrew：MAC OSX上必备的软件包管理工具，有了它之后可以很方便的安装开发套件，首先我们打开命令终端输入以下命令安装homebrew：<br>具体指令如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
+<p>待安装完毕后使用以下命令分别安装git和yasm：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install gitbrew install yasm</div></pre></td></tr></table></figure></p>
+<p>因为我之前都已经安装过了，所以在这里做一个版本检查：<strong>图片</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-ca87dba8fd77afec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是安装完存在版本的提示"></p>
+<hr>
+<p>##2.下载ijkplayer<br>1.首先我们在当前用户的目录下创建一个文件夹用于后面存放ijkplayer项目，打开终端输入：<strong>(“//“只是注释，复制不要一起复制！)</strong><br>这里的showcase随意就好，只是文件夹名称就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//创建showcase目录</div><div class="line">mkdir ~/showcase</div><div class="line">//进入该目录中</div><div class="line">cd ~/showcase</div></pre></td></tr></table></figure></p>
+<p>2.接着我们需要将ijkplayer项目克隆到本地，在终端中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//克隆项目</div><div class="line">git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-ios</div><div class="line">//进入ijkplayer-ioscd </div><div class="line">ijkplayer-ios</div><div class="line">//切换分支git</div><div class="line"> checkout -B latest k0.5.1</div><div class="line">//查看</div><div class="line">ls</div></pre></td></tr></table></figure></p>
+<p>3.真实效果如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-18b320f678aeacfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图文解析"></p>
+<hr>
+<p>##3、下载ffmpeg并编译<br>1.首先我们需要下载ffmpeg，<strong>接着上面的目录</strong>在终端中输入：<strong>（注意是接着上面的目录，不是别的目录！）</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//下载ffmpeg和相关脚本</div><div class="line">./init-ios.sh</div></pre></td></tr></table></figure></p>
+<p>因为ffmpeg比较大，再加上访问国外线路比较慢，遇到下载失败需要多试几次，如果有代理建议上代理(proxychains可以试试，灯的话看个人网络情况)，<br>下载失败如下：<strong>(这个只是本人目前遇到的失败情况不能代表都会出现这样的下载错误提示，后面有成功的截图)</strong><br><img src="http://upload-images.jianshu.io/upload_images/1730495-8e581e8d1814c433.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是下载终端显示失败的截图"></p>
+<p>真实效果如下：（主要armv7、arm64、i386、x86_64框架下载好，看下图就明白了）整整花了几个小时，需要留意中间有没有出错，否则影响后面流程。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-97beda00d16d22b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下载成功的提示"></p>
+<p>2.编译ffmpeg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//进入ios目录</div><div class="line">cd ios</div><div class="line">//clean</div><div class="line">./compile-ffmpeg.sh clean</div><div class="line">//编译</div><div class="line">./compile-ffmpeg.sh all</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-023352220e89db9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译实现图"></p>
+<p>编译环节比较久，估计15分钟，中间偶尔会报警告，只要不是错误，无视即可。目前没试过错误，但是网上有别的朋友碰到就直接截图过来<br><strong>（如果有朋友出现错误请及时给我邮箱发一下图片我增加说明，还有错误的话有可能是下载的问题，或者上面”2.编译ffmpeg“没弄好，重来就好，具体问题具体分析，文章后面会附上我的邮箱和微信）</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-f22475063e14e775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译中出现warning"><br>正确编译的效果：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-886fce8356d427ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正确编译结果"><br>前面几步是新手最容易遇到错误的环节（其实大部分还是网络问题，你懂的），成功走到这步后就简单多了，终于搞定，内牛满面～</p>
+<hr>
+<p>##回到正题，热身运动，从Demo入手</p>
+<p>1.ijkplayer给我们提供了一个学习用的demo，它就是IJKMediaDemo。首先我们先找到IJKMediaDemo，并打开它：</p>
+<p>2.运行Demo<br>只要前面的流程没报错，这里编译运行都不会出现问题：<br>我们在Online Samples中选择一个m3u8测试ijkplayer是否运行正常。<br>不过有些公司会封锁在线播放视频行为，可能出现无法播放的情况，比如我司(- -||)，我们可以使用本地视频来解决这个问题，后面讲解代码的时候会提到。</p>
+<p>大家还记得官网上的这句话吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># import ios/IJKMediaPlayer for MediaPlayer.framework-like interface (recommended)</div></pre></td></tr></table></figure></p>
+<p>将IJKMediaPlayer集成进项目中当framework一样调暴露的接口用，看下面画红圈处：<br>个人简单解说:</p>
+<p>以下是简单的调用这些接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>这个下载的地址<br>[github下载地址][A:<a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">https://github.com/Bilibili/ijkplayer</a>]<br>下载后，打开出现以下问题:(如图)</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-a4df8209818ef05c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译出错"></p>
+<p>解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">选中工程-&gt;搜索Header Search path-&gt;添加如下：</div><div class="line">$(PROJECT_DIR)/你的工程名/头文件目录XXX</div><div class="line"></div><div class="line">原文件地址：</div><div class="line">$(inherited) ../build/universal/include IJKMediaPlayer/ijkmedia ../../ijkmedia </div><div class="line"></div><div class="line">我的改成了：</div><div class="line">$(PROJECT_DIR)/IJKMediaPlayer/</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS提交版本]---遇到的各种坑汇总/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww1.sinaimg.cn/small/006yX0Ypjw8f79unsxn43j305n05laan.jpg"
+               alt="Hundred Wang" />
+          <p class="site-author-name" itemprop="name">Hundred Wang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hundred Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

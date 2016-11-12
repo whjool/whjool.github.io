@@ -1,0 +1,646 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>语法糖(简单却不那么简单) | 香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="开发过程中我特别喜欢用语法糖,原因很简单,懒得看到一堆长长的代码,但是语法糖我今天无意中看到更有意思的玩法.这里暂时吧把今天新学到的知识点整理一下希望大家喜欢,如果有更好的补充希望能和我说下,我希望更更加好的完善.
+
+语法糖（Syntactic sugar），也译为糖衣语法，是由英国计算机科学家彼得·约翰·兰达（Peter J. Landin）发明的一个术语，指计算机语言中添加的某种语法，这种语">
+<meta property="og:type" content="article">
+<meta property="og:title" content="语法糖(简单却不那么简单)">
+<meta property="og:url" content="http://www.hundredone.win/2016/06/20/IOS黑魔法/[IOS黑魔法]---语法糖(简单却不那么简单)/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="开发过程中我特别喜欢用语法糖,原因很简单,懒得看到一堆长长的代码,但是语法糖我今天无意中看到更有意思的玩法.这里暂时吧把今天新学到的知识点整理一下希望大家喜欢,如果有更好的补充希望能和我说下,我希望更更加好的完善.
+
+语法糖（Syntactic sugar），也译为糖衣语法，是由英国计算机科学家彼得·约翰·兰达（Peter J. Landin）发明的一个术语，指计算机语言中添加的某种语法，这种语">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-12T17:41:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="语法糖(简单却不那么简单)">
+<meta name="twitter:description" content="开发过程中我特别喜欢用语法糖,原因很简单,懒得看到一堆长长的代码,但是语法糖我今天无意中看到更有意思的玩法.这里暂时吧把今天新学到的知识点整理一下希望大家喜欢,如果有更好的补充希望能和我说下,我希望更更加好的完善.
+
+语法糖（Syntactic sugar），也译为糖衣语法，是由英国计算机科学家彼得·约翰·兰达（Peter J. Landin）发明的一个术语，指计算机语言中添加的某种语法，这种语">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/20/IOS黑魔法/[IOS黑魔法]---语法糖(简单却不那么简单)/" title="语法糖(简单却不那么简单)" itemprop="url">语法糖(简单却不那么简单)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished"> 发表于 2016-06-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OC语法糖"><span class="toc-number">1.</span> <span class="toc-text">OC语法糖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用基础使用部分-这两部分的用法"><span class="toc-number">1.1.</span> <span class="toc-text">常用基础使用部分@[],@{}这两部分的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的："><span class="toc-number">1.2.</span> <span class="toc-text">1.一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧"><span class="toc-number">1.3.</span> <span class="toc-text">2.对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-对NSNumber简化"><span class="toc-number">1.4.</span> <span class="toc-text">3.对NSNumber简化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#针对以上部分的简单练习"><span class="toc-number">1.5.</span> <span class="toc-text">针对以上部分的简单练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重点来了"><span class="toc-number">1.6.</span> <span class="toc-text">重点来了</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#swift语法糖"><span class="toc-number">2.</span> <span class="toc-text">swift语法糖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if-let-与-guard-语法糖"><span class="toc-number">2.1.</span> <span class="toc-text">if let 与 guard 语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法糖Selector例子"><span class="toc-number">2.2.</span> <span class="toc-text">语法糖Selector例子</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>开发过程中我特别喜欢用语法糖,原因很简单,懒得看到一堆长长的代码,但是语法糖我今天无意中看到更有意思的玩法.这里暂时吧把今天新学到的知识点整理一下希望大家喜欢,如果有更好的补充希望能和我说下,我希望更更加好的完善.</p>
+</blockquote>
+<p><code>语法糖（Syntactic sugar</code>），也译为<code>糖衣语法</code>，是由英国计算机科学家彼得·约翰·兰达（Peter J. Landin）发明的一个术语，指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖能够增加程序的可读性，从而减少程序代码出错的机会。</p>
+<p>本文的目录如下</p>
+<ul>
+<li><p>OC语法糖</p>
+<ul>
+<li><code>基础</code>@[],@{}用法在NSArray,NSDictionary,NSNumber使用</li>
+<li><code>!重点!</code>@()使用</li>
+<li><code>!重点!</code>语法糖在UI中的使用方法</li>
+</ul>
+</li>
+<li><p>swift</p>
+<ul>
+<li><code>基础</code>if let 与 guard 语法糖</li>
+<li><code>基础</code>语法糖Selector例子</li>
+</ul>
+</li>
+</ul>
+<h1 id="OC语法糖"><a href="#OC语法糖" class="headerlink" title="OC语法糖"></a>OC语法糖</h1><hr>
+<h2 id="常用基础使用部分-这两部分的用法"><a href="#常用基础使用部分-这两部分的用法" class="headerlink" title="常用基础使用部分@[],@{}这两部分的用法"></a>常用基础使用部分@[],@{}这两部分的用法</h2><h2 id="1-一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的："><a href="#1-一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的：" class="headerlink" title="1.一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的："></a><strong>1.一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的：</strong></h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//NSArray的便利初始化</span></div><div class="line"> <span class="built_in">NSArray</span> *array1 = [[<span class="built_in">NSArray</span> alloc] initWithObjects:<span class="string">@"aaa"</span>, <span class="string">@"bbb"</span>, <span class="string">@"ccc"</span>, <span class="literal">nil</span>];</div><div class="line"> <span class="comment">//NSArray的便利构造器</span></div><div class="line"> <span class="built_in">NSArray</span> *array2 = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"111"</span>, <span class="string">@"222"</span>, <span class="string">@"333"</span>, <span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<p>获取数组的元素</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取相应索引的元素</span></div><div class="line">id element = [array1 objectAtIndex:<span class="number">0</span>];</div><div class="line">NSLog(@"array1_count = %d, array[<span class="number">0</span>] = %@<span class="string">", count, element);</span></div></pre></td></tr></table></figure>
+<p>简化后的数组初始化和访问的做法如下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">         <span class="comment">//NSArray的定义</span></div><div class="line">         NSArray *<span class="built_in">array</span> = @[@<span class="string">"lu"</span>, @<span class="string">"da"</span>, @<span class="string">"shi"</span>, @YES, @<span class="number">123</span>];</div><div class="line">         <span class="keyword">int</span> count = (<span class="keyword">int</span>)[<span class="built_in">array</span> count];</div><div class="line"></div><div class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++)</div><div class="line">         &#123;</div><div class="line">             NSLog(@<span class="string">"%@"</span>, <span class="built_in">array</span>[i]);</div><div class="line">         &#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="2-对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧"><a href="#2-对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧" class="headerlink" title="2.对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧"></a><strong>2.对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧</strong></h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不可变字典的初始化</span></div><div class="line"><span class="built_in">NSDictionary</span> *dictionay = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:<span class="string">@"value1"</span>, <span class="string">@"key1"</span>, <span class="string">@"value2"</span>, <span class="string">@"key2"</span>, <span class="literal">nil</span>];</div><div class="line"><span class="keyword">id</span> value = [dictionay objectForKey:<span class="string">@"key1"</span>];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"key1 =&gt; %@"</span>, value);</div></pre></td></tr></table></figure>
+<p>我们还可以这样做<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//NSDictionary的定义简化</span></div><div class="line"><span class="built_in">NSDictionary</span> *dictionary = @&#123;</div><div class="line">                             <span class="string">@"key0"</span> : <span class="string">@"value0"</span>,</div><div class="line">                             <span class="string">@"key1"</span> : <span class="string">@"value1"</span>,</div><div class="line">                             <span class="string">@"key2"</span> : <span class="string">@"value2"</span></div><div class="line">                             &#125;;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"key2 =&gt; %@"</span>, dictionary[<span class="string">@"key2"</span>]);</div></pre></td></tr></table></figure></p>
+<h2 id="3-对NSNumber简化"><a href="#3-对NSNumber简化" class="headerlink" title="3.对NSNumber简化"></a><strong>3.对NSNumber简化</strong></h2><p>我们可以这样做<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">​    ​    ​    ​把基本类型包装成对象的便利构造函数</div><div class="line"></div><div class="line">​    ​    ​    ​    ​-(<span class="keyword">id</span>) initWithChar : (<span class="keyword">char</span>) value;</div><div class="line"></div><div class="line">​    ​    ​    ​    ​-(<span class="keyword">id</span>) initWithInt : (<span class="keyword">int</span>) value;</div><div class="line"></div><div class="line">​    ​    ​    ​    ​-(<span class="keyword">id</span>) initWithFloat : (<span class="keyword">float</span>) value;</div><div class="line"></div><div class="line">​    ​    ​    ​    ​-(<span class="keyword">id</span>) initWithBool: (<span class="built_in">BOOL</span>) value;</div><div class="line"></div><div class="line">​    ​    ​    ​把基本数据类型包装成对象的便利构造器</div><div class="line"></div><div class="line">​    ​    ​    ​    ​+(<span class="keyword">id</span>) numberWithChar : (<span class="keyword">char</span>) value;</div><div class="line"></div><div class="line">​    ​    ​    ​    ​+(<span class="keyword">id</span>) numberWithInt : (<span class="keyword">int</span>) value;</div><div class="line"></div><div class="line">​    ​    ​    ​    ​+(<span class="keyword">id</span>) numberWithFloat : (<span class="keyword">float</span>) value;</div><div class="line"></div><div class="line">​    ​    ​    ​    ​+(<span class="keyword">id</span>) numberWithBool : (<span class="built_in">BOOL</span>) value;</div></pre></td></tr></table></figure></p>
+<p>我们也可以这样做，说明：在char转换为NSNumber是存的是ASCII码的形式，c输出为97<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//NSNumber的简化</span></div><div class="line">NSNumber *a = @123;</div><div class="line">NSNumber *b = @11<span class="number">.2</span>;</div><div class="line">NSNumber *c = @(<span class="string">'a'</span>);</div><div class="line">NSLog(@"a = %@, b = %@, c = %@<span class="string">", a, b, c);</span></div></pre></td></tr></table></figure></p>
+<h2 id="针对以上部分的简单练习"><a href="#针对以上部分的简单练习" class="headerlink" title="针对以上部分的简单练习"></a><strong>针对以上部分的简单练习</strong></h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//NSNumber的语法糖</span></div><div class="line">    <span class="built_in">NSNumber</span> *intNumber = [<span class="built_in">NSNumber</span> numberWithInt:<span class="number">100</span>];</div><div class="line">    <span class="built_in">NSNumber</span> *intNumber2 = @<span class="number">100</span>;</div><div class="line">   <span class="comment">//不可变字符串的语法糖</span></div><div class="line">    <span class="built_in">NSString</span> *string = <span class="string">@"hanjunqiang"</span>;</div><div class="line">    <span class="comment">//可变字符串的语法糖</span></div><div class="line">    <span class="built_in">NSMutableString</span> *mString = <span class="string">@"大爱中华"</span>.mutableCopy;<span class="comment">//后缀不能丢</span></div><div class="line">    </div><div class="line">    <span class="comment">//不可变数组的语法糖</span></div><div class="line">    <span class="built_in">NSArray</span> *array = @[<span class="string">@"1"</span>,<span class="string">@"2"</span>,<span class="string">@"3"</span>,<span class="string">@"4"</span>];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,array);</div><div class="line">    </div><div class="line">    <span class="comment">//访问数组元素的语法糖</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,array[<span class="number">1</span>]);</div><div class="line">    </div><div class="line">    <span class="comment">//可变数组的语法糖</span></div><div class="line">    <span class="built_in">NSMutableArray</span> *mArray = @[<span class="string">@"1"</span>,<span class="string">@"2"</span>,<span class="string">@"3"</span>,<span class="string">@"4"</span>].mutableCopy;</div><div class="line">  </div><div class="line">    <span class="comment">//字典的语法糖</span></div><div class="line">    <span class="comment">//字典对象[key值]取出对应的value值</span></div><div class="line">    <span class="built_in">NSDictionary</span> *dict = @&#123;<span class="string">@"a"</span>:<span class="string">@"1"</span>,<span class="string">@"b"</span>:<span class="string">@"2"</span>&#125;;<span class="comment">//key值在冒号前，value值在冒号后</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,dict);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,dict[<span class="string">@"a"</span>]);</div><div class="line"> <span class="comment">//可变字典可以赋值和修改值</span></div><div class="line">    <span class="built_in">NSMutableDictionary</span> *mDic = @&#123;<span class="string">@"a"</span>:<span class="string">@"1"</span>,<span class="string">@"b"</span>:<span class="string">@"2"</span>&#125;.mutableCopy;</div><div class="line">    mDic[<span class="string">@"a"</span>]=<span class="string">@"100"</span>;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,mDic[<span class="string">@"a"</span>]);</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>@()介绍以及使用</p>
+</blockquote>
+<p>在 Objective-C 中我们可以用 @”foo” 来创建一个 NSString 常量，看起来似乎平淡无奇。<br> 但它背后其实比想象的精彩，@ 可以被理解成一个特殊的宏，其接受一个 C 字符串作为参数，也可写作 @(“foo”)。<br> 之所以说 @ 是一个特殊的宏，是因为其能根据传入的 C 字符串类型不同——C 字符串常量或 C 字符串——在运行时构建返回不同类型的 NSString，<br>参见下面的代码：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>* obtain_c_string(<span class="keyword">void</span>)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"c_string"</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="string">@"foo"</span>.class);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, @(<span class="string">"bar"</span>).class);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, @(obtain_c_string()).class);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="string">@"aaa"</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,@(<span class="string">"aaa"</span>));</div></pre></td></tr></table></figure></p>
+<p>输出如下<br><code>__NSCFConstantString</code><br><code>__NSCFConstantString</code><br><code>__NSCFString</code><br><code>aaa</code><br><code>aaa</code></p>
+<p>可见，如果传入的是 C 字符串常量，<code>运行时</code>构建的则为 <code>NSConstantString</code>；如果传入的是<code>C 字符串</code>则创建的是 <code>NSString</code>。<br>众所周知，Objective-C 代码里有很多地方需要我们把代码中的一些文法串写成字符串再作为传入参数，比如 KVO 中的 keyPath 参数往往就要传入形如 propertyA.propertyB 的字符串，从实用角度出发这有两个弊端： 写字符串的时候没有代码提示，很容易写错 即便一开始写对了，如果后来相关类重构了，keyPath 的参数便失效了，而 Xcode Refactor 无法扫描字符串 当我们理解了 @()，再加上自定义的宏，上述两个问题便可迎刃而解。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * # 将宏的参数字符串化，C 函数 strchr 返回字符串中第一个 '.' 字符的位置</div><div class="line"> */</div><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">Keypath</span>(keypath) (strchr(#keypath, <span class="string">'.'</span>) + <span class="number">1</span>)</div><div class="line"><span class="comment">// 有代码提示，可以被重构扫描到</span></div><div class="line"><span class="selector-attr">[objA addObserver: objB forKeyPath: @Keypath(ObjA.property1.property2) options: nil context: nil]</span>;</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>UI使用部分</p>
+</blockquote>
+<p>拿UIImageView来做例子,原来创建对象和下面一致<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.imageView = [[<span class="built_in">UIImageView</span> alloc] init];  </div><div class="line"><span class="keyword">self</span>.imageView.backgroundColor = [<span class="built_in">UIColor</span> redColor];  </div><div class="line"><span class="keyword">self</span>.imageView.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"12345"</span>];  </div><div class="line"><span class="keyword">self</span>.imageView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);  </div><div class="line">[<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.imageView];</div></pre></td></tr></table></figure></p>
+<h2 id="重点来了"><a href="#重点来了" class="headerlink" title="重点来了"></a><strong>重点来了</strong></h2><p>这个就是语法糖在UI中创建对象的使用,瞬间感觉很高大上~<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">self.imageView = (&#123;  </div><div class="line">    UIImageView *imageView = [[UIImageView alloc] init]<span class="comment">;  </span></div><div class="line">    imageView.<span class="keyword">backgroundColor </span>= [UIColor redColor]<span class="comment">;  </span></div><div class="line">    imageView.image = [UIImage imageNamed:@<span class="string">"12345"</span>]<span class="comment">;  </span></div><div class="line">    imageView.frame = CGRectMake(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;  </span></div><div class="line">    [self.view <span class="keyword">addSubview:imageView]; </span> </div><div class="line">    imageView<span class="comment">;  </span></div><div class="line">&#125;)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<h1 id="swift语法糖"><a href="#swift语法糖" class="headerlink" title="swift语法糖"></a>swift语法糖</h1><hr>
+<h2 id="if-let-与-guard-语法糖"><a href="#if-let-与-guard-语法糖" class="headerlink" title="if let 与 guard 语法糖"></a>if let 与 guard 语法糖</h2><p>话说if let 和 guard 只是语法糖，没有也可以，但有了可以使得代码更简洁方便。要理解 if let 和 guard，不妨设想假如没有这两者，代码会怎么写。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">(str: String?)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> v: <span class="type">String</span>! = str</div><div class="line">    <span class="keyword">if</span> v != <span class="literal">nil</span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// use v to do something</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Swift 中因为有optional, 经常需要判断是否为空。假如没有if let，大致写成上面的样子，有了if let, 可以改写成<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">(str: String?)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> <span class="keyword">let</span> v = str</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// use v to do something</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面两段代码的控制流是一样的。对照着，可以看出if let的写法更加简洁方便。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">guard</span></div><div class="line">假如<span class="keyword">if</span>中出现的代码很长，我们写代码时可以将错误情况先返回。比如：</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">(str: String?)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> v: <span class="type">String</span>! = str</div><div class="line">    <span class="keyword">if</span> v == <span class="literal">nil</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// use v to do something</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样做可以避免过多的嵌套。上面代码实在太常见了，swift也提供一个guard这个语法糖，用guard可以改写成：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">(str: String?)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> v = str <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// use v to do something</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面两段代码的控制流是一样的。也可以看出guard的写法更加简洁方便。</p>
+<p>至于if let 和 guard 语法中出现的where，只是附加一些条件。相当于逻辑运算 &amp;&amp; 和 ||。SQL中的条件语法也是用where这个关键字。</p>
+<p>假如还不理解，动手将一段代码，不用if let 和 guard 进行改写。试多几次，就会发觉很自然了。</p>
+<h2 id="语法糖Selector例子"><a href="#语法糖Selector例子" class="headerlink" title="语法糖Selector例子"></a>语法糖Selector例子</h2><p>创建控制器，添加Button<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> btn = <span class="type">UIButton</span>(frame: <span class="type">CGRectMake</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>))</div><div class="line">    btn.backgroundColor = <span class="type">UIColor</span>.redColor()</div><div class="line">    view.addSubview(btn)</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">printFire</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"fire"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>想实现控制器里的Button点击事件，但是，如果一个控制器里的Button特别的多，那添加Button点击事件的Selector 会觉得特别的臃肿。所以语法糖就是要拓展Selector<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">extension</span> <span class="title">Selector</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">static</span> <span class="keyword">let</span> printFire = #selector(<span class="type">ViewController</span>.printFire)</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们现在给viewDidLoad方法中的Button 添加点击事件<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">btn</span><span class="selector-class">.addTarget</span>(<span class="selector-tag">self</span>, <span class="selector-tag">action</span>: <span class="selector-class">.printFire</span>, <span class="selector-tag">forControlEvents</span>: <span class="selector-class">.TouchUpInside</span>)</div></pre></td></tr></table></figure></p>
+<p>如果Button过多的话，用语法糖方便管理Button的点击事件，又不会把点击事件变得过于臃肿</p>
+<p>下面是控制器的完整代码<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.viewDidLoad()</div><div class="line">        </div><div class="line">        <span class="keyword">let</span> btn = <span class="type">UIButton</span>(frame: <span class="type">CGRectMake</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>))</div><div class="line">        btn.backgroundColor = <span class="type">UIColor</span>.redColor()</div><div class="line">        btn.addTarget(<span class="keyword">self</span>, action: .printFire, forControlEvents: .<span class="type">TouchUpInside</span>)</div><div class="line">        view.addSubview(btn)</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">printFire</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"fire"</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.didReceiveMemoryWarning()</div><div class="line">        <span class="comment">// Dispose of any resources that can be recreated.</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">extension</span> <span class="title">Selector</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">static</span> <span class="keyword">let</span> printFire = #selector(<span class="type">ViewController</span>.printFire)</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS进阶/">iOS进阶</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS黑魔法/">iOS黑魔法</a><a href="/tags/iOS进阶拓展/">iOS进阶拓展</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/06/20/IOS黑魔法/[IOS黑魔法]---语法糖(简单却不那么简单)/" data-title="语法糖(简单却不那么简单) | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/06/20/IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(介绍篇)/" title="使用jspatch热更新(介绍篇)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  使用jspatch热更新(介绍篇)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/06/20/IOS黑魔法/IOS开发---黑魔法之blocksKit分析(上)/"  title="iOS开发---黑魔法之blocksKit分析(上)">
+ <strong>下一篇：</strong><br/> 
+ <span>iOS开发---黑魔法之blocksKit分析(上)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OC语法糖"><span class="toc-number">1.</span> <span class="toc-text">OC语法糖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用基础使用部分-这两部分的用法"><span class="toc-number">1.1.</span> <span class="toc-text">常用基础使用部分@[],@{}这两部分的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的："><span class="toc-number">1.2.</span> <span class="toc-text">1.一般数组的初始化和访问数组元素是这样的在之前的博客中我是这样初始化NSArray的：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧"><span class="toc-number">1.3.</span> <span class="toc-text">2.对字典（NSDictionary）的简化也引用我之前博客中得一段代码吧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-对NSNumber简化"><span class="toc-number">1.4.</span> <span class="toc-text">3.对NSNumber简化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#针对以上部分的简单练习"><span class="toc-number">1.5.</span> <span class="toc-text">针对以上部分的简单练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重点来了"><span class="toc-number">1.6.</span> <span class="toc-text">重点来了</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#swift语法糖"><span class="toc-number">2.</span> <span class="toc-text">swift语法糖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if-let-与-guard-语法糖"><span class="toc-number">2.1.</span> <span class="toc-text">if let 与 guard 语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法糖Selector例子"><span class="toc-number">2.2.</span> <span class="toc-text">语法糖Selector例子</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>11</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS工具/" title="iOS工具">iOS工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

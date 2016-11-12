@@ -1,0 +1,749 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="更新时间:2016-8-20
+
+
+如果不知道库是什么的朋友看看这篇文章:静态库
+###前言之前有很多的大神们已经写过framework的制作，但最近由于Xcode7的出现，很多之前的教程内容已经不符，对于初学者来说，找到一篇能够直接明了，简单易学的制作framework的文章比较困难。本文将基于Xcode7创建一个简单的工程，通过两种方法来教大家如何制作一个自己的framework。
+
+
+
+###">
+<meta property="og:type" content="article">
+<meta property="og:title" content="香蕉大大的家">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/index.html">
+<meta property="og:site_name" content="香蕉大大的家">
+<meta property="og:description" content="更新时间:2016-8-20
+
+
+如果不知道库是什么的朋友看看这篇文章:静态库
+###前言之前有很多的大神们已经写过framework的制作，但最近由于Xcode7的出现，很多之前的教程内容已经不符，对于初学者来说，找到一篇能够直接明了，简单易学的制作framework的文章比较困难。本文将基于Xcode7创建一个简单的工程，通过两种方法来教大家如何制作一个自己的framework。
+
+
+
+###">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-8a66eb6e88fdb0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-9e48780d109b70ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-0e52fcbc3752b6c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-ee42d7f46ad95917.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-975488a03d51028c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-7ef9a5087b762673.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-4210e0e51e9c39ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-aa79ed50be11882b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-c32ce787b3446a39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-93f21ae6a707867a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-a4d3ee3bdb223f83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-05bba97878fe7ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-94a254488eecb8cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-be210e8b5476091a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-e3517bd4c58cfe6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-5c58887fabacec75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-e01d006eb524daea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-9cfe92348a5ec12b.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-1e47fa324e85fb46.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-09-02T01:04:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉大大的家">
+<meta name="twitter:description" content="更新时间:2016-8-20
+
+
+如果不知道库是什么的朋友看看这篇文章:静态库
+###前言之前有很多的大神们已经写过framework的制作，但最近由于Xcode7的出现，很多之前的教程内容已经不符，对于初学者来说，找到一篇能够直接明了，简单易学的制作framework的文章比较困难。本文将基于Xcode7创建一个简单的工程，通过两种方法来教大家如何制作一个自己的framework。
+
+
+
+###">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-8a66eb6e88fdb0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/02/-ios开发-完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/"/>
+
+  <title>  | 香蕉大大的家 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">香蕉大大的家</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">就只想简简单单的和你分享一下我的学习之路~QQ群""</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>更新时间:2016-8-20</p>
+<hr>
+<blockquote>
+<p>如果不知道库是什么的朋友看看这篇文章:<a href="http://www.cnblogs.com/richard-youth/p/4856841.html" target="_blank" rel="external">静态库</a></p>
+<p>###前言<br>之前有很多的大神们已经写过framework的制作，但最近由于Xcode7的出现，很多之前的教程内容已经不符，对于初学者来说，找到一篇能够直接明了，简单易学的制作framework的文章比较困难。本文将基于Xcode7创建一个简单的工程，通过两种方法来教大家如何制作一个自己的framework。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>###简介脑补基础<br>Mac OS X扩展了framework的功能，让我们能够利用它来共享代码和资源。通过framework我们可以共享所有形式的资源，如动态共享库，nib文件，图像字符资源以及文档等。<br>系统会在需要的时候将framework载入内存中，多个应用程序可以同时使用同一个framework。这种方法可以使得你的代码易分享，在多个工程中复用，并且可以隐藏实现细节，控制公开的头文件。</p>
+</blockquote>
+<p><strong>一、什么是库？</strong><br>库是共享程序代码的方式，一般分为静态库和动态库。<br><strong>二、静态库与动态库的区别？</strong><br>静态库：链接时完整地拷贝至可执行文件中，被多次使用就有多份冗余拷贝。<br>动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。<br><strong>三、iOS里静态库形式？</strong><br>.a和.framework<br><strong>四、iOS里动态库形式？</strong><br>.dylib和.framework<br><strong>五、framework为什么既是静态库又是动态库？</strong><br>系统的.framework是动态库，我们自己建立的.framework是静态库。<br><strong>六、a与.framework有什么区别？</strong><br>.a是一个纯二进制文件，.framework中除了有二进制文件之外还有资源文件。<br>.a文件不能直接使用，至少要有.h文件配合，.framework文件可以直接使用。<br>.a + .h + sourceFile = .framework。<br>建议用.framework.<br><strong>七、为什么要使用静态库？</strong><br>方便共享代码，便于合理使用。<br>实现iOS程序的模块化。可以把固定的业务模块化成静态库。<br>和别人分享你的代码库，但不想让别人看到你代码的实现。<br>开发第三方sdk的需要。<br><strong>八、制作静态库时的几点注意：</strong><br>1 注意理解：无论是.a静态库还.framework静态库，我们需要的都是二进制文件+.h+其它资源文件的形式，不同的是，.a本身就是二进制文件，需要我们自己配上.h和其它文件才能使用，而.framework本身已经包含了.h和其它文件，可以直接使用。<br>2 图片资源的处理：两种静态库，一般都是把图片文件单独的放在一个.bundle文件中，一般.bundle的名字和.a或.framework的名字相同。.bundle文件很好弄，新建一个文件夹，把它改名为.bundle就可以了，右键，显示包内容可以向其中添加图片资源。<br>3 category是我们实际开发项目中经常用到的，把category打成静态库是没有问题的，但是在用这个静态库的工程中，调用category中的方法时会有找不到该方法的运行时错误（selector not recognized），解决办法是：在使用静态库的工程中配置other linker flags的值为-ObjC。<br>4 如果一个静态库很复杂，需要暴露的.h比较多的话，就可以在静态库的内部创建一个.h文件（一般这个.h文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h文件都集中放在这个.h文件中，而那些原本需要暴露的.h都不需要再暴露了，只需要把.h暴露出来就可以了。</p>
+<hr>
+<blockquote>
+<p>###制作流程</p>
+<p>创建一个frameWork的新工程</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-8a66eb6e88fdb0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建Cocoa Touch Framework新工程"></p>
+<blockquote>
+<p>1、在这个工程上，创建一个类,”saySomeThing”</p>
+</blockquote>
+<p>（懒人可以用command+option+↑/↓切换.h或者.m）<br>saySomeThing.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"> @interface saySomeThing : NSObject </div><div class="line"></div><div class="line">-(void)sayHello; </div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>saySomeThing.m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &quot;saySomeThing.h&quot;</div><div class="line"> @implementation saySomeThing </div><div class="line">-(void)sayHello </div><div class="line">&#123;</div><div class="line"> NSLog(@&quot;这是我的微信：whundred,有兴趣一起实现分享知识的一起学习交流&quot;); </div><div class="line">&#125;</div><div class="line"> @end</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-9e48780d109b70ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建一个叫saySomething类继承NSObject"></p>
+<hr>
+<blockquote>
+<p>2、配置</p>
+</blockquote>
+<p>A、配置target的文件<br><img src="http://upload-images.jianshu.io/upload_images/1730495-0e52fcbc3752b6c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这次教程的配置"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-ee42d7f46ad95917.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选项部分,具体可以根据自己需求选Mach-O type"></p>
+<p>B、配置在Architectures下增加armv7s，并选中。将Build Active Architecture Only 设置为NO。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-975488a03d51028c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加armv7s"></p>
+<hr>
+<p>C、设置Headers<br>将你要公开的头文件移动到Public下，要隐藏的放在Private或者Project下，当然，隐藏的头文件就无法再被引用。和类的属性一致，比较简单的理解</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-7ef9a5087b762673.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加头方法"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-4210e0e51e9c39ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终demo的头状态"></p>
+<p>然后需要在helloHundred.h（必须是公开的，否则无法引用）中将你所有要公开的.h引入。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-aa79ed50be11882b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="helloHundred.h中添加saySomeThing.h"></p>
+<hr>
+<blockquote>
+<p>3.恭喜你，离成功不远了，打包framework</p>
+</blockquote>
+<p>先来科普一下</p>
+<blockquote>
+<p>因为我们需要制作的是静态库，并且苹果不让包含有自己制作的动态库的项目上线，所以需要我们自己手动设置为静态库。</p>
+</blockquote>
+<p>静态库简介：</p>
+<blockquote>
+<p>在企业开发中，一些核心技术或者常用框架，出于安全性和稳定性的考虑，不想被外界知道，所以会把核心代码打包成静态库，只暴露头文件给程序员使用（比如：友盟、百度地图等第三方的sdk）</p>
+</blockquote>
+<p>存在形式</p>
+<blockquote>
+<p>静态库：.a 和 .framework<br>动态库：.dylib 和 .framework</p>
+</blockquote>
+<p>区别：</p>
+<blockquote>
+<p>静态库：链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝<br>动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存</p>
+</blockquote>
+<p>版本：</p>
+<blockquote>
+<p>真机-Debug版本<br>真机-Release版本<br>模拟器-Debug版本<br>模拟器-Release版本</p>
+</blockquote>
+<p>Debug(调试)版本</p>
+<blockquote>
+<p>1.含完整的符号信息，以方便调试<br>2.不会对代码进行优化</p>
+</blockquote>
+<p>Release(发布)版本</p>
+<blockquote>
+<p>1.不会包含完整的符号信息<br>2.的执行代码是进行过优化的<br>3.的大小会比Debug版本的略小<br>4.在执行速度方面，Release版本会更快些（但不意味着会有显著的提升）</p>
+</blockquote>
+<hr>
+<p>####创建方法一<br><em>1.选中模拟器，编译程序</em><br><em>2.选中测试机，编译程序</em><br><em>3.在finder中找到framework文件</em> <strong>(确保前两步都成功！)</strong>准备合并</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-c32ce787b3446a39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打开文件夹"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-93f21ae6a707867a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是真机和调试的文件"></p>
+<p>合并<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1、打开终端，输入cd，然后把products文件拖进终端，enter</div><div class="line">2、这里我为了可以看分成了4段</div><div class="line">lipo -create </div><div class="line">/Users/huanghuiqun/Library/Developer/Xcode/DerivedData/helloHundred-hjhmghxpoacbrbdttgjgytnfgcov/Build/Products/Debug-iphoneos/helloHundred.framework/helloHundred </div><div class="line">/Users/huanghuiqun/Library/Developer/Xcode/DerivedData/helloHundred-hjhmghxpoacbrbdttgjgytnfgcov/Build/Products/Debug-iphonesimulator/helloHundred.framework/helloHundred </div><div class="line">-output helloHundred</div><div class="line">MacBook-Pro:Desktop huanghuiqun$ </div><div class="line">3、在Products目录下生成了MyTestFramework文件，然后分别到真机和模拟器的版本下替换掉。</div></pre></td></tr></table></figure></p>
+<p>特别说明一下:</p>
+<p>######<strong>合并的命令说明：</strong></p>
+<p>######<strong><strong>lipo -create 文件1的路径 文件2的路径 -output 合并之后的文件路径（没有表示在当前目录下） 合并之后的文件名称</strong></strong></p>
+<p>######每一个参数之间都应该至少留出一个空格**</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-a4d3ee3bdb223f83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图示部分"></p>
+<p>最后只要吧编译出来的放回去原来的调试和真机中就可以了，替换掉就完事，开开心心把库拿去用吧～记得去library导入库!s</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-05bba97878fe7ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<hr>
+<p>#####注意方法1中出现编译时候的问题<br>这里出现一个问题，可以参考以下文献这是问题：<br>解决方法：<a href="http://www.th7.cn/Program/IOS/201503/406525.shtml" target="_blank" rel="external">参考文章，我这里用了第4个方法</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">** Build settings-&gt;Linking-&gt;Other Linker Flags将此属性修改成-all_load  或者 -ObjC **</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-94a254488eecb8cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="错误提示:Needed to perform lazy binding to function _NSLog for architecture i386"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-be210e8b5476091a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示范操作"></p>
+<hr>
+<p>###使用自己弄的FrameWork<br>1、导入库(不懂的朋友可以百度，我给大家献上一张图，库记得放在工程文件内才导入哈)</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-e3517bd4c58cfe6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件目录"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-5c58887fabacec75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加框架"></p>
+<p>2、导入库头文件，直接调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line">#import &lt;showTest/showTest.h&gt;</div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">&#125;</div><div class="line">- (IBAction)show:(id)sender</div><div class="line">&#123;</div><div class="line">    [[myExample new] saySome];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-e01d006eb524daea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="调试成功"><br>这个是第一种创建方法的demo:<a href="https://github.com/OneHundredSir/-FrameWorkShow" target="_blank" rel="external">githubDemo</a></p>
+<blockquote>
+<p>方法二用target创建</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-9cfe92348a5ec12b.gif?imageMogr2/auto-orient/strip" alt="用target创建FrameWork"></p>
+<p>脚本如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"># Sets the target folders and the final framework product.</div><div class="line">FMK_NAME=$&#123;PROJECT_NAME&#125;</div><div class="line"></div><div class="line"># Install dir will be the final output to the framework.</div><div class="line"># The following line create it in the root folder of the current project.</div><div class="line">INSTALL_DIR=$&#123;SRCROOT&#125;/Products/$&#123;FMK_NAME&#125;.framework</div><div class="line"></div><div class="line"># Working dir will be deleted after the framework creation.</div><div class="line">WRK_DIR=build</div><div class="line">DEVICE_DIR=$&#123;WRK_DIR&#125;/Release-iphoneos/$&#123;FMK_NAME&#125;.framework</div><div class="line">SIMULATOR_DIR=$&#123;WRK_DIR&#125;/Release-iphonesimulator/$&#123;FMK_NAME&#125;.framework</div><div class="line"></div><div class="line"># -configuration $&#123;CONFIGURATION&#125;</div><div class="line"># Clean and Building both architectures.</div><div class="line">xcodebuild -configuration &quot;Release&quot; -target &quot;$&#123;FMK_NAME&#125;&quot; -sdk iphoneos clean build</div><div class="line">xcodebuild -configuration &quot;Release&quot; -target &quot;$&#123;FMK_NAME&#125;&quot; -sdk iphonesimulator clean build</div><div class="line"></div><div class="line"># Cleaning the oldest.</div><div class="line">if [ -d &quot;$&#123;INSTALL_DIR&#125;&quot; ]</div><div class="line">then</div><div class="line">rm -rf &quot;$&#123;INSTALL_DIR&#125;&quot;</div><div class="line">fi</div><div class="line">mkdir -p &quot;$&#123;INSTALL_DIR&#125;&quot;</div><div class="line">cp -R &quot;$&#123;DEVICE_DIR&#125;/&quot; &quot;$&#123;INSTALL_DIR&#125;/&quot;</div><div class="line"></div><div class="line"># Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.</div><div class="line">lipo -create &quot;$&#123;DEVICE_DIR&#125;/$&#123;FMK_NAME&#125;&quot; &quot;$&#123;SIMULATOR_DIR&#125;/$&#123;FMK_NAME&#125;&quot; -output &quot;$&#123;INSTALL_DIR&#125;/$&#123;FMK_NAME&#125;&quot;</div><div class="line">rm -r &quot;$&#123;WRK_DIR&#125;&quot;</div><div class="line">open &quot;$&#123;INSTALL_DIR&#125;&quot;</div></pre></td></tr></table></figure></p>
+<p>这是第二种创建方法的Demo:<a href="https://github.com/OneHundredSir/-FrameWorkShow/tree/frameWorkforTarget" target="_blank" rel="external">demo</a></p>
+<hr>
+<p>以及这个案例中用到的frameWork可以下载来自己参考参考<br>方法一:<a href="https://github.com/OneHundredSir/Package/tree/master/%E5%B0%81%E8%A3%85%E9%9D%99%E6%80%81%E5%BA%93%E6%88%96frameWork/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1FrameworkDemo" target="_blank" rel="external">方法一Demo</a></p>
+<p>方法二:<a href="https://github.com/OneHundredSir/Package/tree/master/%E5%B0%81%E8%A3%85%E9%9D%99%E6%80%81%E5%BA%93%E6%88%96frameWork/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1FrameworkDemo" target="_blank" rel="external">方法二Demo</a></p>
+<blockquote>
+<p>github版本</p>
+</blockquote>
+<p>##赠人点赞，手留余香~~~~</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-1e47fa324e85fb46.gif?imageMogr2/auto-orient/strip" alt="点赞图片"></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～和我一样屌丝的朋友希望能给我点个赞～需要我录制视频的请直接给我糖。一起做一个乐于分享的人吧.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/-ios开发-OC项目仿写/蓝牙加密解密方法/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS提交版本]---遇到的各种坑汇总/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww1.sinaimg.cn/small/006yX0Ypjw8f79unsxn43j305n05laan.jpg"
+               alt="Hundred Wang" />
+          <p class="site-author-name" itemprop="name">Hundred Wang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hundred Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
