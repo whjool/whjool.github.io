@@ -1,0 +1,544 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="NSFileManager是一个单列类，也是一个文件管理器。可以通过NSFileManager创建文件夹、创建文件、写文件、读文件内容等等基本功能。
+
+下面将介绍NSFileManager文件操作的十个小功能。我们在Documents里面进行举例，首先是获取Documents的路径。这个在iOS开发之沙盒机制（SandBox)已经详细讲解过了。获取Documents路径方法如下：(这是获取沙盒路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/2016/11/13/OC的碎碎念/[原创]文件写入常用方法/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="NSFileManager是一个单列类，也是一个文件管理器。可以通过NSFileManager创建文件夹、创建文件、写文件、读文件内容等等基本功能。
+
+下面将介绍NSFileManager文件操作的十个小功能。我们在Documents里面进行举例，首先是获取Documents的路径。这个在iOS开发之沙盒机制（SandBox)已经详细讲解过了。获取Documents路径方法如下：(这是获取沙盒路">
+<meta property="og:updated_time" content="2016-11-13T00:46:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:description" content="NSFileManager是一个单列类，也是一个文件管理器。可以通过NSFileManager创建文件夹、创建文件、写文件、读文件内容等等基本功能。
+
+下面将介绍NSFileManager文件操作的十个小功能。我们在Documents里面进行举例，首先是获取Documents的路径。这个在iOS开发之沙盒机制（SandBox)已经详细讲解过了。获取Documents路径方法如下：(这是获取沙盒路">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/11/13/OC的碎碎念/[原创]文件写入常用方法/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-11-13T00:46:20.000Z" itemprop="datePublished"> 发表于 2016-11-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<blockquote>
+<p>NSFileManager是一个单列类，也是一个文件管理器。可以通过NSFileManager创建文件夹、创建文件、写文件、读文件内容等等基本功能。</p>
+</blockquote>
+<p>下面将介绍NSFileManager文件操作的十个小功能。我们在Documents里面进行举例，首先是获取Documents的路径。这个在iOS开发之沙盒机制（SandBox)已经详细讲解过了。<br>获取Documents路径方法如下：(这是获取沙盒路径的方法！)<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-(<span class="built_in">NSString</span>*)getDocumentsPath</div><div class="line">&#123;</div><div class="line"><span class="comment">//获取Documents路径</span></div><div class="line"><span class="built_in">NSArray</span>*paths=<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>);</div><div class="line"><span class="built_in">NSString</span>*path=[pathsobjectAtIndex:<span class="number">0</span>];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"path:%@"</span>,path);</div><div class="line">returnpath;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>创建文件夹<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)createDirectory&#123;</div><div class="line"><span class="built_in">NSString</span>*documentsPath=[selfgetDocumentsPath];</div><div class="line"><span class="built_in">NSFileManager</span>*fileManager=[<span class="built_in">NSFileManager</span> defaultManager];</div><div class="line"><span class="built_in">NSString</span>*iOSDirectory=[documentsPath stringByAppendingPathComponent:<span class="string">@"iOS"</span>];</div><div class="line"><span class="built_in">BOOL</span> isSuccess=[fileManager createDirectoryAtPath:iOS Directory withIntermediateDirectories:<span class="literal">YES</span> attributes:<span class="literal">nil</span> error:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span>(isSuccess)&#123;  </div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"success"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"fail"</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>创建文件<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)createFile&#123;</div><div class="line"><span class="built_in">NSString</span>*documentsPath=[selfgetDocumentsPath];</div><div class="line"><span class="built_in">NSFileManager</span>*fileManager=[<span class="built_in">NSFileManagerdefaultManager</span>];</div><div class="line"><span class="built_in">NSString</span>*iOSPath=[documentsPathstringByAppendingPathComponent:<span class="string">@"iOS.txt"</span>];</div><div class="line">BOOLisSuccess=[fileManagercreateFileAtPath:iOSPathcontents:nilattributes:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span>(isSuccess)&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"success"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"fail"</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>写文件<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)writeFile&#123;</div><div class="line"><span class="built_in">NSString</span>*documentsPath=[selfgetDocumentsPath];</div><div class="line"><span class="built_in">NSString</span>*iOSPath=[documentsPathstringByAppendingPathComponent:<span class="string">@"iOS.txt"</span>];</div><div class="line"><span class="built_in">NSString</span>*content=<span class="string">@"我要写数据啦"</span>;</div><div class="line">BOOLisSuccess=[contentwriteToFile:iOSPathatomically:YESencoding:<span class="built_in">NSUTF8StringEncodingerror</span>:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span>(isSuccess)&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"writesuccess"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"writefail"</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>读取文件内容<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)readFileContent&#123;</div><div class="line"><span class="built_in">NSString</span>*documentsPath=[selfgetDocumentsPath];</div><div class="line"><span class="built_in">NSString</span>*iOSPath=[documentsPathstringByAppendingPathComponent:<span class="string">@"iOS.txt"</span>];</div><div class="line"><span class="built_in">NSString</span>*content=[<span class="built_in">NSStringstringWithContentsOfFile</span>:iOSPathencoding:<span class="built_in">NSUTF8StringEncodingerror</span>:<span class="literal">nil</span>];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"readsuccess:%@"</span>,content);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>判断文件是否存在<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">BOOL)isSxistAtPath:(NSString*)filePath&#123;</span></div><div class="line">NSFileManager*fileManager=[NSFileManagerdefaultManager]<span class="comment">;</span></div><div class="line"><span class="keyword">BOOLisExist=[fileManagerfileExistsAtPath:filePath];</span></div><div class="line">returnisExist<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>计算文件大小<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(unsignedlonglong)fileSizeAtPath:(<span class="built_in">NSString</span>*)filePath&#123;</div><div class="line"><span class="built_in">NSFileManager</span>*fileManager=[<span class="built_in">NSFileManagerdefaultManager</span>];</div><div class="line">BOOLisExist=[fileManagerfileExistsAtPath:filePath];</div><div class="line"><span class="keyword">if</span>(isExist)&#123;</div><div class="line">unsignedlonglongfileSize=[[fileManagerattributesOfItemAtPath:filePatherror:<span class="literal">nil</span>]fileSize];</div><div class="line">returnfileSize;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"fileisnotexist"</span>);</div><div class="line">return0;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>计算整个文件夹中所有文件大小<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">-(unsignedlonglong)folderSizeAtPath:(<span class="built_in">NSString</span>*)folderPath&#123;</div><div class="line"><span class="built_in">NSFileManager</span>*fileManager=[<span class="built_in">NSFileManagerdefaultManager</span>];</div><div class="line">BOOLisExist=[fileManagerfileExistsAtPath:folderPath];</div><div class="line"><span class="keyword">if</span>(isExist)&#123;</div><div class="line"><span class="built_in">NSEnumerator</span>*childFileEnumerator=[[fileManagersubpathsAtPath:folderPath]objectEnumerator];</div><div class="line">unsignedlonglongfolderSize=<span class="number">0</span>;</div><div class="line"><span class="built_in">NSString</span>*fileName=<span class="string">@""</span>;</div><div class="line"><span class="keyword">while</span>((fileName=[childFileEnumeratornextObject])!=<span class="literal">nil</span>)&#123;</div><div class="line"><span class="built_in">NSString</span>*fileAbsolutePath=[folderPathstringByAppendingPathComponent:fileName];</div><div class="line">folderSize+=[selffileSizeAtPath:fileAbsolutePath];</div><div class="line">&#125;</div><div class="line">returnfolderSize/(<span class="number">1024.0</span>*<span class="number">1024.0</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"fileisnotexist"</span>);</div><div class="line">return0;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>删除文件<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)deleteFile&#123;</div><div class="line"><span class="built_in">NSString</span>*documentsPath=[selfgetDocumentsPath];</div><div class="line"><span class="built_in">NSFileManager</span>*fileManager=[<span class="built_in">NSFileManagerdefaultManager</span>];</div><div class="line"><span class="built_in">NSString</span>*iOSPath=[documentsPathstringByAppendingPathComponent:<span class="string">@"iOS.txt"</span>];</div><div class="line">BOOLisSuccess=[fileManagerremoveItemAtPath:iOSPatherror:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span>(isSuccess)&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"deletesuccess"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"deletefail"</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>移动文件<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)moveFileName</div><div class="line">&#123;</div><div class="line"><span class="built_in">NSString</span>*documentsPath=[selfgetDocumentsPath];</div><div class="line"><span class="built_in">NSFileManager</span>*fileManager=[<span class="built_in">NSFileManagerdefaultManager</span>];</div><div class="line"><span class="built_in">NSString</span>*filePath=[documentsPathstringByAppendingPathComponent:<span class="string">@"iOS.txt"</span>];</div><div class="line"><span class="built_in">NSString</span>*moveToPath=[documentsPathstringByAppendingPathComponent:<span class="string">@"iOS.txt"</span>];</div><div class="line">BOOLisSuccess=[fileManagermoveItemAtPath:filePathtoPath:moveToPatherror:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span>(isSuccess)&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"renamesuccess"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"renamefail"</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>重命名<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)renameFileName</div><div class="line">&#123;</div><div class="line"><span class="comment">//通过移动该文件对文件重命名</span></div><div class="line"><span class="built_in">NSString</span>*documentsPath=[selfgetDocumentsPath];</div><div class="line"><span class="built_in">NSFileManager</span>*fileManager=[<span class="built_in">NSFileManagerdefaultManager</span>];</div><div class="line"><span class="built_in">NSString</span>*filePath=[documentsPathstringByAppendingPathComponent:<span class="string">@"iOS.txt"</span>];</div><div class="line"><span class="built_in">NSString</span>*moveToPath=[documentsPathstringByAppendingPathComponent:<span class="string">@"rename.txt"</span>];</div><div class="line">BOOLisSuccess=[fileManagermoveItemAtPath:filePathtoPath:moveToPatherror:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span>(isSuccess)&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"renamesuccess"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"renamefail"</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/11/13/OC的碎碎念/[原创]文件写入常用方法/" data-title="香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/11/13/OC的碎碎念/[原创]封装一个toolbar工具/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/13/OC的碎碎念/[原创]随机数的使用方法！/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>11</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS工具/" title="iOS工具">iOS工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

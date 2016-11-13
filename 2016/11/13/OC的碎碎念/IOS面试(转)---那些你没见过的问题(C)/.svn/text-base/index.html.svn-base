@@ -1,0 +1,664 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="##其他面试题查看 : 面试题目录
+
+###1. Runtime
+Objective-C 是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚 至可以交换方法的实现，等等。
+RunTime简称运行时。就是系统在运行的时候的一些机制，其中最主要的是消息机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/2016/11/13/OC的碎碎念/IOS面试(转)---那些你没见过的问题(C)/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="##其他面试题查看 : 面试题目录
+
+###1. Runtime
+Objective-C 是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚 至可以交换方法的实现，等等。
+RunTime简称运行时。就是系统在运行的时候的一些机制，其中最主要的是消息机制">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-8c0df6b7fa754139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-0ecced6645616b2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T00:46:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:description" content="##其他面试题查看 : 面试题目录
+
+###1. Runtime
+Objective-C 是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚 至可以交换方法的实现，等等。
+RunTime简称运行时。就是系统在运行的时候的一些机制，其中最主要的是消息机制">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-8c0df6b7fa754139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/11/13/OC的碎碎念/IOS面试(转)---那些你没见过的问题(C)/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-11-13T00:46:20.000Z" itemprop="datePublished"> 发表于 2016-11-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>##其他面试题查看 : <a href="http://www.jianshu.com/p/fd11723c9f6f" target="_blank" rel="external">面试题目录</a></p>
+<hr>
+<p>###1. Runtime</p>
+<p>Objective-C 是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚 至可以交换方法的实现，等等。</p>
+<p>RunTime简称运行时。就是系统在运行的时候的一些机制，其中最主要的是消息机制。OC的函数调用成为消息发送。属于动态调用过程。在编译的时候并不能决定真正调用哪个函数（事实证明，在编 译阶段，OC可以调用任何函数，即使这个函数并未实现，只要申明过就不会报错。而C语言在编译阶段就会报错）。只有在真正运行的时候才会根据函数的名称找 到对应的函数来调用。</p>
+<p>以下面的代码为例：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="section">[obj makeText]</span><span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>其中obj是一个对象，makeText是一个函数名称。对于这样一个简单的调用。在编译时RunTime会将上述代码转化成<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objc_msgSend(<span class="name">obj</span>,@selector(<span class="name">makeText</span>))<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>首先，编译器将代码[obj makeText];转化为objc_msgSend(obj, @selector (makeText));，在objc_msgSend函数中。首先通过obj的isa指针找到obj对应的class。在Class中先去cache中 通过SEL查找对应函数method（猜测cache中method列表是以SEL为key通过hash表来存储的，这样能提高函数查找速度），若 cache中未找到。再去methodList中查找，若methodlist中未找到，则取superClass中查找。若能找到，则将method加 入到cache中，以方便下次查找，并通过method中的函数指针跳转到对应的函数中去执行。</p>
+<p>#####Objective-C Runtime 是什么？<br>Objective-C 的 Runtime 是一个运行时库（Runtime Library），它是一个主要使用 C 和汇编写的库，为 C 添加了面相对象的能力并创造了 Objective-C。这就是说它在类信息（Class information） 中被加载，完成所有的方法分发，方法转发，等等。Objective-C runtime 创建了所有需要的结构体，让 Objective-C 的面相对象编程变为可能。</p>
+<p>#####Method Swizzling 原理</p>
+<p>在Objective-C中调用一个方法，其实是向一个对象发送消息，查找消息的唯一依据是selector的名字。利用Objective-C的动态特性，可以实现在运行时偷换selector对应的方法实现，达到给方法挂钩的目的。每个类都有一个方法列表，存放着selector的名字和方法实现的映射关系。IMP有点类似函数指针，指向具体的Method实现。</p>
+<p>我们可以利用 method_exchangeImplementations 来交换2个方法中的IMP，<br>我们可以利用 class_replaceMethod 来修改类，<br>我们可以利用 method_setImplementation 来直接设置某个方法的IMP，……<br>归根结底，都是偷换了selector的IMP。</p>
+<hr>
+<p>###2. GCD</p>
+<blockquote>
+<p>实现1，2并行和3串行和45串行，4，5是并行。即3依赖1，2的执行，45依赖3的执行。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-8c0df6b7fa754139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="关系"></p>
+<p>#####队列组的方式</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">- (void) methodone&#123;</div><div class="line">    <span class="keyword">dispatch_group_t </span>group = <span class="keyword">dispatch_group_create();</span></div><div class="line">    </div><div class="line">    <span class="keyword">dispatch_group_async(group, </span><span class="keyword">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, </span><span class="number">0</span>), ^&#123;</div><div class="line">        NSLog(@<span class="string">"%d"</span>,<span class="number">1</span>)<span class="comment">;</span></div><div class="line">    &#125;)<span class="comment">;</span></div><div class="line">    </div><div class="line">    <span class="keyword">dispatch_group_async(group, </span><span class="keyword">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, </span><span class="number">0</span>), ^&#123;</div><div class="line">        NSLog(@<span class="string">"%d"</span>,<span class="number">2</span>)<span class="comment">;</span></div><div class="line">    &#125;)<span class="comment">;</span></div><div class="line">    </div><div class="line">    <span class="keyword">dispatch_group_notify(group, </span><span class="keyword">dispatch_get_main_queue(), </span>^&#123;</div><div class="line">        NSLog(@<span class="string">"3"</span>)<span class="comment">;</span></div><div class="line">        </div><div class="line">        <span class="keyword">dispatch_group_t </span>group1 = <span class="keyword">dispatch_group_create();</span></div><div class="line">        </div><div class="line">        <span class="keyword">dispatch_group_async(group1, </span><span class="keyword">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, </span><span class="number">0</span>), ^&#123;</div><div class="line">            NSLog(@<span class="string">"%d"</span>,<span class="number">4</span>)<span class="comment">;</span></div><div class="line">        &#125;)<span class="comment">;</span></div><div class="line">        </div><div class="line">        <span class="keyword">dispatch_group_async(group1, </span><span class="keyword">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, </span><span class="number">0</span>), ^&#123;</div><div class="line">            NSLog(@<span class="string">"%d"</span>,<span class="number">5</span>)<span class="comment">;</span></div><div class="line">        &#125;)<span class="comment">;</span></div><div class="line">        </div><div class="line">    &#125;)<span class="comment">;</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>串行队列：队列中的任务只会顺序执行</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dispatch_queue_t </span>q = <span class="keyword">dispatch_queue_create(“....”, </span><span class="keyword">dispatch_queue_serial);</span></div></pre></td></tr></table></figure>
+<p>并行队列： 队列中的任务通常会并发执行。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dispatch_queue_t</span> q = dispatch_queue_create(<span class="string">"......"</span>, dispatch_queue_concurrent);</div></pre></td></tr></table></figure></p>
+<p>全局队列：是系统开发的，直接拿过来用就可以；与并行队列类似，但调试时，无法确认操作所在队列　。<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dispatch_queue_t </span>q = <span class="keyword">dispatch_get_global_queue(dispatch_queue_priority_default, </span><span class="number">0</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>主队列：每一个应用开发程序对应唯一一个主队列，直接get即可；在多线程开发中，使用主队列更新UI。<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dispatch_queue_t q = dispatch_get_main_queue()<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>主队列是GCD自带的串行队列，会在主线程中执行。异步全局并发队列 开启新线程，并发执行。</p>
+<p>并行队列里开启同步任务是有执行顺序的，只有异步才没有顺序。</p>
+<p>串行队列开启异步任务，是有顺序的。</p>
+<p>串行队列开启异步任务后嵌套同步任务造成死锁。</p>
+<hr>
+<p>###3. 深浅复制和属性为copy，strong值的变化问题<br>浅复制：只复制指向对象的指针，而不复制引用对象本身。对于浅复制来说，A和A_copy指向的是同一个内存资源，复制的只不个是一个指针，对象本身资源还是只有一份，那如果我们对A_copy执行了修改操作，那么发现A引用的对象同样被修改了。深复制就好理解了，内存中存在了两份独立对象本身。</p>
+<p>在Objective-C中并不是所有的对象都支持Copy，MutableCopy，遵守NSCopying协议的类才可以发送Copy消息，遵守NSMutableCopying协议的类才可以发送MutableCopy消息。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[immutableObject copy]</span> <span class="comment">// 浅拷贝</span></div><div class="line"><span class="selector-attr">[immutableObject mutableCopy]</span> <span class="comment">//深拷贝</span></div><div class="line"><span class="selector-attr">[mutableObject copy]</span> <span class="comment">//深拷贝</span></div><div class="line"><span class="selector-attr">[mutableObject mutableCopy]</span> <span class="comment">//深拷贝</span></div></pre></td></tr></table></figure>
+<p>属性设为copy,指定此属性的值不可更改，防止可变字符串更改自身的值的时候不会影响到对象属性（如NSString,NSArray,NSDictionary）的值。strong此属性的指会随着变化而变化。copy是内容拷贝，strong是指针拷贝。</p>
+<hr>
+<p>###4.NSTimer创建后，会在哪个线程运行。<br>用scheduledTimerWithTimeInterval创建的，在哪个线程创建就会被加入哪个线程的RunLoop中就运行在哪个线程。</p>
+<p>自己创建的Timer，加入到哪个线程的RunLoop中就运行在哪个线程。</p>
+<hr>
+<p>###5. KVO，NSNotification，delegate及block区别<br>KVO就是cocoa框架实现的观察者模式，一般同KVC搭配使用，通过KVO可以监测一个值的变化，比如View的高度变化。是一对多的关系，一个值的变化会通知所有的观察者。</p>
+<p>NSNotification是通知，也是一对多的使用场景。在某些情况下，KVO和NSNotification是一样的，都是状态变化之后告知对方。NSNotification的特点，就是需要被观察者先主动发出通知，然后观察者注册监听后再来进行响应，比KVO多了发送通知的一步，但是其优点是监听不局限于属性的变化，还可以对多种多样的状态变化进行监听，监听范围广，使用也更灵活。</p>
+<p>delegate 是代理，就是我不想做的事情交给别人做。比如狗需要吃饭，就通过delegate通知主人，主人就会给他做饭、盛饭、倒水，这些操作，这些狗都不需要关心，只需要调用delegate（代理人）就可以了，由其他类完成所需要的操作。所以delegate是一对一关系。</p>
+<p>block是delegate的另一种形式，是函数式编程的一种形式。使用场景跟delegate一样，相比delegate更灵活，而且代理的实现更直观。</p>
+<p>KVO一般的使用场景是数据，需求是数据变化，比如股票价格变化，我们一般使用KVO（观察者模式）。delegate一般的使用场景是行为，需求是需要别人帮我做一件事情，比如买卖股票，我们一般使用delegate。Notification一般是进行全局通知，比如利好消息一出，通知大家去买入。delegate是强关联，就是委托和代理双方互相知道，你委托别人买股票你就需要知道经纪人，经纪人也不要知道自己的顾客。Notification是弱关联，利好消息发出，你不需要知道是谁发的也可以做出相应的反应，同理发消息的人也不需要知道接收的人也可以正常发出消息。</p>
+<hr>
+<p>###6. 如何让计时器调用一个类方法<br>计时器只能调用实例方法，但是可以在这个实例方法里面调用静态方法。</p>
+<p>使用计时器需要注意，计时器一定要加入RunLoop中，并且选好model才能运行。scheduledTimerWithTimeInterval方法创建一个计时器并加入到RunLoop中所以可以直接使用。</p>
+<p>如果计时器的repeats选择YES说明这个计时器会重复执行，一定要在合适的时机调用计时器的invalid。不能在dealloc中调用，因为一旦设置为repeats 为yes，计时器会强持有self，导致dealloc永远不会被调用，这个类就永远无法被释放。比如可以在viewDidDisappear中调用，这样当类需要被回收的时候就可以正常进入dealloc中了。</p>
+<hr>
+<p>###7. 调用一个类的静态方法需不需要release？<br>静态方法，就是类方法，不需要，类方法对象放在autorelease中</p>
+<hr>
+<p>###8. static作用？</p>
+<ul>
+<li>（1）函数体内 static 变量的作用范围为该函数体，不同于 auto 变量，该变量的内存只被分配一次，因此其值在下次调用时仍维持上次的值；</li>
+<li>（2）在模块内的 static 全局变量可以被模块内所用函数访问，但不能被模块外其它函数访问；</li>
+<li>（3）在模块内的 static 函数只可被这一模块内的其它函数调用，这个函数的使用范围被限制在声明<br>它的模块内；</li>
+<li>（4）在类中的 static 成员变量属于整个类所拥有，对类的所有对象只有一份拷贝；</li>
+<li>（5）在类中的 static 成员函数属于整个类所拥有，这个函数不接收 this 指针，因而只能访问类的static 成员变量。</li>
+</ul>
+<hr>
+<p>###9. NSObject的load和initialize方法<br>load和initialize的共同特点<br>在不考虑开发者主动使用的情况下，系统最多会调用一次<br>如果父类和子类都被调用，父类的调用一定在子类之前<br>都是为了应用运行提前创建合适的运行环境<br>在使用时都不要过重地依赖于这两个方法，除非真正必要</p>
+<p><strong>load和initialize的区别</strong><br><strong>load方法</strong></p>
+<p>调用时机比较早，运行环境有不确定因素。具体说来，在iOS上通常就是App启动时进行加载，但当load调用的时候，并不能保证所有类都加载完成且可用，必要时还要自己负责做auto release处理。对于有依赖关系的两个库中，被依赖的类的load会优先调用。但在一个库之内，调用顺序是不确定的。</p>
+<p>对于一个类而言，没有load方法实现就不会调用，不会考虑对NSObject的继承。</p>
+<p>一个类的load方法不用写明[super load]，父类就会收到调用，并且在子类之前。</p>
+<p>Category的load也会收到调用，但顺序上在主类的load调用之后。</p>
+<p>不会直接触发initialize的调用。</p>
+<p><strong>initialize方法相关要点</strong></p>
+<p>initialize的自然调用是在第一次主动使用当前类的时候。</p>
+<p>在initialize方法收到调用时，运行环境基本健全。</p>
+<p>initialize的运行过程中是能保证线程安全的。</p>
+<p>和load不同，即使子类不实现initialize方法，会把父类的实现继承过来调用一遍。注意的是在此之前，父类的方法已经被执行过一次了，同样不需要super调用。</p>
+<p>由于initialize的这些特点，使得其应用比load要略微广泛一些。可用来做一些初始化工作，或者单例模式的一种实现方案。</p>
+<hr>
+<p>###10. 能否向编译后得到的类中增加实例变量？能否向运行时创建的类中添加实例变量？为什么？<br>不能向编译后得到的类中增加实例变量；<br>能向运行时创建的类中添加实例变量；</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-0ecced6645616b2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="加油,奋斗的青春"></p>
+<p>本文个人很喜欢，但是希望以后能继续往里面家内容，所以不耻转载文章，感谢作者分享，附上简书原文作者链接：<a href="http://www.jianshu.com/p/9e4359555af0" target="_blank" rel="external">原文作者</a></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"></p>
+<p>喜欢的朋友可以赏我2块大洋买糖吃～和我一样屌丝的朋友希望能给我点歌赞～需要我录制视频的请直接给我糖.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/11/13/OC的碎碎念/IOS面试(转)---那些你没见过的问题(C)/" data-title="香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/11/13/OC的碎碎念/IOS面试(转)---那些你没见过的问题(B)/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/13/OC的碎碎念/IOS面试题目录/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>11</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS工具/" title="iOS工具">iOS工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

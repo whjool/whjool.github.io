@@ -1,0 +1,550 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="首先，基础很重要，其实就是学校的课程。数据结构和算法，设计模式，编译原理，操作系统原理，再掌握一门语言比如c/c++,你会发现很多底层的类库都是C写的。而且可以混编，特别是一些第三方的类库直接就是C++写的。其他的包括T-Sql,html,js等你也可以了解下，因为基于hyper link方式的开发也在发展。然后，你就要看看iOS开发的武器库了。入门的话可以看看基本数，很好理解也很实用。1.Beg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/2016/11/13/OC的碎碎念/【转载】IOS底层/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="首先，基础很重要，其实就是学校的课程。数据结构和算法，设计模式，编译原理，操作系统原理，再掌握一门语言比如c/c++,你会发现很多底层的类库都是C写的。而且可以混编，特别是一些第三方的类库直接就是C++写的。其他的包括T-Sql,html,js等你也可以了解下，因为基于hyper link方式的开发也在发展。然后，你就要看看iOS开发的武器库了。入门的话可以看看基本数，很好理解也很实用。1.Beg">
+<meta property="og:updated_time" content="2016-11-13T00:46:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:description" content="首先，基础很重要，其实就是学校的课程。数据结构和算法，设计模式，编译原理，操作系统原理，再掌握一门语言比如c/c++,你会发现很多底层的类库都是C写的。而且可以混编，特别是一些第三方的类库直接就是C++写的。其他的包括T-Sql,html,js等你也可以了解下，因为基于hyper link方式的开发也在发展。然后，你就要看看iOS开发的武器库了。入门的话可以看看基本数，很好理解也很实用。1.Beg">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/11/13/OC的碎碎念/【转载】IOS底层/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-11-13T00:46:20.000Z" itemprop="datePublished"> 发表于 2016-11-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>首先，基础很重要，其实就是学校的课程。数据结构和算法，设计模式，编译原理，操作系统原理，再掌握一门语言比如c/c++,你会发现很多底层的类库都是C写的。而且可以混编，特别是一些第三方的类库直接就是C++写的。其他的包括T-Sql,html,js等你也可以了解下，因为基于hyper link方式的开发也在发展。<br>然后，你就要看看iOS开发的武器库了。入门的话可以看看基本数，很好理解也很实用。<br>1.Beginning.iOS.5.Development.Exploring.the.iOS.SDK.Dec.2011<br>2.Learn_Objective-C_for_Java_Developers/ Objective-C编程之道<br>3.iOS 7 Programming Cookbook<br>这三本看下来你可以做一些下项目了，但是这是远远不够的，可能你知道但是用的时候就知道有些细节或者背后的机制没有了解清楚，这个时候就要看文档了。我不得不得不感慨，苹果的文档写的太好了。我之前的列表，楼主可以参考一下<br>一.预览篇<br>1.Start Developing iOS Apps Today<br>Start Developing iOS Apps Today: iOS Technologies</p>
+<p>#//apple_ref/doc/uid/TP40011343-CH11-SW1</p>
+<p>2.iOS 2 Design Resources<br>Designing Great Apps.<br>①.iOS 7 UI Transtion Guide<br>②.iOS Human Interface GuideIines<br>③.UIKit User Interface Catelog </p>
+<p>二.基础篇<br>1.Objective-C Runtime Programming Guide<br>Objective-C Runtime Programming Guide: Introduction<br>Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048</p>
+<p>2.Programming With Objective-C<br>Programming with Objective-C: About Objective-C<br>Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210</p>
+<p>3.iOS Technology Overview<br>iOS Technology Overview: About the iOS Technologies<br>Introduction/Introduction.html#//apple_ref/doc/uid/TP40007898-CH1-SW1</p>
+<p>4.View Programming Guide for iOS<br>View Programming Guide for iOS: View and Window Architecture<br>WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW1</p>
+<p>5.View Controller Programming Guide for iOS<br>View Controller Programming Guide for iOS: About View Controllers<br>Introduction.html#//apple_ref/doc/uid/TP40007457</p>
+<p>6.Scroll View Programming Guide for iOS<br>Scroll View Programming Guide for iOS: About Scroll View Programming<br>Introduction/Introduction.html#//apple_ref/doc/uid/TP40008179</p>
+<p>7.Table View Programming Guide for iOS<br>Table View Programming Guide for iOS: Managing Selections<br>/ManageSelections/ManageSelections.html#//apple_ref/doc/uid/TP40007451-CH9-SW10</p>
+<p>补充：Coding Guidinglines for Cocoa<br>Coding Guidelines for Cocoa: Introduction to Coding Guidelines for Cocoa<br>CodingGuidelines.html#//apple_ref/doc/uid/10000146i</p>
+<p>三.技术篇<br>1.Auto Layout Guide<br>Auto Layout Guide: Introduction<br>Introduction/Introduction.html#//apple_ref/doc/uid/TP40010853</p>
+<p>2.Advanced Memory management Programming Guide<br>Advanced Memory Management Programming Guide: About Memory Management<br>MemoryMgmt.html#//apple_ref/doc/uid/10000011i</p>
+<p>3.Transitioning to ARC Rellease Notes<br><a href="https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RNTransitioningToARC/" target="_blank" rel="external">https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RNTransitioningToARC/</a><br>Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226</p>
+<p>4.Threading Programming Guide<br>Threading Programming Guide: About Threaded Programming<br>AboutThreads.html#//apple_ref/doc/uid/10000057i-CH6-SW2</p>
+<p>5.Networking Programming Topic<br>Networking Programming Topics: Introduction<br>Introduction/Introduction.html#//apple_ref/doc/uid/TP40012488</p>
+<p>6.Core Data Programming Guide<br>Core Data Programming Guide: Managed Object Models</p>
+<p>#//apple_ref/doc/uid/TP40002328-SW1</p>
+<p>7.Core Data Model Versioning And Data Migration<br>Core Data Model Versioning and Data Migration Programming Guide: Core Data Model Versioning and Data Migration</p>
+<p>8.Core Image Programming Guid<br>Core Image Programming Guide: About Core Image</p>
+<p>9.Core Animation Propramming Guid<br>Core Animation Programming Guide: Core Animation Basics<br>//apple_ref/doc/uid/TP40004514-CH2-SW3</p>
+<p>补充：Concurrency Programming Guide<br>Concurrency Programming Guide: Concurrency and Application Design<br>/ConcurrencyandApplicationDesign/ConcurrencyandApplicationDesign.html#//apple_ref/doc/uid<br>/TP40008091-CH100-SW1</p>
+<p>iTunes Connection Developer Guild<br><a href="https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/About.html#//apple_ref/doc/uid/TP40011225-CH1-SW1" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/About.html#//apple_ref/doc/uid/TP40011225-CH1-SW1</a></p>
+<p>这些不是说一下子看过，根据工作的情况。看完这些的话你会有一个质的飞跃。这些基本上涵盖你开发当中常用的方面。遇到问题可以到CocoaChina,StackOverflow等问答网站去问，还有就是看每年的WWDC的视频，算是对文档的补充。</p>
+<p>最后，通过实际的项目综合提高自己，不做项目谈技术都是耍流氓，具体有几个方面。关注高手写的博客，文章质量都很高，非常有助于提高。还有就是研究开源的类库，比如AFNetworking,SDWebImage等，会综合提高你的编程技巧。再加上不断的实践，不断提高。然后过搞搞Git,常去GitHub看看，你会发现很多的好的东西。<br>推荐几个自己经常去的一些博客和网站<br>唐巧的技术博客<br>objc中国<br>Ray Wenderlich<br>CocoaDocs.org<br>NSHipster<br>Luke’s Homepage<br>Cocoabit | 做自己喜欢的事情</p>
+<p>当然，以上知道技术上的东西。你最好还要知道点设计，懂点用户，知道点市场就更好了。希望能帮到你！</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/11/13/OC的碎碎念/【转载】IOS底层/" data-title="香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/11/13/OC的碎碎念/我的第一个计算器~/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/13/OC的碎碎念/第三方框架/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>11</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS工具/" title="iOS工具">iOS工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

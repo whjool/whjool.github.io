@@ -1,0 +1,639 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Xcode如何增加语法高亮(通用) | 香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="需求
+
+最近刚好要用lua开发,然后就去找了一下怎么改成lua,所以本例子就以lua为例子,其他语法也是一样的.
+
+正文
+
+最新的Xcode7依然没有支持源代码的Lua语法着色，Xcode让lua高亮的方法：打开路径直接按住键盘cmd + shift +G复制粘贴以下链接1/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundatio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode如何增加语法高亮(通用)">
+<meta property="og:url" content="http://www.hundredone.win/2016/08/25/G-游戏文档/[IOS入门]-Xcode如何增加语法高亮(通用)/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="需求
+
+最近刚好要用lua开发,然后就去找了一下怎么改成lua,所以本例子就以lua为例子,其他语法也是一样的.
+
+正文
+
+最新的Xcode7依然没有支持源代码的Lua语法着色，Xcode让lua高亮的方法：打开路径直接按住键盘cmd + shift +G复制粘贴以下链接1/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundatio">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-2596fdee9464d86e.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-a71d09ff14241339.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-1d6405576a14a222.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-5cdce370a3733946.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-f6fe76cb43e3e529.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-7c0c260ce222db55.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T13:20:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode如何增加语法高亮(通用)">
+<meta name="twitter:description" content="需求
+
+最近刚好要用lua开发,然后就去找了一下怎么改成lua,所以本例子就以lua为例子,其他语法也是一样的.
+
+正文
+
+最新的Xcode7依然没有支持源代码的Lua语法着色，Xcode让lua高亮的方法：打开路径直接按住键盘cmd + shift +G复制粘贴以下链接1/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundatio">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-2596fdee9464d86e.gif?imageMogr2/auto-orient/strip">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/08/25/G-游戏文档/[IOS入门]-Xcode如何增加语法高亮(通用)/" title="Xcode如何增加语法高亮(通用)" itemprop="url">Xcode如何增加语法高亮(通用)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished"> Published 2016-08-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<blockquote>
+<p>需求</p>
+</blockquote>
+<p>最近刚好要用lua开发,然后就去找了一下怎么改成lua,所以本例子就以lua为例子,其他语法也是一样的.</p>
+<blockquote>
+<p>正文</p>
+</blockquote>
+<p>最新的Xcode7依然没有支持源代码的Lua语法着色，Xcode让lua高亮的方法：<br>打开路径<br>直接按住键盘<code>cmd + shift +G</code>复制粘贴以下链接<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/Applications/</span>Xcode.app<span class="regexp">/Contents/</span>SharedFrameworks<span class="regexp">/DVTFoundation.framework/</span>Versions<span class="regexp">/A/</span>Resources<span class="regexp">/</span></div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-2596fdee9464d86e.gif?imageMogr2/auto-orient/strip" alt="操作"></p>
+<p>，可以看到许多*.xclangspec文件，比如就有C.xclangspec，C++.xclangspec等，这些都是Xcode用到的各种语言的语法说明文件，都是json格式的。里面会列出这种语言的关键字，注释的前缀是怎么样的等等。都非常简单，我们完全可以参照其他语言的写出lua的说明文件，当然我相信可以搜到有人写过的Lua.xclangspec，拿来直接用就好了。网址：<a href="https://github.com/qinglong61/Lua-In-Xcode" target="_blank" rel="external">https://github.com/qinglong61/Lua-In-Xcode</a>（网速慢的话可以用git下载）</p>
+<p>光有说明文件还不够，我们还需要修改配置让Xcode知道我们新加了一种语言。同样的目录下，我们找到文件<code>DVTFoundation.xcplugindata</code>，这就是plist配置文件了。打开它，我们可以很快找到其他语言的配置信息，同样，我们再模仿着写一份lua的配置就好了。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span> </div><div class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> conformsTo<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">array</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">dict</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span> identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span> Xcode.SourceCodeLanguage.Generic<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;/<span class="name">dict</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;/<span class="name">array</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> fileDataType<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">array</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">dict</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span> identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span> com.apple.xcode.lua-source<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;/<span class="name">dict</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;/<span class="name">array</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> id<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span> Xcode.SourceCodeLanguage.Lua<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> languageName<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span> Lua<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> languageSpecification<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span> xcode.lang.lua<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> name<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span> Lua Language<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> point<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span> Xcode.SourceCodeLanguage<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span> version<span class="tag">&lt;/<span class="name">key</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span> 1.0<span class="tag">&lt;/<span class="name">string</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>注意:如果不能直接添加请按照下图自行配置~</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-a71d09ff14241339.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置图"></p>
+<p>将上面代码加到DVTFoundation.xcplugindata配置文件中（在plug-in/extensions目录下）</p>
+<p>这些都做完后，关闭Xcode，在doc下运行<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -f <span class="regexp">/private/</span>var<span class="regexp">/folders/</span>*<span class="regexp">/*/</span>*<span class="regexp">/com.apple.DeveloperTools/</span>*<span class="regexp">/Xcode/</span>PlugInCache-Debug.xcplugincache</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-1d6405576a14a222.gif?imageMogr2/auto-orient/strip" alt="最后关闭并清理"><br>，清掉缓存，重启Xcode。</p>
+<p>最后的使用,打开xcode点击语法高亮,打开一个lua文件，咦~，好像并没有什么卵用，不急，因为忘了告诉你，还要点选菜单Editor&gt; SynTax Coloring&gt; Lua</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-5cdce370a3733946.gif?imageMogr2/auto-orient/strip" alt="语法高亮使用"></p>
+<p><strong>问题拓展</strong><br>1.出现如下问题:could not add write permission</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-f6fe76cb43e3e529.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="could not add write permission"><br>步骤的话简单描述一下,请看具体的gif图<a href="http://www.bubuko.com/infodetail-760626.html" target="_blank" rel="external">参考</a></p>
+<ol>
+<li>打开上层目录</li>
+</ol>
+<ul>
+<li>设置权限</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-7c0c260ce222db55.gif?imageMogr2/auto-orient/strip" alt="具体步骤"></p>
+<p><strong>最后拓展</strong></p>
+<ul>
+<li><a href="http://www.cocoachina.com/bbs/read.php?tid=136611" target="_blank" rel="external">iOS使用lua语言的使用步骤与实现插件的动态更新</a>   </li>
+</ul>
+<p>本文用到的文件:<a href="https://github.com/OneHundredSir/OtherAssociation/tree/master/Xcode%E6%B7%BB%E5%8A%A0Lua" target="_blank" rel="external">demo</a></p>
+<blockquote>
+<p>如何对我写的技术文章满意,下方给我点个<code>喜欢呗</code><br>你的<strong>点赞</strong>是我前进的动力,如果想一起利用碎片时间,欢迎关注<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" rel="external">技术公众号</a>,谢谢</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS-Cocos2d-x/">iOS Cocos2d-x</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Xcode/">Xcode</a><a href="/tags/iOS-Cocos2d-x/">iOS Cocos2d-x</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/08/25/G-游戏文档/[IOS入门]-Xcode如何增加语法高亮(通用)/" data-title="Xcode如何增加语法高亮(通用) | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]将WIN下VS编译的工程转到IOS中整理/" title="将WIN下VS编译的工程转到IOS中整理">
+  <strong>上一篇：</strong><br/>
+  <span>
+  将WIN下VS编译的工程转到IOS中整理</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/08/25/G-游戏文档/[Cocos2d-x]WIN下游戏迁移到IOS上资源找不到/"  title="WIN下游戏迁移到IOS上资源找不到">
+ <strong>下一篇：</strong><br/> 
+ <span>WIN下游戏迁移到IOS上资源找不到
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

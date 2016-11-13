@@ -235,18 +235,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/06/20/IOS黑魔法/IOS开发---黑魔法之blocksKit应用篇(含demo)/" title="黑魔法之blocksKit应用篇(含demo)">
+ <a href="/2016/05/20/IOS黑魔法/IOS开发---网络状态检测（Reachability）含Demo/" title="网络状态检测（Reachability）含Demo">
   <strong>上一篇：</strong><br/>
   <span>
-  黑魔法之blocksKit应用篇(含demo)</span>
+  网络状态检测（Reachability）含Demo</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/05/20/IOS黑魔法/IOS开发---网络状态检测（Reachability）含Demo/"  title="网络状态检测（Reachability）含Demo">
+<a href="/2016/01/20/ios大大闭门造轮子/IOS开发[控件封装]---alertView封装/"  title="IOS开发[控件封装]---alertView封装">
  <strong>下一篇：</strong><br/> 
- <span>网络状态检测（Reachability）含Demo
+ <span>IOS开发[控件封装]---alertView封装
 </span>
 </a>
 </div>

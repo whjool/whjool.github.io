@@ -1,19 +1,15 @@
 10
 
 dir
-21
-svn+ssh://root@123.207.125.82/svn/hundred/hundredHexo/public/2015/10/20/IOS%E9%BB%91%E9%AD%94%E6%B3%95/IOS%E5%BC%80%E5%8F%91-%E9%BB%91%E9%AD%94%E6%B3%95%E4%B9%8BIBDesignable-IBInspectable%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%88%E6%9E%9C%E7%BC%96%E7%A8%8B
-svn+ssh://root@123.207.125.82/svn/hundred
+3
+svn://hundred@123.207.120.92/opt/svn/hexo/Hexo/public/2015/10/20/IOS%E9%BB%91%E9%AD%94%E6%B3%95/IOS%E5%BC%80%E5%8F%91-%E9%BB%91%E9%AD%94%E6%B3%95%E4%B9%8BIBDesignable-IBInspectable%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%88%E6%9E%9C%E7%BC%96%E7%A8%8B
+svn://hundred@123.207.120.92/opt/svn/hexo
 
 
 
-2016-11-12T17:24:19.732137Z
-21
-root
-
-
-
-
+2016-11-13T09:30:06.461880Z
+1
+hundred
 
 
 
@@ -24,39 +20,16 @@ root
 
 
 
-a92a0a22-f6e0-4ceb-a870-8b7b2b8a1912
+
+
+
+
+870b640c-bb14-4ae2-a46f-c6cd87605df1
 
 index.html
 file
+0
 
 
-
-
-2016-11-12T17:14:14.000000Z
-82fccffdf2bb9f14feb06c59b1416869
-2016-11-12T17:24:19.732137Z
-21
-root
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-55964
+add
 

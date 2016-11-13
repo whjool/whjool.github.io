@@ -1,0 +1,682 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>谈谈开发模式(MVC,单例,代理) | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="老感觉这个问题老生常谈了,不过最近公司要我去面试,谈谈我的个人看法;
+如果对MVVM有兴趣的朋友可以看这一篇:IOS开发 - 谈谈开发模式MVVM
+
+1.MVC设计模式：
+
+MVC设计模式主要有三个部分，数据模型类（model）、视图（view）、控制器（viewController）将应用程序进行逻辑划分。优势是减少程序的耦合性，层次清晰，职责分明，易于维护。
+其中各个部分的职责：数据模型：封装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈开发模式(MVC,单例,代理)">
+<meta property="og:url" content="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式(MVC,单例,代理)/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="老感觉这个问题老生常谈了,不过最近公司要我去面试,谈谈我的个人看法;
+如果对MVVM有兴趣的朋友可以看这一篇:IOS开发 - 谈谈开发模式MVVM
+
+1.MVC设计模式：
+
+MVC设计模式主要有三个部分，数据模型类（model）、视图（view）、控制器（viewController）将应用程序进行逻辑划分。优势是减少程序的耦合性，层次清晰，职责分明，易于维护。
+其中各个部分的职责：数据模型：封装">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-d4e6f948381e60d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-bd801a9297b91df2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f79vf9y3b9g30ib0ae4j8.gif">
+<meta property="og:updated_time" content="2016-11-13T13:57:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谈谈开发模式(MVC,单例,代理)">
+<meta name="twitter:description" content="老感觉这个问题老生常谈了,不过最近公司要我去面试,谈谈我的个人看法;
+如果对MVVM有兴趣的朋友可以看这一篇:IOS开发 - 谈谈开发模式MVVM
+
+1.MVC设计模式：
+
+MVC设计模式主要有三个部分，数据模型类（model）、视图（view）、控制器（viewController）将应用程序进行逻辑划分。优势是减少程序的耦合性，层次清晰，职责分明，易于维护。
+其中各个部分的职责：数据模型：封装">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-d4e6f948381e60d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式(MVC,单例,代理)/" title="谈谈开发模式(MVC,单例,代理)" itemprop="url">谈谈开发模式(MVC,单例,代理)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished"> Published 2016-04-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>老感觉这个问题老生常谈了,不过最近公司要我去面试,谈谈我的个人看法;</p>
+<p>如果对MVVM有兴趣的朋友可以看这一篇:<a href="http://www.jianshu.com/p/865cb28c5794" target="_blank" rel="external">IOS开发 - 谈谈开发模式MVVM</a></p>
+<blockquote>
+<p><strong>1.MVC设计模式：</strong></p>
+</blockquote>
+<p>MVC设计模式主要有三个部分，数据模型类（model）、视图（view）、控制器（viewController）将应用程序进行逻辑划分。优势是减少程序的耦合性，层次清晰，职责分明，易于维护。</p>
+<p><strong>其中各个部分的职责：</strong><br>数据模型：封装了应用程序的数据，并定义操控和处理数据的逻辑和运算，例如服务器传递过来的数据，主要是在该层进行操作。用户在视图层中所进行的创建或者修改数据的操作通过控制器，最终引起模型对象的创建或者更新，模型对象更新后，他会通过控制器来更新相应的数据对象。<br>视图：视图对象是应用程序中用户看的见的、可以操作的对象。视图对象知道如何将自己绘制出来，并可能对用户的操作作出响应，视图对象的主要目的就是现实来自应用程序模型对象的数据，并使该数据可被编辑。虽然视图和模型对象息息相关，但是二者之间不能通信，只能通过控制器来进行交互。在iOS中，所有的控件、视图都继承自UIView，他只负责显示、相应用户的操作，而UIview所产生的事件都可以采用委托的方式，交给控制器来实现<br>控制器：控制器是在模型和视图中间充当中介的作用，通过它，视图对象了解了模型对象的更改，模型对象也通过它了解视图的所发生的事情，从而更新或者创建新的模型。控制器对象还可以为应用程序执行设置和协调任务，并管理其他对象的声明周期。当控制器了解到视图对象中用户的操作，将此操作所产生的新的数据或者更新的数据传递给模型。当控制器了解到模型层有变化之后，将新的模型对象传递给视图，以便视图在适当的时候显示。</p>
+<p><code>小结：1、M和V之间一定不能直接的通信，必须通过控制器来传递：2、M与C可以直接通信，M通过通知或者KVO与控制器通信；3、C也可以直接与V通信，每个C都会带有一个view，通过outlet，直接操作view，outlet直接对应到view中的控件，view通过action向C报告事件，C是V的数据源</code></p>
+<blockquote>
+<p>2.<strong>单例模式：</strong></p>
+</blockquote>
+<p>单例模式可以确保对于一个给定的类只有各异实例存在，这个实例有一个全局唯一的访问点，它通常使用懒加载的方式，在第一次用到的时候再去创建。<br>优势：使用简单，延时求值，易于跨模块<br>它的创建有三种方式：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> DataManager *dataManager = <span class="literal">nil</span>;</div><div class="line">+ (<span class="keyword">id</span>)sharedDataManager &#123;</div><div class="line">      <span class="comment">//1.创建静态的空的对象</span></div><div class="line">      <span class="keyword">static</span> DataManager *dataManager = <span class="literal">nil</span>;</div><div class="line">      <span class="comment">//2.创建/初始化对象</span></div><div class="line">      <span class="keyword">if</span> (!dataManager) &#123;</div><div class="line">          dataManager = [[DataManager alloc] init];</div><div class="line">      &#125;</div><div class="line">      <span class="comment">//3.返回对象</span></div><div class="line">      <span class="keyword">return</span> dataManager;</div><div class="line">&#125;</div><div class="line"><span class="comment">//要记得这个只是创建一次,然后再也不再创建,所以好好利用</span></div><div class="line"><span class="keyword">static</span> DataManager *_dataManager = <span class="literal">nil</span>;</div><div class="line">+ (<span class="keyword">id</span>)sharedDataManagerByGCD &#123;</div><div class="line">      <span class="comment">//创建一个静态一次性任务对象</span></div><div class="line">      <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line">      <span class="comment">//把初始化逻辑放到dispatch_once中block中</span></div><div class="line">      <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line">      _dataManager = [[TRDataManager alloc] init];</div><div class="line">      &#125;);</div><div class="line">      <span class="keyword">return</span> _dataManager;</div><div class="line">&#125;</div><div class="line"><span class="keyword">static</span> DataManager *_dataManagerInit = <span class="literal">nil</span>;</div><div class="line"><span class="comment">//在所有类初始化方法</span></div><div class="line">+ (<span class="keyword">void</span>)initialize &#123;</div><div class="line">      <span class="comment">//判断当前是否是DataManager类</span></div><div class="line">      <span class="keyword">if</span> (<span class="keyword">self</span> == [DataManager <span class="keyword">class</span>]) &#123;</div><div class="line">      <span class="comment">//初始化操作</span></div><div class="line">      _dataManagerInit = [[DataManager alloc] init];</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line">+ (<span class="keyword">id</span>)sharedDataManagerByInitialize &#123;</div><div class="line">      <span class="keyword">return</span> _dataManagerInit;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">注意以上的方法都不可以让类进行<span class="keyword">copy</span>,mutablecopy,我个人建议直接使用allocWithZone:(<span class="built_in">NSZone</span>*)zone</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>3.<strong>观察者模式：</strong></p>
+</blockquote>
+<p>KVO （Key Value Observing）：是一种用于监听属性变化的模式，一般为Model层对Controller层进行通知方式，它不关心接收者，只负责发布消息。它可以很容易的实现视图组件和数据模型的分离，当数据模型的属性值改变之后，作为监听器的视图组件就会被激发，然后就会调用回调监视器自身。</p>
+<blockquote>
+<p>4.<strong>代理模式</strong></p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-d4e6f948381e60d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>因为Object－C是不支持多继承的，所以很多时候都是用Protocol（协议）来代替。Protocol（协议）只能定义公用的一套接口，但不能提供具体的实现方法。也就是说，它只告诉你要做什么，但具体怎么做，它不关心。</p>
+<p><strong><code>Protocol（协议）</code>的作用：</strong></p>
+<ol>
+<li>定义一套公用的接口（Public）<br>@required：必须实现的方法<br>@optional：可选 实现的方法（可以全部都不实现）</li>
+<li>委托代理（Delegate）传值：<br>它本身是一个设计模式，它的意思是委托别人去做某事。<br>比如：两个类之间的传值，类A调用类B的方法，类B在执行过程中遇到问题通知类A，这时候我们需要用到代理（Delegate）。<br>又比如：控制器（Controller）与控制器（Controller）之间的传值，从C1跳转到C2，再从C2返回到C1时需要通知C1更新UI或者是做其它的事情，这时候我们就用到了代理（Delegate）传值。<br>代理的使用步骤大致如下<br>用一个协议来约束另一个对象中的方法，以此保证从一个对象到另一个对象的消息的传递过程，叫做代理模式<br>情景：一个对象想给另一个对象发消息<br>委托方（B控制器，负责接收数据）<br>代理方（A控制器，负责显示委托方发来的消息）<br>委托方：<br>1》定义协议<br>2》增加一个属性，存储代理对象的引用<br>3》在合适的时机，给代理发消息<br>代理方：<br>1》遵守协议<br>2》实现方法<br>3》将自己设置为代理方（将自己的引用给B传过去）</li>
+</ol>
+<p><strong>通知中心：</strong><br><img src="http://upload-images.jianshu.io/upload_images/1730495-bd801a9297b91df2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>使用通知中心的方式可以不用设置代理，但是需要设置观察者，使用之后还要移除观察者。<br>首先需要在接收通知的地方注册观察者。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取通知中心单例对象</span></div><div class="line">NSNotificationCenter * center = [NSNotificationCenter defaultCenter];</div><div class="line"><span class="comment">//添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知</span></div><div class="line">[center <span class="string">addObserver:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(<span class="string">notice:</span>) <span class="string">name:</span>@<span class="string">"aaa"</span> <span class="string">object:</span>nil];</div><div class="line">之后，在我们需要时发送通知消息</div><div class="line"><span class="comment">//创建一个消息对象</span></div><div class="line">NSNotification * notice =</div><div class="line">[NSNotification <span class="string">notificationWithName:</span>@<span class="string">"aaa"</span> <span class="string">object:</span>nil <span class="string">userInfo:</span>@&#123;@<span class="string">"1"</span>:@<span class="string">"123"</span>&#125;];</div><div class="line">发送消息</div><div class="line">[[NSNotificationCenter defaultCenter]<span class="string">postNotification:</span>notice];</div></pre></td></tr></table></figure></p>
+<p><strong>block：</strong><br>是OC提供的一种运行时方法机制，类似于Java的匿名函数，他提供了一种运行时的临时回调机制。他的格式如下（(返回值类型)(^block名)(参数)）<br>声明一个参数为int，返回值为int的Block对象cb。</p>
+<p><code>int (^cb)(int);</code></p>
+<p>也可以通过typedef简化定义。<br><code>typedef int(^BLOCK_CALLBACK_FUNC)(int);</code><br><code>BLOCK_CALLBACK_FUNC cb = …</code><br>回调函数定义：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">int</span>)handleBlockCallbackFunc: (BLOCK_CALLBACK_FUNC)callback</div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">return</span> <span class="title">callback</span><span class="params">(<span class="number">10</span>)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>回调函数使用：</p>
+<p>1）赋值后使用<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">BLOCK_CALLBACK_FUNC </span>cb =</div><div class="line">^(int param)</div><div class="line">&#123;</div><div class="line">NSLog(@<span class="string">"Block Msg: %d"</span>, param)<span class="comment">;</span></div><div class="line">return param*<span class="number">2</span><span class="comment">;</span></div><div class="line">&#125;<span class="comment">;</span></div><div class="line">int ret = [self handleBlockCallbackFunc:cb]<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>2）使用时赋值<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> ret = [<span class="keyword">self</span> handleBlockCallbackFunc:</div><div class="line">^(<span class="keyword">int</span> param) &#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"Block Msg: %d"</span>, param);</div><div class="line"><span class="keyword">return</span> param*<span class="number">2</span>;</div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
+<p>.<strong>block对象在block中是可以被修改、重新赋值的。<br>2.</strong>block对象在block中不会被block强引用一次，从而不会出现循环引用问题。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i2 = <span class="number">10</span>;</div><div class="line">__block <span class="keyword">int</span> i3 = <span class="number">30</span>;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"i3=%d"</span>, i3);</div><div class="line">BlockType b3 = ^(<span class="keyword">void</span>)</div><div class="line">&#123;</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, i2);<span class="comment">//可以获取局部变量的值</span></div><div class="line">      <span class="comment">//i2 = 20;//局部变量是只读的,此处不能修改</span></div><div class="line">      i3 = <span class="number">60</span>;<span class="comment">//加关键字__block的局部变量才能修改</span></div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, i3);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">使用了__<span class="keyword">weak</span>修饰符的对象，作用等同于定义为<span class="keyword">weak</span>的property。自然不会导致循环引用问题，因为苹果文档已经说的很清楚，当原对象没有任何强引用的时候，弱引用指针也会被设置为<span class="literal">nil</span>。</div><div class="line">因此，__block和__<span class="keyword">weak</span>修饰符的区别其实是挺明显的：</div><div class="line"><span class="number">1.</span>__block不管是ARC还是MRC模式下都可以使用，可以修饰对象，还可以修饰基本数据类型。</div><div class="line"><span class="number">2.</span>__<span class="keyword">weak</span>只能在ARC模式下使用，也只能修饰对象（<span class="built_in">NSString</span>），不能修饰基本数据类型（<span class="keyword">int</span>）。</div><div class="line"><span class="number">3.</span>__block对象可以在block中被重新赋值，__<span class="keyword">weak</span>不可以。</div><div class="line">PS：__<span class="keyword">unsafe_unretained</span>修饰符可以被视为iOS SDK <span class="number">4.3</span>以前版本的__<span class="keyword">weak</span>的替代品，不过不会被自动置空为<span class="literal">nil</span>。所以尽可能不要使用这个修饰符。</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>通知</code>与<code>代理</code>、<code>block</code>的<strong>区别</strong>：</p>
+</blockquote>
+<p>1）<code>代理</code>针对的是一对一的关系，并且接收方可以返回值给发送方，代理的逻辑结构清晰，实现起来较为简单，声明协议、设置代理属性（为了避免循环引用，设置代理属性的时候通常用weak修饰）设定方法，最后在想要代理所做的事情的方法中调用即可。需要注意的是：创建协议的时候必须实现的方法用@require修饰，可选的方法使用@optional来修饰。<br>2）<code>通知</code>：通知是一对多的形式，只要是注册了该通知的对象，都可以接受消息。他的实现较为复杂，注册通知、发出通知，接受消息。当自己定义通知的时候，需要定义一个key来给通知命名，当接收通知的时候，这个key拼写错误的话就无法接受通知，通常使用宏的方式来避免这个问题。注册的通知中心需要手动的移除。<br>3）<code>block</code>是目前开发较为常用的一种方式，功能比较强大。最大的特点就是回调，回到的时候可以传入参数，最重要的是，无论在哪里嗲用，block的执行都会回到block创建的地方执行，而非调用的地方。</p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f79vf9y3b9g30ib0ae4j8.gif" alt="微信个人技术订阅号"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS入门/">iOS入门</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式(MVC,单例,代理)/" data-title="谈谈开发模式(MVC,单例,代理) | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/" title="谈谈开发模式MVVM">
+  <strong>上一篇：</strong><br/>
+  <span>
+  谈谈开发模式MVVM</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/20/A-完全小白图文攻略/好用的筛选IOS开发工程师的4道题/"  title="好用的筛选IOS开发工程师的4道题">
+ <strong>下一篇：</strong><br/> 
+ <span>好用的筛选IOS开发工程师的4道题
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>35</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

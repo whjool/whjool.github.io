@@ -1,0 +1,646 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/page/6/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉的个人博客">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/05/20/A-IOS黑魔法/IOS开发---网络状态检测（Reachability）含Demo/" title="网络状态检测（Reachability）含Demo" itemprop="url">
+  
+    <h1 itemprop="name">网络状态检测（Reachability）含Demo</h1>
+    
+     
+           <p itemprop="description" >文章最后附上本次讲解的Demo以及演示动态图：GithubDemo
+一、说明在网络应用中，需要对用户设备的网络状态进行实时监控，有两个目的：
+（1）让用户了解自己的网络状态，防止一些误会（比如怪应用无能）（2）根据用户的网络状态进行智能处理，节省用户流量，提高用户体验　　  WI</p>
+        
+    
+    <time datetime="2016-05-19T22:49:50.000Z" itemprop="datePublished">2016-05-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发-断点调试你敢说你会吗-(含视频demo)/" title="断点调试你敢说你会吗" itemprop="url">
+  
+    <h1 itemprop="name">断点调试你敢说你会吗</h1>
+    
+     
+           <p itemprop="description" >最近和一个朋友刚好讨论到一个问题,怎么打印,怎么断点调试,自定义断点可以看完我的这篇文章:NSError - 自定义错误本文详细的操作视频demo可以之间点击这里:断点调试视频全过程OK开始正题,如果你只会NSLog,我只能说你一定要好好学习学习了
+
+1、Exception Br</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS问题答疑]JSON数据只返回-null-处理方法/" title="JSON数据只返回null" itemprop="url">
+  
+    <h1 itemprop="name">JSON数据只返回null</h1>
+    
+     
+           <p itemprop="description" >今天我出现这样一个问题
+最后我查到并有用的的方法就是1BOOL isNull = ![dic[@&quot;data&quot;] isKindOfClass:[NSNull class]];
+我就是通过这个方法进行判断，然后不崩的.
+以下是一些失败的方法，都没有用！都是失败的！千万别用下面的，没有</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" title="runtime系列二(Runtime的使用场景)" itemprop="url">
+  
+    <h1 itemprop="name">runtime系列二(Runtime的使用场景)</h1>
+    
+     
+           <p itemprop="description" >入门先看我上一篇:[IOS开发] - runtime系列一 (消息机制)Runtime 理解介绍的文章非常多，我只想讲讲Runtime 可以用在哪里，而我在项目里哪些地方用到了runtime。多以实际使用过程为主，来介绍runtime的使用。
+那么runtime 怎么使用？可以用</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发入门]---NSProcessInfo类方法(进程)使用/" title="NSProcessInfo类方法(进程)使用" itemprop="url">
+  
+    <h1 itemprop="name">NSProcessInfo类方法(进程)使用</h1>
+    
+     
+           <p itemprop="description" >背景
+
+今天有幸看到如下的代码在delegate中,其中有一个点很吸引我,static BOOL isRunningTests(void) __attribute__((const));,目前没有弄明白,弄明白我会补充~如是我就继续看下去.12345678910111213141</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/" title="谈谈开发模式MVVM" itemprop="url">
+  
+    <h1 itemprop="name">谈谈开发模式MVVM</h1>
+    
+     
+           <p itemprop="description" >如果想了解其他设计模式可以看这里:IOS开发 - 谈谈开发模式(MVC,单例,代理)为什么要用MVVM替代MVCApple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。
+很多入门开发者都有</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式(MVC,单例,代理)/" title="谈谈开发模式(MVC,单例,代理)" itemprop="url">
+  
+    <h1 itemprop="name">谈谈开发模式(MVC,单例,代理)</h1>
+    
+     
+           <p itemprop="description" >老感觉这个问题老生常谈了,不过最近公司要我去面试,谈谈我的个人看法;
+如果对MVVM有兴趣的朋友可以看这一篇:IOS开发 - 谈谈开发模式MVVM
+
+1.MVC设计模式：
+
+MVC设计模式主要有三个部分，数据模型类（model）、视图（view）、控制器（viewControll</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---说到透传消息和推送通知的区别你知道多少-/" title="到透传消息和推送通知的区别你知道多少" itemprop="url">
+  
+    <h1 itemprop="name">到透传消息和推送通知的区别你知道多少</h1>
+    
+     
+           <p itemprop="description" >缘由最近开发刚刚遇到一个问题,我想推送通知,但是不小心选中了个推这个平台,然后就巴拉巴拉了,平台IOS端设计智能是透传,不能推送通知.
+正文简单理解:
+通知推送会直接在通知栏弹出展示.
+消息透传则由应用控制.
+
+这一段是百度找的个推软文解释
+在国内，行货机子一般都不带Google</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---识别手机型号/" title="识别手机型号" itemprop="url">
+  
+    <h1 itemprop="name">识别手机型号</h1>
+    
+     
+           <p itemprop="description" >直接复制就好12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---打印自定义bug(NSAssert()NSParameterAssert)/" title="打印自定义bug(NSAssert()NSParameterAssert)" itemprop="url">
+  
+    <h1 itemprop="name">打印自定义bug(NSAssert()NSParameterAssert)</h1>
+    
+     
+           <p itemprop="description" >前言
+
+由于在程序的设计中需要打印问题,并且保持程序正常运行.
+
+
+介绍:用NSAssert()和NSParameterAssert调试程序
+
+
+NSAssert:
+NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为NSAssert()传递条件表达式来断定是否</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix unexpand">
+    <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

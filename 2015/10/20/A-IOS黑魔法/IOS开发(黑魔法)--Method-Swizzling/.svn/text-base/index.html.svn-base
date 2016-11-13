@@ -1,0 +1,697 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>IOS开发(黑魔法)--Method-Swizzling | 香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="前言-需求
+
+就拿我们公司项目来说吧，我们公司是做导航的，而且项目规模比较大，各个控制器功能都已经实现。突然有一天老大过来，说我们要在所有页面添加统计功能，也就是用户进入这个页面就统计一次。我们会想到下面的一些方法：
+
+手动添加直接简单粗暴的在每个控制器中加入统计，复制、粘贴、复制、粘贴…上面这种方法太Low了，消耗时间而且以后非常难以维护，会让后面的开发人员骂死的。
+
+继承我们可以使用OOP的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS开发(黑魔法)--Method-Swizzling">
+<meta property="og:url" content="http://www.hundredone.win/2015/10/20/A-IOS黑魔法/IOS开发(黑魔法)--Method-Swizzling/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="前言-需求
+
+就拿我们公司项目来说吧，我们公司是做导航的，而且项目规模比较大，各个控制器功能都已经实现。突然有一天老大过来，说我们要在所有页面添加统计功能，也就是用户进入这个页面就统计一次。我们会想到下面的一些方法：
+
+手动添加直接简单粗暴的在每个控制器中加入统计，复制、粘贴、复制、粘贴…上面这种方法太Low了，消耗时间而且以后非常难以维护，会让后面的开发人员骂死的。
+
+继承我们可以使用OOP的">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9ptl6dqcpj30fe09awfq.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9ptl8gt47j30fb0ee40l.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-71bd162da078ce91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T03:57:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOS开发(黑魔法)--Method-Swizzling">
+<meta name="twitter:description" content="前言-需求
+
+就拿我们公司项目来说吧，我们公司是做导航的，而且项目规模比较大，各个控制器功能都已经实现。突然有一天老大过来，说我们要在所有页面添加统计功能，也就是用户进入这个页面就统计一次。我们会想到下面的一些方法：
+
+手动添加直接简单粗暴的在每个控制器中加入统计，复制、粘贴、复制、粘贴…上面这种方法太Low了，消耗时间而且以后非常难以维护，会让后面的开发人员骂死的。
+
+继承我们可以使用OOP的">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9ptl6dqcpj30fe09awfq.jpg">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/20/A-IOS黑魔法/IOS开发(黑魔法)--Method-Swizzling/" title="IOS开发(黑魔法)--Method-Swizzling" itemprop="url">IOS开发(黑魔法)--Method-Swizzling</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished"> Published 2015-10-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#手动添加"><span class="toc-number">1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">2.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Category"><span class="toc-number">3.</span> <span class="toc-text">Category</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回到正题，我们的主角-Method-Swizzling"><span class="toc-number">4.</span> <span class="toc-text">回到正题，我们的主角 - Method Swizzling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Swizzling"><span class="toc-number">5.</span> <span class="toc-text">Method Swizzling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Swizzling原理"><span class="toc-number">6.</span> <span class="toc-text">Method Swizzling原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Swizzling使用"><span class="toc-number">7.</span> <span class="toc-text">Method Swizzling使用</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p><strong>前言-需求</strong></p>
+</blockquote>
+<p>就拿我们公司项目来说吧，我们公司是做导航的，而且项目规模比较大，各个控制器功能都已经实现。突然有一天老大过来，说我们要在所有页面添加统计功能，也就是用户进入这个页面就统计一次。我们会想到下面的一些方法：</p>
+<hr>
+<h3 id="手动添加"><a href="#手动添加" class="headerlink" title="手动添加"></a><strong>手动添加</strong></h3><p>直接简单粗暴的在每个控制器中加入统计，复制、粘贴、复制、粘贴…上面这种方法太Low了，消耗时间而且以后非常难以维护，会让后面的开发人员骂死的。</p>
+<hr>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a><strong>继承</strong></h3><p>我们可以使用OOP的特性之一，继承的方式来解决这个问题。创建一个基类，在这个基类中添加统计方法，其他类都继承自这个基类。</p>
+<p>然而，这种方式修改还是很大，而且定制性很差。以后有新人加入之后，都要嘱咐其继承自这个基类，所以这种方式并不可取。</p>
+<hr>
+<h3 id="Category"><a href="#Category" class="headerlink" title="Category"></a><strong>Category</strong></h3><p>我们可以为UIViewController建一个Category，然后在所有控制器中引入这个Category。当然我们也可以添加一个PCH文件，然后将这个Category添加到PCH文件中。</p>
+<p>我们创建一个Category来覆盖系统方法，系统会优先调用Category中的代码，然后在调用原类中的代码。</p>
+<p>我们可以通过下面的这段伪代码来看一下：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"UIViewController+EventGather.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIViewController</span> (<span class="title">EventGather</span>)</span></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">   <span class="built_in">NSLog</span>(<span class="string">@"页面统计:%@"</span>, <span class="keyword">self</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<h3 id="回到正题，我们的主角-Method-Swizzling"><a href="#回到正题，我们的主角-Method-Swizzling" class="headerlink" title="回到正题，我们的主角 - Method Swizzling"></a>回到正题，我们的主角 - Method Swizzling</h3></blockquote>
+<hr>
+<h3 id="Method-Swizzling"><a href="#Method-Swizzling" class="headerlink" title="Method Swizzling"></a><strong>Method Swizzling</strong></h3><p>我们可以使用苹果的“黑魔法”Method Swizzling，Method Swizzling本质上就是对IMP和SEL进行交换。</p>
+<hr>
+<h3 id="Method-Swizzling原理"><a href="#Method-Swizzling原理" class="headerlink" title="Method Swizzling原理"></a><strong>Method Swizzling原理</strong></h3><p>Method Swizzing是发生在运行时的，主要用于在运行时将两个Method进行交换，我们可以将Method Swizzling代码写到任何地方，但是只有在这段Method Swilzzling代码执行完毕之后互换才起作用。</p>
+<p>而且Method Swizzling也是iOS中AOP(面相切面编程)的一种实现方式，我们可以利用苹果这一特性来实现AOP编程。</p>
+<p>首先，让我们通过两张图片来了解一下Method Swizzling的实现原理</p>
+<p><img src="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9ptl6dqcpj30fe09awfq.jpg" alt="图1"></p>
+<p><img src="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9ptl8gt47j30fb0ee40l.jpg" alt="图2"></p>
+<p>上面图一中selector2原本对应着IMP2，但是为了更方便的实现特定业务需求，我们在图二中添加了selector3和IMP3，并且让selector2指向了IMP3，而selector3则指向了IMP2，这样就实现了“方法互换”。</p>
+<p>在OC语言的runtime特性中，调用一个对象的方法就是给这个对象发送消息。是通过查找接收消息对象的方法列表，从方法列表中查找对应的SEL，这个SEL对应着一个IMP(一个IMP可以对应多个SEL)，通过这个IMP找到对应的方法调用。</p>
+<p>在每个类中都有一个Dispatch Table，这个Dispatch Table本质是将类中的SEL和IMP(可以理解为函数指针)进行对应。而我们的Method Swizzling就是对这个table进行了操作，让SEL对应另一个IMP。</p>
+<hr>
+<h3 id="Method-Swizzling使用"><a href="#Method-Swizzling使用" class="headerlink" title="Method Swizzling使用"></a><strong>Method Swizzling使用</strong></h3><p>在实现Method Swizzling时，核心代码主要就是一个runtime的C语言API：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OBJC_EXPORT void method_exchangeImplementations(<span class="function"><span class="keyword">Method</span> <span class="title">m1</span>, <span class="title">Method</span> <span class="title">m2</span>) </span></div><div class="line"> __<span class="title">OSX_AVAILABLE_STARTING</span><span class="params">(__MAC_10_5, __IPHONE_2_0)</span>;</div></pre></td></tr></table></figure>
+<p><strong>实现思路</strong><br>  就拿上面我们说的页面统计的需求来说吧，这个需求在很多公司都很常见，我们下面的Demo就通过Method Swizzling简单的实现这个需求。</p>
+<p>  我们先给UIViewController添加一个Category，然后在Category中的+(void)load方法中添加Method Swizzling方法，我们用来替换的方法也写在这个Category中。由于load类方法是程序运行时这个类被加载到内存中就调用的一个方法，执行比较早，并且不需要我们手动调用。而且这个方法具有唯一性，也就是只会被调用一次，不用担心资源抢夺的问题。</p>
+<p>  定义Method Swizzling中我们自定义的方法时，需要注意尽量加前缀，以防止和其他地方命名冲突，Method Swizzling的替换方法命名一定要是唯一的，至少在被替换的类中必须是唯一的。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"UIViewController+swizzling.h"</span></span></div><div class="line"><span class="meta">#import @implementation UIViewController (swizzling)</span></div><div class="line"> </div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">    [<span class="keyword">super</span> load];</div><div class="line">    <span class="comment">// 通过class_getInstanceMethod()函数从当前对象中的method list获取method结构体，如果是类方法就使用class_getClassMethod()函数获取。</span></div><div class="line">    Method fromMethod = class_getInstanceMethod([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="keyword">@selector</span>(viewDidLoad));</div><div class="line">    Method toMethod = class_getInstanceMethod([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="keyword">@selector</span>(swizzlingViewDidLoad));</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *  我们在这里使用class_addMethod()函数对Method Swizzling做了一层验证，如果self没有实现被交换的方法，会导致失败。</div><div class="line">     *  而且self没有交换的方法实现，但是父类有这个方法，这样就会调用父类的方法，结果就不是我们想要的结果了。</div><div class="line">     *  所以我们在这里通过class_addMethod()的验证，如果self实现了这个方法，class_addMethod()函数将会返回NO，我们就可以对其进行交换了。</div><div class="line">     */</div><div class="line">    <span class="keyword">if</span> (!class_addMethod([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="keyword">@selector</span>(viewDidLoad), method_getImplementation(toMethod), method_getTypeEncoding(toMethod))) &#123;</div><div class="line">        method_exchangeImplementations(fromMethod, toMethod);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">// 我们自己实现的方法，也就是和self的viewDidLoad方法进行交换的方法。</span></div><div class="line">- (<span class="keyword">void</span>)swizzlingViewDidLoad &#123;</div><div class="line">    <span class="built_in">NSString</span> *str = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>, <span class="keyword">self</span>.class];</div><div class="line">    <span class="comment">// 我们在这里加一个判断，将系统的UIViewController的对象剔除掉</span></div><div class="line">    <span class="keyword">if</span>(![str containsString:<span class="string">@"UI"</span>])&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"统计打点 : %@"</span>, <span class="keyword">self</span>.class);</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">self</span> swizzlingViewDidLoad];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>看到上面的代码，肯定有人会问：楼主，你太粗心了，你在swizzlingViewDidLoad方法中又调用了[self swizzlingViewDidLoad];，这难道不会产生递归调用吗？<br>答：然而….并不会????。</p>
+<p>还记得我们上面的图一和图二吗？Method Swizzling的实现原理可以理解为”方法互换“。假设我们将A和B两个方法进行互换，向A方法发送消息时执行的却是B方法，向B方法发送消息时执行的是A方法。</p>
+<p>例如我们上面的代码，系统调用UIViewController的viewDidLoad方法时，实际上执行的是我们实现的swizzlingViewDidLoad方法。而我们在swizzlingViewDidLoad方法内部调用[self swizzlingViewDidLoad];时，执行的是UIViewController的viewDidLoad方法。</p>
+<hr>
+<p><strong>Method Swizzling类簇</strong></p>
+<p>之前我也说到，在我们项目开发过程中，经常因为NSArray数组越界或者NSDictionary的key或者value值为nil等问题导致的崩溃，对于这些问题苹果并不会报一个警告，而是直接崩溃，感觉苹果这样确实有点“太狠了”。</p>
+<p>由此，我们可以根据上面所学，对NSArray、NSMutableArray、NSDictionary、NSMutableDictionary等类进行Method Swizzling，实现方式还是按照上面的例子来做。但是….你发现Method Swizzling根本就不起作用，代码也没写错啊，到底是什么鬼？</p>
+<p>这是因为Method Swizzling对NSArray这些的类簇是不起作用的。因为这些类簇类，其实是一种抽象工厂的设计模式。抽象工厂内部有很多其它继承自当前类的子类，抽象工厂类会根据不同情况，创建不同的抽象对象来进行使用。例如我们调用NSArray的objectAtIndex:方法，这个类会在方法内部判断，内部创建不同抽象类进行操作。</p>
+<p>所以也就是我们对NSArray类进行操作其实只是对父类进行了操作，在NSArray内部会创建其他子类来执行操作，真正执行操作的并不是NSArray自身，所以我们应该对其“真身”进行操作。<br>下面我们实现了防止NSArray因为调用objectAtIndex:方法，取下标时数组越界导致的崩溃：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"NSArray+LXZArray.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"objc/runtime.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">LXZArray</span>)</span></div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">    [<span class="keyword">super</span> load];</div><div class="line">    Method fromMethod = class_getInstanceMethod(objc_getClass(<span class="string">"__NSArrayI"</span>), <span class="keyword">@selector</span>(objectAtIndex:));</div><div class="line">    Method toMethod = class_getInstanceMethod(objc_getClass(<span class="string">"__NSArrayI"</span>), <span class="keyword">@selector</span>(lxz_objectAtIndex:));</div><div class="line">    method_exchangeImplementations(fromMethod, toMethod);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">- (<span class="keyword">id</span>)lxz_objectAtIndex:(<span class="built_in">NSUInteger</span>)index &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.count<span class="number">-1</span> &lt; index) &#123;</div><div class="line">        <span class="comment">// 这里做一下异常处理，不然都不知道出错了。</span></div><div class="line">        <span class="keyword">@try</span> &#123;</div><div class="line">            <span class="keyword">return</span> [<span class="keyword">self</span> lxz_objectAtIndex:index];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">@catch</span> (<span class="built_in">NSException</span> *exception) &#123;</div><div class="line">            <span class="comment">// 在崩溃后会打印崩溃信息，方便我们调试。</span></div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"---------- %s Crash Because Method %s  ----------\n"</span>, class_getName(<span class="keyword">self</span>.class), __func__);</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [exception callStackSymbols]);</div><div class="line">            <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    &#125;</div><div class="line">        <span class="keyword">@finally</span> &#123;&#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> [<span class="keyword">self</span> lxz_objectAtIndex:index];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<p>大家发现了吗，__NSArrayI才是NSArray真正的类，而NSMutableArray又不一样????。我们可以通过runtime函数获取真正的类：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">objc_getClass</span><span class="params">(<span class="string">"__NSArrayI"</span>)</span></span></div></pre></td></tr></table></figure></p>
+<p>下面我们列举一些常用的类簇的“真身”:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-71bd162da078ce91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="真身"></p>
+<hr>
+<p><strong>Method Swizzling封装</strong><br>在项目中我们肯定会在很多地方用到Method Swizzling，而且在使用这个特性时有很多需要注意的地方。我们可以将Method Swizzling封装起来，也可以使用一些比较成熟的第三方。在这里我推荐Github上星最多的一个第三方－<a href="https://github.com/rentzsch/jrswizzle" target="_blank" rel="external">jrswizzle</a><br>里面核心就两个类，代码看起来非常清爽。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">#import</span> <span class="comment">@interface NSObject (JRSwizzle)</span></div><div class="line">+ (<span class="keyword">BOOL)jr_swizzleMethod:(SEL)origSel_ </span>withMethod:(<span class="keyword">SEL)altSel_ </span>error:(NSError**)error_<span class="comment">;</span></div><div class="line">+ (<span class="keyword">BOOL)jr_swizzleClassMethod:(SEL)origSel_ </span>withClassMethod:(<span class="keyword">SEL)altSel_ </span>error:(NSError**)error_<span class="comment">;</span></div><div class="line"><span class="comment">@end</span></div><div class="line"> </div><div class="line">// MethodSwizzle类</div><div class="line"><span class="symbol">#import</span> <span class="keyword">BOOL </span>ClassMethodSwizzle(Class klass, <span class="keyword">SEL </span>origSel, <span class="keyword">SEL </span>altSel)<span class="comment">;</span></div><div class="line"><span class="keyword">BOOL </span>MethodSwizzle(Class klass, <span class="keyword">SEL </span>origSel, <span class="keyword">SEL </span>altSel)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p><strong>Method Swizzling危险吗？</strong><br>既然Method Swizzling可以对这个类的Dispatch Table进行操作，操作后的结果对所有当前类及子类都会产生影响，所以有人认为Method Swizzling是一种危险的技术，用不好很容易导致一些不可预见的bug，这些bug一般都是非常难发现和调试的。这个问题可以引用<a href="http://blog.csdn.net/yiyaaixuexi" target="_blank" rel="external">念茜</a>大神的一句话：使用 Method Swizzling 编程就好比切菜时使用锋利的刀，一些人因为担心切到自己所以害怕锋利的刀具，可是事实上，使用钝刀往往更容易出事，而利刀更为安全。</p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS进阶/">iOS进阶</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS黑魔法/">iOS黑魔法</a><a href="/tags/runtime/">runtime</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2015/10/20/A-IOS黑魔法/IOS开发(黑魔法)--Method-Swizzling/" data-title="IOS开发(黑魔法)--Method-Swizzling | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/20/O-电脑知识/[IOS项目扩展阅读]---重复的就不多说了/" title="IOS项目扩展阅读">
+  <strong>上一篇：</strong><br/>
+  <span>
+  IOS项目扩展阅读</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/20/A-iosOC项目仿写/[大大OC项目仿写]-花田小憩APP仿写/"  title="OC-花田小憩APP仿写">
+ <strong>下一篇：</strong><br/> 
+ <span>OC-花田小憩APP仿写
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#手动添加"><span class="toc-number">1.</span> <span class="toc-text">手动添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">2.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Category"><span class="toc-number">3.</span> <span class="toc-text">Category</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回到正题，我们的主角-Method-Swizzling"><span class="toc-number">4.</span> <span class="toc-text">回到正题，我们的主角 - Method Swizzling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Swizzling"><span class="toc-number">5.</span> <span class="toc-text">Method Swizzling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Swizzling原理"><span class="toc-number">6.</span> <span class="toc-text">Method Swizzling原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Swizzling使用"><span class="toc-number">7.</span> <span class="toc-text">Method Swizzling使用</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

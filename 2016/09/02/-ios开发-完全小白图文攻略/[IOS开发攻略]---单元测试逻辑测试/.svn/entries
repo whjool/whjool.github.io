@@ -1,19 +1,15 @@
 10
 
 dir
-19
-svn+ssh://root@123.207.125.82/svn/hundred/hundredHexo/public/2016/09/02/-ios%E5%BC%80%E5%8F%91-%E5%AE%8C%E5%85%A8%E5%B0%8F%E7%99%BD%E5%9B%BE%E6%96%87%E6%94%BB%E7%95%A5/%5BIOS%E5%BC%80%E5%8F%91%E6%94%BB%E7%95%A5%5D---%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%80%BB%E8%BE%91%E6%B5%8B%E8%AF%95
-svn+ssh://root@123.207.125.82/svn/hundred
+3
+svn://hundred@123.207.120.92/opt/svn/hexo/Hexo/public/2016/09/02/-ios%E5%BC%80%E5%8F%91-%E5%AE%8C%E5%85%A8%E5%B0%8F%E7%99%BD%E5%9B%BE%E6%96%87%E6%94%BB%E7%95%A5/%5BIOS%E5%BC%80%E5%8F%91%E6%94%BB%E7%95%A5%5D---%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%80%BB%E8%BE%91%E6%B5%8B%E8%AF%95
+svn://hundred@123.207.120.92/opt/svn/hexo
 
 
 
-2016-11-12T10:07:07.056891Z
-17
-root
-
-
-
-
+2016-11-13T09:30:06.461880Z
+1
+hundred
 
 
 
@@ -24,39 +20,16 @@ root
 
 
 
-a92a0a22-f6e0-4ceb-a870-8b7b2b8a1912
+
+
+
+
+870b640c-bb14-4ae2-a46f-c6cd87605df1
 
 index.html
 file
+0
 
 
-
-
-2016-11-12T16:38:20.000000Z
-84e3758293e0328b49ce7f55670ef7f6
-2016-11-12T10:07:07.056891Z
-17
-root
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21274
+add
 

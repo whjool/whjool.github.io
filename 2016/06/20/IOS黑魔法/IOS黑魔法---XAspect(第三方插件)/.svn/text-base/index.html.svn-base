@@ -225,11 +225,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/11/13/完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2016/06/20/IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(使用篇)含demo/"  title="使用jspatch热更新(使用篇)含demo">
+<a href="/2016/06/20/IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(介绍篇)/"  title="使用jspatch热更新(介绍篇)">
  <strong>下一篇：</strong><br/> 
- <span>使用jspatch热更新(使用篇)含demo
+ <span>使用jspatch热更新(介绍篇)
 </span>
 </a>
 </div>

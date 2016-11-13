@@ -1,0 +1,644 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>单例应该怎么写(Swift3.0) | 香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="A.背景还是由于面试的时候问很多同仁,发现一个问题,大家对单例的书写,都只局限于dispatch_once,问题来了,现在swift3.0完全放弃了这个GCD,同仁们该整么办
+B.正文(请熟练使用struct)目录 
+
+普通创建法
+
+
+静态创建法
+struct创建法
+dispath_once创建法此方法3.0已经被废弃,仅作了解
+
+注意这里我希望大家除了使用还要会调用该对应的方法
+1.普通创建法1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单例应该怎么写(Swift3.0)">
+<meta property="og:url" content="http://www.hundredone.win/2016/04/20/B-swift/[swift3-0]---单例应该怎么写/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="A.背景还是由于面试的时候问很多同仁,发现一个问题,大家对单例的书写,都只局限于dispatch_once,问题来了,现在swift3.0完全放弃了这个GCD,同仁们该整么办
+B.正文(请熟练使用struct)目录 
+
+普通创建法
+
+
+静态创建法
+struct创建法
+dispath_once创建法此方法3.0已经被废弃,仅作了解
+
+注意这里我希望大家除了使用还要会调用该对应的方法
+1.普通创建法1">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-1f99bae849b21918.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-0d9113da42f72e23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-7df1bf5ea5136e37.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T10:53:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单例应该怎么写(Swift3.0)">
+<meta name="twitter:description" content="A.背景还是由于面试的时候问很多同仁,发现一个问题,大家对单例的书写,都只局限于dispatch_once,问题来了,现在swift3.0完全放弃了这个GCD,同仁们该整么办
+B.正文(请熟练使用struct)目录 
+
+普通创建法
+
+
+静态创建法
+struct创建法
+dispath_once创建法此方法3.0已经被废弃,仅作了解
+
+注意这里我希望大家除了使用还要会调用该对应的方法
+1.普通创建法1">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-1f99bae849b21918.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/20/B-swift/[swift3-0]---单例应该怎么写/" title="单例应该怎么写(Swift3.0)" itemprop="url">单例应该怎么写(Swift3.0)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished"> Published 2016-04-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A-背景"><span class="toc-number">1.</span> <span class="toc-text">A.背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-正文-请熟练使用struct"><span class="toc-number">2.</span> <span class="toc-text">B.正文(请熟练使用struct)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-普通创建法"><span class="toc-number">2.1.</span> <span class="toc-text">1.普通创建法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-静态创建法"><span class="toc-number">2.2.</span> <span class="toc-text">2.静态创建法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-struct创建法"><span class="toc-number">2.3.</span> <span class="toc-text">3.struct创建法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-dispath-once创建法此方法3-0已经被废弃-仅作了解"><span class="toc-number">2.4.</span> <span class="toc-text">4.dispath_once创建法此方法3.0已经被废弃,仅作了解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-总结一下-注意调用的方法-不懂可以下载demo自己试下一下"><span class="toc-number">3.</span> <span class="toc-text">C.总结一下,注意调用的方法,不懂可以下载demo自己试下一下</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="A-背景"><a href="#A-背景" class="headerlink" title="A.背景"></a>A.背景</h1><p>还是由于面试的时候问很多同仁,发现一个问题,大家对单例的书写,都只局限于dispatch_once,问题来了,现在swift3.0完全放弃了这个GCD,同仁们该整么办</p>
+<h1 id="B-正文-请熟练使用struct"><a href="#B-正文-请熟练使用struct" class="headerlink" title="B.正文(请熟练使用struct)"></a>B.正文(请熟练使用struct)</h1><p>目录 </p>
+<ol>
+<li>普通创建法</li>
+</ol>
+<ul>
+<li>静态创建法</li>
+<li>struct创建法</li>
+<li><del>dispath_once创建法</del><code>此方法3.0已经被废弃,仅作了解</code></li>
+</ul>
+<p>注意这里我希望大家除了使用还要会调用该对应的方法</p>
+<h2 id="1-普通创建法"><a href="#1-普通创建法" class="headerlink" title="1.普通创建法"></a><strong>1.普通创建法</strong></h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//MARK - : 单例:方法1</span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">let</span> shareSingleOne = Single()</div></pre></td></tr></table></figure>
+<h2 id="2-静态创建法"><a href="#2-静态创建法" class="headerlink" title="2.静态创建法"></a><strong>2.静态创建法</strong></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">let single = Single()</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span>: <span class="type">NSObject &#123;</span></span></div><div class="line">   <span class="comment">//-MARK: 单例:方法2</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">sharedInstance2</span> : <span class="type">Single &#123;</span></span></div><div class="line">            <span class="keyword">return</span> single</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-struct创建法"><a href="#3-struct创建法" class="headerlink" title="3.struct创建法"></a><strong>3.struct创建法</strong></h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    //-MARK: 单例:方法3</div><div class="line">   <span class="keyword"> static</span> var shareInstance3:Single&#123;</div><div class="line">        struct MyStatic&#123;</div><div class="line">           <span class="keyword"> static</span> var<span class="built_in"> instance </span>:Single = Single()</div><div class="line">        &#125;</div><div class="line">       <span class="built_in"> return </span>MyStatic.instance;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="4-dispath-once创建法此方法3-0已经被废弃-仅作了解"><a href="#4-dispath-once创建法此方法3-0已经被废弃-仅作了解" class="headerlink" title="4.dispath_once创建法此方法3.0已经被废弃,仅作了解"></a><del><strong>4.dispath_once创建法</strong></del><code>此方法3.0已经被废弃,仅作了解</code></h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    // <span class="type">MARK</span>:单例方法<span class="number">4</span>:用线程 此方法swift <span class="number">3.0</span>已经弃用了,请使用第一种方法</div><div class="line">/*</div><div class="line"><span class="class">    <span class="keyword">class</span> func shareSingle()-&gt;  <span class="type">Single</span> &#123;</span></div><div class="line">        struct singleTon&#123;</div><div class="line">            //一次</div><div class="line">            static var onceToken : dispatch_once_t = 0</div><div class="line">            static var <span class="keyword">instance</span>: <span class="type">Single</span>? = nil</div><div class="line">        &#125;</div><div class="line">         dispatch_once(&amp;<span class="type">Static</span>.<span class="title">onceToken</span>) &#123;</div><div class="line">         <span class="type">Static</span>.<span class="keyword">instance</span> = <span class="type">Single</span>()</div><div class="line">         &#125;</div><div class="line">         return <span class="type">Static</span>.<span class="keyword">instance</span>!</div><div class="line">    &#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h1 id="C-总结一下-注意调用的方法-不懂可以下载demo自己试下一下"><a href="#C-总结一下-注意调用的方法-不懂可以下载demo自己试下一下" class="headerlink" title="C.总结一下,注意调用的方法,不懂可以下载demo自己试下一下"></a>C.总结一下,注意调用的方法,不懂可以下载<a href="https://github.com/OneHundredSir/SwiftDemo/tree/master/BaseDemo/SwiftSinpleDemo" target="_blank" rel="external">demo</a>自己试下一下</h1><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-1f99bae849b21918.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单例定义"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-0d9113da42f72e23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单例实现"></p>
+<blockquote>
+<p>实例演示</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-7df1bf5ea5136e37.gif?imageMogr2/auto-orient/strip" alt="实现单例"></p>
+<blockquote>
+<p>本文用到的<a href="https://github.com/OneHundredSir/SwiftDemo/tree/master/BaseDemo/SwiftSinpleDemo" target="_blank" rel="external">demo下载地址</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>如何对我写的技术文章满意,下方给我点个<code>喜欢呗</code><br>你的<strong>点赞</strong>是我前进的动力,如果想一起利用碎片时间,欢迎关注我的技术公众号<br>大家有任何问题，可以评论给我~如果写的不错，希望大家可以关注我。感谢。</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/swift/">swift</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/swift基础/">swift基础</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/04/20/B-swift/[swift3-0]---单例应该怎么写/" data-title="单例应该怎么写(Swift3.0) | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/20/A-OC的碎碎念/[IOS直播一]---iOS中集成ijkplayer框架/" title="iOS中集成ijkplayer框架">
+  <strong>上一篇：</strong><br/>
+  <span>
+  iOS中集成ijkplayer框架</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---当类扩展遇到runtime属性添加不再是难事/"  title="当类扩展遇到runtime属性添加不再是难事">
+ <strong>下一篇：</strong><br/> 
+ <span>当类扩展遇到runtime属性添加不再是难事
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A-背景"><span class="toc-number">1.</span> <span class="toc-text">A.背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-正文-请熟练使用struct"><span class="toc-number">2.</span> <span class="toc-text">B.正文(请熟练使用struct)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-普通创建法"><span class="toc-number">2.1.</span> <span class="toc-text">1.普通创建法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-静态创建法"><span class="toc-number">2.2.</span> <span class="toc-text">2.静态创建法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-struct创建法"><span class="toc-number">2.3.</span> <span class="toc-text">3.struct创建法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-dispath-once创建法此方法3-0已经被废弃-仅作了解"><span class="toc-number">2.4.</span> <span class="toc-text">4.dispath_once创建法此方法3.0已经被废弃,仅作了解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-总结一下-注意调用的方法-不懂可以下载demo自己试下一下"><span class="toc-number">3.</span> <span class="toc-text">C.总结一下,注意调用的方法,不懂可以下载demo自己试下一下</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -1,1232 +1,581 @@
-<!doctype html>
 
-
-
-  
-
-
-<html class="theme-next pisces use-motion">
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="UTF-8">
   
-  
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
+    <title>香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
+    <meta name="author" content="Hundred Wang">
     
-  
 
-  
-
-  
-
-  
-
-  
-
-  
     
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="香蕉大大的家">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="香蕉大大的家">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/page/3/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉大大的家">
+<meta name="twitter:title" content="香蕉的个人博客">
 
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
-
-
-
-
-  <link rel="canonical" href="http://yoursite.com/page/3/"/>
-
-  <title> 香蕉大大的家 </title>
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">香蕉大大的家</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">就只想简简单单的和你分享一下我的学习之路~QQ群""</p>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
 </div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
     </header>
+    <div id="container">
+      <div id="main">
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]---制作自己的cocopods/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-      
+     
+           <p itemprop="description" >如果对框架还不会制作的可以参考我这一篇文章
 
-  
-  
+参考:参考
+详细的参考
 
-  
-  
-  
+OK来我们的今天的主题
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+1234567891011121314举例:WHDcolorSDK.podspec先查询一下 git statusgit add WHDcolorSDK.podspecgit com</p>
+        
     
-      <header class="post-header">
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+  </a>
+</section>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
 
-          
 
-          
-            
-          
 
-          
 
-          
-          
-
-          
-        </div>
-      </header>
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]---xcode8兼容IOS7/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+     
+           <p itemprop="description" >deviceSupport链接:github
+参考文章
+如果修改不了1234567891011以上git的文件请放到这里/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSup</p>
         
-          
-            <p><a href="https://dev.getui.com/dos4.0/index.html#app/70368744265114/custom-push" target="_blank" rel="external">个推</a> <strong>这个只能消息透传</strong><br>个推封装参考文章:<a href="http://www.cnblogs.com/wujy/archive/2016/07/07/5651089.html" target="_blank" rel="external">个推封装</a><br>文档阅读:<a href="http://docs.getui.com/mobile/ios/xcode/" target="_blank" rel="external">文档阅读 </a></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-30d641c29d4bb5e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>注意点:(封装和调用的时候都要注意在runtime时候的一些调用)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">如果，第三库中没有 category，Other Linker Flags 无需设置</div><div class="line">如果，第三方库中有 category，需要设置为 -ObjC</div><div class="line">如果，某些 Xcode 版本中，出现问题，修改设置为 -all_load</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
-      
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+  </a>
+</section>
+
+
+
+
+
 
   
+<section class="post" itemscope itemprop="blogitem">
   
-
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]---XCode更新后多了很多调试语句/" title="" itemprop="url">
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+    <h1 itemprop="name"></h1>
     
-      <header class="post-header">
+     
+           <p itemprop="description" >1.common+/ 不能注释了这个是因为苹果解决xcode ghost。把插件屏蔽了。解决方法命令运行：  sudo /usr/libexec/xpccachectl然后必须重启电脑后生效
+2.出现崩溃报错日志更新到Xcode8以后，发现打印了许多网络相关的日志：
 
+12345</p>
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
     
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+  </a>
+</section>
 
 
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>github，大家都知道大名顶顶的源代码分享工具</p>
-<p>具体网站在这里：<a href="https://github.com/" target="_blank" rel="external">github首页</a><br>注册登陆我就不说了，大家看客自己进行就OK了，我现在主要介绍一下常用的两种上传方式<br>如果需要我录制视频的话可以给我留言～有空我会顺便把视频录制好传上来</p>
-<hr>
-<blockquote>
-<p>1、使用GIT客户端进行上传<a href="https://desktop.github.com/" target="_blank" rel="external">下载地址</a></p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-b5c87e259d3a993c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gitdesktop客户端"></p>
-<p><strong>A、把本地的文件夹拖进去客户端</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">特别注意这里的文件必须是根文件夹，不然会出现奇怪的错误，</div><div class="line">反正我没解决好就这样先吧，就是根目录，可以看到子project文件</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-f6d6aa7805d52313.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="拖拽文件的类型"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-3cd28a0a430e85ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="拖拽"></p>
-<p><strong>B、同步到云端，并且创建一个仓库，这个过程中如果没有登陆github的话会弹出窗口让你登陆的</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-b1446da138322d9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建仓库"></p>
-<p><strong>C、上传的云端(github)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">上传过程中要记得summary一定要填写，接下来commit就可以了。</div><div class="line">下面简单用动态图展示，如果遇到动态图的那个提示可以在这一步换</div><div class="line">xcode或者代码进行上传就OK了</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-1f0492f494d31c3b.gif?imageMogr2/auto-orient/strip" alt="上传操作过程.gif"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-4ae7d4a0ace4d171.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上传等待过程：文件正在传输，这个根据自己网络，反正40M我传了一个下午"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-741852c6a724284c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上传完毕状态：上传成功的状态"></p>
-<hr>
-<blockquote>
-<p>2、使用终端直接进行上传</p>
-</blockquote>
-<p><strong>A、可以利用第一步创建仓库也可以自己创建仓库，我这个是利用第一种方法创建了仓库，不懂代码直接去里面找要输入终端的信息</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-686d48d431215d66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打开仓库"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-8f9de1f1e02a92fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="github上传的源码"></p>
-<p>两个的基本思路都是先删除现在文件有的git文件，然后再重新创建一个新的git文件再上传，避免你的文件之前上传过别的git<br><strong><em>用命令行新建一个仓库</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">echo &quot;# -FrameWorkShow&quot; &gt;&gt; README.md</div><div class="line">git init</div><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git remote add origin https://github.com/OneHundredSir/-FrameWorkShow.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
-<p><strong><em>现有仓库的直接上传文件(push)</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/OneHundredSir/-FrameWorkShow.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
-<p><strong>B、打开要上传的文件夹直接用终端上传就好了</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-8b1f72102d83b551.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="根据上面的仓库输入，自己按照自己的上传别弄成我的地址"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-6b86c248003c1962.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上传成功"></p>
-<blockquote>
-<p>问题汇总</p>
-</blockquote>
-<p><strong>创建分支出现问题(没有把文件放在根目录再想办法解决)</strong><br>出现问题如图<br><img src="http://upload-images.jianshu.io/upload_images/1730495-7af47e1b6ed2996b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Reference &#39;refs/heads/master&#39; not found (-9)"></p>
-<p>有兴趣学习如何封装framework的可以看我这篇文档<br>，这里上传的就是我封装的一个framework的demo<br><a href="http://www.jianshu.com/p/05f078815510" target="_blank" rel="external">[大大IOS完全小白图文攻略] - Xcode7 FrameWork的创建]</a></p>
-<blockquote>
-<p>作者信息</p>
-</blockquote>
-<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">具体信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">QQ/微信</td>
-<td style="text-align:center">hundreda</td>
-</tr>
-<tr>
-<td style="text-align:center">简书号连接</td>
-<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
-</tr>
-<tr>
-<td style="text-align:center">GitHub个人开源主页</td>
-<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
-</tr>
-<tr>
-<td style="text-align:center">好心人赏我个<code>赞</code></td>
-<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
-</tr>
-<tr>
-<td style="text-align:center">个人iOS开发QQ讨论群</td>
-<td style="text-align:center"><strong>365204530</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>群内规矩</code></td>
-<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
-</tr>
-<tr>
-<td style="text-align:center">iOS开发类微信订阅号</td>
-<td style="text-align:center"><strong>大大家的IOS说</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
-<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～和我一样屌丝的朋友希望能给我点歌赞～需要我录制视频的请直接给我糖.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 
 
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/11/13/A-完全小白图文攻略/WHDkit/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+     
+           <p itemprop="description" >cocopodsWHDkit工具包介绍
+引言有时候我们可能会需要一个取色器，例如我的蓝牙灯项目，让用户从一个取色器中随意取色：
+那么如何从一个图片中取色呢？Google一下就有答案Simple way to read pixel color values from an PNG </p>
+        
     
-      <header class="post-header">
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+  </a>
+</section>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
 
-          
 
-          
-            
-          
 
-          
 
-          
-          
-
-          
-        </div>
-      </header>
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/11/13/G-游戏文档/[IOS开发]---OpenAL介绍/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+     
+           <p itemprop="description" >##&amp;gt;前言今天我只讨论不到30秒的音频以及音效和短循环音。在iPhone上播放的音频需要正确的格式（或者说audio toolbox可以处理的多种音频格式中的一种，但如果你从正确的格式声音开始，iPhone在播放时就不需要进行处理了）。
+所以，打开你的命令行终端输入：1/u</p>
         
-          
-            <p>安装过程，注意#只是注释不放在终端(如果大家不知道哪个是终端金可以百度，我截图就是啦～)</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-4a53dc61edf5c192.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是终端"></p>
-<hr>
-<p>#开始我们的IJK奇妙之旅吧</p>
-<blockquote>
-<p>安装 注意错误的地方我会尽可能的截图，若有不好的地方请指出</p>
-</blockquote>
-<p>##1、介绍环境<br>首先是安装必要的工具homebrew：MAC OSX上必备的软件包管理工具，有了它之后可以很方便的安装开发套件，首先我们打开命令终端输入以下命令安装homebrew：<br>具体指令如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
-<p>待安装完毕后使用以下命令分别安装git和yasm：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install gitbrew install yasm</div></pre></td></tr></table></figure></p>
-<p>因为我之前都已经安装过了，所以在这里做一个版本检查：<strong>图片</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-ca87dba8fd77afec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是安装完存在版本的提示"></p>
-<hr>
-<p>##2.下载ijkplayer<br>1.首先我们在当前用户的目录下创建一个文件夹用于后面存放ijkplayer项目，打开终端输入：<strong>(“//“只是注释，复制不要一起复制！)</strong><br>这里的showcase随意就好，只是文件夹名称就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//创建showcase目录</div><div class="line">mkdir ~/showcase</div><div class="line">//进入该目录中</div><div class="line">cd ~/showcase</div></pre></td></tr></table></figure></p>
-<p>2.接着我们需要将ijkplayer项目克隆到本地，在终端中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//克隆项目</div><div class="line">git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-ios</div><div class="line">//进入ijkplayer-ioscd </div><div class="line">ijkplayer-ios</div><div class="line">//切换分支git</div><div class="line"> checkout -B latest k0.5.1</div><div class="line">//查看</div><div class="line">ls</div></pre></td></tr></table></figure></p>
-<p>3.真实效果如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-18b320f678aeacfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图文解析"></p>
-<hr>
-<p>##3、下载ffmpeg并编译<br>1.首先我们需要下载ffmpeg，<strong>接着上面的目录</strong>在终端中输入：<strong>（注意是接着上面的目录，不是别的目录！）</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//下载ffmpeg和相关脚本</div><div class="line">./init-ios.sh</div></pre></td></tr></table></figure></p>
-<p>因为ffmpeg比较大，再加上访问国外线路比较慢，遇到下载失败需要多试几次，如果有代理建议上代理(proxychains可以试试，灯的话看个人网络情况)，<br>下载失败如下：<strong>(这个只是本人目前遇到的失败情况不能代表都会出现这样的下载错误提示，后面有成功的截图)</strong><br><img src="http://upload-images.jianshu.io/upload_images/1730495-8e581e8d1814c433.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是下载终端显示失败的截图"></p>
-<p>真实效果如下：（主要armv7、arm64、i386、x86_64框架下载好，看下图就明白了）整整花了几个小时，需要留意中间有没有出错，否则影响后面流程。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-97beda00d16d22b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下载成功的提示"></p>
-<p>2.编译ffmpeg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//进入ios目录</div><div class="line">cd ios</div><div class="line">//clean</div><div class="line">./compile-ffmpeg.sh clean</div><div class="line">//编译</div><div class="line">./compile-ffmpeg.sh all</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-023352220e89db9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译实现图"></p>
-<p>编译环节比较久，估计15分钟，中间偶尔会报警告，只要不是错误，无视即可。目前没试过错误，但是网上有别的朋友碰到就直接截图过来<br><strong>（如果有朋友出现错误请及时给我邮箱发一下图片我增加说明，还有错误的话有可能是下载的问题，或者上面”2.编译ffmpeg“没弄好，重来就好，具体问题具体分析，文章后面会附上我的邮箱和微信）</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-f22475063e14e775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译中出现warning"><br>正确编译的效果：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-886fce8356d427ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正确编译结果"><br>前面几步是新手最容易遇到错误的环节（其实大部分还是网络问题，你懂的），成功走到这步后就简单多了，终于搞定，内牛满面～</p>
-<hr>
-<p>##回到正题，热身运动，从Demo入手</p>
-<p>1.ijkplayer给我们提供了一个学习用的demo，它就是IJKMediaDemo。首先我们先找到IJKMediaDemo，并打开它：</p>
-<p>2.运行Demo<br>只要前面的流程没报错，这里编译运行都不会出现问题：<br>我们在Online Samples中选择一个m3u8测试ijkplayer是否运行正常。<br>不过有些公司会封锁在线播放视频行为，可能出现无法播放的情况，比如我司(- -||)，我们可以使用本地视频来解决这个问题，后面讲解代码的时候会提到。</p>
-<p>大家还记得官网上的这句话吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># import ios/IJKMediaPlayer for MediaPlayer.framework-like interface (recommended)</div></pre></td></tr></table></figure></p>
-<p>将IJKMediaPlayer集成进项目中当framework一样调暴露的接口用，看下面画红圈处：<br>个人简单解说:</p>
-<p>以下是简单的调用这些接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>这个下载的地址<br>[github下载地址][A:<a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">https://github.com/Bilibili/ijkplayer</a>]<br>下载后，打开出现以下问题:(如图)</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-a4df8209818ef05c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译出错"></p>
-<p>解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">选中工程-&gt;搜索Header Search path-&gt;添加如下：</div><div class="line">$(PROJECT_DIR)/你的工程名/头文件目录XXX</div><div class="line"></div><div class="line">原文件地址：</div><div class="line">$(inherited) ../build/universal/include IJKMediaPlayer/ijkmedia ../../ijkmedia </div><div class="line"></div><div class="line">我的改成了：</div><div class="line">$(PROJECT_DIR)/IJKMediaPlayer/</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>作者信息</p>
-</blockquote>
-<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">具体信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">QQ/微信</td>
-<td style="text-align:center">hundreda</td>
-</tr>
-<tr>
-<td style="text-align:center">简书号连接</td>
-<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
-</tr>
-<tr>
-<td style="text-align:center">GitHub个人开源主页</td>
-<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
-</tr>
-<tr>
-<td style="text-align:center">好心人赏我个<code>赞</code></td>
-<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
-</tr>
-<tr>
-<td style="text-align:center">个人iOS开发QQ讨论群</td>
-<td style="text-align:center"><strong>365204530</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>群内规矩</code></td>
-<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
-</tr>
-<tr>
-<td style="text-align:center">iOS开发类微信订阅号</td>
-<td style="text-align:center"><strong>大大家的IOS说</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
-<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
-      
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+  </a>
+</section>
+
+
+
+
+
 
   
+<section class="post" itemscope itemprop="blogitem">
   
-
+    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]将WIN下VS编译的工程转到IOS中整理/" title="将WIN下VS编译的工程转到IOS中整理" itemprop="url">
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+    <h1 itemprop="name">将WIN下VS编译的工程转到IOS中整理</h1>
     
-      <header class="post-header">
+     
+           <p itemprop="description" >主要就是把以下几个文件进行替换~前提保证项目正常的运行!
 
+把证书添加到捕鱼中,如图,不然真机跑步了
+
+
+遇到的问题,简单理解coco2dx装IOS的话用的是MRC,所以如果导入库是ARC的话很麻烦,目前没有解决混合用的方法
+
+由于#include &amp;lt;jni.h&amp;gt;是安</p>
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/-ios开发-完全小白图文攻略/[IOS提交版本]---遇到的各种坑汇总/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
     
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
 
 
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>有广告不过</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-277b58c83f34f1e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="广告不过问题"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">此问题为必答项。</div><div class="line">您的 App 正在使用广告标识符 (IDFA)。您必须先提供关于 IDFA 的使用信息或将其从 App 中移除，然后再上传您的二进制文件。</div><div class="line">&gt;IDFA(identifier for advertising)是苹果推出的一项广告解决方案, 在此方案推出之前, 苹果是通过设备唯一的UDID来识别客户,UDID类似身份证会记录设备的名称、类型、甚至一些个人信息.</div><div class="line">由于使用UDID这种方案会涉及到用户的一些隐私信息,所以苹果在iOS6之后推出了IDFA(identifier for advertising)方案,IDFA好处在于不会记录客户个人信息,而且不是永久性的.</div><div class="line">此方案用于辨别用户的身份,使广告商能够推送定向广告,个人理解为你在京东淘宝经常搜索电子产品等,你经常搜索小电影,他就给你推送大波妹之类的.当然实现方案很复杂,就不猜测了.</div></pre></td></tr></table></figure>
-<p>解决方案:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.更新最新的Xcode,自己这个问题不能</div><div class="line">2.由于之前第三方导入了苹果的AdSupport.framwork,但是我的问题还是没有解决</div></pre></td></tr></table></figure></p>
-<p>扩展阅读</p>
-<ul>
-<li><a href="http://www.superqq.com/blog/2015/11/13/ios-submit-using-idfa/" target="_blank" rel="external">您的App 正在使用广告标识符 (IDFA)</a></li>
-<li><a href="http://www.cocoachina.com/bbs/read.php?tid=183900" target="_blank" rel="external">友盟解决方案</a></li>
-<li><a href="http://bbs.mob.com/thread-20051-1-1.html" target="_blank" rel="external">ShareSDK解决方案</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 
 
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/25/G-游戏文档/[IOS入门]-Xcode如何增加语法高亮(通用)/" title="Xcode如何增加语法高亮(通用)" itemprop="url">
+  
+    <h1 itemprop="name">Xcode如何增加语法高亮(通用)</h1>
     
-      
+     
+           <p itemprop="description" >需求
 
-  
-  
+最近刚好要用lua开发,然后就去找了一下怎么改成lua,所以本例子就以lua为例子,其他语法也是一样的.
 
-  
-  
-  
+正文
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+最新的Xcode7依然没有支持源代码的Lua语法着色，Xcode让lua高亮的方法：打开路径直接按住键盘cmd + shift +G复制粘贴以下链接1/Ap</p>
+        
     
-      <header class="post-header">
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/-ios开发-完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
 
-          
 
-          
-            
-          
 
-          
 
-          
-          
-
-          
-        </div>
-      </header>
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]WIN下游戏迁移到IOS上资源找不到/" title="WIN下游戏迁移到IOS上资源找不到" itemprop="url">
+  
+    <h1 itemprop="name">WIN下游戏迁移到IOS上资源找不到</h1>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+     
+           <p itemprop="description" >之前一直都是在win32平台来开发cocos2d-x的项目，今天有时间把实验室的mac搭建一下cocos2d-x的开发环境。最新的macos系统集成了python、java、Xcode等开发环境，基本上不需要下载，只要下载一下android的ndk、sdk和ant。整个过程还是蛮</p>
         
-          
-            <p>更新时间:2016-8-20</p>
-<hr>
-<blockquote>
-<p>如果不知道库是什么的朋友看看这篇文章:<a href="http://www.cnblogs.com/richard-youth/p/4856841.html" target="_blank" rel="external">静态库</a></p>
-<p>###前言<br>之前有很多的大神们已经写过framework的制作，但最近由于Xcode7的出现，很多之前的教程内容已经不符，对于初学者来说，找到一篇能够直接明了，简单易学的制作framework的文章比较困难。本文将基于Xcode7创建一个简单的工程，通过两种方法来教大家如何制作一个自己的framework。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>###简介脑补基础<br>Mac OS X扩展了framework的功能，让我们能够利用它来共享代码和资源。通过framework我们可以共享所有形式的资源，如动态共享库，nib文件，图像字符资源以及文档等。<br>系统会在需要的时候将framework载入内存中，多个应用程序可以同时使用同一个framework。这种方法可以使得你的代码易分享，在多个工程中复用，并且可以隐藏实现细节，控制公开的头文件。</p>
-</blockquote>
-<p><strong>一、什么是库？</strong><br>库是共享程序代码的方式，一般分为静态库和动态库。<br><strong>二、静态库与动态库的区别？</strong><br>静态库：链接时完整地拷贝至可执行文件中，被多次使用就有多份冗余拷贝。<br>动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。<br><strong>三、iOS里静态库形式？</strong><br>.a和.framework<br><strong>四、iOS里动态库形式？</strong><br>.dylib和.framework<br><strong>五、framework为什么既是静态库又是动态库？</strong><br>系统的.framework是动态库，我们自己建立的.framework是静态库。<br><strong>六、a与.framework有什么区别？</strong><br>.a是一个纯二进制文件，.framework中除了有二进制文件之外还有资源文件。<br>.a文件不能直接使用，至少要有.h文件配合，.framework文件可以直接使用。<br>.a + .h + sourceFile = .framework。<br>建议用.framework.<br><strong>七、为什么要使用静态库？</strong><br>方便共享代码，便于合理使用。<br>实现iOS程序的模块化。可以把固定的业务模块化成静态库。<br>和别人分享你的代码库，但不想让别人看到你代码的实现。<br>开发第三方sdk的需要。<br><strong>八、制作静态库时的几点注意：</strong><br>1 注意理解：无论是.a静态库还.framework静态库，我们需要的都是二进制文件+.h+其它资源文件的形式，不同的是，.a本身就是二进制文件，需要我们自己配上.h和其它文件才能使用，而.framework本身已经包含了.h和其它文件，可以直接使用。<br>2 图片资源的处理：两种静态库，一般都是把图片文件单独的放在一个.bundle文件中，一般.bundle的名字和.a或.framework的名字相同。.bundle文件很好弄，新建一个文件夹，把它改名为.bundle就可以了，右键，显示包内容可以向其中添加图片资源。<br>3 category是我们实际开发项目中经常用到的，把category打成静态库是没有问题的，但是在用这个静态库的工程中，调用category中的方法时会有找不到该方法的运行时错误（selector not recognized），解决办法是：在使用静态库的工程中配置other linker flags的值为-ObjC。<br>4 如果一个静态库很复杂，需要暴露的.h比较多的话，就可以在静态库的内部创建一个.h文件（一般这个.h文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h文件都集中放在这个.h文件中，而那些原本需要暴露的.h都不需要再暴露了，只需要把.h暴露出来就可以了。</p>
-<hr>
-<blockquote>
-<p>###制作流程</p>
-<p>创建一个frameWork的新工程</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-8a66eb6e88fdb0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建Cocoa Touch Framework新工程"></p>
-<blockquote>
-<p>1、在这个工程上，创建一个类,”saySomeThing”</p>
-</blockquote>
-<p>（懒人可以用command+option+↑/↓切换.h或者.m）<br>saySomeThing.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"> @interface saySomeThing : NSObject </div><div class="line"></div><div class="line">-(void)sayHello; </div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<p>saySomeThing.m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &quot;saySomeThing.h&quot;</div><div class="line"> @implementation saySomeThing </div><div class="line">-(void)sayHello </div><div class="line">&#123;</div><div class="line"> NSLog(@&quot;这是我的微信：whundred,有兴趣一起实现分享知识的一起学习交流&quot;); </div><div class="line">&#125;</div><div class="line"> @end</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-9e48780d109b70ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建一个叫saySomething类继承NSObject"></p>
-<hr>
-<blockquote>
-<p>2、配置</p>
-</blockquote>
-<p>A、配置target的文件<br><img src="http://upload-images.jianshu.io/upload_images/1730495-0e52fcbc3752b6c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这次教程的配置"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-ee42d7f46ad95917.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选项部分,具体可以根据自己需求选Mach-O type"></p>
-<p>B、配置在Architectures下增加armv7s，并选中。将Build Active Architecture Only 设置为NO。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-975488a03d51028c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加armv7s"></p>
-<hr>
-<p>C、设置Headers<br>将你要公开的头文件移动到Public下，要隐藏的放在Private或者Project下，当然，隐藏的头文件就无法再被引用。和类的属性一致，比较简单的理解</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-7ef9a5087b762673.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加头方法"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-4210e0e51e9c39ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终demo的头状态"></p>
-<p>然后需要在helloHundred.h（必须是公开的，否则无法引用）中将你所有要公开的.h引入。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-aa79ed50be11882b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="helloHundred.h中添加saySomeThing.h"></p>
-<hr>
-<blockquote>
-<p>3.恭喜你，离成功不远了，打包framework</p>
-</blockquote>
-<p>先来科普一下</p>
-<blockquote>
-<p>因为我们需要制作的是静态库，并且苹果不让包含有自己制作的动态库的项目上线，所以需要我们自己手动设置为静态库。</p>
-</blockquote>
-<p>静态库简介：</p>
-<blockquote>
-<p>在企业开发中，一些核心技术或者常用框架，出于安全性和稳定性的考虑，不想被外界知道，所以会把核心代码打包成静态库，只暴露头文件给程序员使用（比如：友盟、百度地图等第三方的sdk）</p>
-</blockquote>
-<p>存在形式</p>
-<blockquote>
-<p>静态库：.a 和 .framework<br>动态库：.dylib 和 .framework</p>
-</blockquote>
-<p>区别：</p>
-<blockquote>
-<p>静态库：链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝<br>动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存</p>
-</blockquote>
-<p>版本：</p>
-<blockquote>
-<p>真机-Debug版本<br>真机-Release版本<br>模拟器-Debug版本<br>模拟器-Release版本</p>
-</blockquote>
-<p>Debug(调试)版本</p>
-<blockquote>
-<p>1.含完整的符号信息，以方便调试<br>2.不会对代码进行优化</p>
-</blockquote>
-<p>Release(发布)版本</p>
-<blockquote>
-<p>1.不会包含完整的符号信息<br>2.的执行代码是进行过优化的<br>3.的大小会比Debug版本的略小<br>4.在执行速度方面，Release版本会更快些（但不意味着会有显著的提升）</p>
-</blockquote>
-<hr>
-<p>####创建方法一<br><em>1.选中模拟器，编译程序</em><br><em>2.选中测试机，编译程序</em><br><em>3.在finder中找到framework文件</em> <strong>(确保前两步都成功！)</strong>准备合并</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-c32ce787b3446a39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打开文件夹"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-93f21ae6a707867a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这是真机和调试的文件"></p>
-<p>合并<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1、打开终端，输入cd，然后把products文件拖进终端，enter</div><div class="line">2、这里我为了可以看分成了4段</div><div class="line">lipo -create </div><div class="line">/Users/huanghuiqun/Library/Developer/Xcode/DerivedData/helloHundred-hjhmghxpoacbrbdttgjgytnfgcov/Build/Products/Debug-iphoneos/helloHundred.framework/helloHundred </div><div class="line">/Users/huanghuiqun/Library/Developer/Xcode/DerivedData/helloHundred-hjhmghxpoacbrbdttgjgytnfgcov/Build/Products/Debug-iphonesimulator/helloHundred.framework/helloHundred </div><div class="line">-output helloHundred</div><div class="line">MacBook-Pro:Desktop huanghuiqun$ </div><div class="line">3、在Products目录下生成了MyTestFramework文件，然后分别到真机和模拟器的版本下替换掉。</div></pre></td></tr></table></figure></p>
-<p>特别说明一下:</p>
-<p>######<strong>合并的命令说明：</strong></p>
-<p>######<strong><strong>lipo -create 文件1的路径 文件2的路径 -output 合并之后的文件路径（没有表示在当前目录下） 合并之后的文件名称</strong></strong></p>
-<p>######每一个参数之间都应该至少留出一个空格**</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-a4d3ee3bdb223f83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图示部分"></p>
-<p>最后只要吧编译出来的放回去原来的调试和真机中就可以了，替换掉就完事，开开心心把库拿去用吧～记得去library导入库!s</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-05bba97878fe7ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<hr>
-<p>#####注意方法1中出现编译时候的问题<br>这里出现一个问题，可以参考以下文献这是问题：<br>解决方法：<a href="http://www.th7.cn/Program/IOS/201503/406525.shtml" target="_blank" rel="external">参考文章，我这里用了第4个方法</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">** Build settings-&gt;Linking-&gt;Other Linker Flags将此属性修改成-all_load  或者 -ObjC **</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-94a254488eecb8cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="错误提示:Needed to perform lazy binding to function _NSLog for architecture i386"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-be210e8b5476091a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示范操作"></p>
-<hr>
-<p>###使用自己弄的FrameWork<br>1、导入库(不懂的朋友可以百度，我给大家献上一张图，库记得放在工程文件内才导入哈)</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-e3517bd4c58cfe6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件目录"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-5c58887fabacec75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加框架"></p>
-<p>2、导入库头文件，直接调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line">#import &lt;showTest/showTest.h&gt;</div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">&#125;</div><div class="line">- (IBAction)show:(id)sender</div><div class="line">&#123;</div><div class="line">    [[myExample new] saySome];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-e01d006eb524daea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="调试成功"><br>这个是第一种创建方法的demo:<a href="https://github.com/OneHundredSir/-FrameWorkShow" target="_blank" rel="external">githubDemo</a></p>
-<blockquote>
-<p>方法二用target创建</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-9cfe92348a5ec12b.gif?imageMogr2/auto-orient/strip" alt="用target创建FrameWork"></p>
-<p>脚本如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"># Sets the target folders and the final framework product.</div><div class="line">FMK_NAME=$&#123;PROJECT_NAME&#125;</div><div class="line"></div><div class="line"># Install dir will be the final output to the framework.</div><div class="line"># The following line create it in the root folder of the current project.</div><div class="line">INSTALL_DIR=$&#123;SRCROOT&#125;/Products/$&#123;FMK_NAME&#125;.framework</div><div class="line"></div><div class="line"># Working dir will be deleted after the framework creation.</div><div class="line">WRK_DIR=build</div><div class="line">DEVICE_DIR=$&#123;WRK_DIR&#125;/Release-iphoneos/$&#123;FMK_NAME&#125;.framework</div><div class="line">SIMULATOR_DIR=$&#123;WRK_DIR&#125;/Release-iphonesimulator/$&#123;FMK_NAME&#125;.framework</div><div class="line"></div><div class="line"># -configuration $&#123;CONFIGURATION&#125;</div><div class="line"># Clean and Building both architectures.</div><div class="line">xcodebuild -configuration &quot;Release&quot; -target &quot;$&#123;FMK_NAME&#125;&quot; -sdk iphoneos clean build</div><div class="line">xcodebuild -configuration &quot;Release&quot; -target &quot;$&#123;FMK_NAME&#125;&quot; -sdk iphonesimulator clean build</div><div class="line"></div><div class="line"># Cleaning the oldest.</div><div class="line">if [ -d &quot;$&#123;INSTALL_DIR&#125;&quot; ]</div><div class="line">then</div><div class="line">rm -rf &quot;$&#123;INSTALL_DIR&#125;&quot;</div><div class="line">fi</div><div class="line">mkdir -p &quot;$&#123;INSTALL_DIR&#125;&quot;</div><div class="line">cp -R &quot;$&#123;DEVICE_DIR&#125;/&quot; &quot;$&#123;INSTALL_DIR&#125;/&quot;</div><div class="line"></div><div class="line"># Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.</div><div class="line">lipo -create &quot;$&#123;DEVICE_DIR&#125;/$&#123;FMK_NAME&#125;&quot; &quot;$&#123;SIMULATOR_DIR&#125;/$&#123;FMK_NAME&#125;&quot; -output &quot;$&#123;INSTALL_DIR&#125;/$&#123;FMK_NAME&#125;&quot;</div><div class="line">rm -r &quot;$&#123;WRK_DIR&#125;&quot;</div><div class="line">open &quot;$&#123;INSTALL_DIR&#125;&quot;</div></pre></td></tr></table></figure></p>
-<p>这是第二种创建方法的Demo:<a href="https://github.com/OneHundredSir/-FrameWorkShow/tree/frameWorkforTarget" target="_blank" rel="external">demo</a></p>
-<hr>
-<p>以及这个案例中用到的frameWork可以下载来自己参考参考<br>方法一:<a href="https://github.com/OneHundredSir/Package/tree/master/%E5%B0%81%E8%A3%85%E9%9D%99%E6%80%81%E5%BA%93%E6%88%96frameWork/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1FrameworkDemo" target="_blank" rel="external">方法一Demo</a></p>
-<p>方法二:<a href="https://github.com/OneHundredSir/Package/tree/master/%E5%B0%81%E8%A3%85%E9%9D%99%E6%80%81%E5%BA%93%E6%88%96frameWork/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1FrameworkDemo" target="_blank" rel="external">方法二Demo</a></p>
-<blockquote>
-<p>github版本</p>
-</blockquote>
-<p>##赠人点赞，手留余香~~~~</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-1e47fa324e85fb46.gif?imageMogr2/auto-orient/strip" alt="点赞图片"></p>
-<blockquote>
-<p>作者信息</p>
-</blockquote>
-<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">具体信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">QQ/微信</td>
-<td style="text-align:center">hundreda</td>
-</tr>
-<tr>
-<td style="text-align:center">简书号连接</td>
-<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
-</tr>
-<tr>
-<td style="text-align:center">GitHub个人开源主页</td>
-<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
-</tr>
-<tr>
-<td style="text-align:center">好心人赏我个<code>赞</code></td>
-<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
-</tr>
-<tr>
-<td style="text-align:center">个人iOS开发QQ讨论群</td>
-<td style="text-align:center"><strong>365204530</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>群内规矩</code></td>
-<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
-</tr>
-<tr>
-<td style="text-align:center">iOS开发类微信订阅号</td>
-<td style="text-align:center"><strong>大大家的IOS说</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
-<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～和我一样屌丝的朋友希望能给我点个赞～需要我录制视频的请直接给我糖。一起做一个乐于分享的人吧.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
-      
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
+
+
+
+
+
 
   
+<section class="post" itemscope itemprop="blogitem">
   
-
+    <a href="/2016/08/25/G-游戏文档/[iOS游戏开发必备]-Lua与OC交互完整版(含Demo)/" title="Lua与OC交互完整版(含Demo)" itemprop="url">
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+    <h1 itemprop="name">Lua与OC交互完整版(含Demo)</h1>
     
-      <header class="post-header">
+     
+           <p itemprop="description" >背景
 
+最近一直在忙着游戏相关的工作,然后弄了好一段时间,刚好现在可以给大家写一篇关于Lua和OC交互的内容,主要使用的是coco2dx3.0的版本,如果是这个版本以下不能说没变哈~记得自己一直在踩坑,网上的资料比较乱,所以不耻把自己的项目加以整理!由于项目为公司的,所以我只把关</p>
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/-ios开发-OC项目仿写/蓝牙加密解密方法/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T09:04:56+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
     
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
 
 
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>问题1:</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-3b00db8637d4d2cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 
 
-    
-  </section>
+
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/A-OC的碎碎念/[iOS进阶]---MRC下的block的坑及解决思路/" title="MRC下的block的坑及解决思路" itemprop="url">
+  
+    <h1 itemprop="name">MRC下的block的坑及解决思路</h1>
+    
+     
+           <p itemprop="description" >背景
+
+由于今天项目中用到了block,但是由于项目是MRC,虽然早期也玩过下MRC,但是这么痛苦的事情,还是不去回忆的好,今天居然又踩坑了.
+
+正文
+
+block的概念很简单: 实现体先行,传值体/调用体后行(做好判断) 就好不懂的朋友自己去查一下,伸手党:传送门对于很多新学习</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix unexpand">
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
   </nav>
 
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
 
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
-
-      
-
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://ww1.sinaimg.cn/small/006yX0Ypjw8f79unsxn43j305n05laan.jpg"
-               alt="Hundred Wang" />
-          <p class="site-author-name" itemprop="name">Hundred Wang</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">26</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Hundred Wang</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
 
   
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
 
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
 </script>
 
 
@@ -1237,74 +586,66 @@
 
 
 
-  
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+<!-- Analytics Begin -->
 
 
 
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
 
 
-  
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
 
 
+<!-- MathJax End -->
 
-  
+<!-- Tiny_search Begin -->
 
+<!-- Tiny_search End -->
 
-
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
+  </body>
+ </html>

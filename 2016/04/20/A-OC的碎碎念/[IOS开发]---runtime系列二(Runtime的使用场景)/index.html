@@ -1,0 +1,667 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>runtime系列二(Runtime的使用场景) | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="入门先看我上一篇:[IOS开发] - runtime系列一 (消息机制)Runtime 理解介绍的文章非常多，我只想讲讲Runtime 可以用在哪里，而我在项目里哪些地方用到了runtime。多以实际使用过程为主，来介绍runtime的使用。
+那么runtime 怎么使用？可以用在哪些场景下呢？首先，使用runtime 相关API，要#import  
+1.运行时获取某个类的属性或函数运行时动态获">
+<meta property="og:type" content="article">
+<meta property="og:title" content="runtime系列二(Runtime的使用场景)">
+<meta property="og:url" content="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="入门先看我上一篇:[IOS开发] - runtime系列一 (消息机制)Runtime 理解介绍的文章非常多，我只想讲讲Runtime 可以用在哪里，而我在项目里哪些地方用到了runtime。多以实际使用过程为主，来介绍runtime的使用。
+那么runtime 怎么使用？可以用在哪些场景下呢？首先，使用runtime 相关API，要#import  
+1.运行时获取某个类的属性或函数运行时动态获">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-53eaf613944c30d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T14:08:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="runtime系列二(Runtime的使用场景)">
+<meta name="twitter:description" content="入门先看我上一篇:[IOS开发] - runtime系列一 (消息机制)Runtime 理解介绍的文章非常多，我只想讲讲Runtime 可以用在哪里，而我在项目里哪些地方用到了runtime。多以实际使用过程为主，来介绍runtime的使用。
+那么runtime 怎么使用？可以用在哪些场景下呢？首先，使用runtime 相关API，要#import  
+1.运行时获取某个类的属性或函数运行时动态获">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-53eaf613944c30d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" title="runtime系列二(Runtime的使用场景)" itemprop="url">runtime系列二(Runtime的使用场景)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished"> Published 2016-04-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>入门先看我上一篇:<a href="http://www.jianshu.com/p/f0d73e8ffda4" target="_blank" rel="external">[IOS开发] - runtime系列一 (消息机制)</a><br>Runtime 理解介绍的文章非常多，我只想讲讲Runtime 可以用在哪里，而我在项目里哪些地方用到了runtime。多以实际使用过程为主，来介绍runtime的使用。</p>
+<p>那么runtime 怎么使用？可以用在哪些场景下呢？<br>首先，使用runtime 相关API，要#import <objc runtime.h=""> </objc></p>
+<p>1.运行时获取某个类的属性或函数<br>运行时动态获取某个类的属性或者函数等，可以用来做很多事情，如json 解析、数据库结果解析、判断某个类的子类等。</p>
+<p><strong>解析、转化为Model</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取属性列表</span></div><div class="line"><span class="keyword">objc_property_t</span> * class_copyPropertyList(Class cls, <span class="keyword">unsigned</span> <span class="keyword">int</span> *outCount)</div><div class="line"><span class="comment">// 获取属性名</span></div><div class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">property_getName</span><span class="params">(<span class="keyword">objc_property_t</span> property)</span></span></div><div class="line"><span class="comment">// 获取属性类型</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">property_getAttributes</span><span class="params">(<span class="keyword">objc_property_t</span> property)</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>以上方法可以用来：</p>
+<ul>
+<li>解析json数据，转化为Model对象。</li>
+<li>解析数据库查询结果，转化为Model 对象。</li>
+</ul>
+</blockquote>
+<p>这里有动态获取类的属性的示例代码片段：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> outCount, i;</div><div class="line">objc_property_t *properties = class_copyPropertyList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;outCount);</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; outCount; i++) &#123;</div><div class="line">    objc_property_t property = properties[i];</div><div class="line">    <span class="comment">//获取属性名</span></div><div class="line">    <span class="built_in">NSString</span> *propertyName = [<span class="built_in">NSString</span> stringWithCString:property_getName(property) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">    <span class="comment">//获取属性类型等参数</span></div><div class="line">    <span class="built_in">NSString</span> *propertyType = [<span class="built_in">NSString</span> stringWithCString: property_getAttributes(property) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">    <span class="comment">/*</span></div><div class="line">     各种符号对应类型，部分类型在新版SDK中有所变化，如long 和long long</div><div class="line">     c char         C unsigned char</div><div class="line">     i int          I unsigned int</div><div class="line">     l long         L unsigned long</div><div class="line">     s short        S unsigned short</div><div class="line">     d double       D unsigned double</div><div class="line">     f float        F unsigned float</div><div class="line">     q long long    Q unsigned long long</div><div class="line">     B BOOL</div><div class="line">     @ 对象类型 //指针 对象类型 如NSString 是@“NSString”</div><div class="line">     propertyType，你可以打印出来，看看它是什么。</div><div class="line">     要判断某个属性的类型，只需要[propertyType hasPrefix:@"Ti"]</div><div class="line">     这代表它是int 类型。</div><div class="line">     */</div><div class="line">&#125;</div><div class="line">free(properties);</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-53eaf613944c30d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="如图"></p>
+<p><strong>判断某个类的子类</strong><br>有时候我们在程序中需要判断某个类是否是另一个类的子类。这个功能也可以利用runtime类实现，这里有示例代码：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> numClasses;</div><div class="line">Class *classes = <span class="literal">NULL</span>;</div><div class="line">numClasses = objc_getClassList(<span class="literal">NULL</span>,<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (numClasses &gt; <span class="number">0</span> )</div><div class="line">&#123;</div><div class="line">    classes = (__<span class="keyword">unsafe_unretained</span> Class *)malloc(<span class="keyword">sizeof</span>(Class) * numClasses);</div><div class="line">    numClasses = objc_getClassList(classes, numClasses);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numClasses; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (class_getSuperclass(classes[i]) == [xxxxClass <span class="keyword">class</span>])&#123;</div><div class="line">            <span class="keyword">id</span> <span class="keyword">class</span> = classes[i];</div><div class="line">            <span class="comment">// 执行某个方法 或者 做其他事情</span></div><div class="line">            [<span class="keyword">class</span> performSelector:<span class="keyword">@selector</span>(xxxxMethod) withObject:<span class="literal">nil</span>];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    free(classes);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上两段示例代码摘自我之前写的FMDB Model 封装：JKDBModel，你可以去看更详尽的解析和使用过程。</p>
+<p><strong>获取某个类的实例变量</strong><br>如果你还需要获取某个类的实例变量做什么操作的话，可以使用如下这几个API：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取实例变量数组</span></div><div class="line"><span class="function">Ivar * <span class="title">class_copyIvarList</span><span class="params">(Class cls, <span class="keyword">unsigned</span> <span class="keyword">int</span> *outCount)</span></span></div><div class="line"><span class="comment">// 获取实例变量名称</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> * <span class="title">ivar_getName</span><span class="params">( Ivar ivar)</span></div><div class="line"><span class="comment">// 获取实例变量类型</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> * <span class="title">ivar_getTypeEncoding</span><span class="params">( Ivar ivar)</span></div></pre></td></tr></table></figure></p>
+<p>这面有获取实例变量的示例代码片段：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> outCount, i;</div><div class="line"></div><div class="line">Ivar *ivaries = class_copyIvarList([Son <span class="keyword">class</span>], &amp;outCount);</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; outCount; i++) &#123;</div><div class="line">    Ivar ivar = ivaries[i];</div><div class="line">    <span class="built_in">NSString</span> *ivarName = [<span class="built_in">NSString</span> stringWithCString:ivar_getName(ivar) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">    <span class="built_in">NSString</span> *ivarType = [<span class="built_in">NSString</span> stringWithCString:ivar_getTypeEncoding(ivar) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"名称:%@---类型：%@"</span>,ivarName,ivarType);</div><div class="line">    <span class="comment">/*</span></div><div class="line">     各种符号对应类型，部分类型在新版SDK中有所变化，如long 和long long</div><div class="line">     c char         C unsigned char</div><div class="line">     i int          I unsigned int</div><div class="line">     l long         L unsigned long</div><div class="line">     s short        S unsigned short</div><div class="line">     d double       D unsigned double</div><div class="line">     f float        F unsigned float</div><div class="line">     q long long    Q unsigned long long</div><div class="line">     B BOOL</div><div class="line">     @ 对象类型 //指针 对象类型 如NSString 是@“NSString”</div><div class="line">     */</div><div class="line">&#125;</div><div class="line">free(ivaries);</div></pre></td></tr></table></figure></p>
+<p><strong>获取某个类的方法</strong><br>获取某个类的方法，会包含这个类的property 的set 和get 方法，但是不包括父类的property set 和get 方法，不包括父类的方法（如果在当前类覆写，就包括）。<br>主要API：<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取方法数组</span></div><div class="line"><span class="function"><span class="keyword">Method</span> * <span class="title">class_copyMethodList</span><span class="params">(<span class="keyword">Class</span> cls, unsigned int *outCount)</span></span></div><div class="line">// 获取方法的 <span class="title">SEL</span></div><div class="line"><span class="title">SEL</span> <span class="title">method_getName</span><span class="params">( <span class="keyword">Method</span> <span class="keyword">method</span>)</span></div><div class="line">// 获取方法名</div><div class="line"><span class="title">const</span> <span class="title">char</span>* <span class="title">sel_getName</span><span class="params">(SEL aSelector)</span></div></pre></td></tr></table></figure></p>
+<p>获取方法数组的示例代码片段：<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">unsigned int outMethodCount, j;</div><div class="line"><span class="function"><span class="keyword">Method</span> *<span class="title">methods</span> = <span class="title">class_copyMethodList</span><span class="params">([Son <span class="keyword">class</span>], &amp;outMethodCount)</span>;</span></div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; outMethodCount; j++) <span class="comment">&#123;</span></div><div class="line">    Method method = methods[j];</div><div class="line">    SEL selector = method_getName(method);</div><div class="line">    if (selector) &#123;</div><div class="line">        NSString *methodName = [NSString  stringWithCString:sel_getName(selector) encoding:NSUTF8StringEncoding];</div><div class="line">        NSLog(@"方法:%@",methodName);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">free(methods);</div></pre></td></tr></table></figure></p>
+<p><strong>2.运行时替换方法（Method Swizzling）</strong></p>
+<p>Method Swizzling 的使用需要谨慎，因为一不小心可能就会导致无法排查的Bug，毕竟它替换的是官方的API，有些API内部做了什么事情，很难完全把握。</p>
+<p>使用场景，需要监控用户经常打开的界面，以及在某界面停留的时长。<br>我们可以怎么做呢？写一个UIViewController 的Category，然后在类别中，添加自定义的方法:如-xxxviewDidAppear:和-xxxviewDidDisappear：方法，然后在-load 方法中，用自定义的方法替换原来的方法。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">+ (void)load &#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        Class <span class="class"><span class="keyword">class</span> = [<span class="title">self</span> <span class="title">class</span>];</span></div><div class="line">        <span class="comment">// When swizzling a class method, use the following:</span></div><div class="line">        <span class="comment">// Class class = object_getClass((id)self);</span></div><div class="line">        </div><div class="line">        SEL originalSelector = <span class="meta">@selector(viewWillAppear:)</span>;</div><div class="line">        SEL swizzledSelector = <span class="meta">@selector(xxx_viewWillAppear:)</span>;</div><div class="line">        </div><div class="line">        Method originalMethod = class_getInstanceMethod(<span class="class"><span class="keyword">class</span>, <span class="type">originalSelector);</span></span></div><div class="line">        Method swizzledMethod = class_getInstanceMethod(<span class="class"><span class="keyword">class</span>, <span class="type">swizzledSelector);</span></span></div><div class="line">        </div><div class="line">        BOOL didAddMethod =</div><div class="line">        class_addMethod(<span class="class"><span class="keyword">class</span>,</span></div><div class="line">                        <span class="type">originalSelector</span>,</div><div class="line">                        <span class="type">method_getImplementation</span>(swizzledMethod),</div><div class="line">                        method_getTypeEncoding(swizzledMethod));</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (didAddMethod) &#123;</div><div class="line">            class_replaceMethod(<span class="class"><span class="keyword">class</span>,</span></div><div class="line">                                <span class="type">swizzledSelector</span>,</div><div class="line">                                <span class="type">method_getImplementation</span>(originalMethod),</div><div class="line">                                method_getTypeEncoding(originalMethod));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            method_exchangeImplementations(originalMethod, swizzledMethod);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - Method Swizzling</div><div class="line">- (void)xxx_viewWillAppear:(BOOL)animated &#123;</div><div class="line">    [self xxx_viewWillAppear:animated];</div><div class="line">    NSLog(@<span class="string">"xxx_viewWillAppear: %@"</span>, self);</div><div class="line">    <span class="comment">// 在这里，我们可以发送一个消息到服务器，或者做其他事情等。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上示例代码摘自：Objective-C Runtime 运行时之四：Method Swizzling<br>关于Method Swizzling，他是把两个方法的实现部分互换了。<br>比如上面我们调用-xxx_viewWillAppear：，因为-xxx_viewWillAppear: 和-viewWillAppear:的实现部分互换后，其实执行的时候，并不会执行上面的这个实现，而是调用-viewWillAppear:的内部实现。所以上面的代码，完全不会产生循环调用。<br>还是写段代码说明吧：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"这是原来的方法"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)xxx_viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"xxx_viewWillAppear: %@"</span>, <span class="keyword">self</span>);</div><div class="line">    <span class="comment">// 在这里，我们可以发送一个消息到服务器，或者做其他事情等。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>假如上面这俩方法用method swizzling 替换后，我们调用-xxx_viewWillAppear：会打印这是原来的方法;而调用-viewWillAppear:会打印xxx_viewWillAppear:。这里需要细细体会一下。<br>关于Method Swizzling更多的注意点请看原文Method Swizzling</p>
+<p><strong>3.对象关联（Associated Objects）</strong><br>对象关联（或称为关联引用）本来是Objective-C 运行时的一个重要特性，它能让开发者对已经存在的类在扩展中添加自定义的属性。<br>需要用的以下三个函数：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> objc_setAssociatedObject(<span class="keyword">id</span> object, <span class="keyword">void</span> *key, <span class="keyword">id</span> value, objc_AssociationPolicy policy)</div><div class="line"></div><div class="line"><span class="keyword">id</span> objc_getAssociatedObject(<span class="keyword">id</span> object, <span class="keyword">void</span> *key)</div><div class="line"></div><div class="line"><span class="keyword">void</span> objc_removeAssociatedObjects(<span class="keyword">id</span> object)</div></pre></td></tr></table></figure></p>
+<p>众所周知，OC 中的Category 中不能添加新的属性，但是我们通过Associated Objects可以间接的实现往类上添加自定义的属性。<br>不能添加属性的根本原因是不会帮我们自动添加对象的实例变量，也不会帮我们生成set 和get方法，虽然set /get 方法可以自己实现，但是没有实例变量来存储数据。</p>
+<p>很容易看懂官方文档对参数的描述，但是key 需要注意一下：<br>通常推荐的做法是添加的属性最好是 static char类型的，当然更推荐是指针型的。通常来说该属性应该是常量、唯一的、在适用范围内用getter和setter访问到，所以通常我们这样写：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">static char kAssociatedObjectKey<span class="comment">;</span></div><div class="line"></div><div class="line">objc_setAssociatedObject(<span class="name">self</span>, <span class="symbol">&amp;kAssociatedObjectKey</span>, object, OBJC_ASSOCIATION_RETAIN_NONATOMIC)</div><div class="line">objc_getAssociatedObject(<span class="name">self</span>, <span class="symbol">&amp;kAssociatedObjectKey</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>当然，对于key 还有更好的做法，那就是selector。用selector 的示例在下面。</p>
+<p>下面用代码演示如何在Category中添加一个新的属性。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">这是Son+AssociatedObject.h</div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"Son.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Son</span> (<span class="title">AssociatedObject</span>)</span></div><div class="line"></div><div class="line"><span class="comment">/** 家庭住址 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>            *address;</div><div class="line"><span class="comment">/** 身高 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>)   <span class="keyword">int</span>             height;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line">这是Son+AssociatedObject.m</div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"Son+AssociatedObject.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span> </span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Son</span> (<span class="title">AssociatedObject</span>)</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setAddress:(<span class="built_in">NSString</span> *)address</div><div class="line">&#123;</div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(address), address, OBJC_ASSOCIATION_COPY_NONATOMIC);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)address</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(addObject:));</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setHeight:(<span class="keyword">int</span>)height</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSNumber</span> *heighNum = [<span class="built_in">NSNumber</span> numberWithInt:height];</div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(height), heighNum, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">int</span>)height</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSNumber</span> *heightNum = objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(addObject:));</div><div class="line">    <span class="keyword">return</span> heightNum.intValue;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<p>虽然上面有提到void objc_removeAssociatedObjects(id object),但是不要轻易使用这个函数，因为它会移除所有的关联对象。我们一般要移除某个关联对象，只需要用objc_setAssociatedObject传入nil即可。</p>
+<p>补充一个关联对象的使用场景：<br>你在使用AlertView 或者ActionSheet的时候，有没有很苦恼不能在点击的代理方法中方便的获取到Model对象呢？<br>除了在控制器中添加一个property 这种方式外；<br>我们也可以为AlertView 或者ActionSheet 添加一个关联对象，这样就可以在代理方法中方便的获取到Model 对象啦。<br>这里如果我们为AlertView 或者ActionSheet 添加Category来实现的话，代码跟上面为Son 添加类别基本一样，对象类型改为id 类型即可。<br>或者我们在控制器中调用的时候，添加关联对象也可以。这时候就用这种方式：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">char</span> kAssociatedObjectKey;</div><div class="line">objc_setAssociatedObject(<span class="keyword">self</span>, &amp;kAssociatedObjectKey, object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">objc_getAssociatedObject(<span class="keyword">self</span>, &amp;kAssociatedObjectKey);</div><div class="line"><span class="built_in">UIAlertController</span> 也跟上面一样。</div></pre></td></tr></table></figure></p>
+<p>4.运行时动态创建一个类<br>我再某控制器中测试写了这么一个方法，来创建一个MyClass 类。项目中并不存在叫MyClass 的类文件。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)createClass</div><div class="line">&#123;</div><div class="line">    Class MyClass = objc_allocateClassPair([<span class="built_in">NSObject</span> <span class="keyword">class</span>], <span class="string">"MyClass"</span>, <span class="number">0</span>);</div><div class="line">    <span class="comment">// 1.添加一个叫name 类型为NSString的实例变量，第四个参数是对其方式，第五个参数是参数类型</span></div><div class="line">    <span class="keyword">if</span> (class_addIvar(MyClass, <span class="string">"name"</span>, <span class="keyword">sizeof</span>(<span class="built_in">NSString</span> *), <span class="number">0</span>, <span class="string">"@"</span>)) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"add ivar success"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 2.添加一个property</span></div><div class="line">    <span class="comment">// 这里需要注意，添加property之前需要先添加一个与之对应的实例变量</span></div><div class="line">    <span class="keyword">if</span> (class_addIvar(MyClass, <span class="string">"_address"</span>, <span class="keyword">sizeof</span>(<span class="built_in">NSString</span> *), <span class="number">0</span>, <span class="string">"@"</span>)) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"add ivar success"</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    objc_property_attribute_t type = &#123;<span class="string">"T"</span>, <span class="string">"@\"NSString\""</span>&#125;;</div><div class="line">    objc_property_attribute_t ownership = &#123; <span class="string">"C"</span>, <span class="string">""</span> &#125;;</div><div class="line">    objc_property_attribute_t backingivar = &#123; <span class="string">"V"</span>, <span class="string">"_address"</span>&#125;;</div><div class="line">    objc_property_attribute_t attrs[] = &#123;type, ownership, backingivar&#125;;</div><div class="line">    class_addProperty(MyClass, <span class="string">"address"</span>, attrs,<span class="number">2</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// 3.添加函数， myclasstest是已经实现的函数，"v@:"这种写法见参数类型连接</span></div><div class="line">    class_addMethod(MyClass, <span class="keyword">@selector</span>(myclasstest:), (IMP)myclasstest, <span class="string">"v@:"</span>);</div><div class="line">    <span class="comment">// 4.注册这个类到runtime系统中就可以使用他了</span></div><div class="line">    objc_registerClassPair(MyClass);</div><div class="line">    <span class="comment">// 5.生成了一个实例化对象</span></div><div class="line">    <span class="keyword">id</span> myobj = [[MyClass alloc] init];</div><div class="line">    <span class="built_in">NSString</span> *str = <span class="string">@"名字"</span>;</div><div class="line">    <span class="comment">// 6.给刚刚添加的变量赋值</span></div><div class="line">    <span class="comment">//    object_setInstanceVariable(myobj, "itest", (void *)&amp;str);在ARC下不允许使用</span></div><div class="line">    [myobj setValue:str forKey:<span class="string">@"name"</span>];</div><div class="line">    [myobj setValue:<span class="string">@"这是地址"</span> forKey:<span class="string">@"address"</span>];</div><div class="line">    <span class="comment">// 7.调用myclasstest方法，也就是给myobj这个接受者发送myclasstest这个消息</span></div><div class="line">    [myobj myclasstest:<span class="number">10</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//这个方法实际上没有被调用,但是必须实现否则不会调用下面的方法</span></div><div class="line">- (<span class="keyword">void</span>)myclasstest:(<span class="keyword">int</span>)a</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"啊啊啊啊啊"</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//调用的是这个方法</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> myclasstest(<span class="keyword">id</span> <span class="keyword">self</span>, SEL _cmd, <span class="keyword">int</span> a) <span class="comment">//self和_cmd是必须的，在之后可以添加其他参数</span></div><div class="line">&#123;</div><div class="line">    Ivar v = class_getInstanceVariable([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="string">"name"</span>);</div><div class="line">    <span class="comment">//返回名为name的ivar的变量的值</span></div><div class="line">    <span class="keyword">id</span> o = object_getIvar(<span class="keyword">self</span>, v);</div><div class="line">    <span class="comment">//成功打印出结果</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"name is %@"</span>, o);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"参数 a is %d"</span>, a);</div><div class="line">    </div><div class="line">    objc_property_t property = class_getProperty([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="string">"address"</span>);</div><div class="line">    <span class="built_in">NSString</span> *propertyName = [<span class="built_in">NSString</span> stringWithUTF8String:property_getName(property)];</div><div class="line">    <span class="keyword">id</span> value = [<span class="keyword">self</span> valueForKey:propertyName];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"address is %@"</span>, value);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>关于运行时创建一个新类，上面的注释已经写的很详细了。<br>Have Fun！</p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS入门/">iOS入门</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/runtime/">runtime</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" data-title="runtime系列二(Runtime的使用场景) | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/20/A-OC的碎碎念/[IOS问题答疑]JSON数据只返回-null-处理方法/" title="JSON数据只返回null">
+  <strong>上一篇：</strong><br/>
+  <span>
+  JSON数据只返回null</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/20/A-OC的碎碎念/IOS开发-断点调试你敢说你会吗-(含视频demo)/"  title="断点调试你敢说你会吗">
+ <strong>下一篇：</strong><br/> 
+ <span>断点调试你敢说你会吗
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>35</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

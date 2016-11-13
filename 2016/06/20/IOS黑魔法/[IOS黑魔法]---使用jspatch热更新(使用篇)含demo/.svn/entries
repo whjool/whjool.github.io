@@ -1,19 +1,15 @@
 10
 
 dir
-22
-svn+ssh://root@123.207.125.82/svn/hundred/hundredHexo/public/2016/06/20/IOS%E9%BB%91%E9%AD%94%E6%B3%95/%5BIOS%E9%BB%91%E9%AD%94%E6%B3%95%5D---%E4%BD%BF%E7%94%A8jspatch%E7%83%AD%E6%9B%B4%E6%96%B0(%E4%BD%BF%E7%94%A8%E7%AF%87)%E5%90%ABdemo
-svn+ssh://root@123.207.125.82/svn/hundred
+3
+svn://hundred@123.207.120.92/opt/svn/hexo/Hexo/public/2016/06/20/IOS%E9%BB%91%E9%AD%94%E6%B3%95/%5BIOS%E9%BB%91%E9%AD%94%E6%B3%95%5D---%E4%BD%BF%E7%94%A8jspatch%E7%83%AD%E6%9B%B4%E6%96%B0(%E4%BD%BF%E7%94%A8%E7%AF%87)%E5%90%ABdemo
+svn://hundred@123.207.120.92/opt/svn/hexo
 
 
 
-2016-11-12T18:07:25.066028Z
-22
-root
-
-
-
-
+2016-11-13T12:42:25.642923Z
+2
+hundred
 
 
 
@@ -24,7 +20,11 @@ root
 
 
 
-a92a0a22-f6e0-4ceb-a870-8b7b2b8a1912
+
+
+
+
+870b640c-bb14-4ae2-a46f-c6cd87605df1
 
 index.html
 file
@@ -32,11 +32,11 @@ file
 
 
 
-2016-11-12T18:06:39.000000Z
-856d6d3a98d22e87bfc611561921c232
-2016-11-12T18:07:25.066028Z
-22
-root
+2016-11-13T09:29:53.000000Z
+85818af9bb11210195cf800afcf47533
+2016-11-13T12:42:25.642923Z
+2
+hundred
 
 
 
@@ -58,5 +58,5 @@ root
 
 
 
-35415
+35458
 

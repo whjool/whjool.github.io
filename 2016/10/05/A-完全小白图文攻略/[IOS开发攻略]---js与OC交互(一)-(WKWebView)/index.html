@@ -1,0 +1,692 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>js与OC交互(WKWebView) | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="目录
+[IOS开发攻略含demo] - js传值(一) (WKWebView)
+[IOS开发攻略含demo] - js传值(二) (原生UIWebView)
+[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)
+
+
+
+前言
+
+由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习讨论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js与OC交互(WKWebView)">
+<meta property="og:url" content="http://www.hundredone.win/2016/10/05/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(一)-(WKWebView)/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="目录
+[IOS开发攻略含demo] - js传值(一) (WKWebView)
+[IOS开发攻略含demo] - js传值(二) (原生UIWebView)
+[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)
+
+
+
+前言
+
+由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习讨论">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-32507c46599d5788.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-43ba166e2c9ade4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-f9ad2648267ebcbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T16:18:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js与OC交互(WKWebView)">
+<meta name="twitter:description" content="目录
+[IOS开发攻略含demo] - js传值(一) (WKWebView)
+[IOS开发攻略含demo] - js传值(二) (原生UIWebView)
+[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)
+
+
+
+前言
+
+由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习讨论">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-32507c46599d5788.gif?imageMogr2/auto-orient/strip">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/10/05/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(一)-(WKWebView)/" title="js与OC交互(WKWebView)" itemprop="url">js与OC交互(WKWebView)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-10-05T02:49:50.000Z" itemprop="datePublished"> Published 2016-10-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gt-代理部分"><span class="toc-number">2.</span> <span class="toc-text">> 代理部分</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="http://www.jianshu.com/p/fee5957ad946" target="_blank" rel="external">[IOS开发攻略含demo] - js传值(一) (WKWebView)</a></li>
+<li><a href="http://www.jianshu.com/p/5c2b5d4952c9" target="_blank" rel="external">[IOS开发攻略含demo] - js传值(二) (原生UIWebView)</a></li>
+<li><a href="http://www.jianshu.com/p/8b98eca4da63" target="_blank" rel="external">[IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)</a></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-32507c46599d5788.gif?imageMogr2/auto-orient/strip" alt="demo.gif演示"></p>
+<blockquote>
+<p>前言</p>
+</blockquote>
+<p>由于最近项目有JS交互的需求,觉得代码不够简洁,找到了除了UIWebView之外的两种方法,我觉得有必要分享出来一起学习讨论,稍后我会录制这个系列的视频如果不懂得的朋友也可以看视频学习,不过暂时没出,出了我会发布出来,这是本文的demo地址<br><a href="https://github.com/OneHundredSir/JSAndOC" target="_blank" rel="external">如果喜欢的话给我github右上角个star,谢谢</a></p>
+<blockquote>
+<p>本文用到的Html源码</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf8"</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span><span class="javascript"> </span></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">scanClick</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.ScanAction.postMessage(<span class="literal">null</span>);</div><div class="line">            &#125;</div><div class="line">                </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">shareClick</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.Share.postMessage(&#123;title:<span class="string">'测试分享的标题'</span>,content:<span class="string">'测试分享的内容'</span>,url:<span class="string">'http://www.baidu.com'</span>&#125;);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">locationClick</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.Location.postMessage(<span class="literal">null</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">setLocation</span>(<span class="params">location</span>) </span>&#123;</div><div class="line">                asyncAlert(location);</div><div class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"returnValue"</span>).value = location;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">getQRCode</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">                asyncAlert(result);</div><div class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"returnValue"</span>).value = result;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">colorClick</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.Color.postMessage([<span class="number">67</span>,<span class="number">205</span>,<span class="number">128</span>,<span class="number">0.5</span>]);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">payClick</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.Pay.postMessage(&#123;order_no:<span class="string">'201511120981234'</span>,channel:<span class="string">'wx'</span>,amount:<span class="number">1</span>,subject:<span class="string">'粉色外套'</span>&#125;);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">payResult</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">                asyncAlert(str);</div><div class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"returnValue"</span>).value = str;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">shareResult</span>(<span class="params">channel_id,share_channel,share_url</span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> content = channel_id+<span class="string">","</span>+share_channel+<span class="string">","</span>+share_url;</div><div class="line">                asyncAlert(content);</div><div class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"returnValue"</span>).value = content;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">shake</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.Shake.postMessage(<span class="literal">null</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">goBack</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.GoBack.postMessage(<span class="literal">null</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">playSound</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">window</span>.webkit.messageHandlers.PlaySound.postMessage(<span class="string">'shake_sound_male.wav'</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">asyncAlert</span>(<span class="params">content</span>) </span>&#123;</div><div class="line">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                           alert(content);</div><div class="line">                           &#125;,<span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            </div><div class="line">            <span class="comment">//自己写的方法</span></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">sendCommand</span>(<span class="params">cmd,param</span>)</span>&#123;</div><div class="line">                <span class="keyword">var</span> url=<span class="string">"testapp:"</span>+cmd+<span class="string">":"</span>+param;</div><div class="line">                <span class="built_in">document</span>.location = url;</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">zhifubaoclickLink</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                sendCommand(<span class="string">"alert"</span>,<span class="string">"你好吗？"</span>);  </div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="tag">&lt;/<span class="name">script</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span> 这是按钮调用<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"扫一扫"</span> <span class="attr">onclick</span>=<span class="string">"scanClick()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"获取定位"</span> <span class="attr">onclick</span>=<span class="string">"locationClick()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"修改背景色"</span> <span class="attr">onclick</span>=<span class="string">"colorClick()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"分享"</span> <span class="attr">onclick</span>=<span class="string">"shareClick()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"支付"</span> <span class="attr">onclick</span>=<span class="string">"payClick()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"支付2"</span> <span class="attr">onclick</span>=<span class="string">"zhifubaoclickLink()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"摇一摇"</span> <span class="attr">onclick</span>=<span class="string">"shake()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"返回"</span> <span class="attr">onclick</span>=<span class="string">"goBack()"</span> /&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"播放声音"</span> <span class="attr">onclick</span>=<span class="string">"playSound()"</span> /&gt;</span> </div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span> 这是文件上传<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> </div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> /&gt;</span> </div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span> 这是回调结果展示区<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span> =<span class="string">"returnValue"</span> <span class="attr">type</span>=<span class="string">"value"</span> <span class="attr">rows</span>=<span class="string">"5"</span> <span class="attr">cols</span>=<span class="string">"40"</span>&gt;</span> </div><div class="line">        </div><div class="line">        <span class="tag">&lt;/<span class="name">textarea</span>&gt;</span> </div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">h4</span>&gt;</span> 竖直方向的表头：<span class="tag">&lt;/<span class="name">h4</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">style</span>=<span class="string">"width:90%;height:600px"</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span> </div><div class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span> 姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span> </div><div class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span> Bill Gates<span class="tag">&lt;/<span class="name">td</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span> </div><div class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span> 电话<span class="tag">&lt;/<span class="name">th</span>&gt;</span> </div><div class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span> 555 77 854<span class="tag">&lt;/<span class="name">td</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span> </div><div class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span> 传真<span class="tag">&lt;/<span class="name">th</span>&gt;</span> </div><div class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span> 555 77 855<span class="tag">&lt;/<span class="name">td</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> </div><div class="line">        <span class="tag">&lt;/<span class="name">table</span>&gt;</span> </div><div class="line">        </div><div class="line">        </div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>代码分解</p>
+</blockquote>
+<p>.m文件分析<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这里要创建一个WKWebView,与UIWebView相似,</span></div><div class="line"><span class="comment">//同时遵循WKUIDelegate,WKScriptMessageHandler两个协议(这两个是重点)</span></div><div class="line"><span class="variable">@interface</span> WKWebViewController ()&lt;WKUIDelegate,WKScriptMessageHandler&gt; </div><div class="line"></div><div class="line"><span class="variable">@property</span> (strong, nonatomic)   WKWebView                   *webView;</div><div class="line"><span class="variable">@property</span> (strong, nonatomic)   UIProgressView              *progressView;</div><div class="line"></div><div class="line"><span class="variable">@end</span></div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>配置</p>
+</blockquote>
+<p><strong>####配置</strong><br>通过配置,设置与h5对应的JS方法名称,通过配置之后可以在代理中进行调用对应的H5的JS方法<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//初始化页面</span></div><div class="line">- (<span class="keyword">void</span>)initWKWebView</div><div class="line">&#123;</div><div class="line">    <span class="comment">//进行配置控制器</span></div><div class="line">    <span class="built_in">WKWebViewConfiguration</span> *configuration = [[<span class="built_in">WKWebViewConfiguration</span> alloc] init];</div><div class="line">    <span class="comment">//实例化对象</span></div><div class="line">    configuration.userContentController = [<span class="built_in">WKUserContentController</span> new];</div><div class="line">    </div><div class="line">    <span class="comment">//调用JS方法</span></div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"ScanAction"</span>];</div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"Location"</span>];</div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"Share"</span>];</div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"Color"</span>];</div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"Pay"</span>];</div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"Shake"</span>];</div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"GoBack"</span>];</div><div class="line">    [configuration.userContentController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@"PlaySound"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">WKPreferences</span> *preferences = [<span class="built_in">WKPreferences</span> new];</div><div class="line">    preferences.javaScriptCanOpenWindowsAutomatically = <span class="literal">YES</span>;</div><div class="line">    preferences.minimumFontSize = <span class="number">40.0</span>;</div><div class="line">    configuration.preferences = preferences;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.webView = [[<span class="built_in">WKWebView</span> alloc] initWithFrame:<span class="keyword">self</span>.view.frame configuration:configuration];</div><div class="line">    </div><div class="line"><span class="comment">//    NSString *urlStr = @"http://www.baidu.com";</span></div><div class="line"><span class="comment">//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];</span></div><div class="line"><span class="comment">//    [self.webView loadRequest:request];</span></div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *urlStr = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"index.html"</span> ofType:<span class="literal">nil</span>];</div><div class="line">    <span class="built_in">NSURL</span> *fileURL = [<span class="built_in">NSURL</span> fileURLWithPath:urlStr];</div><div class="line">    [<span class="keyword">self</span>.webView loadFileURL:fileURL allowingReadAccessToURL:fileURL];</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.webView.UIDelegate = <span class="keyword">self</span>;</div><div class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.webView];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="gt-代理部分"><a href="#gt-代理部分" class="headerlink" title="&gt; 代理部分"></a>&gt; 代理部分</h2><p><strong>####WKUIDelegate</strong><br>通过接收JS返回的信息,与OC进行交互,但是不返回JS信息给H5<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - WKUIDelegate</span></div><div class="line"><span class="comment">//当把JS返回给控制器,然后弹窗就是这样设计的</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView runJavaScriptAlertPanelWithMessage:(<span class="built_in">NSString</span> *)message initiatedByFrame:(<span class="built_in">WKFrameInfo</span> *)frame completionHandler:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completionHandler</div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="built_in">UIAlertController</span> *alert = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@"提醒"</span> message:message preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</div><div class="line">    [alert addAction:[<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@"知道了"</span> style:<span class="built_in">UIAlertActionStyleCancel</span> handler:^(<span class="built_in">UIAlertAction</span> * _Nonnull action) &#123;</div><div class="line">        completionHandler();</div><div class="line">    &#125;]];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> presentViewController:alert animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>WKScriptMessageHandler</strong><br>与上一个不一样的地方在于,这里还可以进行数据操作并与OC代码中的数据进行操作,并返回到JS中进行操作,好像有一点绕<br>就是H5数据-&gt; OC(OC可以利用操作的H5数据+自己OC数据)-&gt; 回传给H5进行二次操作!<br>具体实现请自行下载demo跑一跑就明白了!<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#pragma mark - WKScriptMessageHandler</span></div><div class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)<span class="keyword">message</span></div><div class="line">&#123;</div><div class="line">//    <span class="keyword">message</span>.body  --  Allowed types are NSNumber, NSString, NSDate, NSArray,NSDictionary, <span class="keyword">and</span> NSNull.</div><div class="line">    NSLog(@<span class="string">"body:%@"</span>,<span class="keyword">message</span>.body);</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"ScanAction"</span>]) &#123;</div><div class="line">        NSLog(@<span class="string">"扫一扫"</span>);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"Location"</span>]) &#123;</div><div class="line">        [self getLocation];</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"Share"</span>]) &#123;</div><div class="line">        [self shareWithParams:<span class="keyword">message</span>.body];</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"Color"</span>]) &#123;</div><div class="line">        [self changeBGColor:<span class="keyword">message</span>.body];</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"Pay"</span>]) &#123;</div><div class="line">        [self payWithParams:<span class="keyword">message</span>.body];</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"Shake"</span>]) &#123;</div><div class="line">        [self shakeAction];</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"GoBack"</span>]) &#123;</div><div class="line">        [self goBack];</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">message</span>.name isEqualToString:@<span class="string">"PlaySound"</span>]) &#123;</div><div class="line">        [self playSound:<span class="keyword">message</span>.body];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>源码下载</p>
+</blockquote>
+<p>源码地址:<a href="https://github.com/OneHundredSir/JSAndOC" target="_blank" rel="external">如果喜欢的话给我github右上角个star,谢谢</a></p>
+<blockquote>
+<p>错误注意:</p>
+</blockquote>
+<p>1.由于WKWebView是8.0以后发布的,8.0之前的版本都没法使用<br><img src="http://upload-images.jianshu.io/upload_images/1730495-43ba166e2c9ade4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用错误"></p>
+<p>解决方法</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-f9ad2648267ebcbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决方法"></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>如需转载以上文章请记得备注来源,尊重作者劳动果实!</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS入门/">iOS入门</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/控件/">控件</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/10/05/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(一)-(WKWebView)/" data-title="js与OC交互(WKWebView) | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/10/05/A-完全小白图文攻略/[IOS开发]---xcode8兼容IOS7/" title="Xcode8兼容IOS7">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Xcode8兼容IOS7</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/10/05/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(二)-(原生UIWebView)/"  title="js与OC交互(原生UIWebView)">
+ <strong>下一篇：</strong><br/> 
+ <span>js与OC交互(原生UIWebView)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gt-代理部分"><span class="toc-number">2.</span> <span class="toc-text">> 代理部分</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>35</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

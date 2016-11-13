@@ -1,0 +1,630 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>OpenAL介绍 | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="前言
+今天我只讨论不到30秒的音频以及音效和短循环音。在iPhone上播放的音频需要正确的格式（或者说audio toolbox可以处理的多种音频格式中的一种，但如果你从正确的格式声音开始，iPhone在播放时就不需要进行处理了）。
+所以，打开你的命令行终端输入：1/usr/bin/afconvert -f caff -d LEI16@44100 inputSoundFile.aiff outpu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAL介绍">
+<meta property="og:url" content="http://www.hundredone.win/2016/08/25/G-游戏文档/[IOS开发]---OpenAL介绍/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="前言
+今天我只讨论不到30秒的音频以及音效和短循环音。在iPhone上播放的音频需要正确的格式（或者说audio toolbox可以处理的多种音频格式中的一种，但如果你从正确的格式声音开始，iPhone在播放时就不需要进行处理了）。
+所以，打开你的命令行终端输入：1/usr/bin/afconvert -f caff -d LEI16@44100 inputSoundFile.aiff outpu">
+<meta property="og:updated_time" content="2016-11-13T16:33:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAL介绍">
+<meta name="twitter:description" content="前言
+今天我只讨论不到30秒的音频以及音效和短循环音。在iPhone上播放的音频需要正确的格式（或者说audio toolbox可以处理的多种音频格式中的一种，但如果你从正确的格式声音开始，iPhone在播放时就不需要进行处理了）。
+所以，打开你的命令行终端输入：1/usr/bin/afconvert -f caff -d LEI16@44100 inputSoundFile.aiff outpu">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/08/25/G-游戏文档/[IOS开发]---OpenAL介绍/" title="OpenAL介绍" itemprop="url">OpenAL介绍</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished"> Published 2016-08-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正题"><span class="toc-number">2.</span> <span class="toc-text">正题</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<p>今天我只讨论不到30秒的音频以及音效和短循环音。在iPhone上播放的音频需要正确的格式（或者说audio toolbox可以处理的多种音频格式中的一种，但如果你从正确的格式声音开始，iPhone在播放时就不需要进行处理了）。</p>
+<p>所以，打开你的命令行终端输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/afconvert <span class="_">-f</span> caff <span class="_">-d</span> LEI16@44100 inputSoundFile.aiff outputSoundFile.caf</div></pre></td></tr></table></figure></p>
+<p>你可能会问这到底是在干什么？这是将文件转换为Little-Endian（低地址低字节） 16位，采样率44，100的格式。通常存储为.caf。</p>
+<p>好了！我们现在有了正确格式的.caf文件，可以开始做些什么了。</p>
+<p>有多种方法在iPhone上播放音频，有一种’简单’的方式，还有有一些’难’的方法……我先快速地讨论一下简单的方式，然后再讨论一下使用OpenAL的’难的方法’。</p>
+<p>让iPhone发声的最快（最容易）的方法是使用音频系统服务：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span>* path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"soundEffect1"</span> ofType:<span class="string">@"caf"</span>];</div><div class="line"><span class="built_in">NSURL</span>* afUrl = [<span class="built_in">NSURL</span> fileURLWithPath:path];</div><div class="line"><span class="built_in">UInt32</span> soundID;</div><div class="line">AudioServicesCreateSystemSoundID((<span class="built_in">CFURLRef</span>)afUrl,&amp;soundID);</div><div class="line">AudioServicesPlaySystemSound (soundID);</div></pre></td></tr></table></figure></p>
+<p>这对于象点击按钮和简单UI互动之类的任务已经足够好用。但是，对于任何更复杂一点的任务（比如：游戏）而言，这简直是毫无用处。它确实会立即开始 播放，但若要指定的音效与游戏的特定帧相配合的话，这种方法基本上是没有用处。（我确实曾经使用上述方法实现过我的声音引擎，然而当我将其加载到 iPhone播放声音时，要么声音会晚许多帧，要么干脆整个程序会停顿，等待audio toolbox将音频加载到缓存中，实在太糟糕了）。</p>
+<p>为了更好地控制音频，你需要使用<code>OpenAL</code>，<code>audioUnits</code>或<code>audioQueue</code>。</p>
+<p>我决定使用OpenAL以便我的代码具有更好的跨平台能力，并且通过学习怎样使用OpenAL，我还可以将这些技术运用在iPhone外的其他平 台。（而且象我这样的代码雇佣兵，我觉得具有OpenAL经验比audioQueue经验更有市场）（另外由于我已经熟悉了openGL，openAL十 分类似，而audio units和audio queue的代码有那么点丑陋）。</p>
+<p>所以，这是个超快速的openAL教程，但绝对是实现由openAL产生静态声音的最低要求。</p>
+<h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h2><hr>
+<p>OpenAL实在是十分简单，它由3个实体构成：<code>Listener（听者）</code>，<code>Source（音源）</code>和<code>Buffer（缓存）</code>。</p>
+<p><code>Listener</code>就是你。任何可以被Listener“听到”的声音都是来自扬声器。openAL允许你指定Listener相对于Source的位置， 但是本例中我们忽略不计。我们只是针对最基本的静态声音。但是请记住“Listener”的概念，在你处理更复杂的情况时，你可以任意移动此对象。本文中 就不做过多介绍。</p>
+<p><code>Source:</code> 本质上类似与扬声器,它将产生Listener可以“听”到的声音。像Listener一样，你可以通过移动Source来获得groovy位置效应。本文的示例也没有涉及此部分。</p>
+<p><code>Buffer:</code> 就是我们播放的声音。它保存原始的音频数据。</p>
+<p>有两个很重要的对象：device（设备）和 context（环境）。Device实际上设播放声音的硬件。而Context是当前所有声音在其中播放的“会话（session）”（你可以将其想象 成包括所有sources和listener的房间。或者声音通过其播放的空气，或其他……这就是Context。）</p>
+<p>它们在一起是怎么运作的：（最基本）</p>
+<ul>
+<li>1) 获取device</li>
+<li>2) 将context关联到device</li>
+<li>3) 将数据放入buffer</li>
+<li>4) 将buffer链接到一个source</li>
+<li>5) 播放source</li>
+</ul>
+<p>就这么简单! 假定你的openAL实现对于listener是适当的缺省状态而且你不指定listener和source位置，上述流程工作得很好（在iPhone上就是如此）。</p>
+<p>好了，我们看看代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// define these somewhere, like in your .h file</span></div><div class="line">ALCcontext* mContext;  ALCdevice* mDevice;</div><div class="line"><span class="comment">// start up openAL</span></div><div class="line">-(<span class="keyword">void</span>)initOpenAL</div><div class="line">&#123;</div><div class="line">    <span class="comment">// Initialization</span></div><div class="line">    mDevice = alcOpenDevice(<span class="literal">NULL</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// select the "preferred device"</span></div><div class="line">    <span class="keyword">if</span> (mDevice)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// use the device to make a context</span></div><div class="line">        mContext=alcCreateContext(mDevice,<span class="literal">NULL</span>);</div><div class="line">        <span class="comment">// set my context to the currently active one</span></div><div class="line">        alcMakeContextCurrent(mContext);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>很容易理解吧。获得“缺省”device，然后用它建立一个Context！完成。</p>
+<p>下一步：将数据放入buffer， 这有一点复杂:</p>
+<p>首先：打开音频文件<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get the full path of the file</span></div><div class="line">NSString* fileName = [[NSBundle mainBundle] <span class="string">pathForResource:</span>@<span class="string">"neatoEffect"</span> <span class="string">ofType:</span>@<span class="string">"caf"</span>];</div><div class="line"><span class="comment">// first, open the file</span></div><div class="line">AudioFileID fileID = [self <span class="string">openAudioFile:</span>fileName];</div></pre></td></tr></table></figure></p>
+<p>等一下！什么是openAudioFile: 方法？</p>
+<p>这里就是:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// open the audio file</span></div><div class="line"><span class="comment">// returns a big audio ID struct</span></div><div class="line">-(AudioFileID)openAudioFile:(<span class="built_in">NSString</span>*)filePath</div><div class="line">&#123;</div><div class="line">    AudioFileID outAFID;</div><div class="line">    <span class="comment">// use the NSURl instead of a cfurlref cuz it is easier</span></div><div class="line">    <span class="built_in">NSURL</span> * afUrl = [<span class="built_in">NSURL</span> fileURLWithPath:filePath];</div><div class="line">    <span class="comment">// do some platform specific stuff..</span></div><div class="line"><span class="meta">#if TARGET_OS_IPHONE</span></div><div class="line">    OSStatus result = AudioFileOpenURL((<span class="built_in">CFURLRef</span>)afUrl, kAudioFileReadPermission, <span class="number">0</span>, &amp;outAFID);</div><div class="line"><span class="meta">#else</span></div><div class="line">    OSStatus result = AudioFileOpenURL((<span class="built_in">CFURLRef</span>)afUrl, fsRdPerm, <span class="number">0</span>, &amp;outAFID);</div><div class="line"><span class="meta">#endif</span></div><div class="line">    <span class="keyword">if</span> (result != <span class="number">0</span>)</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"cannot openf file: %@"</span>,filePath);</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> outAFID;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这很简单：我们从主资源包获得文件路径，然后将其传递给本方法，本方法检查运行的平台并使用audio toolkit的方法AudioFileOpenURL()来产生一个AudioFileID。</p>
+<p>下面做什么？对，从文件中获取实际音频数据。我们要先计算出有多少数据在文件中：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// find out how big the actual audio data is</span></div><div class="line"><span class="built_in">UInt32</span> fileSize = [<span class="keyword">self</span> audioFileSize:fileID];</div><div class="line">我们需要用到的另一个很实用的方法：</div><div class="line"></div><div class="line"><span class="comment">// find the audio portion of the file</span></div><div class="line"><span class="comment">// return the size in bytes</span></div><div class="line">-(<span class="built_in">UInt32</span>)audioFileSize:(AudioFileID)fileDescriptor</div><div class="line">&#123;</div><div class="line">    <span class="built_in">UInt64</span> outDataSize = <span class="number">0</span>;</div><div class="line">    <span class="built_in">UInt32</span> thePropSize = <span class="keyword">sizeof</span>(<span class="built_in">UInt64</span>);</div><div class="line">    OSStatus result = AudioFileGetProperty(fileDescriptor, kAudioFilePropertyAudioDataByteCount, &amp;thePropSize, &amp;outDataSize);</div><div class="line">    <span class="keyword">if</span>(result != <span class="number">0</span>)</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"cannot find file size"</span>);</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> (<span class="built_in">UInt32</span>)outDataSize;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>它使用了一个神秘的方法AudioFileGetProperty()来计算出文件中有多少数据并将其放入outDataSize变量。太棒了, 下一步！</p>
+<p>现在我们已准备好将数据从文件复制到openAL缓存中：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// this is where the audio data will live for the moment</span></div><div class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> * outData = malloc(fileSize);</div><div class="line"><span class="comment">// this where we actually get the bytes from the file and put them</span></div><div class="line"><span class="comment">// into the data buffer</span></div><div class="line">OSStatus result = noErr;</div><div class="line">result = AudioFileReadBytes(fileID, <span class="literal">false</span>, <span class="number">0</span>, &amp;fileSize, outData);</div><div class="line"><span class="comment">//这一步要关闭文件</span></div><div class="line">AudioFileClose(fileID);   <span class="comment">//close the file</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (result != <span class="number">0</span>)</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"cannot load effect: %@"</span>,fileName);</div><div class="line"></div><div class="line"><span class="built_in">NSUInteger</span> bufferID;<span class="comment">//这是为了生成有效的bufferID</span></div><div class="line"><span class="comment">// grab a buffer ID from openAL</span></div><div class="line">alGenBuffers(<span class="number">1</span>, &amp;bufferID);</div><div class="line"><span class="comment">// jam the audio data into the new buffer</span></div><div class="line">alBufferData(bufferID,AL_FORMAT_STEREO16,outData,fileSize,<span class="number">44100</span>);    <span class="comment">// 这里44100是频率,save the buffer so I can release it later</span></div><div class="line">[bufferStorageArray addObject:[<span class="built_in">NSNumber</span> numberWithUnsignedInteger:bufferID]];</div></pre></td></tr></table></figure></p>
+<p>好了，上面我们做了很多事情（实际上，并不多）。分配一下空间给数据，使用audio toolkit中的AudioFileReadBytes()函数从文件中读取字节到分配好的内存块中。然后调用alGenBuffers()产生一个有 效的bufferID，再调用alBufferData()加载数据块到openAL buffer的缓存中。</p>
+<p>这里我硬编码了格式和频率等数据。如果你是像文章开始介绍的那样使用afconvert命令生成的音频文件，那么你已经知道它们的格式和采样率了。 然而，如果你想要支持各种音频格式和频率， 你最好要构建一个类似于audioFileSize:的方法，但使用kAudioFilePropertyDataFormat获取格式然后转换为适当的 AL_FORMAT,，而获得频率可能更复杂些（译者注：常用的频率无非就是22050，44100，48000几种了）。我太懒了所以只确定我使用的文 件格式正确就可以了。<br>下面我将此ID放入一个NSArray以备参考，你可以以后随时使用。</p>
+<p>好，我们现在准备好了缓存区。是将它连到source的时候了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">NSUInteger <span class="built_in">source</span>ID;</div><div class="line">// grab a <span class="built_in">source</span> ID from openAL</div><div class="line">alGenSources(1, &amp;<span class="built_in">source</span>ID);</div><div class="line">// attach the buffer to the <span class="built_in">source</span></div><div class="line">alSourcei(<span class="built_in">source</span>ID, AL_BUFFER, bufferID);</div><div class="line">// <span class="built_in">set</span> some basic <span class="built_in">source</span> prefs</div><div class="line">alSourcef(<span class="built_in">source</span>ID, AL_PITCH, 1.0f);</div><div class="line">alSourcef(<span class="built_in">source</span>ID, AL_GAIN, 1.0f);</div><div class="line"><span class="keyword">if</span> (loops)</div><div class="line">alSourcei(<span class="built_in">source</span>ID, AL_LOOPING, AL_TRUE);</div><div class="line"></div><div class="line">// store this <span class="keyword">for</span> future use</div><div class="line">[soundDictionary <span class="built_in">set</span>Object:[NSNumber numberWithUnsignedInt:<span class="built_in">source</span>ID] <span class="keyword">for</span>Key:@<span class="string">"neatoSound"</span>];</div><div class="line">// clean up the buffer  <span class="keyword">if</span> (outData)</div><div class="line">&#123;</div><div class="line">    free(outData);</div><div class="line">    outData = NULL;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>像缓存一样，我们也需要从openAL获取一个有效的sourceID。一旦我们获得了sourceID我们就可以将source和缓存联系起来 了。最后我们还要进行一些缓存基本设定。如果我们想循环播放，还要设定AL_LOOPING为true。 缺省时，播放是不循环的，所以忽略它就好。然后我将此ID存入到字典数据结构中，以便可以根据名称查找ID。</p>
+<p>最后，清除临时内存。</p>
+<p>大功即将告成！现在我们只剩下播放功能了：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// the main method: grab the sound ID from the library</span></div><div class="line"><span class="comment">// and start the source playing</span></div><div class="line">- (<span class="keyword">void</span>)playSound:(<span class="built_in">NSString</span>*)soundKey</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSNumber</span>* numVal = [soundDictionary objectForKey:soundKey];</div><div class="line">    <span class="keyword">if</span> (numVal == <span class="literal">nil</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">NSUInteger</span> sourceID = [numVal unsignedIntValue];</div><div class="line">    alSourcePlay(sourceID);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>就是它了， alSourcePlay()…… 很简单吧。如果声音不循环，那么它将会自然停止。如果是循环的，你可能需要停止它：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)stopSound:(<span class="built_in">NSString</span>*)soundKey</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSNumber</span>* numVal = [soundDictionary objectForKey:soundKey];</div><div class="line">    <span class="keyword">if</span> (numVal == <span class="literal">nil</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">NSUInteger</span> sourceID = [numVal unsignedIntValue];</div><div class="line">    alSourceStop(sourceID);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上基本上就是使用openAL在iPhone播放声音的最快速和简单的方法（至少我是这样认为的）。</p>
+<p>最后，我们要做些清理工作：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)cleanUpOpenAL:(<span class="keyword">id</span>)sender</div><div class="line">&#123;</div><div class="line">    <span class="comment">// delete the sources</span></div><div class="line">    <span class="keyword">for</span> (<span class="built_in">NSNumber</span>* sourceNumber <span class="keyword">in</span> [soundDictionary allValues])</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">NSUInteger</span> sourceID = [sourceNumber unsignedIntegerValue];</div><div class="line">        alDeleteSources(<span class="number">1</span>, &amp;sourceID);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    [soundDictionary removeAllObjects];</div><div class="line">    <span class="comment">// delete the buffers</span></div><div class="line">    <span class="keyword">for</span> (<span class="built_in">NSNumber</span>* bufferNumber <span class="keyword">in</span> bufferStorageArray)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">NSUInteger</span> bufferID = [bufferNumber unsignedIntegerValue];</div><div class="line">        alDeleteBuffers(<span class="number">1</span>, &amp;bufferID);</div><div class="line">    &#125;</div><div class="line">    [bufferStorageArray removeAllObjects];</div><div class="line">    </div><div class="line">    <span class="comment">// destroy the context</span></div><div class="line">    alcDestroyContext(mContext);</div><div class="line">    <span class="comment">// close the device</span></div><div class="line">    alcCloseDevice(mDevice);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：在实际应用中你可能有不只一个source（我的每个buffer都有一个source，但我只有8组声音所以不会有什么问题）。而可以使用 的source数目是有上限的。我不知道iPhone上的实际数字，但可能是16或32之类。（译者注：我有一个应用程序使用了30个source，没有 什么问题）。处理此类问题的方法是加载你的缓存，然后动态分配给下一个可用的source（即没有正在进行播放的source）。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS-Cocos2d-x/">iOS Cocos2d-x</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS-Cocos2d-x/">iOS Cocos2d-x</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/08/25/G-游戏文档/[IOS开发]---OpenAL介绍/" data-title="OpenAL介绍 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]将WIN下VS编译的工程转到IOS中整理/" title="将WIN下VS编译的工程转到IOS中整理">
+  <strong>上一篇：</strong><br/>
+  <span>
+  将WIN下VS编译的工程转到IOS中整理</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/08/20/A-完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/"  title="FrameWork(含demo)-Xcode8环境">
+ <strong>下一篇：</strong><br/> 
+ <span>FrameWork(含demo)-Xcode8环境
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正题"><span class="toc-number">2.</span> <span class="toc-text">正题</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>35</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

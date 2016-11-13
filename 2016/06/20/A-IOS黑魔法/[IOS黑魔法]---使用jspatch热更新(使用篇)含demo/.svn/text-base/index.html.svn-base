@@ -1,0 +1,683 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>使用jspatch热更新(使用篇)含demo | 香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="如果对JSpatch不了解的朋友请先看我的这一篇:使用jspatch热更新
+例子一:用tableView对比一个用jspatch修复bug
+Demo下载地址
+
+正常源代码如下:
+
+12345678910111213141516171819- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    self.dataArray = [NSMutable">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用jspatch热更新(使用篇)含demo">
+<meta property="og:url" content="http://www.hundredone.win/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(使用篇)含demo/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="如果对JSpatch不了解的朋友请先看我的这一篇:使用jspatch热更新
+例子一:用tableView对比一个用jspatch修复bug
+Demo下载地址
+
+正常源代码如下:
+
+12345678910111213141516171819- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    self.dataArray = [NSMutable">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/006yX0Ypgw1f9puq6nuw5j30yg0iuwkw.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/006yX0Ypgw1f9puq7anbtj30ku09pq5k.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9pusnhwocg30z40hh4h5.gif">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/006yX0Ypgw1f9pusom646j30yg0k70zl.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9pusr90u6j30x10i07cb.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9pusnhwocg30z40hh4h5.gif">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T03:57:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用jspatch热更新(使用篇)含demo">
+<meta name="twitter:description" content="如果对JSpatch不了解的朋友请先看我的这一篇:使用jspatch热更新
+例子一:用tableView对比一个用jspatch修复bug
+Demo下载地址
+
+正常源代码如下:
+
+12345678910111213141516171819- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    self.dataArray = [NSMutable">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/mw690/006yX0Ypgw1f9puq6nuw5j30yg0iuwkw.jpg">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(使用篇)含demo/" title="使用jspatch热更新(使用篇)含demo" itemprop="url">使用jspatch热更新(使用篇)含demo</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished"> Published 2016-06-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#例子一-用tableView对比一个用jspatch修复bug"><span class="toc-number">1.</span> <span class="toc-text">例子一:用tableView对比一个用jspatch修复bug</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#崩溃源代码以及整改如下"><span class="toc-number">1.1.</span> <span class="toc-text">崩溃源代码以及整改如下:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子二-给tableView添加按钮事件"><span class="toc-number">2.</span> <span class="toc-text">例子二:给tableView添加按钮事件</span></a></li></ol>
+		
+		</div>
+		
+		<p>如果对JSpatch不了解的朋友请先看我的这一篇:<br><a href="http://www.jianshu.com/p/1e2ff5e0fa2f" target="_blank" rel="external">使用jspatch热更新</a></p>
+<h2 id="例子一-用tableView对比一个用jspatch修复bug"><a href="#例子一-用tableView对比一个用jspatch修复bug" class="headerlink" title="例子一:用tableView对比一个用jspatch修复bug"></a>例子一:用tableView对比一个用jspatch修复bug</h2><hr>
+<p><a href="https://github.com/OneHundredSir/Objective-C/tree/master/JSPatch/%E9%A6%99%E8%95%89%E5%A4%A7%E5%A4%A7jsPatchDemo" target="_blank" rel="external">Demo下载地址</a></p>
+<blockquote>
+<p><strong>正常</strong>源代码如下:</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="keyword">self</span>.dataArray = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"one"</span>,<span class="string">@"two"</span>,<span class="string">@"three"</span>,<span class="string">@"four"</span>,<span class="string">@"five"</span>, <span class="literal">nil</span>];</div><div class="line">    </div><div class="line"><span class="meta">#pragma mark datasource</span></div><div class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">5</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UITableViewCell</span>*)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">NSString</span>* cellIdentifier=<span class="string">@"cell"</span>;</div><div class="line">    <span class="built_in">UITableViewCell</span>* cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];</div><div class="line">    <span class="keyword">if</span> (cell==<span class="literal">nil</span>) &#123;</div><div class="line">        cell=[[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:cellIdentifier];</div><div class="line">    &#125;</div><div class="line">    cell.textLabel.text=[<span class="keyword">self</span>.dataArray objectAtIndex:indexPath.row];</div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/mw690/006yX0Ypgw1f9puq6nuw5j30yg0iuwkw.jpg" alt="正常展示图示"></p>
+<h3 id="崩溃源代码以及整改如下"><a href="#崩溃源代码以及整改如下" class="headerlink" title="崩溃源代码以及整改如下:"></a><strong>崩溃</strong>源代码以及整改如下:</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (NSInteger)<span class="selector-tag">tableView</span><span class="selector-pseudo">:(UITableView</span> *)<span class="selector-tag">tableView</span> <span class="selector-tag">numberOfRowsInSection</span><span class="selector-pseudo">:(NSInteger)section</span>&#123;</div><div class="line">    return 10;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/mw690/006yX0Ypgw1f9puq7anbtj30ku09pq5k.jpg" alt="数组越界提示"></p>
+<p><img src="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9pusnhwocg30z40hh4h5.gif" alt="动态演示"></p>
+<p><strong>使用JSpatch修复</strong><a href="http://bang590.github.io/JSPatchConvertor/" target="_blank" rel="external">OC转JS的网页</a><br><a href="https://github.com/OneHundredSir/Objective-C/tree/master/JSPatch/%E9%A6%99%E8%95%89%E5%A4%A7%E5%A4%A7jsPatchDemo" target="_blank" rel="external">Demo下载地址</a><br>JS代码如下(随意用个文本编辑都可以,只要保存的文件后缀为<code>.js</code>,例如<code>hundred.js</code>)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-tag">defineClass</span>("<span class="selector-tag">ViewController</span>", &#123;</div><div class="line">         <span class="attribute">tableView_cellForRowAtIndexPath</span>: <span class="built_in">function</span>(tableView, indexPath) &#123;</div><div class="line">         var cell = tableView.<span class="built_in">dequeueReusableCellWithIdentifier</span>(<span class="string">"cell"</span>)</div><div class="line">         if (!cell) &#123;</div><div class="line">         cell = <span class="built_in">require</span>(<span class="string">'UITableViewCell'</span>).<span class="built_in">alloc</span>().<span class="built_in">initWithStyle_reuseIdentifier</span>(0, <span class="string">"cell"</span>)</div><div class="line">         &#125;</div><div class="line">         <span class="selector-tag">cell</span><span class="selector-class">.textLabel</span>()<span class="selector-class">.setText</span>("1")</div><div class="line">         <span class="selector-tag">return</span> <span class="selector-tag">cell</span></div><div class="line">         &#125;,</div><div class="line">&#125;</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>接下来就在<code>delegate</code>里面分别实现<strong>本地</strong>以及<strong>网络同步</strong>了<br><a href="https://github.com/OneHundredSir/Objective-C/tree/master/JSPatch/%E9%A6%99%E8%95%89%E5%A4%A7%E5%A4%A7jsPatchDemo" target="_blank" rel="external">Demo下载地址</a></p>
+<blockquote>
+<p><strong>本地</strong></p>
+</blockquote>
+<p>代码如下<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">didFinishLaunchingWithOptions</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">launchOptions</span> &#123;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment">//JSPatchKey本地测试</span></div><div class="line">    <span class="selector-attr">[JSPatch testScriptInBundle]</span>;</div><div class="line">    <span class="selector-attr">[JSPatch sync]</span>;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://ww4.sinaimg.cn/mw690/006yX0Ypgw1f9pusom646j30yg0k70zl.jpg" alt="本地测试"></p>
+<blockquote>
+<p><strong>网络同步</strong><br>1.版本号一致<br>2.上传到App修复–<a href="http://jspatch.com/" target="_blank" rel="external">官网登陆</a></p>
+</blockquote>
+<p>代码如下<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这个是后台获取的,改成自己的~</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *JSPatchKey = <span class="string">@"20e5c016a6b9f7bc"</span>;</div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</div><div class="line">    <span class="comment">//JSPatchKey是创建App获得的AppKey</span></div><div class="line"><span class="comment">//    [JSPatch startWithAppKey:JSPatchKey];</span></div><div class="line">    [JSPatch sync];</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9pusr90u6j30x10i07cb.jpg" alt="同步要求的条件"></p>
+<h2 id="例子二-给tableView添加按钮事件"><a href="#例子二-给tableView添加按钮事件" class="headerlink" title="例子二:给tableView添加按钮事件"></a>例子二:给tableView添加按钮事件</h2><hr>
+<p>OC转JS工具:<a href="http://bang590.github.io/JSPatchConvertor/" target="_blank" rel="external">OC转JS在线</a><br>这里不再去演示怎么使用本地和网络了,直接吧修改的jspatch源码放上来<br>Demo地址:<a href="https://github.com/OneHundredSir/Objective-C/tree/master/JSPatch/%E9%A6%99%E8%95%89%E5%A4%A7%E5%A4%A7%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%94%AE%E5%8A%9F%E8%83%BD" target="_blank" rel="external">点我进入demo下载,记得给我点个star</a><br>JSPatch的源码<br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"></div><div class="line"><span class="markdown"><span class="section">## 例子二:重构整个函数</span></span></div><div class="line">---</div><div class="line">OC转JS工具:[<span class="string">OC转JS在线</span>](<span class="link">http://bang590.github.io/JSPatchConvertor/</span>)</div><div class="line">这里不再去演示怎么使用本地和网络了,直接吧修改的jspatch源码放上来</div><div class="line">Demo地址:[<span class="string">点我进入demo下载,记得给我点个star</span>](<span class="link"></span>)</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//  作者:香蕉大大  简书地址：http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles</span></div><div class="line"><span class="comment">//  微信个人技术公众号：大大家的IOS说（一起用碎片时间学习最新最有用的IOS资料）</span></div><div class="line"><span class="comment">//  微信个人账号：hundreda</span></div><div class="line"></div><div class="line"> defineClass(<span class="string">"ViewController"</span>, &#123;</div><div class="line">         tableView_cellForRowAtIndexPath: <span class="function"><span class="keyword">function</span>(<span class="params">tableView, indexPath</span>) </span>&#123;</div><div class="line">         <span class="keyword">var</span> cell = tableView.dequeueReusableCellWithIdentifier(<span class="string">"cell"</span>)</div><div class="line">         <span class="keyword">if</span> (!cell) &#123;</div><div class="line">         cell = <span class="built_in">require</span>(<span class="string">'UITableViewCell'</span>).alloc().initWithStyle_reuseIdentifier(<span class="number">0</span>, <span class="string">"cell"</span>)</div><div class="line">         &#125;</div><div class="line">         cell.textLabel().setText(<span class="string">"1"</span>)</div><div class="line">         <span class="keyword">return</span> cell</div><div class="line">         &#125;,</div><div class="line">&#125;</div><div class="line">)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"> <span class="built_in">require</span>(<span class="string">'UIAlertView'</span>);</div><div class="line">defineClass(<span class="string">'ViewController'</span>, &#123;</div><div class="line">    tableView_didSelectRowAtIndexPath: <span class="function"><span class="keyword">function</span>(<span class="params">tableView, indexPath</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> alert = UIAlertView.alloc().initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles(<span class="string">"提示"</span>, <span class="string">"恭喜弹出"</span>, <span class="literal">null</span>, <span class="string">"确定"</span>, <span class="literal">null</span>);</div><div class="line">        alert.show();</div><div class="line">    &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><img src="http://ww2.sinaimg.cn/mw690/006yX0Ypgw1f9pusnhwocg30z40hh4h5.gif" alt="添加了按钮提示框"></p>
+<blockquote>
+<p>不能使用的OC语句</p>
+</blockquote>
+<p>目前测试不能使用的</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//NSLog不能识别</span></div><div class="line">NSLog(@<span class="string">"我是香蕉大大"</span>);</div><div class="line"></div><div class="line"><span class="comment">//printf不能识别</span></div><div class="line"><span class="built_in">printf</span>(<span class="string">"我是香蕉大大"</span>)</div><div class="line"></div><div class="line"><span class="comment">//arcrandom</span></div><div class="line">随机数也不可以使用~</div></pre></td></tr></table></figure>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。<strong>允许转载,转载后请给在评论区留下转载地址,转载时请注明出处,否则保留追究权利~</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS进阶/">iOS进阶</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS黑魔法/">iOS黑魔法</a><a href="/tags/iOS进阶拓展/">iOS进阶拓展</a><a href="/tags/iOS热更新/">iOS热更新</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(使用篇)含demo/" data-title="使用jspatch热更新(使用篇)含demo | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(介绍篇)/" title="使用jspatch热更新(介绍篇)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  使用jspatch热更新(介绍篇)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---语法糖(简单却不那么简单)/"  title="语法糖(简单却不那么简单)">
+ <strong>下一篇：</strong><br/> 
+ <span>语法糖(简单却不那么简单)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#例子一-用tableView对比一个用jspatch修复bug"><span class="toc-number">1.</span> <span class="toc-text">例子一:用tableView对比一个用jspatch修复bug</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#崩溃源代码以及整改如下"><span class="toc-number">1.1.</span> <span class="toc-text">崩溃源代码以及整改如下:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子二-给tableView添加按钮事件"><span class="toc-number">2.</span> <span class="toc-text">例子二:给tableView添加按钮事件</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>归档: 2015 | 香蕉的个人博客</title>
+    <title>Archives: 2015 | 香蕉的个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -44,7 +44,7 @@
 				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:www.hundredone.win">
 					</form>
 					
@@ -80,7 +80,7 @@
   <h2 class="archive-icon">2015</h2>
   
   <div class="archiveslist archive-float clearfix">
-   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">2016 年 06 月</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">2016 年 05 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016 年 01 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015 年 10 月</a><span class="archive-list-count">6</span></li></ul>
+   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">Nov 2016</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">Aug 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">Jul 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">Jun 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">Apr 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">Mar 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">Feb 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">Jan 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">Nov 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">Oct 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">Aug 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">Jul 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">Apr 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">Aug 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">Jul 2014</a><span class="archive-list-count">1</span></li></ul>
  </div>
   
 </div>
@@ -89,20 +89,46 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2015/10/20/IOS黑魔法/IOS开发(黑魔法)--Method-Swizzling/" title="IOS开发(黑魔法)--Method-Swizzling" itemprop="url">
+    <a href="/2015/11/20/A-OC的碎碎念/[大大OC实用篇]-NSTimer你可能没有考虑过的问题/" title="NSTimer特殊用法" itemprop="url">
   
 
-    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
+    <time datetime="2015-11-20T02:49:50.000Z" itemprop="datePublished">2015-11-20</time>
 
 
-    <h1 itemprop="name">IOS开发(黑魔法)--Method-Swizzling</h1>
+    <h1 itemprop="name">NSTimer特殊用法</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2015/10/20/IOS黑魔法/IOS开发-获取唯一UUID的方法(2016最全含demo）/" title="获取唯一UUID的方法(2016最全含demo）" itemprop="url">
+    <a href="/2015/11/20/A-OC的碎碎念/NSError---自定义错误/" title="NSError自定义错误" itemprop="url">
+  
+
+    <time datetime="2015-11-20T02:49:50.000Z" itemprop="datePublished">2015-11-20</time>
+
+
+    <h1 itemprop="name">NSError自定义错误</h1>
+
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/10/20/A-iosOC项目仿写/[大大OC项目仿写]-过足瘾APP仿写/" title="OC仿写-过足瘾APP仿写" itemprop="url">
+  
+
+    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
+
+
+    <h1 itemprop="name">OC仿写-过足瘾APP仿写</h1>
+
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/10/20/A-IOS黑魔法/IOS开发-获取唯一UUID的方法(2016最全含demo）/" title="获取唯一UUID的方法(2016最全含demo）" itemprop="url">
   
 
     <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
@@ -115,20 +141,7 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2015/10/20/iosOC项目仿写/[大大OC项目仿写]-花田小憩APP仿写/" title="OC-花田小憩APP仿写" itemprop="url">
-  
-
-    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
-
-
-    <h1 itemprop="name">OC-花田小憩APP仿写</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/10/20/iosOC项目仿写/[大大OC项目仿写]-小日子APP仿写/" title="OC仿写-小日子APP仿写" itemprop="url">
+    <a href="/2015/10/20/A-iosOC项目仿写/[大大OC项目仿写]-小日子APP仿写/" title="OC仿写-小日子APP仿写" itemprop="url">
   
 
     <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
@@ -141,7 +154,7 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2015/10/20/iosOC项目仿写/[IOS项目扩展阅读]---重复的就不多说了/" title="IOS项目扩展阅读" itemprop="url">
+    <a href="/2015/10/20/O-电脑知识/[IOS项目扩展阅读]---重复的就不多说了/" title="IOS项目扩展阅读" itemprop="url">
   
 
     <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
@@ -154,17 +167,60 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2015/10/20/iosOC项目仿写/[大大OC项目仿写]-过足瘾APP仿写/" title="OC仿写-过足瘾APP仿写" itemprop="url">
+    <a href="/2015/10/20/A-IOS黑魔法/IOS开发(黑魔法)--Method-Swizzling/" title="IOS开发(黑魔法)--Method-Swizzling" itemprop="url">
   
 
     <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
 
 
-    <h1 itemprop="name">OC仿写-过足瘾APP仿写</h1>
+    <h1 itemprop="name">IOS开发(黑魔法)--Method-Swizzling</h1>
 
   </a>
 </section>
 
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/10/20/A-iosOC项目仿写/[大大OC项目仿写]-花田小憩APP仿写/" title="OC-花田小憩APP仿写" itemprop="url">
+  
+
+    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
+
+
+    <h1 itemprop="name">OC-花田小憩APP仿写</h1>
+
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/08/20/O-电脑知识/第三方框架/" title="iOS第三方框架" itemprop="url">
+  
+
+    <time datetime="2015-08-20T02:49:50.000Z" itemprop="datePublished">2015-08-20</time>
+
+
+    <h1 itemprop="name">iOS第三方框架</h1>
+
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/07/20/A-OC的碎碎念/IOS开发-cocopods为啥swift我一直pod不了/" title="iOS内联函数" itemprop="url">
+  
+
+    <time datetime="2015-07-20T02:49:50.000Z" itemprop="datePublished">2015-07-20</time>
+
+
+    <h1 itemprop="name">iOS内联函数</h1>
+
+  </a>
+</section>
+
+
+  <nav id="page-nav" class="clearfix archive-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/archives/2015/page/2/">2</a><a class="extend next" rel="next" href="/archives/2015/page/2/">Next<span></span></a>
+  </nav>
 
   </div>
 </div>
@@ -316,7 +372,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

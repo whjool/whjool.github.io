@@ -1,10 +1,10 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
   
-    <title>香蕉的家</title>
+    <title>香蕉的个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的家">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
-<meta property="og:site_name" content="香蕉的家">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/page/4/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的家">
+<meta name="twitter:title" content="香蕉的个人博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的家" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,14 +37,14 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的家" title="香蕉的家"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的家">香蕉的家</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -60,22 +60,12 @@
 					
 						<li><a href="/categories">categories</a></li>
 					
-						<li><a href="/categories/object-c">OC</a></li>
-					
-						<li><a href="/categories/swift">Swift</a></li>
-					
-						<li><a href="/categories/MixH5">MixD</a></li>
-					
-						<li><a href="/categories/other">Other</a></li>
-					
-						<li><a href="/categories/essay">essay</a></li>
-					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
 					</form>
 					
 					</li>
@@ -86,184 +76,266 @@
     <div id="container">
       <div id="main">
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/10/20/iosOC项目仿写/[大大OC项目仿写]-小日子APP仿写/" title="OC仿写-小日子APP仿写" itemprop="url">OC仿写-小日子APP仿写</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished"> 发表于 2015-10-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <hr>
-<p>[TOC]</p>
-<hr>
-<h2 id="小日子objective-C"><a href="#小日子objective-C" class="headerlink" title="#小日子objective-C"></a>#小日子objective-C</h2><blockquote>
-<p>##这里用到的库</p>
-</blockquote>
-<p>####1、MBProgressHUD (弹窗)</p>
-<p>####2、MJExtension（字典转模型）</p>
-<p>####3、MJRefresh（上下拉刷新）</p>
-<p>####4、SDWebImage（网络图片下载）</p>
-<blockquote>
-<p>##库的使用</p>
-</blockquote>
-<ul>
-<li>[x] 注意这下面只是这里用，这里只是介绍了这里用到的，具体学习请参考每个第三方的demo的使用</li>
-</ul>
-<p>####1、MBProgressHUD (弹窗)<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> *  布置提示框</div><div class="line"> */</div><div class="line">-(<span class="keyword">void</span>)setUpHub:(<span class="built_in">NSString</span> *)show</div><div class="line">&#123;</div><div class="line">    <span class="comment">//初始化进度框，置于当前的View当中</span></div><div class="line">    _Hub = [[MBProgressHUD alloc] initWithView:<span class="keyword">self</span>.view];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:_Hub];</div><div class="line">    <span class="comment">//如果设置此属性则当前的view置于后台</span></div><div class="line">    _Hub.dimBackground = <span class="literal">YES</span>;</div><div class="line">    </div><div class="line">    _Hub.mode=MBProgressHUDModeDeterminate;</div><div class="line">    </div><div class="line">    <span class="comment">//设置对话框文字</span></div><div class="line">    _Hub.labelText = show;</div><div class="line"></div><div class="line">    </div><div class="line">    <span class="comment">//显示对话框</span></div><div class="line">    [_Hub showAnimated:<span class="literal">YES</span> whileExecutingBlock:^&#123;</div><div class="line">        <span class="comment">//对话框显示时需要执行的操作</span></div><div class="line">        sleep(<span class="number">1</span>);</div><div class="line">    &#125; completionBlock:^&#123;</div><div class="line">        <span class="comment">//操作执行完后取消对话框</span></div><div class="line">        [_Hub removeFromSuperview];</div><div class="line">        _Hub = <span class="literal">nil</span>;</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>####2、MJExtension（字典转模型）</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - lazy load</span></div><div class="line">-(<span class="built_in">NSMutableArray</span> *)firModel_list</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (_firModel_list) &#123;</div><div class="line">        <span class="keyword">return</span> _firModel_list;</div><div class="line">    &#125;</div><div class="line">    _firModel_list=[@[] mutableCopy];</div><div class="line">    <span class="built_in">NSString</span> *path=[[<span class="built_in">NSBundle</span> mainBundle]pathForResource:<span class="string">@"events"</span> ofType:<span class="literal">nil</span>];</div><div class="line">    <span class="comment">//把JSON数据转换成字典</span></div><div class="line">    <span class="built_in">NSData</span> *data=[<span class="built_in">NSData</span> dataWithContentsOfFile:path];</div><div class="line">    <span class="built_in">NSDictionary</span> *dic=[<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:data options:<span class="built_in">NSJSONReadingMutableContainers</span> error:<span class="literal">nil</span>];</div><div class="line">    <span class="comment">//获取字典中的数组,-------&gt;这里就是用到了第三方的转模型</span></div><div class="line">    <span class="comment">//WHDFirModel这只是自定义的字典模型</span></div><div class="line">    <span class="built_in">NSArray</span> *getArr=dic[<span class="string">@"list"</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">NSDictionary</span> *realDic <span class="keyword">in</span> getArr) &#123;</div><div class="line">        WHDFirModel *model=[WHDFirModel mj_objectWithKeyValues:realDic];</div><div class="line">        [_firModel_list addObject:model];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> _firModel_list;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>####3、MJRefresh（上下拉刷新）</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> _table.mj_header=[MJRefreshNormalHeader <span class="string">headerWithRefreshingBlock:</span>^&#123;</div><div class="line"> [NSTimer <span class="string">scheduledTimerWithTimeInterval:</span><span class="number">2</span> <span class="string">target:</span>self  <span class="string">selector:</span><span class="meta">@selector</span>(stopme) <span class="string">userInfo:</span>nil <span class="string">repeats:</span>NO];</div><div class="line"> &#125;];</div><div class="line"></div><div class="line"> _table.mj_footer=[MJRefreshAutoFooter <span class="string">footerWithRefreshingBlock:</span>^&#123;</div><div class="line"> [NSTimer <span class="string">scheduledTimerWithTimeInterval:</span><span class="number">2</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(stopme) <span class="string">userInfo:</span>nil <span class="string">repeats:</span>NO];</div><div class="line"> &#125;];</div><div class="line"> _table.mj_footer = [MJRefreshAutoNormalFooter <span class="string">footerWithRefreshingBlock:</span>^&#123;</div><div class="line"> &#125;];</div><div class="line"> </div><div class="line"></div><div class="line">结束刷新有几种方法</div><div class="line"><span class="keyword">if</span> (data) &#123;</div><div class="line">     [_table.mj_header endRefreshing];</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">[_table.mj_footer endRefreshingWithNoMoreData];</div><div class="line">&#125;</div><div class="line"> [_table.mj_header endRefreshing];</div></pre></td></tr></table></figure>
-<p>####4、SDWebImage（网络图片下载）</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">----导入：UIImageView+WebCache----</div><div class="line">[firCell.backImage <span class="string">sd_setImageWithURL:</span>[NSURL <span class="string">URLWithString:</span>imageUrl] <span class="string">placeholderImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"mebackground"</span>]];</div></pre></td></tr></table></figure>
-<blockquote>
-<p>##简单的库实现，如果喜欢的朋友麻烦帮忙点个赞哈～入门的朋友可以练练手</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-b3eb59de05891cce.gif?imageMogr2/auto-orient/strip" alt="展示图片"></p>
-<p><a href="https://github.com/OneHundredSir/OC_smallDay" target="_blank" rel="external">github地址</a>:<a href="https://github.com/OneHundredSir/OC_smallDay" target="_blank" rel="external">https://github.com/OneHundredSir/OC_smallDay</a></p>
-<p>#多说无益，功能介绍，附上gif动态图展示</p>
-<blockquote>
-<p>左上角选择地图</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-6c446ba0acdac61a.gif?imageMogr2/auto-orient/strip" alt="左上角选择地图.gif"></p>
-<blockquote>
-<p>顶部scrollView与tableView</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-c94b36c0ccc3ccde.gif?imageMogr2/auto-orient/strip" alt="顶部scrollView与tableView.gif"></p>
-<blockquote>
-<p>广告页面</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-129cab8c43597a9c.gif?imageMogr2/auto-orient/strip" alt="广告页面.gif"></p>
-<blockquote>
-<p>collectionView</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-cafaf48b6ccef44f.gif?imageMogr2/auto-orient/strip" alt="collectionView.gif"></p>
-<blockquote>
-<p>search功能</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-9e08f09217175f75.gif?imageMogr2/auto-orient/strip" alt="search.gif"></p>
-<blockquote>
-<p>我的页面功能</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-f4126be6dc2e2cb8.gif?imageMogr2/auto-orient/strip" alt="我的.gif"></p>
-<p>这个是demo<br>这个案例中用到的第三方框架自己参考参考,不是一定要用也可以自己封装<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">pod</span> <span class="string">'MJRefresh'</span>, <span class="string">'~&gt; 3.1.9'</span></div><div class="line">pod <span class="string">'SDWebImage'</span></div><div class="line">pod <span class="string">'XMPPFramework'</span></div><div class="line">pod <span class="string">'FMDB'</span></div><div class="line">pod <span class="string">'MBProgressHUD'</span></div><div class="line">pod <span class="string">'IQKeyboardManager'</span></div><div class="line">pod <span class="string">'MJExtension'</span>, <span class="string">'~&gt; 3.0.11'</span></div></pre></td></tr></table></figure></p>
-<p>Demo地址:<a href="https://github.com/OneHundredSir/OC_ProjectLists/tree/master/%E5%B0%8F%E6%97%A5%E5%AD%90" target="_blank" rel="external">小日子  Demo</a></p>
-<p>##赠人点赞，手留余香~~~~</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-1e47fa324e85fb46.gif?imageMogr2/auto-orient/strip" alt="点赞图片"></p>
-<blockquote>
-<p>作者信息</p>
-</blockquote>
-<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">具体信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">QQ/微信</td>
-<td style="text-align:center">hundreda</td>
-</tr>
-<tr>
-<td style="text-align:center">简书号连接</td>
-<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
-</tr>
-<tr>
-<td style="text-align:center">GitHub个人开源主页</td>
-<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
-</tr>
-<tr>
-<td style="text-align:center">好心人赏我个<code>赞</code></td>
-<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
-</tr>
-<tr>
-<td style="text-align:center">个人iOS开发QQ讨论群</td>
-<td style="text-align:center"><strong>365204530</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>群内规矩</code></td>
-<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
-</tr>
-<tr>
-<td style="text-align:center">iOS开发类微信订阅号</td>
-<td style="text-align:center"><strong>大大家的IOS说</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
-<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/iOS项目/">iOS项目</a>
-</div>
-
-
-  <div class="article-tags">
   
-  <span></span> <a href="/tags/iOS项目/">iOS项目</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/O-遇到的坑/[IOS提交版本]---遇到的各种坑汇总/" title="提交版本遇到的各种坑汇总" itemprop="url">
+  
+    <h1 itemprop="name">提交版本遇到的各种坑汇总</h1>
+    
+     
+           <p itemprop="description" >有广告不过
 
 
-    </article>
-
-
+12345此问题为必答项。您的 App 正在使用广告标识符 (IDFA)。您必须先提供关于 IDFA 的使用信息或将其从 App 中移除，然后再上传您的二进制文件。&amp;gt;IDFA(identifier for advertising)是苹果推出的一项广告解决方案</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
 
 
 
 
 
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/O-遇到的坑/[IOSxcode概念]---Xcode8以后报错以及失效/" title="Xcode8以后报错以及失效" itemprop="url">
+  
+    <h1 itemprop="name">Xcode8以后报错以及失效</h1>
+    
+     
+           <p itemprop="description" >更新至 10-12参考其他xocde8失效的汇总
+
+失效
+
+目录
+
+include找不到对应库,这里请注意区别,此案例使用的是#include&amp;lt;#&amp;gt; ,非#include”#”
+warning: directory not found for option,如果找不到</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/O-遇到的坑/[原创]安装cocopad的坑/" title="安装cocopod的坑" itemprop="url">
+  
+    <h1 itemprop="name">安装cocopod的坑</h1>
+    
+     
+           <p itemprop="description" >添加一个使用的坑:swift使用cocopod我在2016-8-15,一直都是拖进来的,所以没有注意导入的问题,所以在swift的项目中遇到了这个问题,特此备注一下.希望大家注意
+在ruby上遇到的坑，一一罗列
+图示一解决方法12345678910111213这个问题的发生：由于</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/O-电脑知识/[MAC应用]---蛋疼的隐藏文件怎么显示出来/" title="MAC蛋疼的隐藏文件怎么显示出来" itemprop="url">
+  
+    <h1 itemprop="name">MAC蛋疼的隐藏文件怎么显示出来</h1>
+    
+     
+           <p itemprop="description" >Mac如何显示隐藏文件?我们熟悉 Windows 系统的用户可能只需要在文件选项菜单那里打上几个勾就可以做到了，那么对于 Mac 用户呢?Mac用户要显示隐藏文件就没有那么简单了，需要用到终端命令的方式来实现，下面PC6小编给大家讲讲如何让 Finder 显示隐藏文件和文件夹，具</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/A-完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/" title="FrameWork(含demo)-Xcode8环境" itemprop="url">
+  
+    <h1 itemprop="name">FrameWork(含demo)-Xcode8环境</h1>
+    
+     
+           <p itemprop="description" >如果不知道库是什么的朋友看看这篇文章:静态库
+
+前言之前有很多的大神们已经写过framework的制作，但最近由于Xcode7的出现，很多之前的教程内容已经不符，对于初学者来说，找到一篇能够直接明了，简单易学的制作framework的文章比较困难。本文将基于Xcode7创建一个简</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/G-游戏文档/[Cocos2d-x-使用问题]---Mac入门Cocos2d-x必备/" title="Mac入门Cocos2d-x必备" itemprop="url">
+  
+    <h1 itemprop="name">Mac入门Cocos2d-x必备</h1>
+    
+     
+           <p itemprop="description" >新建文件方法官网参考官方论坛
+问题整理,慢慢更新
+
+1.Xcode 下 jni.h file not found
+
+解决问题123原因: jni.h 是安卓下导入的文件只要把加入这判断的宏就OK了用平台宏注释掉即可。#if (CC_TARGET_PLATFORM == CC_PL</p>
+        
+    
+    <time datetime="2016-08-19T22:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/07/20/A-OC的碎碎念/IOS开发进阶-内联函数(inline)/" title="iOS内联函数" itemprop="url">
+  
+    <h1 itemprop="name">iOS内联函数</h1>
+    
+     
+           <p itemprop="description" >ios内联函数 inline
+
+不得不说最近刚好在研究blocksKit,然后遇到了一个问题,内联函数,然后自己就开始巴拉巴拉巴拉.
+
+简单介绍C语言中的内联函数
+
+C语言中内联函数到底有什么作用？
+试想一下，每当我们在假设就在主函数中调用另外一个函数的时候，那么这个函数就要入栈</p>
+        
+    
+    <time datetime="2016-07-20T02:49:50.000Z" itemprop="datePublished">2016-07-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit应用篇(含demo)/" title="黑魔法之blocksKit应用篇(含demo)" itemprop="url">
+  
+    <h1 itemprop="name">黑魔法之blocksKit应用篇(含demo)</h1>
+    
+     
+           <p itemprop="description" >目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
+
+BlocksKit项目主页:BlocksKit-github主页
+
+1.</p>
+        
+    
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/06/20/A-IOS黑魔法/IOS黑魔法---XAspect(第三方插件)/" title="iOS开发---XAspect(第三方插件)" itemprop="url">
+  
+    <h1 itemprop="name">iOS开发---XAspect(第三方插件)</h1>
+    
+     
+           <p itemprop="description" >首先啥都不说,先放上XAspect的连接:XAspect
+参考文章:哈哈
+
+背景
+
+这两天封装个推,遇到一个男人都会遇到的问题,不知道怎么入手,OK,反正都得弄出来,顺便做得漂漂亮亮的…然后故事就开始了…好吧,先把个推的demo下载:2016-8-15下载地址PS:过期了和我说下</p>
+        
+    
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit分析(下)/" title="iOS开发---黑魔法之blocksKit分析(下)" itemprop="url">
+  
+    <h1 itemprop="name">iOS开发---黑魔法之blocksKit分析(下)</h1>
+    
+     
+           <p itemprop="description" >目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
+
+BlocksKit项目主页:BlocksKit-github主页
+
+1.</p>
+        
+    
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix unexpand">
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -273,11 +345,31 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS项目/" title="iOS项目">iOS项目<sup>1</sup></a></li>
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
 		  
 		
 		</ul>
@@ -286,11 +378,87 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>1</sup></a></li>
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -298,7 +466,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -314,11 +482,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -472,7 +640,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

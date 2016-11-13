@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | 香蕉的家</title>
+    <title>Hello World | 香蕉的个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -16,12 +16,12 @@
 Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/11/13/hello-world/index.html">
-<meta property="og:site_name" content="香蕉的家">
+<meta property="og:url" content="http://www.hundredone.win/2016/11/13/hello-world/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
 <meta property="og:description" content="[TOC]
 
 Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHu">
-<meta property="og:updated_time" content="2016-11-12T16:38:20.000Z">
+<meta property="og:updated_time" content="2016-11-13T03:57:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
 <meta name="twitter:description" content="[TOC]
@@ -29,7 +29,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHu">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的家" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -47,11 +47,11 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的家" title="香蕉的家"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的家">香蕉的家</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
 			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
@@ -75,7 +75,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
 						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
+						<input type="hidden" name="q" value="site:www.hundredone.win">
 					</form>
 					
 					</li>
@@ -97,7 +97,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-12T16:38:20.000Z" itemprop="datePublished"> 发表于 2016-11-13</time>
+    <time datetime="2016-11-13T03:57:29.000Z" itemprop="datePublished"> 发表于 2016-11-13</time>
     
   </p>
 </header>
@@ -134,7 +134,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/11/13/hello-world/" data-title="Hello World | 香蕉的家" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.hundredone.win/2016/11/13/hello-world/" data-title="Hello World | 香蕉的个人博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -149,7 +149,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
  
 
 <div class="next">
-<a href="/2016/09/02/IOS黑魔法/IOS开发---iOS获取当前设备的IP地址和MAC地址/"  title="">
+<a href="/2016/11/13/OC的碎碎念/[IOS直播一]---iOS中集成ijkplayer框架/"  title="">
  <strong>下一篇：</strong><br/> 
  <span>(no title)
 </span>
@@ -194,7 +194,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>2</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>11</sup></a></li>
 		  
 		
 		  
@@ -211,11 +211,19 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -223,15 +231,15 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 			
 		
 			
-				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>2</sup></a></li>
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>2</sup></a></li>
 			
 		
 			
@@ -239,11 +247,15 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 			
 		
 			
-				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/runtime/" title="runtime">runtime<sup>1</sup></a></li>
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
 			
 		
 		</ul>

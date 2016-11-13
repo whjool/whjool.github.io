@@ -1,0 +1,687 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>iOS开发---黑魔法之blocksKit分析(下) | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
+
+BlocksKit项目主页:BlocksKit-github主页
+
+1.前言本篇文章只适合对delegate和block进阶使用,不适合对以上两个概念的初学者学习.高能预警：本篇文章非常长，因">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发---黑魔法之blocksKit分析(下)">
+<meta property="og:url" content="http://www.hundredone.win/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit分析(下)/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
+
+BlocksKit项目主页:BlocksKit-github主页
+
+1.前言本篇文章只适合对delegate和block进阶使用,不适合对以上两个概念的初学者学习.高能预警：本篇文章非常长，因">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T03:57:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发---黑魔法之blocksKit分析(下)">
+<meta name="twitter:description" content="目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
+
+BlocksKit项目主页:BlocksKit-github主页
+
+1.前言本篇文章只适合对delegate和block进阶使用,不适合对以上两个概念的初学者学习.高能预警：本篇文章非常长，因">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit分析(下)/" title="iOS开发---黑魔法之blocksKit分析(下)" itemprop="url">iOS开发---黑魔法之blocksKit分析(下)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished"> Published 2016-06-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-前言"><span class="toc-number">2.</span> <span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#私有类-BKObserver"><span class="toc-number">3.</span> <span class="toc-text">私有类 _BKObserver</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#改造-UIKit"><span class="toc-number">4.</span> <span class="toc-text">改造 UIKit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#封装-block-并控制-block-是否可以执行"><span class="toc-number">5.</span> <span class="toc-text">封装 block 并控制 block 是否可以执行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UIControlWrapper"><span class="toc-number">6.</span> <span class="toc-text">UIControlWrapper</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作者信息"><span class="toc-number">7.</span> <span class="toc-text">作者信息</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>上篇链接:<a href="http://www.jianshu.com/p/1f6669ee0ddb" target="_blank" rel="external">IOS开发 - 黑魔法之blocksKit分析(上)</a></li>
+<li>下篇链接:<a href="http://www.jianshu.com/p/59d2e8a77e05" target="_blank" rel="external">IOS开发 - 黑魔法之blocksKit分析(下)</a></li>
+<li>应用篇含演示demo:<a href="http://www.jianshu.com/p/e9ff8c62781a" target="_blank" rel="external">IOS开发 - 黑魔法之blocksKit应用篇</a></li>
+</ul>
+<p>BlocksKit项目主页:<a href="https://github.com/zwaldowski/BlocksKit" target="_blank" rel="external">BlocksKit-github主页</a></p>
+<hr>
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h1><p>本篇文章只适合对delegate和block进阶使用,不适合对以上两个概念的初学者学习.<br>高能预警：本篇文章非常长，因为 BlocksKit 的实现还是比较复杂和有意的。这篇文章不是为了剖析 iOS 开发中的 block 的实现以及它是如何组成甚至使用的，如果你想通过这篇文章来了解 block 的实现，它并不能帮到你。</p>
+<p>Block 到底是什么？这可能是困扰很多 iOS 初学者的一个问题。如果你在 Google 上搜索类似的问题时，可以查找到几十万条结果，block 在 iOS 开发中有着非常重要的地位，而且它的作用也越来越重要。</p>
+<hr>
+<h1 id="私有类-BKObserver"><a href="#私有类-BKObserver" class="headerlink" title="私有类 _BKObserver"></a><strong>私有类 _BKObserver</strong></h1><p>_BKObserver 是用来观测属性的对象，它在接口中定义了 4 个属性：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>，<span class="keyword">readonly</span>，<span class="keyword">unsafe_unretained</span>) <span class="keyword">id</span> observee;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>，<span class="keyword">readonly</span>) <span class="built_in">NSMutableArray</span> *keyPaths;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>，<span class="keyword">readonly</span>) <span class="keyword">id</span> task;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>，<span class="keyword">readonly</span>) BKObserverContext context;</div></pre></td></tr></table></figure></p>
+<p>上面四个属性的具体作用在这里不说了，上面的<br><code>bk_addObserverForKeyPaths:identifier:options:context:</code> 方法中调用_BKObserver 的初始化方法<br><code>initWithObservee:keyPaths:context:task:</code> 太简单了也不说了。</p>
+<pre><code>_BKObserver *observer = [[_BKObserver alloc] initWithObservee:self keyPaths:keyPaths context:context task:task];
+[observer startObservingWithOptions:options];
+</code></pre><p>上面的第一行代码生成一个 observer 实例之后立刻调用了 <code>startObservingWithOptions:</code>方法开始观测对应的 keyPath：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)startObservingWithOptions:(<span class="built_in">NSKeyValueObservingOptions</span>)options</div><div class="line">&#123;</div><div class="line">    <span class="keyword">@synchronized</span>(<span class="keyword">self</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (_isObserving) <span class="keyword">return</span>;</div><div class="line">        </div><div class="line"><span class="meta">#1：遍历 keyPaths 实现 KVO</span></div><div class="line">        </div><div class="line">        _isObserving = <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>startObservingWithOptions:</code>方法最重要的就是第 #1 部分：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self.keyPaths </span><span class="keyword">bk_each:^(NSString </span>*keyPath) &#123;</div><div class="line">    [<span class="keyword">self.observee </span><span class="keyword">addObserver:self </span>forKeyPath:keyPath options:options context:<span class="keyword">BKBlockObservationContext];</span></div><div class="line">&#125;]<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>遍历自己的 keyPaths 然后让 _BKObserver 作观察者观察自己，然后传入对应的 keyPath。</p>
+<p>关于 <code>_stopObservingLocked</code>方法的实现也十分的相似，这里就不说了。<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[keyPaths bk_each:^(<span class="name">NSString</span> *keyPath) &#123;</div><div class="line">    [observee removeObserver:self forKeyPath:keyPath context:BKBlockObservationContext]<span class="comment">;</span></div><div class="line">&#125;]<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>到目前为止，我们还没有看到实现 KVO 所必须的方法 <code>observeValueForKeyPath:ofObject:change:context</code>，这个方法就是每次属性改变之后的回调：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span> *)change context:(<span class="keyword">void</span> *)context</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (context != BKBlockObservationContext) <span class="keyword">return</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">@synchronized</span>(<span class="keyword">self</span>) &#123;</div><div class="line">        <span class="keyword">switch</span> (<span class="keyword">self</span>.context) &#123;</div><div class="line">            <span class="keyword">case</span> BKObserverContextKey: &#123;</div><div class="line">                <span class="keyword">void</span> (^task)(<span class="keyword">id</span>) = <span class="keyword">self</span>.task;</div><div class="line">                task(object);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">case</span> BKObserverContextKeyWithChange: &#123;</div><div class="line">                <span class="keyword">void</span> (^task)(<span class="keyword">id</span>，<span class="built_in">NSDictionary</span> *) = <span class="keyword">self</span>.task;</div><div class="line">                task(object，change);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">case</span> BKObserverContextManyKeys: &#123;</div><div class="line">                <span class="keyword">void</span> (^task)(<span class="keyword">id</span>，<span class="built_in">NSString</span> *) = <span class="keyword">self</span>.task;</div><div class="line">                task(object，keyPath);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">case</span> BKObserverContextManyKeysWithChange: &#123;</div><div class="line">                <span class="keyword">void</span> (^task)(<span class="keyword">id</span>，<span class="built_in">NSString</span> *，<span class="built_in">NSDictionary</span> *) = <span class="keyword">self</span>.task;</div><div class="line">                task(object，keyPath，change);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个方法的实现也很简单，根据传入的 context 值，对 task 类型转换，并传入具体的值。</p>
+<p>这个模块倒着就介绍完了，在下一节会介绍 BlocksKit 对 UIKit 组件一些简单的改造。</p>
+<hr>
+<h1 id="改造-UIKit"><a href="#改造-UIKit" class="headerlink" title="改造 UIKit"></a><strong>改造 UIKit</strong></h1><p>在这个小结会具体介绍 BlocksKit 是如何对一些简单的控件进行改造的，本节大约有两部分内容：</p>
+<ul>
+<li>UIGestureRecongizer + UIBarButtonItem + UIControl</li>
+<li>UIView</li>
+</ul>
+<p>改造 UIGestureRecongizer，UIBarButtonItem 和 UIControl</p>
+<p>先来看一个 UITapGestureRecognizer 使用的例子<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UITapGestureRecognizer</span> *singleTap = [<span class="built_in">UITapGestureRecognizer</span> bk_recognizerWithHandler:^(<span class="keyword">id</span> sender) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Single tap."</span>);</div><div class="line">&#125; delay:<span class="number">0.18</span>];</div><div class="line">[<span class="keyword">self</span> addGestureRecognizer:singleTap];</div></pre></td></tr></table></figure></p>
+<p>代码中的 <code>bk_recognizerWithHandler:delay:</code> 方法在最后都会调用初始化方法 <code>bk_initWithHandler:delay:</code> 生成一个UIGestureRecongizer 的实例<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">instancetype</span>)bk_initWithHandler:(<span class="keyword">void</span> (^)(<span class="built_in">UIGestureRecognizer</span> *sender，<span class="built_in">UIGestureRecognizerState</span> state，<span class="built_in">CGPoint</span> location))block delay:(<span class="built_in">NSTimeInterval</span>)delay</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">self</span> initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(bk_handleAction:)];</div><div class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>) <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.bk_handler = block;</div><div class="line">    <span class="keyword">self</span>.bk_handlerDelay = delay;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>它会在这个方法中传入 target 和 selector。 其中 target 就是 self，而 selector 也会在这个分类中实现：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)bk_handleAction:(<span class="built_in">UIGestureRecognizer</span> *)recognizer</div><div class="line">&#123;</div><div class="line">    <span class="keyword">void</span> (^handler)(<span class="built_in">UIGestureRecognizer</span> *sender，<span class="built_in">UIGestureRecognizerState</span> state，<span class="built_in">CGPoint</span> location) = recognizer.bk_handler;</div><div class="line">    <span class="keyword">if</span> (!handler) <span class="keyword">return</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">NSTimeInterval</span> delay = <span class="keyword">self</span>.bk_handlerDelay;</div><div class="line">    </div><div class="line"><span class="meta">#1: 封装 block 并控制 block 是否可以执行</span></div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.bk_shouldHandleAction = <span class="literal">YES</span>;</div><div class="line">    </div><div class="line">    [<span class="built_in">NSObject</span> bk_performAfterDelay:delay usingBlock:block];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为在初始化方法 bk_initWithHandler:delay: 中保存了当前手势的 bk_handler，所以直接调用在 Block Execution 一节中提到过的 bk_performAfterDelay:usingBlock: 方法，将 block 派发到指定的队列中，最终完成对 block 的调用。</p>
+<h1 id="封装-block-并控制-block-是否可以执行"><a href="#封装-block-并控制-block-是否可以执行" class="headerlink" title="封装 block 并控制 block 是否可以执行"></a><strong>封装 block 并控制 block 是否可以执行</strong></h1><p>这部分代码和前面的部分有些相似，因为这里也用到了一个属性 bk_shouldHandleAction 来控制 block 是否会被执行：<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGPoint location = [<span class="literal">self</span> locationInView:<span class="literal">self</span>.view];</div><div class="line">void (^<span class="built_in">block</span>)(void) = ^&#123;</div><div class="line">    if (!<span class="literal">self</span>.bk_shouldHandleAction) return;</div><div class="line">    handler(<span class="literal">self</span>，<span class="literal">self</span>.<span class="keyword">state</span>，location);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>同样 UIBarButtonItem 和 UIControl 也是用了几乎相同的机制，把 target 设置为 self，让后在分类的方法中调用指定的 block。</p>
+<h1 id="UIControlWrapper"><a href="#UIControlWrapper" class="headerlink" title="UIControlWrapper"></a><strong>UIControlWrapper</strong></h1><p>稍微有些不同的是 UIControl。因为 UIControl 有多种 UIControlEvents，所以使用另一个类 BKControlWrapper 来封装handler 和 controlEvents<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIControlEvents</span> controlEvents;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>，<span class="keyword">copy</span>) <span class="keyword">void</span> (^handler)(<span class="keyword">id</span> sender);</div></pre></td></tr></table></figure></p>
+<p>其中 UIControlWrapper 对象以 {controlEvents，wrapper} 的形式作为 UIControl 的属性存入字典。</p>
+<blockquote>
+<p>改造 UIView</p>
+</blockquote>
+<p>因为在上面已经改造过了 UIGestureRecognizer，在这里改造 UIView 就变得很容易了：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)bk_whenTouches:(<span class="built_in">NSUInteger</span>)numberOfTouches tapped:(<span class="built_in">NSUInteger</span>)numberOfTaps handler:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))block</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (!block) <span class="keyword">return</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">UITapGestureRecognizer</span> *gesture = [<span class="built_in">UITapGestureRecognizer</span> bk_recognizerWithHandler:^(<span class="built_in">UIGestureRecognizer</span> *sender，<span class="built_in">UIGestureRecognizerState</span> state，<span class="built_in">CGPoint</span> location) &#123;</div><div class="line">        <span class="keyword">if</span> (state == <span class="built_in">UIGestureRecognizerStateRecognized</span>) block();</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    gesture.numberOfTouchesRequired = numberOfTouches;</div><div class="line">    gesture.numberOfTapsRequired = numberOfTaps;</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.gestureRecognizers enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj，<span class="built_in">NSUInteger</span> idx，<span class="built_in">BOOL</span> *stop) &#123;</div><div class="line">        <span class="keyword">if</span> (![obj isKindOfClass:[<span class="built_in">UITapGestureRecognizer</span> <span class="keyword">class</span>]]) <span class="keyword">return</span>;</div><div class="line">        </div><div class="line">        <span class="built_in">UITapGestureRecognizer</span> *tap = obj;</div><div class="line">        <span class="built_in">BOOL</span> rightTouches = (tap.numberOfTouchesRequired == numberOfTouches);</div><div class="line">        <span class="built_in">BOOL</span> rightTaps = (tap.numberOfTapsRequired == numberOfTaps);</div><div class="line">        <span class="keyword">if</span> (rightTouches &amp;&amp; rightTaps) &#123;</div><div class="line">            [gesture requireGestureRecognizerToFail:tap];</div><div class="line">        &#125;</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> addGestureRecognizer:gesture];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>UIView 分类只有这一个核心方法，其它的方法都是向这个方法传入不同的参数，这里需要注意的就是。它会遍历所有的gestureRecognizers，然后把对所有有冲突的手势调用 requireGestureRecognizerToFail: 方法，保证添加的手势能够正常的执行。</p>
+<hr>
+<h1 id="作者信息"><a href="#作者信息" class="headerlink" title="作者信息"></a>作者信息</h1><p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS进阶/">iOS进阶</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS黑魔法/">iOS黑魔法</a><a href="/tags/blockKit/">blockKit</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit分析(下)/" data-title="iOS开发---黑魔法之blocksKit分析(下) | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit应用篇(含demo)/" title="黑魔法之blocksKit应用篇(含demo)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  黑魔法之blocksKit应用篇(含demo)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(A)/"  title="iOS面试题集锦(C)">
+ <strong>下一篇：</strong><br/> 
+ <span>iOS面试题集锦(C)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-前言"><span class="toc-number">2.</span> <span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#私有类-BKObserver"><span class="toc-number">3.</span> <span class="toc-text">私有类 _BKObserver</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#改造-UIKit"><span class="toc-number">4.</span> <span class="toc-text">改造 UIKit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#封装-block-并控制-block-是否可以执行"><span class="toc-number">5.</span> <span class="toc-text">封装 block 并控制 block 是否可以执行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UIControlWrapper"><span class="toc-number">6.</span> <span class="toc-text">UIControlWrapper</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作者信息"><span class="toc-number">7.</span> <span class="toc-text">作者信息</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>35</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

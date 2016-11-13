@@ -1,10 +1,10 @@
 
   <!DOCTYPE HTML>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
   
-    <title>归档: 2016/11 | 香蕉的家</title>
+    <title>Archives: 2016/11 | 香蕉的个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的家">
-<meta property="og:url" content="http://yoursite.com/archives/2016/11/page/2/index.html">
-<meta property="og:site_name" content="香蕉的家">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/archives/2016/11/page/2/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的家">
+<meta name="twitter:title" content="香蕉的个人博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的家" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,14 +37,14 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的家" title="香蕉的家"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的家">香蕉的家</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -60,22 +60,12 @@
 					
 						<li><a href="/categories">categories</a></li>
 					
-						<li><a href="/categories/object-c">OC</a></li>
-					
-						<li><a href="/categories/swift">Swift</a></li>
-					
-						<li><a href="/categories/MixH5">MixD</a></li>
-					
-						<li><a href="/categories/other">Other</a></li>
-					
-						<li><a href="/categories/essay">essay</a></li>
-					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
 					</form>
 					
 					</li>
@@ -90,7 +80,7 @@
   <h2 class="archive-icon">2016/11</h2>
   
   <div class="archiveslist archive-float clearfix">
-   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016 年 11 月</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 09 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015 年 10 月</a><span class="archive-list-count">1</span></li></ul>
+   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">Nov 2016</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">Aug 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">Jul 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">Jun 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">Apr 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">Mar 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">Feb 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">Jan 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">Nov 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">Oct 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">Aug 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">Jul 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">Apr 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">Aug 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">Jul 2014</a><span class="archive-list-count">1</span></li></ul>
  </div>
   
 </div>
@@ -99,10 +89,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-OC项目仿写/[大大OC项目仿写]-小日子APP仿写/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[iOS开发]---制作属于自己的cocopods/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -112,10 +102,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-OC项目仿写/[大大OC项目仿写]-花田小憩APP仿写/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -125,10 +115,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-OC项目仿写/蓝牙加密解密方法/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -138,23 +128,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-大大闭门造轮子/IOS开发[控件封装]---alertView封装/" title="IOS开发[控件封装]---alertView封装" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
-
-
-    <h1 itemprop="name">IOS开发[控件封装]---alertView封装</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/11/13/-ios开发-完全小白图文攻略/[IOS开发攻略]---crash-log分析/" title="" itemprop="url">
-  
-
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -164,10 +141,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-IOS操作易用篇/IOS开发---Debug设置(属性,类等)/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -177,10 +154,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/无标题文章/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -190,10 +167,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-完全小白图文攻略/[IOS开发攻略]---单元测试性能测试/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -203,10 +180,10 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(三)-(JavaScriptCore-framework)/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -216,10 +193,23 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/-ios开发-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/" title="" itemprop="url">
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---crash-log分析/" title="" itemprop="url">
   
 
-    <time datetime="2016-11-12T16:04:55.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+
+
+    <h1 itemprop="name">&nbsp;</h1>
+
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]--XCode8继续使用xcode插件/" title="" itemprop="url">
+  
+
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
 
 
     <h1 itemprop="name">&nbsp;</h1>
@@ -382,7 +372,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

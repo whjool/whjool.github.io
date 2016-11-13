@@ -1,0 +1,664 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>谈谈开发模式MVVM | 香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="如果想了解其他设计模式可以看这里:IOS开发 - 谈谈开发模式(MVC,单例,代理)为什么要用MVVM替代MVCApple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。
+很多入门开发者都有一个通病，就是把所有的逻辑，界面生成都写进ViewController中，这样ViewController就变成了一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈开发模式MVVM">
+<meta property="og:url" content="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="如果想了解其他设计模式可以看这里:IOS开发 - 谈谈开发模式(MVC,单例,代理)为什么要用MVVM替代MVCApple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。
+很多入门开发者都有一个通病，就是把所有的逻辑，界面生成都写进ViewController中，这样ViewController就变成了一个">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-74065a16744413e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-bce286268d4d45e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-cdf101256846ccb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T13:56:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谈谈开发模式MVVM">
+<meta name="twitter:description" content="如果想了解其他设计模式可以看这里:IOS开发 - 谈谈开发模式(MVC,单例,代理)为什么要用MVVM替代MVCApple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。
+很多入门开发者都有一个通病，就是把所有的逻辑，界面生成都写进ViewController中，这样ViewController就变成了一个">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-74065a16744413e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/" title="谈谈开发模式MVVM" itemprop="url">谈谈开发模式MVVM</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished"> Published 2016-04-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#case-1-ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。"><span class="toc-number">1.</span> <span class="toc-text">case 1:ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-2-同case-1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。"><span class="toc-number">2.</span> <span class="toc-text">case 2:同case 1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-3-同case-2-但是增加一个依赖于文章列表返回结果的评估列表接口（即图片-gt-文章-gt-评论）。"><span class="toc-number">3.</span> <span class="toc-text">case 3: 同case 2,但是增加一个依赖于文章列表返回结果的评估列表接口（即图片->文章->评论）。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-4-另外一个ViewController需要调用图片接口获取数据"><span class="toc-number">4.</span> <span class="toc-text">case 4: 另外一个ViewController需要调用图片接口获取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-5-另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）"><span class="toc-number">5.</span> <span class="toc-text">case 5: 另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-6-ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。"><span class="toc-number">6.</span> <span class="toc-text">case 6: ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
+		
+		</div>
+		
+		<p><img src="http://upload-images.jianshu.io/upload_images/1730495-74065a16744413e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如果想了解其他设计模式可以看这里:<a href="http://www.jianshu.com/p/6f69f7d9e596" target="_blank" rel="external">IOS开发 - 谈谈开发模式(MVC,单例,代理)</a><br>为什么要用MVVM替代MVC<br>Apple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。</p>
+<p>很多入门开发者都有一个通病，就是把所有的逻辑，界面生成都写进ViewController中，这样ViewController就变成了一个Massive View Controller（重量级视图控制器）。重量级视图控制器会让整个ViewController变得非常复杂且不可维护，让维护者崩溃却无从下手，只能忍痛默默的重写整个逻辑。</p>
+<p>但是，有一种解决方案，可以解决Massive View Controller的问题，那就是MVVM。</p>
+<p>这是传统MVC模式：<br><img src="http://upload-images.jianshu.io/upload_images/1730495-bce286268d4d45e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这是MVVM模式：<br><img src="http://upload-images.jianshu.io/upload_images/1730495-cdf101256846ccb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>很多时候新手们会把数据转换逻辑，网络请求逻辑等都放到ViewController中，这样会不可避免的让ViewController变得臃肿，这是造成重量级视图控制器的重要原因。<br>除了上面提到的一个原因外，由于AFNetworking是iOS开发网络访问框架的事实标准，而AFNetworking使用的是block来实现网络回调，block会让block里面引用的变量的引用数+1，在某种网速非常缓慢的极端情况下，当用户打开ViewController的时候，网络请求已经发出，也就是说在block中的变量引用已经+1，如果此时用户退出这个ViewController，当这个block发生回调时，此时持有block里面变量的ViewController已经被回收，而block里面的变量由于block的原因没有被及时回收，这样会造成crash的。这是在使用block进行回调时很容易被忽略的情况。<br>对于业务而言，将所有业务不加区分都放进ViewController中，这显然是一种懒惰的表现。一个ViewController中包含大量业务的细节，将使这个ViewController在业务协调和调用中迷失，将让这个业务变得非常混乱，让业务逻辑变得无法维护。由于重量级ViewController的复杂性，其代码将难以复用。<br>以上原因是传统MVC难以解决的，为解决这些问题，要采用MVVM的开发模式。<br>MVVM不是什么新鲜事，简单说就是将部分逻辑从ViewController中拆分出来，并整合起来在ViewController和Model中间加多一个ViewModel，ViewModel不直接引用View，ViewController也不引用Model中的方法，所有网络回调数据处理等逻辑都放到ViewModel中，ViewController通过ViewModel来请求数据和更新数据。<br>如何实践MVVM<br>参考项目:<a href="https://github.com/britzlieg/MVVMDemo/tree/master" target="_blank" rel="external">https://github.com/britzlieg/MVVMDemo/tree/master</a><br>第一步:创建Model<br>AFNetworking请求方法放到Model中<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Model</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *col;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *sort;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *tag3;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> startIndex;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> returnNumber;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span> *imgs;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *tag;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> totalNum;</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)getImagesListWithPage: (<span class="built_in">NSInteger</span>)aPage SuccessBlock :(SuccessBlock)success FailBlock :(FailBlock)fail;</div></pre></td></tr></table></figure></p>
+<p>具体实现，不多说：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@implementation</span> Model</div><div class="line">+ (void)<span class="attribute">getImagesListWithPage</span>: (NSInteger)aPage <span class="attribute">SuccessBlock </span>:(SuccessBlock)success <span class="attribute">FailBlock </span>:(FailBlock)fail &#123;</div><div class="line">    </div><div class="line">    NSString *urlString = <span class="selector-attr">[NSString stringWithFormat:@"%@%ld%@",</span></div><div class="line">                           @"http://image.baidu.com/data/imgs?col=%e7%be%8e%e5%a5%b3&amp;tag=%e5%b0%8f%e6%b8%85%e6%96%b0&amp;sort=0&amp;pn=1",</div><div class="line">                           aPage,@"&amp;rn=1&amp;p=channel&amp;from=1"];</div><div class="line">    AFHTTPRequestOperationManager *managere = <span class="selector-attr">[AFHTTPRequestOperationManager manager]</span>;</div><div class="line">    <span class="selector-attr">[managere GET:urlString parameters:nil</span></div><div class="line">          success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) &#123;</div><div class="line">              success(responseObject,nil);</div><div class="line">              NSLog(@"success");</div><div class="line">          &#125; failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) &#123;</div><div class="line">              fail(nil,error);</div><div class="line">              NSLog(@"fail");</div><div class="line">          &#125;];</div><div class="line">&#125;</div><div class="line"><span class="variable">@end</span></div></pre></td></tr></table></figure></p>
+<p>第二步:创建ViewModel<br>ViewModel的属性：</p>
+<p>data : 请求获取的数据<br>racMsg : 请求成功和失败的信号量（主要用KVO对这个进行监视）<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewModel</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>,<span class="keyword">nonatomic</span>) <span class="built_in">NSDictionary</span> *data;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>,<span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *racMsg;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)getImagesList;</div><div class="line">- (<span class="keyword">void</span>)getNextImagesList;</div><div class="line">- (<span class="keyword">void</span>)getPreImagesList;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line">ViewController中主要监视ViewModel的racMsg来发现data更新。</div><div class="line"></div><div class="line"><span class="meta">#define WS(weakSelf)  __weak __typeof(&amp;*self)weakSelf = self;</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewModel</span>()</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSInteger</span> currentPage;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewModel</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)init &#123;</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</div><div class="line">    <span class="keyword">self</span>.currentPage = <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)getImagesList &#123;</div><div class="line">    WS(ws)</div><div class="line">    [Model getImagesListWithPage:<span class="number">0</span></div><div class="line">                    SuccessBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = responseObjectDict;</div><div class="line">                        ws.racMsg = <span class="string">@"success"</span>;</div><div class="line">                    &#125; FailBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = <span class="literal">nil</span>;</div><div class="line">                        ws.racMsg = <span class="string">@"fail"</span>;</div><div class="line">                        </div><div class="line">                    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)getNextImagesList &#123;</div><div class="line">    WS(ws)</div><div class="line">    <span class="keyword">self</span>.currentPage++;</div><div class="line">    [Model getImagesListWithPage:<span class="keyword">self</span>.currentPage</div><div class="line">                    SuccessBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = responseObjectDict;</div><div class="line">                        ws.racMsg = <span class="string">@"success"</span>;</div><div class="line">                    &#125; FailBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = <span class="literal">nil</span>;</div><div class="line">                        ws.racMsg = <span class="string">@"fail"</span>;</div><div class="line">                    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)getPreImagesList &#123;</div><div class="line">    WS(ws)</div><div class="line">    <span class="keyword">self</span>.currentPage = <span class="keyword">self</span>.currentPage == <span class="number">0</span> ? <span class="number">0</span> : <span class="keyword">self</span>.currentPage<span class="number">-1</span>;</div><div class="line">    [Model getImagesListWithPage:<span class="keyword">self</span>.currentPage</div><div class="line">                    SuccessBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = responseObjectDict;</div><div class="line">                        ws.racMsg = <span class="string">@"success"</span>;</div><div class="line">                    &#125; FailBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = <span class="literal">nil</span>;</div><div class="line">                        ws.racMsg = <span class="string">@"fail"</span>;</div><div class="line">                    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<p>可能会有人觉得为什么不直接监视data，但我个人更倾向于采用一种类似于信号量的机制，监听特定的信号来更新数据。如果直接监视data，则data只有nil和非nil两种情况，要进一步区分请求的状态的话必须要对data进行解析，增加了转换成本，不如直接采用多一个属性变量进行判断和协调。</p>
+<p>第三步:ViewController中KVO设置<br>ViewController直接持有viewModel<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@interface</span> ViewController ()</div><div class="line"></div><div class="line"><span class="variable">@property</span> (strong,nonatomic) ViewModel *viewModel;</div><div class="line"></div><div class="line"><span class="variable">@property</span> (strong,nonatomic) UITextView *showTextView;</div><div class="line"></div><div class="line"><span class="variable">@end</span></div></pre></td></tr></table></figure></p>
+<p>加载ViewController时初始化KVO和调用ViewModel方法getImagesList来请求数据</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">viewDidLoad</span> &#123;</div><div class="line">    <span class="selector-attr">[super viewDidLoad]</span>;</div><div class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></div><div class="line">    </div><div class="line">    <span class="comment">// requestData</span></div><div class="line">    <span class="selector-attr">[self _initViews]</span>;</div><div class="line">    <span class="selector-attr">[self setupKVO]</span>;</div><div class="line">    <span class="selector-attr">[self.viewModel getImagesList]</span>;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ViewController销毁时去除KVO<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">dealloc</span> &#123;</div><div class="line">    <span class="selector-attr">[self removeKVO]</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>KVO相关的函数。observeValueForKeyPath只需对racMsg进行判断就可以知道data的值是否更新了，如果更新了就更新一下View。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - KVO</span></div><div class="line">- (<span class="keyword">void</span>)setupKVO &#123;</div><div class="line">    [<span class="keyword">self</span>.viewModel addObserver:<span class="keyword">self</span></div><div class="line">                     forKeyPath:<span class="string">@"racMsg"</span> options:(<span class="built_in">NSKeyValueObservingOptionNew</span>|<span class="built_in">NSKeyValueObservingOptionOld</span>) context:<span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)removeKVO &#123;</div><div class="line">    [<span class="keyword">self</span>.viewModel removeObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"racMsg"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object</div><div class="line">change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context &#123;</div><div class="line">    <span class="keyword">if</span> ([keyPath isEqualToString:<span class="string">@"racMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.racMsg isEqualToString:<span class="string">@"success"</span>]) &#123;</div><div class="line">            _showTextView.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,_viewModel.data];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _showTextView.text = <span class="string">@"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>按钮点击事件和View的初始化<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - Event Response</span></div><div class="line">- (<span class="keyword">void</span>)getPre &#123;</div><div class="line">    [<span class="keyword">self</span>.viewModel getPreImagesList];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)getNext &#123;</div><div class="line">    [<span class="keyword">self</span>.viewModel getNextImagesList];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - Private</span></div><div class="line">- (<span class="keyword">void</span>)_initViews &#123;</div><div class="line">    <span class="built_in">UIButton</span> *preBtn = [[<span class="built_in">UIButton</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">40</span>)];</div><div class="line">    [preBtn setTitleColor:[<span class="built_in">UIColor</span> blueColor] forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    [preBtn setTitle:<span class="string">@"Pre"</span> forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    [preBtn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(getPre) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:preBtn];</div><div class="line">    </div><div class="line">    <span class="built_in">UIButton</span> *nextBtn = [[<span class="built_in">UIButton</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">150</span>, <span class="number">200</span>, <span class="number">40</span>)];</div><div class="line">    [nextBtn setTitleColor:[<span class="built_in">UIColor</span> redColor] forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    [nextBtn setTitle:<span class="string">@"nextBtn"</span> forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    [nextBtn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(getNext) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:nextBtn];</div><div class="line">    </div><div class="line">    _showTextView = [[<span class="built_in">UITextView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">200</span>, <span class="number">320</span>, <span class="number">200</span>)];</div><div class="line">    _showTextView.backgroundColor = [<span class="built_in">UIColor</span> lightGrayColor];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:_showTextView];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##实践MVVM的具体好处的例子<br>下面讨论一下用MVVM的具体好处的例子。</p>
+<h4 id="case-1-ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。"><a href="#case-1-ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。" class="headerlink" title="case 1:ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。"></a>case 1:ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。</h4><p>在这种情况下，在ViewModel中加入方法getArticleList()和属性articleList以及articleMsg，然后在ViewController中需要调用该方法的位置调用该方法即可。KVO中的observeValueForKeyPath方法稍微修改一下：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">observeValueForKeyPath:</span>(NSString *)keyPath <span class="string">ofObject:</span>(id)object</div><div class="line"><span class="string">change:</span>(NSDictionary&lt;NSString *,id&gt; *)change <span class="string">context:</span>(<span class="keyword">void</span> *)context &#123;</div><div class="line">    <span class="keyword">if</span> ([keyPath <span class="string">isEqualToString:</span>@<span class="string">"racMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.racMsg <span class="string">isEqualToString:</span>@<span class="string">"success"</span>]) &#123;</div><div class="line">            _showTextView.text = [NSString <span class="string">stringWithFormat:</span>@<span class="string">"%@"</span>,_viewModel.data];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _showTextView.text = @<span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>([keyPath <span class="string">isEqualToString:</span>@<span class="string">"articleMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.articleMsg <span class="string">isEqualToString:</span>@<span class="string">"success"</span>]) &#123;</div><div class="line">            _articleTextView.text = _viewModel.articleList</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _articleTextView.text = @<span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可见并行业务功能上的扩展是非常简单的，整个Controller的总体逻辑几乎不用怎么变化，只需要改动局部细节即可。</p>
+<h4 id="case-2-同case-1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。"><a href="#case-2-同case-1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。" class="headerlink" title="case 2:同case 1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。"></a>case 2:同case 1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。</h4><p>对于嵌套的请求，如果采用传统MVC模式，就要在ViewController中加入两个block，一个嵌套另外一个，这样会让代码变得非常难看，而且会让子block依赖于父block，难以对其进行拆分。但如果采用MVVM，则会将所有的请求变化都置于KVO的监控之下，并作出统一的处理。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">ViewModel中的与<span class="keyword">case</span> <span class="number">1</span>一样，但ViewController中的处理稍微不同。</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)<span class="string">observeValueForKeyPath:</span>(NSString *)keyPath <span class="string">ofObject:</span>(id)object</div><div class="line"><span class="string">change:</span>(NSDictionary&lt;NSString *,id&gt; *)change <span class="string">context:</span>(<span class="keyword">void</span> *)context &#123;</div><div class="line">    <span class="keyword">if</span> ([keyPath <span class="string">isEqualToString:</span>@<span class="string">"racMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.racMsg <span class="string">isEqualToString:</span>@<span class="string">"success"</span>]) &#123;</div><div class="line">            _showTextView.text = [NSString <span class="string">stringWithFormat:</span>@<span class="string">"%@"</span>,_viewModel.data];</div><div class="line">            <span class="comment">// 请求文章</span></div><div class="line">            [_viewModel getArticleList];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _showTextView.text = @<span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>([keyPath <span class="string">isEqualToString:</span>@<span class="string">"articleMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.articleMsg <span class="string">isEqualToString:</span>@<span class="string">"success"</span>]) &#123;</div><div class="line">            _articleTextView.text = _viewModel.articleList</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _articleTextView.text = @<span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以看出还是不需要改动大逻辑，即可对有依赖的业务进行扩展。</p>
+<h4 id="case-3-同case-2-但是增加一个依赖于文章列表返回结果的评估列表接口（即图片-gt-文章-gt-评论）。"><a href="#case-3-同case-2-但是增加一个依赖于文章列表返回结果的评估列表接口（即图片-gt-文章-gt-评论）。" class="headerlink" title="case 3: 同case 2,但是增加一个依赖于文章列表返回结果的评估列表接口（即图片-&gt;文章-&gt;评论）。"></a>case 3: 同case 2,但是增加一个依赖于文章列表返回结果的评估列表接口（即图片-&gt;文章-&gt;评论）。</h4><p>假设存在一种这样的情况，请求数据的顺序是：图片-&gt;文章-&gt;评论，这样的话如果用传统的MVC模式做的，就是三层block的嵌套，这对于一个ViewController来说是噩梦。三层嵌套，意味着无法复用，只能写死在这个ViewController之中。这时使用MVVM就显得非常必要了。</p>
+<p>当出现三层以上的依赖时，其实可以考虑将所有依赖捆绑在一起，做成一个高内聚的模块，在MVVM中，由于请求数据的方法不是写在ViewController之中，所以将这三个模块进行内聚的工作是放到ViewModel之中。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">ViewModel.m :</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)getCommentsList &#123;</div><div class="line">    WS(ws)</div><div class="line">    [Model getImagesListWithPage:<span class="number">0</span></div><div class="line">                    SuccessBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = responseObjectDict;</div><div class="line">                        ws.racMsg = <span class="string">@"success"</span>;</div><div class="line">                        [Model getArticlesListWithPage:<span class="number">0</span></div><div class="line">                                          SuccessBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                                              ws.article = responseObjectDict;</div><div class="line">                                              ws.articleMsg = <span class="string">@"success"</span>;</div><div class="line">                                              [Model getCommentsListWithPage:<span class="number">0</span></div><div class="line">                                                                SuccessBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                                                                    ws.comments = responseObjectDict;</div><div class="line">                                                                    ws.commentsMsg = <span class="string">@"success"</span>;  <span class="comment">// 成功</span></div><div class="line">                                                                &#125; FailBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                                                                    ws.comments = <span class="literal">nil</span>;</div><div class="line">                                                                    ws.commentsMsg = <span class="string">@"fail"</span>;  <span class="comment">// 失败</span></div><div class="line">                                                                &#125;];</div><div class="line">                                              </div><div class="line">                                          &#125; FailBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                                              ws.article = <span class="literal">nil</span>;</div><div class="line">                                              ws.articleMsg = <span class="string">@"fail"</span>;</div><div class="line">                                          &#125;];</div><div class="line">                        </div><div class="line">                    &#125; FailBlock:^(<span class="built_in">NSDictionary</span> *responseObjectDict, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">                        ws.data = <span class="literal">nil</span>;</div><div class="line">                        ws.racMsg = <span class="string">@"fail"</span>;</div><div class="line">                    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ViewController.h中:<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">observeValueForKeyPath:</span>(NSString *)keyPath <span class="string">ofObject:</span>(id)object </div><div class="line"><span class="string">change:</span>(NSDictionary&lt;NSString *,id&gt; *)change <span class="string">context:</span>(<span class="keyword">void</span> *)context &#123;</div><div class="line">    <span class="keyword">if</span> ([keyPath <span class="string">isEqualToString:</span>@<span class="string">"racMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.racMsg <span class="string">isEqualToString:</span>@<span class="string">"success"</span>]) &#123;</div><div class="line">            _showTextView.text = [NSString <span class="string">stringWithFormat:</span>@<span class="string">"%@"</span>,_viewModel.data];</div><div class="line">            <span class="comment">// 请求文章</span></div><div class="line">            [_viewModel getArticleList];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _showTextView.text = @<span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>([keyPath <span class="string">isEqualToString:</span>@<span class="string">"articleMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.articleMsg <span class="string">isEqualToString:</span>@<span class="string">"success"</span>]) &#123;</div><div class="line">            _articleTextView.text = _viewModel.articleList</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _articleTextView.text = @<span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>([keyPath <span class="string">isEqualToString:</span>@<span class="string">"commentsMsg"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> ([_viewModel.commentsMsg <span class="string">isEqualToString:</span>@<span class="string">"success"</span>]) &#123;</div><div class="line">            _commentsTextView.text = _viewModel.commentsList</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            _commentsTextView.text = @<span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>三层嵌套的block是无法避免的，但是MVVM可以将这个恶心的东西放到ViewModel中，而不是ViewController中，这样当ViewController要获取评论时，只需要调用viewModel的getCommentsList即可，不需要看到三层block请求的细节，这样可以很好的将逻辑与细节隔离。</p>
+<p>可以看出使用MVVM还是能够很方便的扩展多层依赖的业务。</p>
+<h4 id="case-4-另外一个ViewController需要调用图片接口获取数据"><a href="#case-4-另外一个ViewController需要调用图片接口获取数据" class="headerlink" title="case 4: 另外一个ViewController需要调用图片接口获取数据"></a>case 4: 另外一个ViewController需要调用图片接口获取数据</h4><p>这种情况非常简单，直接在ViewController2中加入一个ViewModel的属性，其他按照ViewController中的调用方式调用即可。</p>
+<p>由于将请求逻辑放到了ViewController，所以ViewModel对ViewController是没有依赖的，所以ViewController2能够很好的直接使用ViewModel，这是传统MVC很难做得到的。</p>
+<h4 id="case-5-另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）"><a href="#case-5-另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）" class="headerlink" title="case 5: 另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）"></a>case 5: 另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）</h4><p>这种情况也非常简单，与case 4是一样的，直接调用ViewModel中的getCommentsList()，而这个函数是已经在ViewModel中高内聚了，所以使用也非常方便，代码复用和请求逻辑复用都非常方便清晰！</p>
+<h4 id="case-6-ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。"><a href="#case-6-ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。" class="headerlink" title="case 6: ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。"></a>case 6: ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。</h4><p>ViewModel中不仅只包含请求逻辑，还可以包含数据转换的逻辑，还有一些不知要怎么归类的杂七杂八的逻辑。多个ViewController发生相同的数据转换的情况是经常会有的，如果把数据转换逻辑写到Controller之中，会让每一个Controller都持有一个转换逻辑，这对于数据转换逻辑的统一来说是非常糟糕的。如果把相同的数据转换逻辑都抽象封装到同一个ViewModel中，ViewController不直接持有数据转换逻辑，而是通过ViewModel来调用的话，每个ViewController只需要维护一个ViewModel实例即可，所有转换细节都可以在ViewModel中进行统一修改。Controller只关心数据和数据与View的交互，不应该关心数据之间的转换和数据怎样获取的，这应该是MVVM的一个原则。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MVVM的核心在于绑定，本文采用的是KVO的绑定机制，能够很好与Objective-C和Cocoa结合起来，不需要借用第三方的类库进行数据绑定。<br>除了使用KVO，业界通常采用的是ReactiveCocoa。但是，ReactiveCocoa的学习成本过高，不适合轻量级的开发，而MVVM只是一种开发模式，并不是一种具体的框架，所以如果不是非常想深入使用MVVM的精髓的话，是没有必要去学习ReactiveCocoa的。网上还有一些讨论MVVM的博客提到ViewModel直接对View进行操作，其实这是一种很不严谨的做法，MVVM中的ViewModel不应该关心View的显示，只应该关心数据的获取和转换，View如何显示那是ViewController的职责。所以凡是在ViewModel中引用了UIKit的，个人认为都不是一种严格意义上的MVVM。</p>
+<p>当然MVVM也有其自身的不足，比如引入ViewModel之后，文件数量增加了不少，总的代码量其实也会增加，这对于极简主义者来说并不是一种很好的模式。而且MVVM的开发思路与MVC是不同的，开发者要转换思路采用MVVM的开发方式其实还是有不少的学习成本，而且对于大部分简单业务来说，使用MVVM会增加业务的复杂度，显得臃肿和多余。本文中使用KVO的MVVM模式，从本质上来说其实是MVC的衍生，把C中的一部分拆分出来并隔离M和C，所以从模式上来说，这样是完全可以兼容传统的MVC开发模式的。因此，对于简单的业务，可以直接采用MVC的模式开发，不需要额外创建一个ViewModel。对于复杂业务，就采用KVO的MVVM模式，进行业务拆分和复用。这种折中的方法能够将MVC和MVVM的优点都利用起来，避免只使用一个造成开发效率上的降低。</p>
+<p>MVVM不应该被误解和神化，使用MVVM只是提供多了一个不错的选择，要不要使用它，还是要看具体的项目而定。但是用上了，就停不下来了。</p>
+<p>参考文章<br><a href="http://www.teehanlax.com/blog/model-view-viewmodel-for-ios/" target="_blank" rel="external">Model-View-ViewModel for iOS</a><br><a href="http://objccn.io/issue-13-1/" target="_blank" rel="external">MVVM 介绍</a><br><a href="http://www.infoq.com/cn/articles/rethinking-mvc-mvvm" target="_blank" rel="external">被误解的MVC和被神化的MVVM</a></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS入门/">iOS入门</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/" data-title="谈谈开发模式MVVM | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/20/A-OC的碎碎念/[IOS开发入门]---NSProcessInfo类方法(进程)使用/" title="NSProcessInfo类方法(进程)使用">
+  <strong>上一篇：</strong><br/>
+  <span>
+  NSProcessInfo类方法(进程)使用</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式(MVC,单例,代理)/"  title="谈谈开发模式(MVC,单例,代理)">
+ <strong>下一篇：</strong><br/> 
+ <span>谈谈开发模式(MVC,单例,代理)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#case-1-ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。"><span class="toc-number">1.</span> <span class="toc-text">case 1:ViewController需要一个额外请求一个文章列表，这个文章列表的请求参数与当前请求图片列表的接口返回结果没有任何关联，可以并行请求。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-2-同case-1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。"><span class="toc-number">2.</span> <span class="toc-text">case 2:同case 1，但是文章列表的请求参数需要通过图片列表接口返回的结果获取，请求是串联嵌套的（即先请求图片列表接口，请求完成后，根据返回结果再请求文章列表接口）。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-3-同case-2-但是增加一个依赖于文章列表返回结果的评估列表接口（即图片-gt-文章-gt-评论）。"><span class="toc-number">3.</span> <span class="toc-text">case 3: 同case 2,但是增加一个依赖于文章列表返回结果的评估列表接口（即图片->文章->评论）。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-4-另外一个ViewController需要调用图片接口获取数据"><span class="toc-number">4.</span> <span class="toc-text">case 4: 另外一个ViewController需要调用图片接口获取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-5-另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）"><span class="toc-number">5.</span> <span class="toc-text">case 5: 另外一个ViewController需要评论接口来获取数据（将三个接口请求过程内聚，便于其他复用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-6-ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。"><span class="toc-number">6.</span> <span class="toc-text">case 6: ViewController中有很多数据转换逻辑，多个ViewController的数据转换逻辑都相同的情况。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

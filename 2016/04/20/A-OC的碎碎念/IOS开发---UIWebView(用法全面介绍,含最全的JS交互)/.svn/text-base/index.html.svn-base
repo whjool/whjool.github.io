@@ -1,0 +1,684 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>UIWebView(用法全面介绍,含最全的JS交互) | 香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="前两天我写了一套关于JS与OC交互的三种方法的文章,但是发现自己对UIWebView理解的还是比较浅,一直认为只能简单的当一个webView来使用,具体很多细节都忽略,如果想看我之前UIWebView的JS交互,请点击下面的连接
+
+[IOS开发攻略] - js与OC交互(二) (原生UIWebView)
+
+
+开始今天的内容吧,事不宜迟
+
+一、UIWebView的基础使用
+1234567891011">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIWebView(用法全面介绍,含最全的JS交互)">
+<meta property="og:url" content="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/IOS开发---UIWebView(用法全面介绍,含最全的JS交互)/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="前两天我写了一套关于JS与OC交互的三种方法的文章,但是发现自己对UIWebView理解的还是比较浅,一直认为只能简单的当一个webView来使用,具体很多细节都忽略,如果想看我之前UIWebView的JS交互,请点击下面的连接
+
+[IOS开发攻略] - js与OC交互(二) (原生UIWebView)
+
+
+开始今天的内容吧,事不宜迟
+
+一、UIWebView的基础使用
+1234567891011">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T13:56:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIWebView(用法全面介绍,含最全的JS交互)">
+<meta name="twitter:description" content="前两天我写了一套关于JS与OC交互的三种方法的文章,但是发现自己对UIWebView理解的还是比较浅,一直认为只能简单的当一个webView来使用,具体很多细节都忽略,如果想看我之前UIWebView的JS交互,请点击下面的连接
+
+[IOS开发攻略] - js与OC交互(二) (原生UIWebView)
+
+
+开始今天的内容吧,事不宜迟
+
+一、UIWebView的基础使用
+1234567891011">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/20/A-OC的碎碎念/IOS开发---UIWebView(用法全面介绍,含最全的JS交互)/" title="UIWebView(用法全面介绍,含最全的JS交互)" itemprop="url">UIWebView(用法全面介绍,含最全的JS交互)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished"> Published 2016-04-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>前两天我写了一套关于JS与OC交互的三种方法的文章,但是发现自己对UIWebView理解的还是比较浅,一直认为只能简单的当一个webView来使用,具体很多细节都忽略,如果想看我之前UIWebView的JS交互,请点击下面的连接</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/5c2b5d4952c9" target="_blank" rel="external">[IOS开发攻略] - js与OC交互(二) (原生UIWebView)</a></li>
+</ul>
+<blockquote>
+<p>开始今天的内容吧,事不宜迟</p>
+</blockquote>
+<p><strong>一、UIWebView的基础使用</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="comment">//    1、创建UIWebView：</span></div><div class="line">    </div><div class="line">    <span class="built_in">CGRect</span> bouds = [<span class="built_in">UIScreen</span> mainScreen].bounds;</div><div class="line">    <span class="built_in">UIWebView</span>* webView = [[<span class="built_in">UIWebView</span> alloc]initWithFrame:bouds];</div><div class="line">    </div><div class="line">    <span class="comment">//    2、加载在线资源http内容</span></div><div class="line">    </div><div class="line">    <span class="built_in">NSURL</span>* url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://www.baidu.com"</span>];<span class="comment">//创建URL</span></div><div class="line">    <span class="built_in">NSURLRequest</span>* request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];<span class="comment">//创建</span></div><div class="line">    [webView loadRequest:request];<span class="comment">//加载</span></div><div class="line">    </div><div class="line">    <span class="comment">//    2、 加载本地文件的方法：</span></div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     *</div><div class="line">     //第一种方法：</div><div class="line">     </div><div class="line">     NSString* path = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];//mobile是根目录，name是文件名称，html是文件类型</div><div class="line">     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]]; //加载本地文件</div><div class="line">     </div><div class="line">     </div><div class="line">     //第二种方法：</div><div class="line">     </div><div class="line">     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];</div><div class="line">     </div><div class="line">     NSString *filePath = [resourcePath stringByAppendingPathComponent:@"mobile.html"];</div><div class="line">     </div><div class="line">     NSString *htmlstring=[[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];</div><div class="line">     </div><div class="line">     [webView loadHTMLString:htmlstring baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];</div><div class="line">     </div><div class="line">     */</div><div class="line">    </div><div class="line">    <span class="comment">//    3、导航</span></div><div class="line">    </div><div class="line">    <span class="comment">//    UIWebView类内部会管理浏览器的导航动作，通过goForward和goBack方法你可以控制前进与后退动作：</span></div><div class="line">    </div><div class="line">    [webView goBack];</div><div class="line">    [webView goForward];</div><div class="line">    </div><div class="line">    <span class="comment">//    4、UIWebViewDelegate委托代理</span></div><div class="line">    </div><div class="line">    webView.delegate = <span class="keyword">self</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//    5、显示网页视图UIWebView：</span></div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.view addSubview:webView];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta"># pragma mark - UIWebView 的代理方法</span></div><div class="line">- (<span class="built_in">BOOL</span>)webView:(<span class="built_in">UIWebView</span> *)webView shouldStartLoadWithRequest:(<span class="built_in">NSURLRequest</span> *)request navigationType:(<span class="built_in">UIWebViewNavigationType</span>)navigationType;<span class="comment">//当网页视图被指示载入内容而得到通知。应当返回YES，这样会进行加载</span></div><div class="line">- (<span class="keyword">void</span>)webViewDidStartLoad:(<span class="built_in">UIWebView</span> *)webView &#123; <span class="comment">//当网页视图已经开始加载一个请求后，得到通知。</span></div><div class="line">    <span class="comment">//    [webView stopLoading];//取消载入内容</span></div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)webViewDidFinishLoad:(<span class="built_in">UIWebView</span> *)webView;<span class="comment">//当网页视图结束加载一个请求之后，得到通知。</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">UIWebView</span> *)webView didFailLoadWithError:(<span class="keyword">nullable</span> <span class="built_in">NSError</span> *)error &#123;</div><div class="line">    <span class="comment">//    [webView reload];//重载</span></div><div class="line">&#125;<span class="comment">//当在请求加载中发生错误时，得到通知。会提供一个NSSError对象，以标识所发生错误类型。</span></div></pre></td></tr></table></figure>
+<p>以上是IOS中UIWebView的基础使用要点详解，接下来一些UIWebView的常用注意点算是比较细节的部分。</p>
+<hr>
+<p><strong>二、IOS中UIWebView常用注意点：</strong><br><strong>1、与UIWebView进行交互，调用web页面中的需要传参的函数时，参数需要带单引号，或者双引号（双引号要进行转义在转义字符前加\）,传递json字符串时不需要加单引号或双引号：</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)<span class="string">webViewDidFinishLoad:</span>(UIWebView *)webView</div><div class="line"></div><div class="line">&#123;</div><div class="line">    NSString *sendJsStr=[NSString <span class="string">stringWithFormat:</span>@<span class="string">"openFile(\"%@\")"</span>, jsDocPathStr];</div><div class="line">    [webView <span class="string">stringByEvaluatingJavaScriptFromString:</span>sendJsStr];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>2、在该代理方法中判断与webView的交互，可通过html里定义的协议实现：</strong><br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="params">(BOOL)</span>webView:<span class="params">(UIWebView*)</span>webView shouldStartLoadWithRequest:<span class="params">(NSURLRequest*)</span>request navigationType:<span class="params">(UIWebViewNavigationType)</span>navigationType;</div></pre></td></tr></table></figure></p>
+<p><strong>3、只有在webView加载完毕之后在能够调用对应页面中的js方法。（对应方法如第1条）.详情请参考我另外一文章: [JS交互含Demo]</strong>(<a href="http://www.jianshu.com/p/5c2b5d4952c9" target="_blank" rel="external">http://www.jianshu.com/p/5c2b5d4952c9</a>)</p>
+<p><strong>4、为webView添加背景图片：</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">webView.backgroundColor=[<span class="built_in">UIColor</span> clearColor];</div><div class="line"><span class="comment">//这句话很重要，webView是否是不透明的，no为透明 在webView下添加个imageView展示图片就可以了</span></div><div class="line">webView.opaque=<span class="literal">NO</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>5、获取webView页面内容信息：</strong><br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">NSString</span> *docStr=[webView stringByEvaluatingJavaScriptFromString:@<span class="string">"document.documentElement.textContent"</span>];</div><div class="line">//获取web页面内容信息，此处获取的是个son字符串</div><div class="line"></div><div class="line"><span class="symbol">SBJsonParser</span> *parserJson=[[[<span class="symbol">SBJsonParser</span> alloc]init]autorelease];</div><div class="line"></div><div class="line"><span class="symbol">NSDictionary</span> *contentDic=[parserJson objectWithString:docStr];</div><div class="line">//将json字符串转化为字典</div></pre></td></tr></table></figure></p>
+<p><strong>6、将文件下载到本地址然后再用webView打开(打开HTML5)：</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *path = [[[[<span class="built_in">NSBundle</span> mainBundle] resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</div><div class="line"><span class="built_in">NSString</span> *resourceDocPath = [[<span class="built_in">NSString</span> alloc] initWithString:path];</div><div class="line"></div><div class="line"><span class="keyword">self</span>.filePath = [resourceDocPath stringByAppendingPathComponent:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"maydoc%@"</span>,docType]];</div><div class="line"></div><div class="line"><span class="built_in">NSData</span> *attachmentData = [[<span class="built_in">NSData</span> alloc] initWithContentsOfURL:[<span class="built_in">NSURL</span> URLWithString:theUrl]];</div><div class="line">[attachmentData writeToFile:filePath atomically:<span class="literal">YES</span>];</div><div class="line"></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> fileURLWithPath:filePath];</div><div class="line"><span class="built_in">NSURLRequest</span> *requestObj = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line"></div><div class="line">[attachmentWebView loadRequest:requestObj];</div><div class="line"><span class="comment">//删除指定目录下的文件</span></div><div class="line"></div><div class="line"><span class="built_in">NSFileManager</span> *magngerDoc=[<span class="built_in">NSFileManager</span> defaultManager];</div><div class="line"></div><div class="line">[magngerDoc removeItemAtPath:filePath error:<span class="literal">nil</span>];</div></pre></td></tr></table></figure></p>
+<p><strong>8、处理webView展示txt文档乱码问题：</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ([theType <span class="string">isEqualToString:</span>@<span class="string">".txt"</span>]) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">//txt分带编码和不带编码两种，带编码的如UTF-8格式txt，不带编码的如ANSI格式txt</span></div><div class="line">    </div><div class="line">    <span class="comment">//不带的，可以依次尝试GBK和GB18030编码</span></div><div class="line">    </div><div class="line">    NSString* aStr = [[NSString alloc] <span class="string">initWithData:</span>attachmentData <span class="string">encoding:</span>NSUTF8StringEncoding];</div><div class="line">    <span class="keyword">if</span> (!aStr)</div><div class="line">    &#123;</div><div class="line">        </div><div class="line">        <span class="comment">//用GBK进行编码</span></div><div class="line">        aStr=[[NSString alloc] <span class="string">initWithData:</span>attachmentData <span class="string">encoding:</span><span class="number">0x80000632</span>];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (!aStr)</div><div class="line">    &#123;</div><div class="line">        </div><div class="line">        <span class="comment">//用GBK编码不行,再用GB18030编码</span></div><div class="line">        aStr=[[NSString alloc] <span class="string">initWithData:</span>attachmentData <span class="string">encoding:</span><span class="number">0x80000631</span>];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//通过html语言进行排版</span></div><div class="line">    </div><div class="line">    NSString* responseStr = [NSString <span class="string">stringWithFormat:</span></div><div class="line">                             @<span class="string">"%@"</span>,aStr];</div><div class="line">    [attachmentWebView <span class="string">loadHTMLString:</span>responseStr <span class="string">baseURL:</span>[NSURL <span class="string">fileURLWithPath:</span>[[NSBundle mainBundle] bundlePath]]];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>9、使用webView加载本地或网络文件整个流程：</strong></p>
+<p>9.1、Loading a local PDF file into the web view<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    </div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="comment">//从本地加载</span></div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *thePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"iPhone_User_Guide"</span> ofType:<span class="string">@"pdf"</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (thePath) &#123;</div><div class="line">        </div><div class="line">        <span class="built_in">NSData</span> *pdfData = [<span class="built_in">NSData</span> dataWithContentsOfFile:thePath];</div><div class="line">        </div><div class="line">        [(<span class="built_in">UIWebView</span> *)<span class="keyword">self</span>.view loadData:pdfData MIMEType:<span class="string">@"application/pdf"</span></div><div class="line">         </div><div class="line">                        textEncodingName:<span class="string">@"utf-8"</span> baseURL:<span class="literal">nil</span>];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="comment">//从网络加载</span></div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.myWebView loadRequest:[<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://www.apple.com/"</span>]]];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>9.2、The web-view delegate managing network loading<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)webViewDidStartLoad:(<span class="built_in">UIWebView</span> *)webView</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="comment">// starting the load, show the activity indicator in the status bar</span></div><div class="line">    </div><div class="line">    [<span class="built_in">UIApplication</span> sharedApplication].networkActivityIndicatorVisible = <span class="literal">YES</span>;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)webViewDidFinishLoad:(<span class="built_in">UIWebView</span> *)webView</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="comment">// finished loading, hide the activity indicator in the status bar</span></div><div class="line">    </div><div class="line">    [<span class="built_in">UIApplication</span> sharedApplication].networkActivityIndicatorVisible = <span class="literal">NO</span>;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">UIWebView</span> *)webView didFailLoadWithError:(<span class="built_in">NSError</span> *)error</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="comment">// load error, hide the activity indicator in the status bar</span></div><div class="line">    </div><div class="line">    [<span class="built_in">UIApplication</span> sharedApplication].networkActivityIndicatorVisible = <span class="literal">NO</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// report the error inside the webview</span></div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span>* errorString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"An error occurred:%@"</span>,error.localizedDescription];</div><div class="line">    [<span class="keyword">self</span>.myWebView loadHTMLString:errorString baseURL:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>9.3、Stopping a load request when the web view is to disappear<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ( [<span class="keyword">self</span>.myWebView loading] ) &#123;</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span>.myWebView stopLoading];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.myWebView.delegate = <span class="literal">nil</span>;    <span class="comment">// disconnect the delegate as the webview is hidden</span></div><div class="line">    </div><div class="line">    [<span class="built_in">UIApplication</span> sharedApplication].networkActivityIndicatorVisible = <span class="literal">NO</span>;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>10、查找webView中的scrollview：</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) addScrollViewListener &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">UIScrollView</span>* currentScrollView;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span>* subView <span class="keyword">in</span> <span class="keyword">self</span>.webView.subviews) &#123;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> ([subView isKindOfClass:[<span class="built_in">UIScrollView</span> <span class="keyword">class</span>]]) &#123;</div><div class="line">            </div><div class="line">            currentScrollView = (<span class="built_in">UIScrollView</span>*)subView;</div><div class="line">            </div><div class="line">            currentScrollView.delegate = <span class="keyword">self</span>;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>11、去掉webView的阴影，做成类似scrollView：</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)clearBackgroundWithColor:(<span class="built_in">UIColor</span>*)color &#123;</div><div class="line">    <span class="comment">// 去掉webview的阴影</span></div><div class="line">    <span class="keyword">self</span>.backgroundColor = color;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span>* subView <span class="keyword">in</span> [<span class="keyword">self</span> subviews])</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> ([subView isKindOfClass:[<span class="built_in">UIScrollView</span> <span class="keyword">class</span>]]) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="built_in">UIView</span>* shadowView <span class="keyword">in</span> [subView subviews])</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> ([shadowView isKindOfClass:[<span class="built_in">UIImageView</span> <span class="keyword">class</span>]]) &#123;</div><div class="line">                    [shadowView setHidden:<span class="literal">YES</span>];</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>12、取消长按webView上的链接弹出actionSheet的问题：</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span>(void)<span class="selector-tag">webViewDidFinishLoad</span><span class="selector-pseudo">:(UIWebView</span> *)<span class="selector-tag">webView</span> &#123;</div><div class="line">    <span class="selector-attr">[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout = 'none';"]</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>13、取消webView上的超级链接加载问题：</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(<span class="built_in">BOOL</span>)webView:(<span class="built_in">UIWebView</span> *)webView shouldStartLoadWithRequest:(<span class="built_in">NSURLRequest</span> *)request navigationType:(<span class="built_in">UIWebViewNavigationType</span>)navigationType &#123;</div><div class="line">    <span class="keyword">if</span> (navigationType==<span class="built_in">UIWebViewNavigationTypeLinkClicked</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>14、在使用webView进行新浪微博分享时，webView会自动保存登陆的cookie导致项目中的分享模块有些问题，删除 webView的cookie的方法：</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span>(void)<span class="selector-tag">deleteCookieForDominPathStr</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">thePath</span></div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="comment">//删除本地cookie，thePath为cookie路径通过打印cookie可知道其路径</span></div><div class="line">    </div><div class="line">    <span class="selector-tag">for</span>(NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) &#123;</div><div class="line">        </div><div class="line">        <span class="selector-tag">if</span>([[cookie domain] <span class="attribute">isEqualToString</span>:thePath]) &#123;</div><div class="line">            </div><div class="line">            <span class="selector-attr">[[NSHTTPCookieStorage sharedHTTPCookieStorage]</span> <span class="selector-tag">deleteCookie</span><span class="selector-pseudo">:cookie</span>];</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>15、在UIWebView中使用flashScrollIndicators</strong></p>
+<p>使用UIScrollView时，我们可以使用flashScrollIndicators方法显示滚动标识然后消失，告知用户此页面可以滚动，后面还有更多内容。UIWebView内部依赖于UIScrollView,但是其没有flashScrollIndicators方法，但可以通过其他途径使用此方法，如下所示。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">for</span> (id subView in [webView subviews])&#123;</div><div class="line">    </div><div class="line">    <span class="selector-tag">if</span> ([subView <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(flashScrollIndicators)])&#123;</div><div class="line">        <span class="selector-attr">[subView flashScrollIndicators]</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上述代码片段可以到webViewDidFinishLoad回调中使用，加载完网页内容后flash显示滚动标识。</p>
+<p><strong>16、根据内容获取UIWebView的高度：</strong></p>
+<p>有时候需要根据不同的内容调整UIWebView的高度，以使UIWebView刚好装下所有内容，不用拖动，后面也不会留白。有两种方式可根据加载内容获取UIWebView的合适高度，但都需要在网页内容加载完成后才可以，即需要在webViewDidFinishLoad回调中使用</p>
+<p>①.使用sizeThatFits方法。<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- (void)webViewDidFinishLoad:(UIWebView *)webView</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    CGRect frame = webView.frame<span class="comment">;</span></div><div class="line">    </div><div class="line">    frame.size.height = <span class="number">1</span><span class="comment">;</span></div><div class="line">    </div><div class="line">    webView.frame = frame<span class="comment">;</span></div><div class="line">    </div><div class="line">    CGSize fittingSize = [webView sizeThatFits:CGSizeZero]<span class="comment">;</span></div><div class="line">    </div><div class="line">    frame.size = fittingSize<span class="comment">;</span></div><div class="line">    </div><div class="line">    webView.frame = frame<span class="comment">;</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>sizeThatFits方法有个问题，如果当前UIView的大小比刚好合适的大小还大，则返回当前的大小，不会返回最合适的大小值，所以使用sizeThatFits前，先将UIWebView的高度设为最小，即1，然后再使用sizeThatFits就会返回刚好合适的大小。</p>
+<p>②、使用JavaScript<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)webViewDidFinishLoad:(UIWebView *)webView</div><div class="line"></div><div class="line">&#123;</div><div class="line">    CGRect frame = webView.frame<span class="comment">;</span></div><div class="line">    </div><div class="line">    NSString *fitHeight = [webview stringByEvaluatingJavaScriptFromString:@<span class="string">"document.body.scrollHeight;"</span>]<span class="comment">;</span></div><div class="line">    </div><div class="line">    frame.size.height = [fitHeight floatValue]<span class="comment">;</span></div><div class="line">    </div><div class="line">    webView.frame = frame<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>总结：</p>
+<p>首先 对IOS开发中的UIWebView控件的基本使用进行初步的详解，提到了创建、设置属性、设置背景、怎么样加载网页内容等一系列的基础点，然后阐述使用UIWebView控件时常用用注意点，经常需要用到的地方，需要注意的地方，使得对开发ios APP混合模式的桥梁—UIWebView控件更加的了解、熟悉。UIWebView既能够加载服务器提供的URI，又能够加载本地的资源文件，还能够加载服务器返回的网页界面代码，可想而知UIWebView是多么强大的一控件桥梁，以后在开发中使用到的地方会越来越多。</p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS入门/">iOS入门</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/04/20/A-OC的碎碎念/IOS开发---UIWebView(用法全面介绍,含最全的JS交互)/" data-title="UIWebView(用法全面介绍,含最全的JS交互) | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/20/A-OC的碎碎念/IOS开发---打印自定义bug(NSAssert()NSParameterAssert)/" title="打印自定义bug(NSAssert()NSParameterAssert)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  打印自定义bug(NSAssert()NSParameterAssert)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列一-(消息机制)/"  title="runtime系列一(消息机制)">
+ <strong>下一篇：</strong><br/> 
+ <span>runtime系列一(消息机制)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

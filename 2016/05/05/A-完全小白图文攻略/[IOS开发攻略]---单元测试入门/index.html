@@ -1,0 +1,729 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>单元测试入门 | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+介绍
+
+iOS单元测试初探维基百科上的对她解释：“在计算机编程中，单元测试（又称为模块测试, Unit Testing）是针对程序模块（软件设计的最小单位）来进行正确性检验的测试工作。程序单元是应用的最小可测试部件。在过程化编程中，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单元测试入门">
+<meta property="og:url" content="http://www.hundredone.win/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试入门/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+介绍
+
+iOS单元测试初探维基百科上的对她解释：“在计算机编程中，单元测试（又称为模块测试, Unit Testing）是针对程序模块（软件设计的最小单位）来进行正确性检验的测试工作。程序单元是应用的最小可测试部件。在过程化编程中，">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-e57d6c4616e11c08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-527e6a057df7d2e0.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-578b082db60be1cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-79ae6c85d3724c36.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-62047c293e4aed83.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-e8d1332c3467e73d.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T16:07:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单元测试入门">
+<meta name="twitter:description" content="目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+介绍
+
+iOS单元测试初探维基百科上的对她解释：“在计算机编程中，单元测试（又称为模块测试, Unit Testing）是针对程序模块（软件设计的最小单位）来进行正确性检验的测试工作。程序单元是应用的最小可测试部件。在过程化编程中，">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-e57d6c4616e11c08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试入门/" title="单元测试入门" itemprop="url">单元测试入门</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished"> Published 2016-05-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<blockquote>
+<p>目录</p>
+</blockquote>
+<ul>
+<li><a href="http://www.jianshu.com/p/e1b3fab18651" target="_blank" rel="external">[IOS开发攻略] - 单元测试入门</a></li>
+<li><a href="http://www.jianshu.com/p/4e9abc903829" target="_blank" rel="external">[IOS开发攻略] - A.异步测试</a></li>
+<li><a href="http://www.jianshu.com/p/dd11335a7c16" target="_blank" rel="external">[IOS开发攻略] - B.性能测试</a></li>
+<li><a href="http://www.jianshu.com/p/ec678d9b460b" target="_blank" rel="external">[IOS开发攻略] - C.逻辑测试</a></li>
+</ul>
+<blockquote>
+<p>介绍</p>
+</blockquote>
+<p><strong>iOS单元测试初探</strong><br>维基百科上的对她解释：“在计算机编程中，单元测试（又称为模块测试, Unit Testing）是针对程序模块（软件设计的最小单位）来进行正确性检验的测试工作。程序单元是应用的最小可测试部件。在过程化编程中，一个单元就是单个程序、函数、过程等；对于面向对象编程，最小单元就是方法，包括基类（超类）、抽象类、或者派生类（子类）中的方法。”。</p>
+<p>通常来说，程序员每修改一次代码就会修改某个单元，那我们就可以对这个单元做修改的验证（单元测试），在编写程序的过程中前后很可能要进行多次单元测试，以证实程序达到软件规格书（产品需求）要求的工作目标，而且没有程序错误。虽然单元测试不是什么必须的，但也不坏，这牵涉到项目管理的政策决定（说白了，你没有她也能活，但是只能自己左手写代码，右手……当然也是写代码，作为程序员怎么可以一只手敲代码呢）。</p>
+<p><strong>思路</strong><br>1、设置测试环境需要创建一个普通应用程序目标的副本，为了使用该副本执行单元测试，需要添加如下内容：</p>
+<ul>
+<li><strong>一个单独的应用程序测试目标；</strong></li>
+<li><strong>一个IOS 单元测试捆绑包目标；</strong></li>
+<li><strong>一个用于测试用例的单元测试类。</strong></li>
+</ul>
+<p>2、单元测试与应用程序开发属于共存关系（而非嵌入关系），所以必须创建一个单独的测试目标。<br>3、应用程序测试目标中包含了单元测试捆绑包。单元测试捆绑包中包含了单元测试用例。<br>4、您可以在单元测试类中编写单独的测试用例方法。这些方法与普通的方法类似，但有一处不同：<br><strong>方法名称必须以test开头。</strong><br>5、不能在模拟器上运行应用程序测试用例。为了能够在设备中真实地运行应用程序测试用例，需要安装开发配置文件（development provision file）.<br>需要注意，在应用程序上运行单元测试用例并不是一个交互过程。所有的运行控制（包括提供值）都由测试用例自身掌握。</p>
+<blockquote>
+<p>具体使用</p>
+</blockquote>
+<p><strong>单元调试操作(两种方法,点击commond+U之后)</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-e57d6c4616e11c08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="操作图例"></p>
+<p><strong>具体操作流程</strong></p>
+<ol>
+<li>测试的函数必须以test开头 例如 <code>- (void)testPauseMusic</code></li>
+<li>运行是使用的是键盘  <code>Command</code>+<code>U</code></li>
+<li>调试可以在断言处调试,也可以在函数部分调试(如下图gif)</li>
+<li>错误提示是在断言处显示,不会在平台展示(如下图)</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-527e6a057df7d2e0.gif?imageMogr2/auto-orient/strip" alt="单元测试的两种方式"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-578b082db60be1cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="错误提示"></p>
+<blockquote>
+<p>入门介绍</p>
+</blockquote>
+<p><strong>创建</strong><br><img src="http://upload-images.jianshu.io/upload_images/1730495-79ae6c85d3724c36.gif?imageMogr2/auto-orient/strip" alt="创建"><br><strong>功能介绍</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">setUp</span> &#123;</div><div class="line">    <span class="selector-attr">[super setUp]</span>;</div><div class="line">    <span class="comment">// Put setup code here. This method is called before the  invo cation of each test method in the class.</span></div><div class="line">    <span class="comment">//初始化的代码，在测试方法调用之前调用</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">tearDown</span> &#123;</div><div class="line">    <span class="comment">// Put teardown code here. This method is called after the invocation of each test method in the class.</span></div><div class="line">    <span class="comment">// 释放测试用例的资源代码，这个方法会每个测试用例执行后调用</span></div><div class="line">    <span class="selector-attr">[super tearDown]</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">testExample</span> &#123;</div><div class="line">    <span class="comment">// This is an example of a functional test case.</span></div><div class="line">    <span class="comment">// Use XCTAssert and related functions to verify your tests produce the correct results.</span></div><div class="line">    <span class="comment">// 测试用例的例子，注意测试用例一定要test开头</span></div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">testPerformanceExample</span> &#123;</div><div class="line">    <span class="comment">// This is an example of a performance test case.</span></div><div class="line">    <span class="comment">// 测试性能例子，有Instrument调试工具之后，其实这个没毛用。</span></div><div class="line">    <span class="selector-attr">[self measureBlock:^&#123;</span></div><div class="line">        // Put the code you want to measure the time of here.</div><div class="line">        // 需要测试性能的代码</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>示范实例</p>
+</blockquote>
+<hr>
+<p><strong>基本使用</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-62047c293e4aed83.gif?imageMogr2/auto-orient/strip" alt="基础示范.gif"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testExample &#123;</div><div class="line">    <span class="comment">// This is an example of a functional test case.</span></div><div class="line">    <span class="comment">// Use XCTAssert and related functions to verify your tests produce the correct results.</span></div><div class="line">    <span class="comment">// 测试用例的例子，注意测试用例一定要test开头</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"开始爱上单元测试的第一个单元测试测试"</span>);</div><div class="line">    <span class="built_in">NSString</span> *test = <span class="string">@"这是我的第一个单元测试"</span>;</div><div class="line"><span class="comment">//    XCTFail(@"asdhjk");</span></div><div class="line"><span class="comment">//    XCTAssertTrue([test isEqualToString:@"初来乍到，就想测试成功，没门"]);</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"自定义测试testExample"</span>);</div><div class="line">    <span class="keyword">int</span>  a= <span class="number">3</span>;</div><div class="line"><span class="comment">//    XCTAssertTrue(a == 0,"a 不能等于 0");</span></div><div class="line">    <span class="built_in">XCTFail</span>(<span class="string">@"是啊比了"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><strong>单例</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-e8d1332c3467e73d.gif?imageMogr2/auto-orient/strip" alt="单例测试"></p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> *  测试是否为单例，要在并发条件下测试</div><div class="line"> */</div><div class="line">- (void)testAudioManagerSingle</div><div class="line">&#123;</div><div class="line">    <span class="symbol">NSMutableArray</span> *managers = [<span class="symbol">NSMutableArray</span> array];</div><div class="line">    </div><div class="line">    dispatch_async(dispatch_get_global_queue(<span class="symbol">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>), ^&#123;</div><div class="line">        <span class="symbol">ZYAudioManager</span> *tempManager = [[<span class="symbol">ZYAudioManager</span> alloc] init];</div><div class="line">        [managers addObject:tempManager];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    dispatch_async(dispatch_get_global_queue(<span class="symbol">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>), ^&#123;</div><div class="line">        <span class="symbol">ZYAudioManager</span> *tempManager = [[<span class="symbol">ZYAudioManager</span> alloc] init];</div><div class="line">        [managers addObject:tempManager];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    dispatch_async(dispatch_get_global_queue(<span class="symbol">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>), ^&#123;</div><div class="line">        <span class="symbol">ZYAudioManager</span> *tempManager = [<span class="symbol">ZYAudioManager</span> defaultManager];</div><div class="line">        [managers addObject:tempManager];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    dispatch_async(dispatch_get_global_queue(<span class="symbol">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>), ^&#123;</div><div class="line">        <span class="symbol">ZYAudioManager</span> *tempManager = [<span class="symbol">ZYAudioManager</span> defaultManager];</div><div class="line">        [managers addObject:tempManager];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="symbol">ZYAudioManager</span> *managerOne = [<span class="symbol">ZYAudioManager</span> defaultManager];</div><div class="line">    //这里是判断数组中的对象是否一致!</div><div class="line">    [managers enumerateObjectsUsingBlock:^(<span class="symbol">ZYAudioManager</span> *obj, <span class="symbol">NSUInteger</span> idx, <span class="symbol">BOOL</span> * <span class="symbol">_Nonnull</span> stop) &#123;</div><div class="line">        <span class="symbol">XCTAssertEqual</span>(managerOne, obj, @<span class="string">"ZYAudioManager is not single"</span>);</div><div class="line">        <span class="symbol">XCTAssertNotEqual</span>(managerOne, obj,@<span class="string">"lalala就是不一样"</span>);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>主要用到的测试函数(知识拓展)</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">XCTFail</span><span class="params">(format…)</span></span> 生成一个失败的测试；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNil</span><span class="params">(a1, format...)</span></span>为空判断，a1为空时通过，反之不通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNotNil</span><span class="params">(a1, format…)</span></span>不为空判断，a1不为空时通过，反之不通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssert</span><span class="params">(expression, format...)</span></span>当expression求值为TRUE时通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertTrue</span><span class="params">(expression, format...)</span></span>当expression求值为TRUE时通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertFalse</span><span class="params">(expression, format...)</span></span>当expression求值为False时通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertEqualObjects</span><span class="params">(a1, a2, format...)</span></span>判断相等，[a1 isEqual:a2]值为TRUE时通过，其中一个不为空时，不通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNotEqualObjects</span><span class="params">(a1, a2, format...)</span></span>判断不等，[a1 isEqual:a2]值为False时通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertEqual</span><span class="params">(a1, a2, format...)</span></span>判断相等（当a1和a2是 C语言标量、结构体或联合体时使用,实际测试发现NSString也可以）；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNotEqual</span><span class="params">(a1, a2, format...)</span></span>判断不等（当a1和a2是 C语言标量、结构体或联合体时使用）；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertEqualWithAccuracy</span><span class="params">(a1, a2, accuracy, format...)</span></span>判断相等，（double或<span class="attribute">float</span>类型）提供一个误差范围，当在误差范围（+/-accuracy）以内相等时通过测试；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNotEqualWithAccuracy</span><span class="params">(a1, a2, accuracy, format...)</span></span> 判断不等，（double或<span class="attribute">float</span>类型）提供一个误差范围，当在误差范围以内不等时通过测试；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertThrows</span><span class="params">(expression, format...)</span></span>异常测试，当expression发生异常时通过；反之不通过；（很变态） XCTAssertThrowsSpecific(expression, specificException, format...) 异常测试，当expression发生specificException异常时通过；反之发生其他异常或不发生异常均不通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertThrowsSpecificNamed</span><span class="params">(expression, specificException, exception_name, format...)</span></span>异常测试，当expression发生具体异常、具体异常名称的异常时通过测试，反之不通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNoThrow</span><span class="params">(expression, format…)</span></span>异常测试，当expression没有发生异常时通过测试；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNoThrowSpecific</span><span class="params">(expression, specificException, format...)</span></span>异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过；</div><div class="line"></div><div class="line"><span class="function"><span class="title">XCTAssertNoThrowSpecificNamed</span><span class="params">(expression, specificException, exception_name, format...)</span></span>异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过</div></pre></td></tr></table></figure>
+<blockquote>
+<p>香蕉家githubDemo下载,记得给我点赞哈</p>
+</blockquote>
+<p>demo地址:<a href="https://github.com/OneHundredSir/Objective-C/tree/master/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" target="_blank" rel="external">本项目githubDemo开源地址</a></p>
+<blockquote>
+<p>使用问题:</p>
+</blockquote>
+<p>1.<strong>问题描述：</strong>fatal error: ‘XCTest/XCTest.h’ file not found</p>
+<p>解决<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">**解决方法：</span></div><div class="line">在报错的Target中的Building settings中</div><div class="line">FRAMEWORK_SEARCH_PATHS*</div><div class="line">添加</div><div class="line"><span class="symbol">$</span>(PLATFORM_DIR)/Developer/Library/Frameworks</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/其他/">其他</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/单元测试/">单元测试</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试入门/" data-title="单元测试入门 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="单元测试逻辑测试">
+  <strong>上一篇：</strong><br/>
+  <span>
+  单元测试逻辑测试</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试性能测试/"  title="单元测试性能测试">
+ <strong>下一篇：</strong><br/> 
+ <span>单元测试性能测试
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>35</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
