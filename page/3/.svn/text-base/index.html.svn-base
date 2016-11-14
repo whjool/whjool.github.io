@@ -1,10 +1,10 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>香蕉的个人博客</title>
+    <title>香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:title" content="香蕉的技术博客">
 <meta property="og:url" content="http://www.hundredone.win/page/3/index.html">
-<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:site_name" content="香蕉的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:title" content="香蕉的技术博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,36 +37,33 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">文章归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/tags">tags</a></li>
-					
-						<li><a href="/categories">categories</a></li>
+						<li><a href="/categories">分类</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:www.hundredone.win">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -79,22 +76,17 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]---制作自己的cocopods/" title="" itemprop="url">
+    <a href="/2016/08/20/A-完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/" title="FrameWork(含demo)-Xcode8环境" itemprop="url">
   
-    <h1 itemprop="name"></h1>
+    <h1 itemprop="name">FrameWork(含demo)-Xcode8环境</h1>
     
      
-           <p itemprop="description" >如果对框架还不会制作的可以参考我这一篇文章
+           <p itemprop="description" >如果不知道库是什么的朋友看看这篇文章:静态库
 
-参考:参考
-详细的参考
-
-OK来我们的今天的主题
-
-1234567891011121314举例:WHDcolorSDK.podspec先查询一下 git statusgit add WHDcolorSDK.podspecgit com</p>
+前言之前有很多的大神们已经写过framework的制作，但最近由于Xcode7的出现，很多之前的教程内容已经不符，对于初学者来说，找到一篇能够直接明了，简单易学的制作framework的文章比较困难。本文将基于Xcode7创建一个简</p>
         
     
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
   </a>
 </section>
 
@@ -106,17 +98,22 @@ OK来我们的今天的主题
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]---xcode8兼容IOS7/" title="" itemprop="url">
+    <a href="/2016/08/20/O-遇到的坑/[IOSxcode概念]---Xcode8以后报错以及失效/" title="Xcode8以后报错以及失效" itemprop="url">
   
-    <h1 itemprop="name"></h1>
+    <h1 itemprop="name">Xcode8以后报错以及失效</h1>
     
      
-           <p itemprop="description" >deviceSupport链接:github
-参考文章
-如果修改不了1234567891011以上git的文件请放到这里/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSup</p>
+           <p itemprop="description" >更新至 10-12参考其他xocde8失效的汇总
+
+失效
+
+目录
+
+include找不到对应库,这里请注意区别,此案例使用的是#include&amp;lt;#&amp;gt; ,非#include”#”
+warning: directory not found for option,如果找不到</p>
         
     
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
   </a>
 </section>
 
@@ -128,18 +125,20 @@ OK来我们的今天的主题
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]---XCode更新后多了很多调试语句/" title="" itemprop="url">
+    <a href="/2016/08/20/G-游戏文档/[Cocos2d-x-使用问题]---Mac入门Cocos2d-x必备/" title="Mac入门Cocos2d-x必备" itemprop="url">
   
-    <h1 itemprop="name"></h1>
+    <h1 itemprop="name">Mac入门Cocos2d-x必备</h1>
     
      
-           <p itemprop="description" >1.common+/ 不能注释了这个是因为苹果解决xcode ghost。把插件屏蔽了。解决方法命令运行：  sudo /usr/libexec/xpccachectl然后必须重启电脑后生效
-2.出现崩溃报错日志更新到Xcode8以后，发现打印了许多网络相关的日志：
+           <p itemprop="description" >新建文件方法官网参考官方论坛
+问题整理,慢慢更新
 
-12345</p>
+1.Xcode 下 jni.h file not found
+
+解决问题123原因: jni.h 是安卓下导入的文件只要把加入这判断的宏就OK了用平台宏注释掉即可。#if (CC_TARGET_PLATFORM == CC_PL</p>
         
     
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-19T22:49:50.000Z" itemprop="datePublished">2016-08-20</time>
   </a>
 </section>
 
@@ -151,145 +150,7 @@ OK来我们的今天的主题
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/WHDkit/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >cocopodsWHDkit工具包介绍
-引言有时候我们可能会需要一个取色器，例如我的蓝牙灯项目，让用户从一个取色器中随意取色：
-那么如何从一个图片中取色呢？Google一下就有答案Simple way to read pixel color values from an PNG </p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/G-游戏文档/[IOS开发]---OpenAL介绍/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >##&amp;gt;前言今天我只讨论不到30秒的音频以及音效和短循环音。在iPhone上播放的音频需要正确的格式（或者说audio toolbox可以处理的多种音频格式中的一种，但如果你从正确的格式声音开始，iPhone在播放时就不需要进行处理了）。
-所以，打开你的命令行终端输入：1/u</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]将WIN下VS编译的工程转到IOS中整理/" title="将WIN下VS编译的工程转到IOS中整理" itemprop="url">
-  
-    <h1 itemprop="name">将WIN下VS编译的工程转到IOS中整理</h1>
-    
-     
-           <p itemprop="description" >主要就是把以下几个文件进行替换~前提保证项目正常的运行!
-
-把证书添加到捕鱼中,如图,不然真机跑步了
-
-
-遇到的问题,简单理解coco2dx装IOS的话用的是MRC,所以如果导入库是ARC的话很麻烦,目前没有解决混合用的方法
-
-由于#include &amp;lt;jni.h&amp;gt;是安</p>
-        
-    
-    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/08/25/G-游戏文档/[IOS入门]-Xcode如何增加语法高亮(通用)/" title="Xcode如何增加语法高亮(通用)" itemprop="url">
-  
-    <h1 itemprop="name">Xcode如何增加语法高亮(通用)</h1>
-    
-     
-           <p itemprop="description" >需求
-
-最近刚好要用lua开发,然后就去找了一下怎么改成lua,所以本例子就以lua为例子,其他语法也是一样的.
-
-正文
-
-最新的Xcode7依然没有支持源代码的Lua语法着色，Xcode让lua高亮的方法：打开路径直接按住键盘cmd + shift +G复制粘贴以下链接1/Ap</p>
-        
-    
-    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]WIN下游戏迁移到IOS上资源找不到/" title="WIN下游戏迁移到IOS上资源找不到" itemprop="url">
-  
-    <h1 itemprop="name">WIN下游戏迁移到IOS上资源找不到</h1>
-    
-     
-           <p itemprop="description" >之前一直都是在win32平台来开发cocos2d-x的项目，今天有时间把实验室的mac搭建一下cocos2d-x的开发环境。最新的macos系统集成了python、java、Xcode等开发环境，基本上不需要下载，只要下载一下android的ndk、sdk和ant。整个过程还是蛮</p>
-        
-    
-    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/08/25/G-游戏文档/[iOS游戏开发必备]-Lua与OC交互完整版(含Demo)/" title="Lua与OC交互完整版(含Demo)" itemprop="url">
-  
-    <h1 itemprop="name">Lua与OC交互完整版(含Demo)</h1>
-    
-     
-           <p itemprop="description" >背景
-
-最近一直在忙着游戏相关的工作,然后弄了好一段时间,刚好现在可以给大家写一篇关于Lua和OC交互的内容,主要使用的是coco2dx3.0的版本,如果是这个版本以下不能说没变哈~记得自己一直在踩坑,网上的资料比较乱,所以不耻把自己的项目加以整理!由于项目为公司的,所以我只把关</p>
-        
-    
-    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/08/20/A-OC的碎碎念/[iOS进阶]---MRC下的block的坑及解决思路/" title="MRC下的block的坑及解决思路" itemprop="url">
+    <a href="/2016/07/20/A-OC的碎碎念/[iOS进阶]---MRC下的block的坑及解决思路/" title="MRC下的block的坑及解决思路" itemprop="url">
   
     <h1 itemprop="name">MRC下的block的坑及解决思路</h1>
     
@@ -303,7 +164,155 @@ OK来我们的今天的主题
 block的概念很简单: 实现体先行,传值体/调用体后行(做好判断) 就好不懂的朋友自己去查一下,伸手党:传送门对于很多新学习</p>
         
     
-    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+    <time datetime="2016-07-20T02:49:50.000Z" itemprop="datePublished">2016-07-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/07/20/A-OC的碎碎念/IOS开发进阶-内联函数(inline)/" title="iOS内联函数" itemprop="url">
+  
+    <h1 itemprop="name">iOS内联函数</h1>
+    
+     
+           <p itemprop="description" >ios内联函数 inline
+
+不得不说最近刚好在研究blocksKit,然后遇到了一个问题,内联函数,然后自己就开始巴拉巴拉巴拉.
+
+简单介绍C语言中的内联函数
+
+C语言中内联函数到底有什么作用？
+试想一下，每当我们在假设就在主函数中调用另外一个函数的时候，那么这个函数就要入栈</p>
+        
+    
+    <time datetime="2016-07-20T02:49:50.000Z" itemprop="datePublished">2016-07-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/07/05/A-完全小白图文攻略/[IOS开发攻略]---crash-log分析/" title="crash获取" itemprop="url">
+  
+    <h1 itemprop="name">crash获取</h1>
+    
+     
+           <p itemprop="description" >##一、crash log的获取(两个方法)
+
+1.通过自己手机获取
+当你的app 在手机上crash的时候，会在手机上自动生成一个崩溃日志，也就是我们说的Crash Log。CrashLog的位置位于:iPhone设备的var/mobile/Library/Logs/Crash</p>
+        
+    
+    <time datetime="2016-07-05T02:49:50.000Z" itemprop="datePublished">2016-07-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/07/05/A-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/" title="个推封装" itemprop="url">
+  
+    <h1 itemprop="name">个推封装</h1>
+    
+     
+           <p itemprop="description" >个推 这个只能消息透传个推封装参考文章:个推封装文档阅读:文档阅读 
+
+注意点:(封装和调用的时候都要注意在runtime时候的一些调用)123如果，第三库中没有 category，Other Linker Flags 无需设置如果，第三方库中有 category，需要设置为 -</p>
+        
+    
+    <time datetime="2016-07-05T02:49:50.000Z" itemprop="datePublished">2016-07-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit应用篇(含demo)/" title="黑魔法之blocksKit应用篇(含demo)" itemprop="url">
+  
+    <h1 itemprop="name">黑魔法之blocksKit应用篇(含demo)</h1>
+    
+     
+           <p itemprop="description" >目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
+
+BlocksKit项目主页:BlocksKit-github主页
+
+1.</p>
+        
+    
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit分析(上)/" title="iOS开发---黑魔法之blocksKit分析(上)" itemprop="url">
+  
+    <h1 itemprop="name">iOS开发---黑魔法之blocksKit分析(上)</h1>
+    
+     
+           <p itemprop="description" >目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
+
+BlocksKit项目主页:BlocksKit-github主页
+
+1.</p>
+        
+    
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(介绍篇)/" title="使用jspatch热更新(介绍篇)" itemprop="url">
+  
+    <h1 itemprop="name">使用jspatch热更新(介绍篇)</h1>
+    
+     
+           <p itemprop="description" >感谢JSpatch:官网地址  作者的github原文:github本篇只是一个介绍,具体实现请转到我的另一篇文章看具体操作:使用jspatch热更新(实用Demo篇)
+JSPatch是什么
+JSPatch是一个开源项目，只需要在项目里引入极小的引擎文件，就可以使用 JavaSc</p>
+        
+    
+    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
   </a>
 </section>
 
@@ -318,15 +327,15 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -336,19 +345,19 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
 		  
 		
 		  
@@ -358,7 +367,7 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
 		  
 		
 		  
@@ -369,7 +378,7 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -389,7 +398,11 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
 			
 		
 			
@@ -397,7 +410,11 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
 			
 		
 			
@@ -405,23 +422,11 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 			
 		
 			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -429,27 +434,31 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -457,8 +466,20 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
         
           <li>
             
@@ -473,12 +494,36 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
-  <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
 </div>
 
 
@@ -500,7 +545,7 @@ block的概念很简单: 实现体先行,传值体/调用体后行(做好判断)
 	 
 	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
@@ -610,6 +655,8 @@ $(document).ready(function(){
 
 
 
+
+
 <!-- Analytics Begin -->
 
 
@@ -626,12 +673,14 @@ var _hmt = _hmt || [];
 
 
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <!-- Analytics End -->
 
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

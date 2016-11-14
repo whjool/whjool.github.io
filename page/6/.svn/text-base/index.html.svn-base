@@ -1,10 +1,10 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>香蕉的个人博客</title>
+    <title>香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:title" content="香蕉的技术博客">
 <meta property="og:url" content="http://www.hundredone.win/page/6/index.html">
-<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:site_name" content="香蕉的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:title" content="香蕉的技术博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,36 +37,33 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">文章归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/tags">tags</a></li>
-					
-						<li><a href="/categories">categories</a></li>
+						<li><a href="/categories">分类</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:www.hundredone.win">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -75,28 +72,6 @@
     </header>
     <div id="container">
       <div id="main">
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/20/A-IOS黑魔法/IOS开发---网络状态检测（Reachability）含Demo/" title="网络状态检测（Reachability）含Demo" itemprop="url">
-  
-    <h1 itemprop="name">网络状态检测（Reachability）含Demo</h1>
-    
-     
-           <p itemprop="description" >文章最后附上本次讲解的Demo以及演示动态图：GithubDemo
-一、说明在网络应用中，需要对用户设备的网络状态进行实时监控，有两个目的：
-（1）让用户了解自己的网络状态，防止一些误会（比如怪应用无能）（2）根据用户的网络状态进行智能处理，节省用户流量，提高用户体验　　  WI</p>
-        
-    
-    <time datetime="2016-05-19T22:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
 
   
 <section class="post" itemscope itemprop="blogitem">
@@ -123,58 +98,16 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/04/20/A-OC的碎碎念/[IOS问题答疑]JSON数据只返回-null-处理方法/" title="JSON数据只返回null" itemprop="url">
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS直播一]---iOS中集成ijkplayer框架/" title="iOS中集成ijkplayer框架" itemprop="url">
   
-    <h1 itemprop="name">JSON数据只返回null</h1>
-    
-     
-           <p itemprop="description" >今天我出现这样一个问题
-最后我查到并有用的的方法就是1BOOL isNull = ![dic[@&quot;data&quot;] isKindOfClass:[NSNull class]];
-我就是通过这个方法进行判断，然后不崩的.
-以下是一些失败的方法，都没有用！都是失败的！千万别用下面的，没有</p>
-        
-    
-    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" title="runtime系列二(Runtime的使用场景)" itemprop="url">
-  
-    <h1 itemprop="name">runtime系列二(Runtime的使用场景)</h1>
-    
-     
-           <p itemprop="description" >入门先看我上一篇:[IOS开发] - runtime系列一 (消息机制)Runtime 理解介绍的文章非常多，我只想讲讲Runtime 可以用在哪里，而我在项目里哪些地方用到了runtime。多以实际使用过程为主，来介绍runtime的使用。
-那么runtime 怎么使用？可以用</p>
-        
-    
-    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发入门]---NSProcessInfo类方法(进程)使用/" title="NSProcessInfo类方法(进程)使用" itemprop="url">
-  
-    <h1 itemprop="name">NSProcessInfo类方法(进程)使用</h1>
+    <h1 itemprop="name">iOS中集成ijkplayer框架</h1>
     
      
            <p itemprop="description" >背景
 
-今天有幸看到如下的代码在delegate中,其中有一个点很吸引我,static BOOL isRunningTests(void) __attribute__((const));,目前没有弄明白,弄明白我会补充~如是我就继续看下去.12345678910111213141</p>
+说着要撸直播说了蛮久,但是一直都没时间去弄,最近想抽出点时间开撸,如果有做的不好的朋友希望能指点指点,目前刚刚开始,从框架导入到项目搭建,一步步来~
+
+ijkplayer 是一款做视频直播的框架, 基于ffmpeg, 支持 Android 和 iOS, 网上也有很多集成说</p>
         
     
     <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
@@ -189,84 +122,14 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/" title="谈谈开发模式MVVM" itemprop="url">
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---UIWebView(用法全面介绍,含最全的JS交互)/" title="UIWebView(用法全面介绍,含最全的JS交互)" itemprop="url">
   
-    <h1 itemprop="name">谈谈开发模式MVVM</h1>
+    <h1 itemprop="name">UIWebView(用法全面介绍,含最全的JS交互)</h1>
     
      
-           <p itemprop="description" >如果想了解其他设计模式可以看这里:IOS开发 - 谈谈开发模式(MVC,单例,代理)为什么要用MVVM替代MVCApple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。
-很多入门开发者都有</p>
-        
-    
-    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
-  </a>
-</section>
+           <p itemprop="description" >前两天我写了一套关于JS与OC交互的三种方法的文章,但是发现自己对UIWebView理解的还是比较浅,一直认为只能简单的当一个webView来使用,具体很多细节都忽略,如果想看我之前UIWebView的JS交互,请点击下面的连接
 
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式(MVC,单例,代理)/" title="谈谈开发模式(MVC,单例,代理)" itemprop="url">
-  
-    <h1 itemprop="name">谈谈开发模式(MVC,单例,代理)</h1>
-    
-     
-           <p itemprop="description" >老感觉这个问题老生常谈了,不过最近公司要我去面试,谈谈我的个人看法;
-如果对MVVM有兴趣的朋友可以看这一篇:IOS开发 - 谈谈开发模式MVVM
-
-1.MVC设计模式：
-
-MVC设计模式主要有三个部分，数据模型类（model）、视图（view）、控制器（viewControll</p>
-        
-    
-    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---说到透传消息和推送通知的区别你知道多少-/" title="到透传消息和推送通知的区别你知道多少" itemprop="url">
-  
-    <h1 itemprop="name">到透传消息和推送通知的区别你知道多少</h1>
-    
-     
-           <p itemprop="description" >缘由最近开发刚刚遇到一个问题,我想推送通知,但是不小心选中了个推这个平台,然后就巴拉巴拉了,平台IOS端设计智能是透传,不能推送通知.
-正文简单理解:
-通知推送会直接在通知栏弹出展示.
-消息透传则由应用控制.
-
-这一段是百度找的个推软文解释
-在国内，行货机子一般都不带Google</p>
-        
-    
-    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---识别手机型号/" title="识别手机型号" itemprop="url">
-  
-    <h1 itemprop="name">识别手机型号</h1>
-    
-     
-           <p itemprop="description" >直接复制就好12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717</p>
+[IOS开发攻略] - js与OC交互(二) (</p>
         
     
     <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
@@ -307,21 +170,179 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 
 
 
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/B-swift/[swift3-0]---说说你知道的传值方式/" title="说说你知道的传值方式写(Swift3.0)" itemprop="url">
+  
+    <h1 itemprop="name">说说你知道的传值方式写(Swift3.0)</h1>
+    
+     
+           <p itemprop="description" >背景
+
+这两天面试IOS的开发,发现很多程序对传值的问题直接上来就懵逼了,但是基于现在都用swift3.0,所以我们来说说swift3.0的传值
+
+正文
+
+
+目录
+Userdefault(本地化存储)
+
+
+通知传值(Notification)
+闭包传值
+属性传值
+
+
+
+
+1.Us</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---识别手机型号/" title="识别手机型号" itemprop="url">
+  
+    <h1 itemprop="name">识别手机型号</h1>
+    
+     
+           <p itemprop="description" >直接复制就好12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---说到透传消息和推送通知的区别你知道多少-/" title="到透传消息和推送通知的区别你知道多少" itemprop="url">
+  
+    <h1 itemprop="name">到透传消息和推送通知的区别你知道多少</h1>
+    
+     
+           <p itemprop="description" >缘由最近开发刚刚遇到一个问题,我想推送通知,但是不小心选中了个推这个平台,然后就巴拉巴拉了,平台IOS端设计智能是透传,不能推送通知.
+正文简单理解:
+通知推送会直接在通知栏弹出展示.
+消息透传则由应用控制.
+
+这一段是百度找的个推软文解释
+在国内，行货机子一般都不带Google</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式(MVC,单例,代理)/" title="谈谈开发模式(MVC,单例,代理)" itemprop="url">
+  
+    <h1 itemprop="name">谈谈开发模式(MVC,单例,代理)</h1>
+    
+     
+           <p itemprop="description" >老感觉这个问题老生常谈了,不过最近公司要我去面试,谈谈我的个人看法;
+如果对MVVM有兴趣的朋友可以看这一篇:IOS开发 - 谈谈开发模式MVVM
+
+1.MVC设计模式：
+
+MVC设计模式主要有三个部分，数据模型类（model）、视图（view）、控制器（viewControll</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS入门]---cookie三大常见用法/" title="cookie三大常见用法" itemprop="url">
+  
+    <h1 itemprop="name">cookie三大常见用法</h1>
+    
+     
+           <p itemprop="description" >在APP开发中，cookie也开始变的越来越重要了。为了更好的切换，注销和登录账户，就必须熟悉cookie的用法。花了点时间把代码整理了一下，注释也都标上了
+1，获取cookie获取cookie只能在请求中获取cookie，否则时获取不到的，url就不给出了，大家用自己的url测</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/B-swift/[swift3-0]---单例应该怎么写/" title="单例应该怎么写(Swift3.0)" itemprop="url">
+  
+    <h1 itemprop="name">单例应该怎么写(Swift3.0)</h1>
+    
+     
+           <p itemprop="description" >A.背景还是由于面试的时候问很多同仁,发现一个问题,大家对单例的书写,都只局限于dispatch_once,问题来了,现在swift3.0完全放弃了这个GCD,同仁们该整么办
+B.正文(请熟练使用struct)目录 
+
+普通创建法
+
+
+静态创建法
+struct创建法
+dispat</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
 
   <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -331,19 +352,19 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
 		  
 		
 		  
@@ -353,7 +374,7 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
 		  
 		
 		  
@@ -364,7 +385,7 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -384,7 +405,11 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
 			
 		
 			
@@ -392,7 +417,11 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
 			
 		
 			
@@ -400,23 +429,11 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 			
 		
 			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -424,27 +441,31 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -452,8 +473,20 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
         
           <li>
             
@@ -468,12 +501,36 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
-  <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
 </div>
 
 
@@ -495,7 +552,7 @@ NSAssert()只是一个宏，用于开发阶段调试程序中的Bug，通过为N
 	 
 	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
@@ -605,6 +662,8 @@ $(document).ready(function(){
 
 
 
+
+
 <!-- Analytics Begin -->
 
 
@@ -621,12 +680,14 @@ var _hmt = _hmt || [];
 
 
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <!-- Analytics End -->
 
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

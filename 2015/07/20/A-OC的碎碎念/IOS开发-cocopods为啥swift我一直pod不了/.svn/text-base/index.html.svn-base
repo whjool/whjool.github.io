@@ -1,10 +1,10 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS内联函数 | 香蕉的个人博客</title>
+    <title>iOS内联函数 | 香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS内联函数">
 <meta property="og:url" content="http://www.hundredone.win/2015/07/20/A-OC的碎碎念/IOS开发-cocopods为啥swift我一直pod不了/index.html">
-<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:site_name" content="香蕉的技术博客">
 <meta property="og:description" content="其他我之前写了一篇:[原创]安装cocopad的坑这一篇就算是个拓展吧,主要是swift的东西就要从新写一个了,不然待会混淆子弟就麻烦了
 
 原有,坑爹的导库都导了我15分钟!
@@ -35,7 +35,7 @@
 正确的用法12345678source &apos;https://github.com/CocoaPods/Specs.git&apos;//不管这个是源platform :ios,&quot;8.0&quot;        //和OC的cocopod一样t">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -53,36 +53,33 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">文章归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/tags">tags</a></li>
-					
-						<li><a href="/categories">categories</a></li>
+						<li><a href="/categories">分类</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:www.hundredone.win">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -103,14 +100,14 @@
 		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-20T02:49:50.000Z" itemprop="datePublished"> Published 2015-07-20</time>
+    <time datetime="2015-07-20T02:49:50.000Z" itemprop="datePublished"> 发表于 2015-07-20</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			
 		
@@ -185,7 +182,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.hundredone.win/2015/07/20/A-OC的碎碎念/IOS开发-cocopods为啥swift我一直pod不了/" data-title="iOS内联函数 | 香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.hundredone.win/2015/07/20/A-OC的碎碎念/IOS开发-cocopods为啥swift我一直pod不了/" data-title="iOS内联函数 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -208,9 +205,9 @@
 
 
 <div class="next">
-<a href="/2015/04/20/A-OC的碎碎念/[IOS开发入门]---沙盒路径获取/"  title="沙盒路径获取">
+<a href="/2015/07/05/A-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/"  title="上传文件到github">
  <strong>下一篇：</strong><br/> 
- <span>沙盒路径获取
+ <span>上传文件到github
 </span>
 </a>
 </div>
@@ -218,24 +215,28 @@
 </nav>
 
 	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/07/20/A-OC的碎碎念/IOS开发-cocopods为啥swift我一直pod不了/" data-title="iOS内联函数" data-url="http://www.hundredone.win/2015/07/20/A-OC的碎碎念/IOS开发-cocopods为啥swift我一直pod不了/"></div>
+</section>
+
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -245,19 +246,19 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
 		  
 		
 		  
@@ -267,7 +268,7 @@
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
 		  
 		
 		  
@@ -278,7 +279,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -298,7 +299,11 @@
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
 			
 		
 			
@@ -306,7 +311,11 @@
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
 			
 		
 			
@@ -314,23 +323,11 @@
 			
 		
 			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -338,27 +335,31 @@
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -366,8 +367,20 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
         
           <li>
             
@@ -382,12 +395,36 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
-  <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
 </div>
 
 
@@ -409,7 +446,7 @@
 	 
 	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
@@ -567,6 +604,18 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"hundredone"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
 
 
 
@@ -596,6 +645,8 @@ $(document).ready(function(){
 
 
 
+
+
 <!-- Analytics Begin -->
 
 
@@ -612,12 +663,14 @@ var _hmt = _hmt || [];
 
 
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <!-- Analytics End -->
 
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

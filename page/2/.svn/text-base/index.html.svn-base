@@ -1,10 +1,10 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>香蕉的个人博客</title>
+    <title>香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:title" content="香蕉的技术博客">
 <meta property="og:url" content="http://www.hundredone.win/page/2/index.html">
-<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:site_name" content="香蕉的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:title" content="香蕉的技术博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,36 +37,33 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">文章归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/tags">tags</a></li>
-					
-						<li><a href="/categories">categories</a></li>
+						<li><a href="/categories">分类</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:www.hundredone.win">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -79,211 +76,24 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[iOS开发]---制作属于自己的cocopods/" title="" itemprop="url">
+    <a href="/2016/10/05/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(一)-(WKWebView)/" title="js与OC交互(WKWebView)" itemprop="url">
   
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >参考注册参考2最完全的
-
-背景
-
-说实在的,cocopod用了那么久差不多要自己学着去撸一两个库开源出来,一方面自己能用,一方面也能把工具共享出来给大家使用.Cocoapods作为iOS开发的包管理器，给我们的开发带来了极大的便利，而且越来越多的第三方类库支持Pod，可以通过Po</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >安装过程，注意#只是注释不放在终端(如果大家不知道哪个是终端金可以百度，我截图就是啦～)
-
-
-#开始我们的IJK奇妙之旅吧
-
-安装 注意错误的地方我会尽可能的截图，若有不好的地方请指出
-
-##1、介绍环境首先是安装必要的工具homebrew：MAC OSX上必备的软件包管理工具，</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >github，大家都知道大名顶顶的源代码分享工具
-具体网站在这里：github首页注册登陆我就不说了，大家看客自己进行就OK了，我现在主要介绍一下常用的两种上传方式如果需要我录制视频的话可以给我留言～有空我会顺便把视频录制好传上来
-
-
-1、使用GIT客户端进行上传下载地址
-
-
-A</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >个推 这个只能消息透传个推封装参考文章:个推封装文档阅读:文档阅读 
-
-注意点:(封装和调用的时候都要注意在runtime时候的一些调用)123如果，第三库中没有 category，Other Linker Flags 无需设置如果，第三方库中有 category，需要设置为 -</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
+    <h1 itemprop="name">js与OC交互(WKWebView)</h1>
     
      
            <p itemprop="description" >目录
-
-
-[IOS开发攻略] - 单元测试入门
-[IOS开发攻略] - A.异步测试
-[IOS开发攻略] - B.性能测试
-[IOS开发攻略] - C.逻辑测试
-
-
-操作流程
-
-1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
-2.我们来测试Pe</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/无标题文章/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >一、认识磁盘工具
-磁盘工具是mac下非常强大的工具，它涵盖了磁盘分区、修理权限、创建映像（DMG）、刻录光盘等超强功能，善用磁盘工具，将是你从新手向高级玩家进阶必然要学习的工具，下面就简要的介绍用磁盘工具制作映像文件。
-二、磁盘工具打开方式
-应用程序-实用工具-磁盘工具(或者La</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >目录
-
-
-[IOS开发攻略] - 单元测试入门
-[IOS开发攻略] - A.异步测试
-[IOS开发攻略] - B.性能测试
-[IOS开发攻略] - C.逻辑测试
-
-
-操作流程
-
-1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
-2.我们来测试Pe</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(三)-(JavaScriptCore-framework)/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >##目录
-
 [IOS开发攻略含demo] - js传值(一) (WKWebView)
 [IOS开发攻略含demo] - js传值(二) (原生UIWebView)
 [IOS开发攻略含demo] - js传值(三) (JavaScriptCore.framework)
 
 
+
 前言
 
-</p>
+由于</p>
         
     
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-10-05T02:49:50.000Z" itemprop="datePublished">2016-10-05</time>
   </a>
 </section>
 
@@ -295,32 +105,9 @@ A</p>
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---crash-log分析/" title="" itemprop="url">
+    <a href="/2016/09/22/A-完全小白图文攻略/[IOS开发]--XCode8继续使用xcode插件/" title="XCode8继续使用xcode插件" itemprop="url">
   
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >##一、crash log的获取(两个方法)
-
-1.通过自己手机获取
-当你的app 在手机上crash的时候，会在手机上自动生成一个崩溃日志，也就是我们说的Crash Log。CrashLog的位置位于:iPhone设备的var/mobile/Library/Logs/Crash</p>
-        
-    
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]--XCode8继续使用xcode插件/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
+    <h1 itemprop="name">XCode8继续使用xcode插件</h1>
     
      
            <p itemprop="description" >9-22更新,正式版使用方法~随着 iOS10 的正式版即将发布，Xcode8 GM 也在发布会后放出，本文不会涉及到 Xcode8 有哪些更新，而是记录了如何让 Xcode8 继续支持 Plugin。
@@ -328,7 +115,189 @@ A</p>
 下载完,解压之后</p>
         
     
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-09-22T02:49:50.000Z" itemprop="datePublished">2016-09-22</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]WIN下游戏迁移到IOS上资源找不到/" title="WIN下游戏迁移到IOS上资源找不到" itemprop="url">
+  
+    <h1 itemprop="name">WIN下游戏迁移到IOS上资源找不到</h1>
+    
+     
+           <p itemprop="description" >之前一直都是在win32平台来开发cocos2d-x的项目，今天有时间把实验室的mac搭建一下cocos2d-x的开发环境。最新的macos系统集成了python、java、Xcode等开发环境，基本上不需要下载，只要下载一下android的ndk、sdk和ant。整个过程还是蛮</p>
+        
+    
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/25/G-游戏文档/[IOS开发]---OpenAL介绍/" title="OpenAL介绍" itemprop="url">
+  
+    <h1 itemprop="name">OpenAL介绍</h1>
+    
+     
+           <p itemprop="description" >前言
+今天我只讨论不到30秒的音频以及音效和短循环音。在iPhone上播放的音频需要正确的格式（或者说audio toolbox可以处理的多种音频格式中的一种，但如果你从正确的格式声音开始，iPhone在播放时就不需要进行处理了）。
+所以，打开你的命令行终端输入：1/usr/bi</p>
+        
+    
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]将WIN下VS编译的工程转到IOS中整理/" title="将WIN下VS编译的工程转到IOS中整理" itemprop="url">
+  
+    <h1 itemprop="name">将WIN下VS编译的工程转到IOS中整理</h1>
+    
+     
+           <p itemprop="description" >主要就是把以下几个文件进行替换~前提保证项目正常的运行!
+
+把证书添加到捕鱼中,如图,不然真机跑步了
+
+
+遇到的问题,简单理解coco2dx装IOS的话用的是MRC,所以如果导入库是ARC的话很麻烦,目前没有解决混合用的方法
+
+由于#include &amp;lt;jni.h&amp;gt;是安</p>
+        
+    
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/25/G-游戏文档/[iOS游戏开发必备]-Lua与OC交互完整版(含Demo)/" title="Lua与OC交互完整版(含Demo)" itemprop="url">
+  
+    <h1 itemprop="name">Lua与OC交互完整版(含Demo)</h1>
+    
+     
+           <p itemprop="description" >背景
+
+最近一直在忙着游戏相关的工作,然后弄了好一段时间,刚好现在可以给大家写一篇关于Lua和OC交互的内容,主要使用的是coco2dx3.0的版本,如果是这个版本以下不能说没变哈~记得自己一直在踩坑,网上的资料比较乱,所以不耻把自己的项目加以整理!由于项目为公司的,所以我只把关</p>
+        
+    
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/25/G-游戏文档/[IOS入门]-Xcode如何增加语法高亮(通用)/" title="Xcode如何增加语法高亮(通用)" itemprop="url">
+  
+    <h1 itemprop="name">Xcode如何增加语法高亮(通用)</h1>
+    
+     
+           <p itemprop="description" >需求
+
+最近刚好要用lua开发,然后就去找了一下怎么改成lua,所以本例子就以lua为例子,其他语法也是一样的.
+
+正文
+
+最新的Xcode7依然没有支持源代码的Lua语法着色，Xcode让lua高亮的方法：打开路径直接按住键盘cmd + shift +G复制粘贴以下链接1/Ap</p>
+        
+    
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/O-电脑知识/[MAC应用]---蛋疼的隐藏文件怎么显示出来/" title="MAC蛋疼的隐藏文件怎么显示出来" itemprop="url">
+  
+    <h1 itemprop="name">MAC蛋疼的隐藏文件怎么显示出来</h1>
+    
+     
+           <p itemprop="description" >Mac如何显示隐藏文件?我们熟悉 Windows 系统的用户可能只需要在文件选项菜单那里打上几个勾就可以做到了，那么对于 Mac 用户呢?Mac用户要显示隐藏文件就没有那么简单了，需要用到终端命令的方式来实现，下面PC6小编给大家讲讲如何让 Finder 显示隐藏文件和文件夹，具</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/O-遇到的坑/[原创]安装cocopad的坑/" title="安装cocopod的坑" itemprop="url">
+  
+    <h1 itemprop="name">安装cocopod的坑</h1>
+    
+     
+           <p itemprop="description" >添加一个使用的坑:swift使用cocopod我在2016-8-15,一直都是拖进来的,所以没有注意导入的问题,所以在swift的项目中遇到了这个问题,特此备注一下.希望大家注意
+在ruby上遇到的坑，一一罗列
+图示一解决方法12345678910111213这个问题的发生：由于</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/08/20/O-遇到的坑/[IOS提交版本]---遇到的各种坑汇总/" title="提交版本遇到的各种坑汇总" itemprop="url">
+  
+    <h1 itemprop="name">提交版本遇到的各种坑汇总</h1>
+    
+     
+           <p itemprop="description" >有广告不过
+
+
+12345此问题为必答项。您的 App 正在使用广告标识符 (IDFA)。您必须先提供关于 IDFA 的使用信息或将其从 App 中移除，然后再上传您的二进制文件。&amp;gt;IDFA(identifier for advertising)是苹果推出的一项广告解决方案</p>
+        
+    
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
   </a>
 </section>
 
@@ -343,15 +312,15 @@ A</p>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -361,19 +330,19 @@ A</p>
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
 		  
 		
 		  
@@ -383,7 +352,7 @@ A</p>
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
 		  
 		
 		  
@@ -394,7 +363,7 @@ A</p>
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -414,7 +383,11 @@ A</p>
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
 			
 		
 			
@@ -422,7 +395,11 @@ A</p>
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
 			
 		
 			
@@ -430,23 +407,11 @@ A</p>
 			
 		
 			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -454,27 +419,31 @@ A</p>
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -482,8 +451,20 @@ A</p>
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
         
           <li>
             
@@ -498,12 +479,36 @@ A</p>
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
-  <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
 </div>
 
 
@@ -525,7 +530,7 @@ A</p>
 	 
 	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
@@ -635,6 +640,8 @@ $(document).ready(function(){
 
 
 
+
+
 <!-- Analytics Begin -->
 
 
@@ -651,12 +658,14 @@ var _hmt = _hmt || [];
 
 
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <!-- Analytics End -->
 
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

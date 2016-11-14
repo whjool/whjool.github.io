@@ -1,10 +1,10 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>香蕉的个人博客</title>
+    <title>香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:title" content="香蕉的技术博客">
 <meta property="og:url" content="http://www.hundredone.win/page/9/index.html">
-<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:site_name" content="香蕉的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:title" content="香蕉的技术博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,36 +37,33 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">文章归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/tags">tags</a></li>
-					
-						<li><a href="/categories">categories</a></li>
+						<li><a href="/categories">分类</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:www.hundredone.win">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -75,142 +72,6 @@
     </header>
     <div id="container">
       <div id="main">
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/02/20/A-OC的碎碎念/iOS算法学习---目录/" title="iOS算法学习目录" itemprop="url">
-  
-    <h1 itemprop="name">iOS算法学习目录</h1>
-    
-     
-           <p itemprop="description" >详细代码请参考Algorithm。
-参考代码比文字好理解。
-
-A、希尔排序
-B、冒泡排序
-C、链表
-D、插入排序
-E、快排
-F、堆排序
-G、二叉树
-H、汉诺塔
-I、哈希表
-
-
-作者信息
-
-如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。QQ/微</p>
-        
-    
-    <time datetime="2016-02-20T02:49:50.000Z" itemprop="datePublished">2016-02-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/02/20/A-OC的碎碎念/iOS算法学习---A希尔排序(递减增量排序算法)/" title="A希尔排序(递减增量排序算法)" itemprop="url">
-  
-    <h1 itemprop="name">A希尔排序(递减增量排序算法)</h1>
-    
-     
-           <p itemprop="description" >其他算法查看 : 目录
-
-
-A希尔排序
-
-
-详细代码请参考Algorithm。参考代码比文字好理解。
-
-希尔排序，也称递减增量排序算法，是插入排序的一种高速而稳定的改进版本。因Donald Shell于1959年提出而得名。希尔排序是基于插入排序的以下两点性质而提出改进方法的：插</p>
-        
-    
-    <time datetime="2016-02-20T02:49:50.000Z" itemprop="datePublished">2016-02-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/02/20/A-OC的碎碎念/iOS算法学习---B冒泡排序/" title="B冒泡排序" itemprop="url">
-  
-    <h1 itemprop="name">B冒泡排序</h1>
-    
-     
-           <p itemprop="description" >其他算法查看 : 目录
-
-
-冒泡排序
-
-
-冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮</p>
-        
-    
-    <time datetime="2016-02-20T02:49:50.000Z" itemprop="datePublished">2016-02-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/01/20/A-iOS大大闭门造轮子/IOS开发[控件封装]---alertView封装/" title="IOS开发[控件封装]---alertView封装" itemprop="url">
-  
-    <h1 itemprop="name">IOS开发[控件封装]---alertView封装</h1>
-    
-     
-           <p itemprop="description" >封装的效果图
-具体实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869</p>
-        
-    
-    <time datetime="2016-01-19T22:49:50.000Z" itemprop="datePublished">2016-01-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/20/A-OC的碎碎念/[大大OC实用篇]-NSTimer你可能没有考虑过的问题/" title="NSTimer特殊用法" itemprop="url">
-  
-    <h1 itemprop="name">NSTimer特殊用法</h1>
-    
-     
-           <p itemprop="description" >今天有幸看到了一篇文章主要讲解了一些GCD,NSTimer,以及隐式创建定时器取消定时器，我们常规使用的地方最近刚好也准备研究一下pthread,今天简单 把我早上刚刚弄的demo稍微编辑一下
-
-
-NSTimer
-
-12345678910111213141516171819202</p>
-        
-    
-    <time datetime="2015-11-20T02:49:50.000Z" itemprop="datePublished">2015-11-20</time>
-  </a>
-</section>
-
-
-
-
-
 
   
 <section class="post" itemscope itemprop="blogitem">
@@ -287,6 +148,30 @@ XMPP实现信息传输 （需要用到ejabberd-16.03以及Adium</p>
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2015/10/20/A-IOS黑魔法/IOS开发(黑魔法)--Method-Swizzling/" title="IOS开发(黑魔法)--Method-Swizzling" itemprop="url">
+  
+    <h1 itemprop="name">IOS开发(黑魔法)--Method-Swizzling</h1>
+    
+     
+           <p itemprop="description" >前言-需求
+
+就拿我们公司项目来说吧，我们公司是做导航的，而且项目规模比较大，各个控制器功能都已经实现。突然有一天老大过来，说我们要在所有页面添加统计功能，也就是用户进入这个页面就统计一次。我们会想到下面的一些方法：
+
+手动添加直接简单粗暴的在每个控制器中加入统计，复制、粘贴、复</p>
+        
+    
+    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2015/10/20/A-IOS黑魔法/IOS开发-获取唯一UUID的方法(2016最全含demo）/" title="获取唯一UUID的方法(2016最全含demo）" itemprop="url">
   
     <h1 itemprop="name">获取唯一UUID的方法(2016最全含demo）</h1>
@@ -342,6 +227,58 @@ XMPP实现信息传输 （需要用到ejabberd-16.03以及Adium</p>
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2015/10/20/A-iosOC项目仿写/[大大OC项目仿写]-花田小憩APP仿写/" title="OC-花田小憩APP仿写" itemprop="url">
+  
+    <h1 itemprop="name">OC-花田小憩APP仿写</h1>
+    
+     
+           <p itemprop="description" >左边动画网络数据加载
+
+
+
+中间按钮
+
+
+
+前10的scrollView和tableView
+
+
+
+作者页面的collection
+
+
+
+商城部分广告页面和tableview展示
+
+
+
+商城左边的功能
+
+
+
+我的功能
+
+
+
+登陆
+
+
+Demo地址: 花田小憩的  Demo
+APP</p>
+        
+    
+    <time datetime="2015-10-19T22:49:50.000Z" itemprop="datePublished">2015-10-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2015/10/20/O-电脑知识/[IOS项目扩展阅读]---重复的就不多说了/" title="IOS项目扩展阅读" itemprop="url">
   
     <h1 itemprop="name">IOS项目扩展阅读</h1>
@@ -366,21 +303,94 @@ iOS 各个版本特性demo(推荐)
 
 
 
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/08/20/O-电脑知识/第三方框架/" title="iOS第三方框架" itemprop="url">
+  
+    <h1 itemprop="name">iOS第三方框架</h1>
+    
+     
+           <p itemprop="description" >http://www.tuicool.com/articles/Qf2YvuI
+写iOS 程序的时候往往需要很多第三方框架的支持，可以大大减少工作量，讲重点放在软件本身的逻辑实现上。
+GitHub 里面有大量优秀的第三方框架，而且 License 对商业很友好。一下摘录一下几乎每</p>
+        
+    
+    <time datetime="2015-08-20T02:49:50.000Z" itemprop="datePublished">2015-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/20/A-OC的碎碎念/IOS开发-cocopods为啥swift我一直pod不了/" title="iOS内联函数" itemprop="url">
+  
+    <h1 itemprop="name">iOS内联函数</h1>
+    
+     
+           <p itemprop="description" >其他我之前写了一篇:[原创]安装cocopad的坑这一篇就算是个拓展吧,主要是swift的东西就要从新写一个了,不然待会混淆子弟就麻烦了
+
+原有,坑爹的导库都导了我15分钟!
+
+正确的用法12345678source &#39;https://github.com/CocoaPods/S</p>
+        
+    
+    <time datetime="2015-07-20T02:49:50.000Z" itemprop="datePublished">2015-07-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/07/05/A-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/" title="上传文件到github" itemprop="url">
+  
+    <h1 itemprop="name">上传文件到github</h1>
+    
+     
+           <p itemprop="description" >github，大家都知道大名顶顶的源代码分享工具
+具体网站在这里：github首页注册登陆我就不说了，大家看客自己进行就OK了，我现在主要介绍一下常用的两种上传方式如果需要我录制视频的话可以给我留言～有空我会顺便把视频录制好传上来
+
+
+1、使用GIT客户端进行上传下载地址
+
+
+A</p>
+        
+    
+    <time datetime="2015-07-05T02:49:50.000Z" itemprop="datePublished">2015-07-05</time>
+  </a>
+</section>
+
+
+
+
+
+
 
   <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/page/8/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -390,19 +400,19 @@ iOS 各个版本特性demo(推荐)
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
 		  
 		
 		  
@@ -412,7 +422,7 @@ iOS 各个版本特性demo(推荐)
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
 		  
 		
 		  
@@ -423,7 +433,7 @@ iOS 各个版本特性demo(推荐)
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -443,7 +453,11 @@ iOS 各个版本特性demo(推荐)
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
 			
 		
 			
@@ -451,7 +465,11 @@ iOS 各个版本特性demo(推荐)
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
 			
 		
 			
@@ -459,23 +477,11 @@ iOS 各个版本特性demo(推荐)
 			
 		
 			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -483,27 +489,31 @@ iOS 各个版本特性demo(推荐)
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -511,8 +521,20 @@ iOS 各个版本特性demo(推荐)
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
         
           <li>
             
@@ -527,12 +549,36 @@ iOS 各个版本特性demo(推荐)
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
-  <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
 </div>
 
 
@@ -554,7 +600,7 @@ iOS 各个版本特性demo(推荐)
 	 
 	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
@@ -664,6 +710,8 @@ $(document).ready(function(){
 
 
 
+
+
 <!-- Analytics Begin -->
 
 
@@ -680,12 +728,14 @@ var _hmt = _hmt || [];
 
 
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <!-- Analytics End -->
 
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

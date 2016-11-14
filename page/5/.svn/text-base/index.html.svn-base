@@ -1,10 +1,10 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>香蕉的个人博客</title>
+    <title>香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:title" content="香蕉的技术博客">
 <meta property="og:url" content="http://www.hundredone.win/page/5/index.html">
-<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:site_name" content="香蕉的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:title" content="香蕉的技术博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,36 +37,33 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">文章归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/tags">tags</a></li>
-					
-						<li><a href="/categories">categories</a></li>
+						<li><a href="/categories">分类</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:www.hundredone.win">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -75,214 +72,6 @@
     </header>
     <div id="container">
       <div id="main">
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(介绍篇)/" title="使用jspatch热更新(介绍篇)" itemprop="url">
-  
-    <h1 itemprop="name">使用jspatch热更新(介绍篇)</h1>
-    
-     
-           <p itemprop="description" >感谢JSpatch:官网地址  作者的github原文:github本篇只是一个介绍,具体实现请转到我的另一篇文章看具体操作:使用jspatch热更新(实用Demo篇)
-JSPatch是什么
-JSPatch是一个开源项目，只需要在项目里引入极小的引擎文件，就可以使用 JavaSc</p>
-        
-    
-    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(使用篇)含demo/" title="使用jspatch热更新(使用篇)含demo" itemprop="url">
-  
-    <h1 itemprop="name">使用jspatch热更新(使用篇)含demo</h1>
-    
-     
-           <p itemprop="description" >如果对JSpatch不了解的朋友请先看我的这一篇:使用jspatch热更新
-例子一:用tableView对比一个用jspatch修复bug
-Demo下载地址
-
-正常源代码如下:
-
-12345678910111213141516171819- (void)viewDidLoad &amp;</p>
-        
-    
-    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---语法糖(简单却不那么简单)/" title="语法糖(简单却不那么简单)" itemprop="url">
-  
-    <h1 itemprop="name">语法糖(简单却不那么简单)</h1>
-    
-     
-           <p itemprop="description" >开发过程中我特别喜欢用语法糖,原因很简单,懒得看到一堆长长的代码,但是语法糖我今天无意中看到更有意思的玩法.这里暂时吧把今天新学到的知识点整理一下希望大家喜欢,如果有更好的补充希望能和我说下,我希望更更加好的完善.
-
-语法糖（Syntactic sugar），也译为糖衣语法，是由</p>
-        
-    
-    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit分析(上)/" title="iOS开发---黑魔法之blocksKit分析(上)" itemprop="url">
-  
-    <h1 itemprop="name">iOS开发---黑魔法之blocksKit分析(上)</h1>
-    
-     
-           <p itemprop="description" >目录
-上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
-下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
-应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
-
-BlocksKit项目主页:BlocksKit-github主页
-
-1.</p>
-        
-    
-    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/20/A-OC的碎碎念/[IOS开发]---常用技巧整理二/" title="常用技巧整理二" itemprop="url">
-  
-    <h1 itemprop="name">常用技巧整理二</h1>
-    
-     
-           <p itemprop="description" >前言:
-在上一篇文章中我相信帮助了很多的小伙伴, 那么在这篇文章希望还能帮助到你！相关文章:[IOS开发] - 常用技巧整理一
-
-1.在Block中一起使用weakSelf与strongSelf的含义我们都会声明一个弱引用在block中使用, 目的就是防止循环引用, 那么weak</p>
-        
-    
-    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(A)/" title="iOS面试题集锦(C)" itemprop="url">
-  
-    <h1 itemprop="name">iOS面试题集锦(C)</h1>
-    
-     
-           <p itemprop="description" >其他面试题查看 : 面试题目录
-
-1.如何追踪app崩溃率，如何解决线上闪退当iOS设备上的App应用闪退时，操作系统会生成一个crash日志，保存在设备上。crash日志上有很多有用的信息，比如每个正在执行线程的完整堆栈跟踪信息和内存映像，这样就能够通过解析这些信息进而定位cr</p>
-        
-    
-    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(B)/" title="iOS面试题集锦(B)" itemprop="url">
-  
-    <h1 itemprop="name">iOS面试题集锦(B)</h1>
-    
-     
-           <p itemprop="description" >其他面试题查看 : 面试题目录
-1. 反转二叉树，不用递归123456789/** * Definition for a binary tree node. * public class TreeNode &amp;#123; *     int val; *     TreeNode </p>
-        
-    
-    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(C)/" title="iOS面试题集锦(C)" itemprop="url">
-  
-    <h1 itemprop="name">iOS面试题集锦(C)</h1>
-    
-     
-           <p itemprop="description" >##其他面试题查看 : 面试题目录
-
-1. RuntimeObjective-C 是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚</p>
-        
-    
-    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/20/A-OC的碎碎念/[IOS开发]---常用技巧整理一/" title="常用技巧整理一" itemprop="url">
-  
-    <h1 itemprop="name">常用技巧整理一</h1>
-    
-     
-           <p itemprop="description" >前言
-小伙伴们在开发中难免会遇到问题, 你是如何解决问题的？不妨也分享给大家！如果此文章其中的任何一条问题对大家有帮助，那么它的存在是有意义的！ 反正不管怎样遇到问题就要去解决问题, 在解决问题的同时也是提高开发经验的渠道!
-
-1.既然有问题我们该怎样解决 ?首先大部分人都会去百</p>
-        
-    
-    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
 
   
 <section class="post" itemscope itemprop="blogitem">
@@ -304,21 +93,260 @@ BlocksKit项目主页:BlocksKit-github主页
 
 
 
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试入门/" title="单元测试入门" itemprop="url">
+  
+    <h1 itemprop="name">单元测试入门</h1>
+    
+     
+           <p itemprop="description" >目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+介绍
+
+iOS单元测试初探维基百科上的对她解释：“在计算机编程中，单元测试（又称为模块测试, Unit Testi</p>
+        
+    
+    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished">2016-05-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="单元测试逻辑测试" itemprop="url">
+  
+    <h1 itemprop="name">单元测试逻辑测试</h1>
+    
+     
+           <p itemprop="description" >目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+操作流程
+
+1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
+2.我们来测试Pe</p>
+        
+    
+    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished">2016-05-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试性能测试/" title="单元测试性能测试" itemprop="url">
+  
+    <h1 itemprop="name">单元测试性能测试</h1>
+    
+     
+           <p itemprop="description" >目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+操作流程
+
+1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
+2.我们来测试Pe</p>
+        
+    
+    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished">2016-05-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" title="单元测试异步测试" itemprop="url">
+  
+    <h1 itemprop="name">单元测试异步测试</h1>
+    
+     
+           <p itemprop="description" >目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+操作流程
+
+1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
+2.我们来测试Pe</p>
+        
+    
+    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished">2016-05-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" title="runtime系列二(Runtime的使用场景)" itemprop="url">
+  
+    <h1 itemprop="name">runtime系列二(Runtime的使用场景)</h1>
+    
+     
+           <p itemprop="description" >入门先看我上一篇:[IOS开发] - runtime系列一 (消息机制)Runtime 理解介绍的文章非常多，我只想讲讲Runtime 可以用在哪里，而我在项目里哪些地方用到了runtime。多以实际使用过程为主，来介绍runtime的使用。
+那么runtime 怎么使用？可以用</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/" title="谈谈开发模式MVVM" itemprop="url">
+  
+    <h1 itemprop="name">谈谈开发模式MVVM</h1>
+    
+     
+           <p itemprop="description" >如果想了解其他设计模式可以看这里:IOS开发 - 谈谈开发模式(MVC,单例,代理)为什么要用MVVM替代MVCApple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。
+很多入门开发者都有</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---当类扩展遇到runtime属性添加不再是难事/" title="当类扩展遇到runtime属性添加不再是难事" itemprop="url">
+  
+    <h1 itemprop="name">当类扩展遇到runtime属性添加不再是难事</h1>
+    
+     
+           <p itemprop="description" >背景
+
+今天开发的时候我刚好用到前两天和大家讲过的一个类,Xaspect的使用,但是那里也遇到了一个问题,就是我想加一个属性的时候发现,类扩展虽好,但是居然加不了属性!
+
+好了少说废话,我开始今天的内容
+
+objc_setAssociatedObject和objc_getAsso</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发入门]---NSProcessInfo类方法(进程)使用/" title="NSProcessInfo类方法(进程)使用" itemprop="url">
+  
+    <h1 itemprop="name">NSProcessInfo类方法(进程)使用</h1>
+    
+     
+           <p itemprop="description" >背景
+
+今天有幸看到如下的代码在delegate中,其中有一个点很吸引我,static BOOL isRunningTests(void) __attribute__((const));,目前没有弄明白,弄明白我会补充~如是我就继续看下去.12345678910111213141</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/B-swift/swift-说说你看懂却不懂的？和！/" title="说说你知道的传值方式写(Swift3.0)" itemprop="url">
+  
+    <h1 itemprop="name">说说你知道的传值方式写(Swift3.0)</h1>
+    
+     
+           <p itemprop="description" >首先你要知道的基础Swift语言使用var定义变量，但和别的语言不同，Swift里不会自动给变量赋初始值，也就是说变量不会有默认值，所以要求使用变量之前必须要对其初始化。如果在使用变量之前不进行初始化就会报错
+
+简单说说  ？ 的使用121.声明Optional值变量2.用在对O</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
 
   <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -328,19 +356,19 @@ BlocksKit项目主页:BlocksKit-github主页
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>34</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>12</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
 		  
 		
 		  
@@ -350,7 +378,7 @@ BlocksKit项目主页:BlocksKit-github主页
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>21</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
 		  
 		
 		  
@@ -361,7 +389,7 @@ BlocksKit项目主页:BlocksKit-github主页
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -381,7 +409,11 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
 			
 		
 			
@@ -389,7 +421,11 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
 			
 		
 			
@@ -397,23 +433,11 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -421,27 +445,31 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/网络处理/" title="网络处理">网络处理<sup>1</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>1</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -449,8 +477,20 @@ BlocksKit项目主页:BlocksKit-github主页
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
         
           <li>
             
@@ -465,12 +505,36 @@ BlocksKit项目主页:BlocksKit-github主页
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
-  <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
 </div>
 
 
@@ -492,7 +556,7 @@ BlocksKit项目主页:BlocksKit-github主页
 	 
 	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
@@ -602,6 +666,8 @@ $(document).ready(function(){
 
 
 
+
+
 <!-- Analytics Begin -->
 
 
@@ -618,12 +684,14 @@ var _hmt = _hmt || [];
 
 
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <!-- Analytics End -->
 
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

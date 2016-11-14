@@ -1,10 +1,10 @@
 
   <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>Archives: 2016 | 香蕉的个人博客</title>
+    <title>归档: 2016 | 香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
@@ -12,14 +12,14 @@
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:title" content="香蕉的技术博客">
 <meta property="og:url" content="http://www.hundredone.win/archives/2016/page/2/index.html">
-<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:site_name" content="香蕉的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:title" content="香蕉的技术博客">
 
     
-    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/fauthor32.ico">
@@ -37,36 +37,33 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
 				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">文章归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/tags">tags</a></li>
-					
-						<li><a href="/categories">categories</a></li>
+						<li><a href="/categories">分类</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:www.hundredone.win">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -80,7 +77,7 @@
   <h2 class="archive-icon">2016</h2>
   
   <div class="archiveslist archive-float clearfix">
-   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">Nov 2016</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">Aug 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">Jul 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">Jun 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">Apr 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">Mar 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">Feb 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">Jan 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">Nov 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">Oct 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">Aug 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">Jul 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">Apr 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">Aug 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">Jul 2014</a><span class="archive-list-count">1</span></li></ul>
+   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016 年 11 月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">2016 年 10 月</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 09 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 08 月</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">2016 年 07 月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">2016 年 06 月</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">2016 年 05 月</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">2016 年 04 月</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">2016 年 03 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2016 年 02 月</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016 年 01 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015 年 11 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015 年 10 月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">2015 年 08 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015 年 07 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015 年 04 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">2015 年 02 月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">2014 年 08 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">2014 年 07 月</a><span class="archive-list-count">1</span></li></ul>
  </div>
   
 </div>
@@ -89,137 +86,137 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[iOS开发]---制作属于自己的cocopods/" title="" itemprop="url">
+    <a href="/2016/10/05/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(一)-(WKWebView)/" title="js与OC交互(WKWebView)" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-10-05T02:49:50.000Z" itemprop="datePublished">2016-10-05</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">js与OC交互(WKWebView)</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/" title="" itemprop="url">
+    <a href="/2016/09/22/A-完全小白图文攻略/[IOS开发]--XCode8继续使用xcode插件/" title="XCode8继续使用xcode插件" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-09-22T02:49:50.000Z" itemprop="datePublished">2016-09-22</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">XCode8继续使用xcode插件</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/" title="" itemprop="url">
+    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]WIN下游戏迁移到IOS上资源找不到/" title="WIN下游戏迁移到IOS上资源找不到" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">WIN下游戏迁移到IOS上资源找不到</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---和你说说个推封装/" title="" itemprop="url">
+    <a href="/2016/08/25/G-游戏文档/[IOS开发]---OpenAL介绍/" title="OpenAL介绍" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">OpenAL介绍</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="" itemprop="url">
+    <a href="/2016/08/25/G-游戏文档/[Cocos2d-x]将WIN下VS编译的工程转到IOS中整理/" title="将WIN下VS编译的工程转到IOS中整理" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">将WIN下VS编译的工程转到IOS中整理</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/无标题文章/" title="" itemprop="url">
+    <a href="/2016/08/25/G-游戏文档/[iOS游戏开发必备]-Lua与OC交互完整版(含Demo)/" title="Lua与OC交互完整版(含Demo)" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">Lua与OC交互完整版(含Demo)</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" title="" itemprop="url">
+    <a href="/2016/08/25/G-游戏文档/[IOS入门]-Xcode如何增加语法高亮(通用)/" title="Xcode如何增加语法高亮(通用)" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-24T22:49:50.000Z" itemprop="datePublished">2016-08-25</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">Xcode如何增加语法高亮(通用)</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---js与OC交互(三)-(JavaScriptCore-framework)/" title="" itemprop="url">
+    <a href="/2016/08/20/O-电脑知识/[MAC应用]---蛋疼的隐藏文件怎么显示出来/" title="MAC蛋疼的隐藏文件怎么显示出来" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">MAC蛋疼的隐藏文件怎么显示出来</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发攻略]---crash-log分析/" title="" itemprop="url">
+    <a href="/2016/08/20/O-遇到的坑/[原创]安装cocopad的坑/" title="安装cocopod的坑" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">安装cocopod的坑</h1>
 
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/11/13/A-完全小白图文攻略/[IOS开发]--XCode8继续使用xcode插件/" title="" itemprop="url">
+    <a href="/2016/08/20/O-遇到的坑/[IOS提交版本]---遇到的各种坑汇总/" title="提交版本遇到的各种坑汇总" itemprop="url">
   
 
-    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished">2016-11-13</time>
+    <time datetime="2016-08-20T02:49:50.000Z" itemprop="datePublished">2016-08-20</time>
 
 
-    <h1 itemprop="name">&nbsp;</h1>
+    <h1 itemprop="name">提交版本遇到的各种坑汇总</h1>
 
   </a>
 </section>
 
 
   <nav id="page-nav" class="clearfix archive-nav">
-    <a class="extend prev" rel="prev" href="/archives/2016/"><span></span>Prev</a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2016/page/3/">3</a><a class="page-number" href="/archives/2016/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2016/page/9/">9</a><a class="extend next" rel="next" href="/archives/2016/page/3/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/archives/2016/"><span></span>Prev</a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2016/page/3/">3</a><a class="page-number" href="/archives/2016/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2016/page/8/">8</a><a class="extend next" rel="next" href="/archives/2016/page/3/">Next<span></span></a>
   </nav>
 
   </div>
@@ -241,7 +238,7 @@
 	 
 	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
@@ -351,6 +348,8 @@ $(document).ready(function(){
 
 
 
+
+
 <!-- Analytics Begin -->
 
 
@@ -367,12 +366,14 @@ var _hmt = _hmt || [];
 
 
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <!-- Analytics End -->
 
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
