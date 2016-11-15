@@ -1,0 +1,688 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CenOS6.5 SVN搭建 | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="CenOS6.5 SVN搭建
+
+=============================
+
+1.检查是否已安装1rpm -qa subversion
+如果要卸载旧版本：1yum remove subversion
+2.安装1yum install subversion
+PS:12yum install httpd httpd-devel subversion mod_dav_svn mod_a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CenOS6.5 SVN搭建">
+<meta property="og:url" content="http://www.hundredone.win/2016/04/20/O-电脑知识/[源代码管理]---CenOS6.5SVN搭建/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="CenOS6.5 SVN搭建
+
+=============================
+
+1.检查是否已安装1rpm -qa subversion
+如果要卸载旧版本：1yum remove subversion
+2.安装1yum install subversion
+PS:12yum install httpd httpd-devel subversion mod_dav_svn mod_a">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-eb76c7e4b2e34dfb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-11-15T14:29:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CenOS6.5 SVN搭建">
+<meta name="twitter:description" content="CenOS6.5 SVN搭建
+
+=============================
+
+1.检查是否已安装1rpm -qa subversion
+如果要卸载旧版本：1yum remove subversion
+2.安装1yum install subversion
+PS:12yum install httpd httpd-devel subversion mod_dav_svn mod_a">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-eb76c7e4b2e34dfb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">文章归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/20/O-电脑知识/[源代码管理]---CenOS6.5SVN搭建/" title="CenOS6.5 SVN搭建" itemprop="url">CenOS6.5 SVN搭建</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished"> 发表于 2016-04-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-检查是否已安装"><span class="toc-number">1.</span> <span class="toc-text">1.检查是否已安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-number">2.</span> <span class="toc-text">2.安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-检查是否安装成功"><span class="toc-number">3.</span> <span class="toc-text">3.检查是否安装成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-创建仓库目录"><span class="toc-number">4.</span> <span class="toc-text">4.创建仓库目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-创建项目"><span class="toc-number">5.</span> <span class="toc-text">5.创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-检查是否创建成功"><span class="toc-number">6.</span> <span class="toc-text">6.检查是否创建成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明"><span class="toc-number">7.</span> <span class="toc-text">7.进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-开放svn端口"><span class="toc-number">8.</span> <span class="toc-text">8.开放svn端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-启动SVN服务"><span class="toc-number">9.</span> <span class="toc-text">9.启动SVN服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-安装客户端"><span class="toc-number">10.</span> <span class="toc-text">10.安装客户端 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-建立子目录"><span class="toc-number">11.</span> <span class="toc-text">11.建立子目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动"><span class="toc-number">12.</span> <span class="toc-text">12.安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>CenOS6.5 SVN搭建</p>
+</blockquote>
+<p>=============================</p>
+<hr>
+<h2 id="1-检查是否已安装"><a href="#1-检查是否已安装" class="headerlink" title="1.检查是否已安装"></a><strong>1.检查是否已安装</strong></h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">rpm -qa subversion</span></div></pre></td></tr></table></figure>
+<p>如果要卸载旧版本：<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="built_in">remove</span> subversion</div></pre></td></tr></table></figure></p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a><strong>2.安装</strong></h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> subversion</div></pre></td></tr></table></figure>
+<p>PS:<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install </span>httpd httpd-devel <span class="keyword">subversion </span>mod_dav_svn mod_auth_mysql</div><div class="line">（这是安装配合Apache的模块，我暂时还没做，做了再补上，你可以只装<span class="keyword">subversion，多装了也无所谓）</span></div></pre></td></tr></table></figure></p>
+<h2 id="3-检查是否安装成功"><a href="#3-检查是否安装成功" class="headerlink" title="3.检查是否安装成功"></a><strong>3.检查是否安装成功</strong></h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnserve <span class="comment">--version</span></div></pre></td></tr></table></figure>
+<p>如果成功会输出版本号</p>
+<h2 id="4-创建仓库目录"><a href="#4-创建仓库目录" class="headerlink" title="4.创建仓库目录"></a><strong>4.创建仓库目录</strong></h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">不建议建在主目录下</div><div class="line">例如：<span class="built_in">mkdir</span> /<span class="built_in">home</span>/svn/game</div></pre></td></tr></table></figure>
+<h2 id="5-创建项目"><a href="#5-创建项目" class="headerlink" title="5.创建项目"></a><strong>5.创建项目</strong></h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnadmin create /<span class="built_in">home</span>/svn/game</div></pre></td></tr></table></figure>
+<h2 id="6-检查是否创建成功"><a href="#6-检查是否创建成功" class="headerlink" title="6.检查是否创建成功"></a><strong>6.检查是否创建成功</strong></h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /<span class="built_in">home</span>/svn/gamell</div></pre></td></tr></table></figure>
+<p>如果成功，game目录下会多出几个文件夹<br><img src="http://upload-images.jianshu.io/upload_images/1730495-eb76c7e4b2e34dfb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="game目录"></p>
+<h2 id="7-进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明"><a href="#7-进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明" class="headerlink" title="7.进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明"></a><strong>7.进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明</strong></h2><p>示例需求：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">策划组：开策划、美术读写</div><div class="line">后端组：开后端读写，策划只读</div><div class="line">前端组：开前端读写，策划、美术只读</div><div class="line">美术组：开美术读写，策划只读</div><div class="line">管理员组：所有的读写</div></pre></td></tr></table></figure></p>
+<p>authz:用户权限配置示例：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">[groups]</div><div class="line"><span class="comment">#管理组</span></div><div class="line"><span class="attr">manager</span> = boss</div><div class="line"><span class="comment">#服务端用户组</span></div><div class="line"><span class="attr">server</span> = server1,server2</div><div class="line"><span class="comment">#客户端用户组</span></div><div class="line"><span class="attr">client</span> = client1,client2</div><div class="line"><span class="comment">#美术组</span></div><div class="line"><span class="attr">art</span> = art1,art2</div><div class="line"><span class="comment">#策划组</span></div><div class="line"><span class="attr">design=design1,design2</span></div><div class="line">[game:/]</div><div class="line">@<span class="attr">manager=rw</span></div><div class="line">[game:/server]</div><div class="line">@<span class="attr">server=rw</span></div><div class="line">[game:/client]</div><div class="line">@<span class="attr">client=rw</span></div><div class="line">@<span class="attr">design=r</span></div><div class="line">@<span class="attr">art=r</span></div><div class="line">[game:/art]</div><div class="line">@<span class="attr">design=rw</span></div><div class="line">@<span class="attr">art=rw</span></div><div class="line">@<span class="attr">client=r</span></div><div class="line">[game:/design]</div><div class="line">@<span class="attr">design=rw</span></div><div class="line">@<span class="attr">server=r</span></div><div class="line">@<span class="attr">client=r</span></div><div class="line">@<span class="attr">art=r</span></div></pre></td></tr></table></figure></p>
+<p>passwd:用户密码<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="section">[users]</span></div><div class="line"><span class="attr">boss</span>=<span class="number">123456</span></div><div class="line"><span class="attr">server1</span>=<span class="number">123456</span></div><div class="line"><span class="attr">server2</span>=<span class="number">123456</span></div><div class="line"><span class="attr">client1</span>=<span class="number">123456</span></div><div class="line"><span class="attr">client2</span>=<span class="number">123456</span></div><div class="line"><span class="attr">art1</span>=<span class="number">123456</span></div><div class="line"><span class="attr">art2</span>=<span class="number">123456</span></div><div class="line"><span class="attr">design1</span>=<span class="number">123456</span></div><div class="line"><span class="attr">design2</span>=<span class="number">123456</span></div></pre></td></tr></table></figure></p>
+<p>svnserve.conf:<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#匿名访问者权限</span></div><div class="line"><span class="attr">anon-access</span> = none</div><div class="line"><span class="comment">#验证用户权限</span></div><div class="line"><span class="attr">auth-access</span> = write</div><div class="line"><span class="comment">#密码文件地址</span></div><div class="line"><span class="attr">password-db</span> = /home/svn/game/passwd</div><div class="line"><span class="comment">#权限文件地址</span></div><div class="line"><span class="attr">authz-db</span> = /home/svn/game/authz</div><div class="line"><span class="comment">#项目名称（UUID）</span></div><div class="line"><span class="attr">realm</span> =game</div></pre></td></tr></table></figure></p>
+<h2 id="8-开放svn端口"><a href="#8-开放svn端口" class="headerlink" title="8.开放svn端口"></a><strong>8.开放svn端口</strong></h2><p>默认是3690端口，你也可以用别的。已开启的跳过这一步修改<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">修改</div><div class="line">iptables -I INPUT -p tcp --dport <span class="number">3690</span> -j ACCEPT</div><div class="line">保存</div><div class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/i</span>ptables save</div><div class="line">重启</div><div class="line">service iptables restart</div><div class="line">查看</div><div class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/iptables status</span></div></pre></td></tr></table></figure></p>
+<h2 id="9-启动SVN服务"><a href="#9-启动SVN服务" class="headerlink" title="9.启动SVN服务"></a><strong>9.启动SVN服务</strong></h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnserve -d -r /<span class="built_in">home</span>/svn</div></pre></td></tr></table></figure>
+<p>-d:守护进程<br>-r:svn根目录<br>假设服务端IP为192.168.1.100，那么如下设置后game的访问目录就为：<br>svn://192.168.1.100/game</p>
+<h2 id="10-安装客户端"><a href="#10-安装客户端" class="headerlink" title="10.安装客户端 "></a><strong>10.安装客户端 </strong></h2><p><a href="http://tortoisesvn.net/downloads.html" target="_blank" rel="external"><strong>TortoiseSVN</strong></a></p>
+<h2 id="11-建立子目录"><a href="#11-建立子目录" class="headerlink" title="11.建立子目录"></a><strong>11.建立子目录</strong></h2><p>在客户端PC上找个目录，用管理员帐户从svn://192.168.1.100/game迁出game目录，分别新建art,design,server,client 4个子目录，然后提交。这时候你可以用其他组的帐户测试下是否正常使用了。</p>
+<h2 id="12-安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动"><a href="#12-安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动" class="headerlink" title="12.安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动"></a><strong>12.安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动</strong></h2><p>首先：编写一个启动脚本svn_startup.sh，我放在/root/svn_startup.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">/usr/bin/svnserve <span class="_">-d</span> -r /home/svn/</div></pre></td></tr></table></figure></p>
+<p>这里的svnserve路径保险起见，最好写绝对路径，因为启动的时候，环境变量也许没加载。<br>绝对路径怎么查？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">which</span> svnserve</div></pre></td></tr></table></figure></p>
+<p>这里还有可能碰到一个问题，如果你在windows下建立和编写的脚步，拿到linux下，用vi或者vim修改后可能会无法执行，这是文件格式的问题<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vi svn_startup.sh</div><div class="line"></div><div class="line">输入：<span class="keyword">set</span> ff 回车</div><div class="line"></div><div class="line">如果显示的结果不是fileformat=unix</div><div class="line"></div><div class="line">再次输入</div><div class="line"></div><div class="line"><span class="keyword">set</span> <span class="comment">ff=unix</span></div><div class="line"></div><div class="line">就OK了</div></pre></td></tr></table></figure></p>
+<p>然后修改该脚本的执行权限<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">chmod</span> <span class="selector-tag">ug</span>+<span class="selector-tag">x</span> <span class="selector-tag">svn_startup</span><span class="selector-class">.sh</span></div><div class="line"></div><div class="line">或者万能的</div><div class="line"></div><div class="line"><span class="selector-tag">chmod</span> 777 <span class="selector-tag">svn_startup</span><span class="selector-class">.sh</span></div></pre></td></tr></table></figure></p>
+<p>最后：加入自动运行<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi <span class="meta-keyword">/etc/</span>rc.d/rc.local</div><div class="line">在末尾添加脚本的路径，如：</div><div class="line"><span class="meta-keyword">/root/</span>svn_startup.sh</div></pre></td></tr></table></figure></p>
+<p>现在，你可以重启一下试试了。 不懂得怎么确认成功？败给你了<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ps</span> -ef|<span class="keyword">grep</span> svnserve</div></pre></td></tr></table></figure></p>
+<p>好多活儿</p>
+<blockquote>
+<p>如何对我写的技术文章满意,下方给我点个<code>喜欢呗</code><br>你的<strong>点赞</strong>是我前进的动力,如果想一起利用碎片时间,欢迎关注<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" rel="external">技术公众号</a><br>大家有任何问题，可以评论给我~如果写的不错，希望大家可以关注我。感谢。</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/其他/">其他</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/MAC-IOS基础/">MAC&&IOS基础</a><a href="/tags/Code/">Code</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/04/20/O-电脑知识/[源代码管理]---CenOS6.5SVN搭建/" data-title="CenOS6.5 SVN搭建 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" title="runtime系列二(Runtime的使用场景)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  runtime系列二(Runtime的使用场景)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---当类扩展遇到runtime属性添加不再是难事/"  title="当类扩展遇到runtime属性添加不再是难事">
+ <strong>下一篇：</strong><br/> 
+ <span>当类扩展遇到runtime属性添加不再是难事
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/04/20/O-电脑知识/[源代码管理]---CenOS6.5SVN搭建/" data-title="CenOS6.5 SVN搭建" data-url="http://www.hundredone.win/2016/04/20/O-电脑知识/[源代码管理]---CenOS6.5SVN搭建/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-检查是否已安装"><span class="toc-number">1.</span> <span class="toc-text">1.检查是否已安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-number">2.</span> <span class="toc-text">2.安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-检查是否安装成功"><span class="toc-number">3.</span> <span class="toc-text">3.检查是否安装成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-创建仓库目录"><span class="toc-number">4.</span> <span class="toc-text">4.创建仓库目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-创建项目"><span class="toc-number">5.</span> <span class="toc-text">5.创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-检查是否创建成功"><span class="toc-number">6.</span> <span class="toc-text">6.检查是否创建成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明"><span class="toc-number">7.</span> <span class="toc-text">7.进入conf目录会看到3个配置文件，生成的文件中都有英文注释说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-开放svn端口"><span class="toc-number">8.</span> <span class="toc-text">8.开放svn端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-启动SVN服务"><span class="toc-number">9.</span> <span class="toc-text">9.启动SVN服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-安装客户端"><span class="toc-number">10.</span> <span class="toc-text">10.安装客户端 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-建立子目录"><span class="toc-number">11.</span> <span class="toc-text">11.建立子目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动"><span class="toc-number">12.</span> <span class="toc-text">12.安装好的svn服务端，默认是不会开机自启动的，每次开机自己启动会很麻烦，我们可以把它设成开机启动</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>37</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"hundredone"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
