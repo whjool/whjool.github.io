@@ -44,6 +44,9 @@ dir
 iOS-Cocos2d-x
 dir
 
+源代码管理
+dir
+
 MAC-IOS基础
 dir
 
@@ -69,6 +72,9 @@ dir
 dir
 
 cocopods
+dir
+
+Code
 dir
 
 bug
@@ -107,10 +113,10 @@ dir
 算法
 dir
 
-APP-Store
+直播
 dir
 
-直播
+APP-Store
 dir
 
 index.html

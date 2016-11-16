@@ -76,6 +76,33 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2015/07/05/A-完全小白图文攻略/[IOS开发攻略]-如何上传文件(文件)到github/" title="上传文件到github" itemprop="url">
+  
+    <h1 itemprop="name">上传文件到github</h1>
+    
+     
+           <p itemprop="description" >github，大家都知道大名顶顶的源代码分享工具
+具体网站在这里：github首页注册登陆我就不说了，大家看客自己进行就OK了，我现在主要介绍一下常用的两种上传方式如果需要我录制视频的话可以给我留言～有空我会顺便把视频录制好传上来
+
+
+1、使用GIT客户端进行上传下载地址
+
+
+A</p>
+        
+    
+    <time datetime="2015-07-05T02:49:50.000Z" itemprop="datePublished">2015-07-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2015/04/20/A-OC的碎碎念/[IOS开发入门]---沙盒路径获取/" title="沙盒路径获取" itemprop="url">
   
     <h1 itemprop="name">沙盒路径获取</h1>
@@ -91,60 +118,6 @@
         
     
     <time datetime="2015-04-20T02:49:50.000Z" itemprop="datePublished">2015-04-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/02/10/A-完全小白图文攻略/[博客搭建(补充)]---遇到的问题以及想法/" title="HEXO遇到的问题以及想法" itemprop="url">
-  
-    <h1 itemprop="name">HEXO遇到的问题以及想法</h1>
-    
-     
-           <p itemprop="description" >二级域名
-
-由于自己想做个二级域名,然后咨询了一些大牛由于github我做成这样表示不行我只能另谋出路了,VPS自建SS,参考文章为什么建立SS,其实我不懂:拓展知识1选型可以看下这篇介绍,以下是几个可选的官网
-
-搬瓦工,现在最便宜的是19.99/年
-ramnode
-alphar</p>
-        
-    
-    <time datetime="2015-02-10T02:49:50.000Z" itemprop="datePublished">2015-02-10</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/02/10/A-完全小白图文攻略/[博客搭建]--jacman配置(HEXO)/" title="jacman配置(HEXO)" itemprop="url">
-  
-    <h1 itemprop="name">jacman配置(HEXO)</h1>
-    
-     
-           <p itemprop="description" >本篇主要介绍jacman配置更多内容可以看我的博客修炼之路:我的博客建站之路
-
-工具准备
-参考文章
-
-
-配置评论
-参考2
-详细内容</p>
-        
-    
-    <time datetime="2015-02-10T02:49:50.000Z" itemprop="datePublished">2015-02-10</time>
   </a>
 </section>
 
@@ -203,6 +176,60 @@ Window下的安装</p>
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2015/02/10/A-完全小白图文攻略/[博客搭建]--jacman配置(HEXO)/" title="jacman配置(HEXO)" itemprop="url">
+  
+    <h1 itemprop="name">jacman配置(HEXO)</h1>
+    
+     
+           <p itemprop="description" >本篇主要介绍jacman配置更多内容可以看我的博客修炼之路:我的博客建站之路
+
+工具准备
+参考文章
+
+
+配置评论
+参考2
+详细内容</p>
+        
+    
+    <time datetime="2015-02-10T02:49:50.000Z" itemprop="datePublished">2015-02-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/02/10/A-完全小白图文攻略/[博客搭建(补充)]---遇到的问题以及想法/" title="HEXO遇到的问题以及想法" itemprop="url">
+  
+    <h1 itemprop="name">HEXO遇到的问题以及想法</h1>
+    
+     
+           <p itemprop="description" >二级域名
+
+由于自己想做个二级域名,然后咨询了一些大牛由于github我做成这样表示不行我只能另谋出路了,VPS自建SS,参考文章为什么建立SS,其实我不懂:拓展知识1选型可以看下这篇介绍,以下是几个可选的官网
+
+搬瓦工,现在最便宜的是19.99/年
+ramnode
+alphar</p>
+        
+    
+    <time datetime="2015-02-10T02:49:50.000Z" itemprop="datePublished">2015-02-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2014/08/20/O-电脑知识/【原创】Xcode常用快捷键/" title="Xcode常用快捷键" itemprop="url">
   
     <h1 itemprop="name">Xcode常用快捷键</h1>
@@ -210,6 +237,27 @@ Window下的安装</p>
      
            <p itemprop="description" >一、关于运行调试运行，停止，都在工具栏的Product里  1234  Command + R  运行  Command + .  停止  F6单步调试、F7跳入，F8继续， 和Eclipse,VS类似￼
 二、导航这是导航里的快捷键  123456切换头文件和m.文件，很实用Co</p>
+        
+    
+    <time datetime="2014-08-20T02:49:50.000Z" itemprop="datePublished">2014-08-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2014/08/20/O-电脑知识/【原创】常用论坛/" title="常用网站" itemprop="url">
+  
+    <h1 itemprop="name">常用网站</h1>
+    
+     
+           <p itemprop="description" >http://www.runoob.com/ios/ios-ui.html博客页面1、简书2、github3、CNBLOG4、freebuf    http://www.freebuf.com
+http://www.cnblogs.com/hyddd/archive/2009/0</p>
         
     
     <time datetime="2014-08-20T02:49:50.000Z" itemprop="datePublished">2014-08-20</time>
@@ -236,27 +284,6 @@ easyicon（海量图标）地址：easyicon（海量图标）
 icons8（海量图标，有客户端）：icons8
 ios动画设计 ：ios动画设计
 UpLabs (Material Design 设计交流网站)</p>
-        
-    
-    <time datetime="2014-08-20T02:49:50.000Z" itemprop="datePublished">2014-08-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/08/20/O-电脑知识/【原创】常用论坛/" title="常用网站" itemprop="url">
-  
-    <h1 itemprop="name">常用网站</h1>
-    
-     
-           <p itemprop="description" >http://www.runoob.com/ios/ios-ui.html博客页面1、简书2、github3、CNBLOG4、freebuf    http://www.freebuf.com
-http://www.cnblogs.com/hyddd/archive/2009/0</p>
         
     
     <time datetime="2014-08-20T02:49:50.000Z" itemprop="datePublished">2014-08-20</time>
@@ -336,7 +363,7 @@ http://www.cnblogs.com/hyddd/archive/2009/0</p>
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>37</sup></a></li>
 		  
 		
 		  
@@ -359,11 +386,11 @@ http://www.cnblogs.com/hyddd/archive/2009/0</p>
 			
 		
 			
-				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>7</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
 			
 		
 			
@@ -391,7 +418,7 @@ http://www.cnblogs.com/hyddd/archive/2009/0</p>
 			
 		
 			
-				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
@@ -407,11 +434,11 @@ http://www.cnblogs.com/hyddd/archive/2009/0</p>
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
@@ -423,7 +450,7 @@ http://www.cnblogs.com/hyddd/archive/2009/0</p>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
 			
 		
 			
@@ -472,11 +499,11 @@ http://www.cnblogs.com/hyddd/archive/2009/0</p>
     	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
 	</br>
     <a target="_blank" href="http://xclient.info/">
-		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
   	</a>
   	</br>
   	<a target="_blank" href="http://www.waitsun.com/">
-		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
   	</a>
 
 </div>
@@ -488,7 +515,7 @@ http://www.cnblogs.com/hyddd/archive/2009/0</p>
   <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
   </br>
     <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
-		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
   	</a>
   	<p align=center>欢迎一起利用碎片时间</br>
   		学习iOS技术开发

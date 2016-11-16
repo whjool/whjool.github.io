@@ -206,18 +206,18 @@ warning: directory not found for option,如果找不到,先把路径删除
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/08/20/A-完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/" title="FrameWork(含demo)-Xcode8环境">
+ <a href="/2016/08/25/G-游戏文档/[iOS游戏开发必备]-Lua与OC交互完整版(含Demo)/" title="Lua与OC交互完整版(含Demo)">
   <strong>上一篇：</strong><br/>
   <span>
-  FrameWork(含demo)-Xcode8环境</span>
+  Lua与OC交互完整版(含Demo)</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/08/20/G-游戏文档/[Cocos2d-x-使用问题]---Mac入门Cocos2d-x必备/"  title="Mac入门Cocos2d-x必备">
+<a href="/2016/08/20/O-遇到的坑/[原创]安装cocopad的坑/"  title="安装cocopod的坑">
  <strong>下一篇：</strong><br/> 
- <span>Mac入门Cocos2d-x必备
+ <span>安装cocopod的坑
 </span>
 </a>
 </div>
@@ -278,7 +278,7 @@ warning: directory not found for option,如果找不到,先把路径删除
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>37</sup></a></li>
 		  
 		
 		  
@@ -301,11 +301,11 @@ warning: directory not found for option,如果找不到,先把路径删除
 			
 		
 			
-				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>7</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
 			
 		
 			
@@ -333,7 +333,7 @@ warning: directory not found for option,如果找不到,先把路径删除
 			
 		
 			
-				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
@@ -349,11 +349,11 @@ warning: directory not found for option,如果找不到,先把路径删除
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
@@ -365,7 +365,7 @@ warning: directory not found for option,如果找不到,先把路径删除
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
 			
 		
 			
@@ -414,11 +414,11 @@ warning: directory not found for option,如果找不到,先把路径删除
     	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
 	</br>
     <a target="_blank" href="http://xclient.info/">
-		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
   	</a>
   	</br>
   	<a target="_blank" href="http://www.waitsun.com/">
-		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
   	</a>
 
 </div>
@@ -430,7 +430,7 @@ warning: directory not found for option,如果找不到,先把路径删除
   <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
   </br>
     <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
-		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
   	</a>
   	<p align=center>欢迎一起利用碎片时间</br>
   		学习iOS技术开发

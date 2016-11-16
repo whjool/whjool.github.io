@@ -76,12 +76,14 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/05/20/A-IOS黑魔法/IOS开发-黑魔法之IBDesignable-IBInspectable可视化效果编程/" title="IBDesignable-IBInspectable可视化效果编程" itemprop="url">
+    <a href="/2016/05/20/A-IOS黑魔法/IOS开发---网络状态检测（Reachability）含Demo/" title="网络状态检测（Reachability）含Demo" itemprop="url">
   
-    <h1 itemprop="name">IBDesignable-IBInspectable可视化效果编程</h1>
+    <h1 itemprop="name">网络状态检测（Reachability）含Demo</h1>
     
      
-           <p itemprop="description" >我们好像慢慢地习惯了“理想很丰满，现实很骨感”这样顺序这样的转折这样常态，那么如果是“现实很丰满，理想很骨感”，我们能接受吗？现实丰满可以，但是理想很骨感那就不要将就了。就像薛之谦希望是能通过“丑八怪 呀啊呀啊呀哎呀”来唱红的自己，而不是上综艺做直男直到没朋友的谐星来笑红自己却跟</p>
+           <p itemprop="description" >文章最后附上本次讲解的Demo以及演示动态图：GithubDemo
+一、说明在网络应用中，需要对用户设备的网络状态进行实时监控，有两个目的：
+（1）让用户了解自己的网络状态，防止一些误会（比如怪应用无能）（2）根据用户的网络状态进行智能处理，节省用户流量，提高用户体验　　  WI</p>
         
     
     <time datetime="2016-05-19T22:49:50.000Z" itemprop="datePublished">2016-05-20</time>
@@ -96,40 +98,9 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试入门/" title="单元测试入门" itemprop="url">
+    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试性能测试/" title="单元测试性能测试" itemprop="url">
   
-    <h1 itemprop="name">单元测试入门</h1>
-    
-     
-           <p itemprop="description" >目录
-
-
-[IOS开发攻略] - 单元测试入门
-[IOS开发攻略] - A.异步测试
-[IOS开发攻略] - B.性能测试
-[IOS开发攻略] - C.逻辑测试
-
-
-介绍
-
-iOS单元测试初探维基百科上的对她解释：“在计算机编程中，单元测试（又称为模块测试, Unit Testi</p>
-        
-    
-    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished">2016-05-05</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="单元测试逻辑测试" itemprop="url">
-  
-    <h1 itemprop="name">单元测试逻辑测试</h1>
+    <h1 itemprop="name">单元测试性能测试</h1>
     
      
            <p itemprop="description" >目录
@@ -159,9 +130,9 @@ iOS单元测试初探维基百科上的对她解释：“在计算机编程中�
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试性能测试/" title="单元测试性能测试" itemprop="url">
+    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试逻辑测试/" title="单元测试逻辑测试" itemprop="url">
   
-    <h1 itemprop="name">单元测试性能测试</h1>
+    <h1 itemprop="name">单元测试逻辑测试</h1>
     
      
            <p itemprop="description" >目录
@@ -223,6 +194,92 @@ iOS单元测试初探维基百科上的对她解释：“在计算机编程中�
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试入门/" title="单元测试入门" itemprop="url">
+  
+    <h1 itemprop="name">单元测试入门</h1>
+    
+     
+           <p itemprop="description" >目录
+
+
+[IOS开发攻略] - 单元测试入门
+[IOS开发攻略] - A.异步测试
+[IOS开发攻略] - B.性能测试
+[IOS开发攻略] - C.逻辑测试
+
+
+介绍
+
+iOS单元测试初探维基百科上的对她解释：“在计算机编程中，单元测试（又称为模块测试, Unit Testi</p>
+        
+    
+    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished">2016-05-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/B-swift/[IOS开发入门]---注释的方法你都懂了么-/" title="iOS开发-注释的方法你都懂了么" itemprop="url">
+  
+    <h1 itemprop="name">iOS开发-注释的方法你都懂了么</h1>
+    
+     
+           <p itemprop="description" >背景
+
+这是之前遇到的一个问题,但是一直觉得好像事情太小就没有整理,我相信很多朋友之前或多或少遇到过各种关于注释的思考,我的考虑来源于对那时候转swift开发时候mark的使用~真的蒙蔽不会用~好了开始今天的正题
+
+目录如下
+OC
+方法一: //
+方法二: /** */
+方法三:</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列一-(消息机制)/" title="runtime系列一(消息机制)" itemprop="url">
+  
+    <h1 itemprop="name">runtime系列一(消息机制)</h1>
+    
+     
+           <p itemprop="description" >runtime使用之消息发送的本质
+
+前言
+
+本章主要是描述如何简单使用runtime,runtime苹果官方是开源的,想要了解更多的朋友可以直接去看官方源码.
+一.runtime简介
+runtime简称为运行时,OC是运行时机制,比如OC的消息机制.
+关于C语言,我们都知道它是</p>
+        
+    
+    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" title="runtime系列二(Runtime的使用场景)" itemprop="url">
   
     <h1 itemprop="name">runtime系列二(Runtime的使用场景)</h1>
@@ -244,13 +301,19 @@ iOS单元测试初探维基百科上的对她解释：“在计算机编程中�
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/04/20/A-OC的碎碎念/IOS开发---谈谈开发模式MVVM/" title="谈谈开发模式MVVM" itemprop="url">
+    <a href="/2016/04/20/O-电脑知识/[源代码管理]---CenOS6.5SVN搭建/" title="CenOS6.5 SVN搭建" itemprop="url">
   
-    <h1 itemprop="name">谈谈开发模式MVVM</h1>
+    <h1 itemprop="name">CenOS6.5 SVN搭建</h1>
     
      
-           <p itemprop="description" >如果想了解其他设计模式可以看这里:IOS开发 - 谈谈开发模式(MVC,单例,代理)为什么要用MVVM替代MVCApple倡导开发者们使用MVC模式开发App程序，但很多人都没有严格按照MVC的模式去开发，只是让程序的架构看上去像MVC，而实际上是MC或VC。
-很多入门开发者都有</p>
+           <p itemprop="description" >CenOS6.5 SVN搭建
+
+=============================
+
+1.检查是否已安装1rpm -qa subversion
+如果要卸载旧版本：1yum remove subversion
+2.安装1yum install subversion
+PS:1</p>
         
     
     <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
@@ -277,50 +340,6 @@ iOS单元测试初探维基百科上的对她解释：“在计算机编程中�
 好了少说废话,我开始今天的内容
 
 objc_setAssociatedObject和objc_getAsso</p>
-        
-    
-    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/20/A-OC的碎碎念/[IOS开发入门]---NSProcessInfo类方法(进程)使用/" title="NSProcessInfo类方法(进程)使用" itemprop="url">
-  
-    <h1 itemprop="name">NSProcessInfo类方法(进程)使用</h1>
-    
-     
-           <p itemprop="description" >背景
-
-今天有幸看到如下的代码在delegate中,其中有一个点很吸引我,static BOOL isRunningTests(void) __attribute__((const));,目前没有弄明白,弄明白我会补充~如是我就继续看下去.12345678910111213141</p>
-        
-    
-    <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/20/B-swift/swift-说说你看懂却不懂的？和！/" title="说说你知道的传值方式写(Swift3.0)" itemprop="url">
-  
-    <h1 itemprop="name">说说你知道的传值方式写(Swift3.0)</h1>
-    
-     
-           <p itemprop="description" >首先你要知道的基础Swift语言使用var定义变量，但和别的语言不同，Swift里不会自动给变量赋初始值，也就是说变量不会有默认值，所以要求使用变量之前必须要对其初始化。如果在使用变量之前不进行初始化就会报错
-
-简单说说  ？ 的使用121.声明Optional值变量2.用在对O</p>
         
     
     <time datetime="2016-04-20T02:49:50.000Z" itemprop="datePublished">2016-04-20</time>
@@ -378,7 +397,7 @@ objc_setAssociatedObject和objc_getAsso</p>
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>36</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>37</sup></a></li>
 		  
 		
 		  
@@ -401,11 +420,11 @@ objc_setAssociatedObject和objc_getAsso</p>
 			
 		
 			
-				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>7</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>6</sup></a></li>
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
 			
 		
 			
@@ -433,7 +452,7 @@ objc_setAssociatedObject和objc_getAsso</p>
 			
 		
 			
-				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
 			
 		
 			
@@ -449,11 +468,11 @@ objc_setAssociatedObject和objc_getAsso</p>
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
 			
 		
 			
@@ -465,7 +484,7 @@ objc_setAssociatedObject和objc_getAsso</p>
 			
 		
 			
-				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
 			
 		
 			
@@ -514,11 +533,11 @@ objc_setAssociatedObject和objc_getAsso</p>
     	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
 	</br>
     <a target="_blank" href="http://xclient.info/">
-		  <img src="img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
   	</a>
   	</br>
   	<a target="_blank" href="http://www.waitsun.com/">
-		  <img src="img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
   	</a>
 
 </div>
@@ -530,7 +549,7 @@ objc_setAssociatedObject和objc_getAsso</p>
   <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
   </br>
     <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
-		  <img src="img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
   	</a>
   	<p align=center>欢迎一起利用碎片时间</br>
   		学习iOS技术开发
