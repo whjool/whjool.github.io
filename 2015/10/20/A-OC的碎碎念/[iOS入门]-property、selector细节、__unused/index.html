@@ -4,51 +4,39 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>MRC下的block的坑及解决思路 | 香蕉的技术博客</title>
+    <title>iOS关键字说说你不知道的细节 | 香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
     
 
     
-    <meta name="description" content="更新至11-20
-
-人生总该那么美好，但是为啥给我遇到cocopods
+    <meta name="description" content="或许说我们常用的一些控件,我们经常会使用一些常用的功能!
 
 
-之前都没有觉得装cocopods那么复杂，找了一堆网上的资料，反正好好把这几天遇到的坑慢慢整理并从ruby开始一直装到cocopods，如果遇到问题的朋友可以看下我之前的文章，我有空在一起整理好，反正我会慢慢更新
+我们常常使用nonatomic，很多人只知道它的效率较高，却不知道其含义，其含义是非线程安全的，也就是说多线程修改时不加锁，可能出现多个线程先后修改而成为脏数据的情况。
 
-注意如果删除了ruby，cocopods等插件都会被删除，所以要重新开始装ruby～
-
-经历了这几天坑爹的安">
+unsafe_unretained和assign的作用是一致的，如果对象数据也采用这种方式，这个property就只是指向数据的指针而已，这样说来，似乎assign和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MRC下的block的坑及解决思路">
-<meta property="og:url" content="http://www.hundredone.win/2016/11/20/A-OC的碎碎念/[原创]cocopods-2016-11月安装法（ruby完整版）/index.html">
+<meta property="og:title" content="iOS关键字说说你不知道的细节">
+<meta property="og:url" content="http://www.hundredone.win/2015/10/20/A-OC的碎碎念/[iOS入门]-property、selector细节、__unused/index.html">
 <meta property="og:site_name" content="香蕉的技术博客">
-<meta property="og:description" content="更新至11-20
-
-人生总该那么美好，但是为啥给我遇到cocopods
+<meta property="og:description" content="或许说我们常用的一些控件,我们经常会使用一些常用的功能!
 
 
-之前都没有觉得装cocopods那么复杂，找了一堆网上的资料，反正好好把这几天遇到的坑慢慢整理并从ruby开始一直装到cocopods，如果遇到问题的朋友可以看下我之前的文章，我有空在一起整理好，反正我会慢慢更新
+我们常常使用nonatomic，很多人只知道它的效率较高，却不知道其含义，其含义是非线程安全的，也就是说多线程修改时不加锁，可能出现多个线程先后修改而成为脏数据的情况。
 
-注意如果删除了ruby，cocopods等插件都会被删除，所以要重新开始装ruby～
-
-经历了这几天坑爹的安">
+unsafe_unretained和assign的作用是一致的，如果对象数据也采用这种方式，这个property就只是指向数据的指针而已，这样说来，似乎assign和">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2016-11-13T14:11:59.000Z">
+<meta property="og:updated_time" content="2016-11-27T14:38:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MRC下的block的坑及解决思路">
-<meta name="twitter:description" content="更新至11-20
-
-人生总该那么美好，但是为啥给我遇到cocopods
+<meta name="twitter:title" content="iOS关键字说说你不知道的细节">
+<meta name="twitter:description" content="或许说我们常用的一些控件,我们经常会使用一些常用的功能!
 
 
-之前都没有觉得装cocopods那么复杂，找了一堆网上的资料，反正好好把这几天遇到的坑慢慢整理并从ruby开始一直装到cocopods，如果遇到问题的朋友可以看下我之前的文章，我有空在一起整理好，反正我会慢慢更新
+我们常常使用nonatomic，很多人只知道它的效率较高，却不知道其含义，其含义是非线程安全的，也就是说多线程修改时不加锁，可能出现多个线程先后修改而成为脏数据的情况。
 
-注意如果删除了ruby，cocopods等插件都会被删除，所以要重新开始装ruby～
-
-经历了这几天坑爹的安">
+unsafe_unretained和assign的作用是一致的，如果对象数据也采用这种方式，这个property就只是指向数据的指针而已，这样说来，似乎assign和">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
 
     
@@ -110,14 +98,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/11/20/A-OC的碎碎念/[原创]cocopods-2016-11月安装法（ruby完整版）/" title="MRC下的block的坑及解决思路" itemprop="url">MRC下的block的坑及解决思路</a>
+      <a href="/2015/10/20/A-OC的碎碎念/[iOS入门]-property、selector细节、__unused/" title="iOS关键字说说你不知道的细节" itemprop="url">iOS关键字说说你不知道的细节</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-20T02:49:50.000Z" itemprop="datePublished"> 发表于 2016-11-20</time>
+    <time datetime="2015-10-20T07:49:50.000Z" itemprop="datePublished"> 发表于 2015-10-20</time>
     
   </p>
 </header>
@@ -130,36 +118,29 @@
 		
 		</div>
 		
-		<p>更新至11-20</p>
-<blockquote>
-<p>人生总该那么美好，但是为啥给我遇到cocopods</p>
-</blockquote>
-<ul>
-<li><p>之前都没有觉得装cocopods那么复杂，找了一堆网上的资料，反正好好把这几天遇到的坑慢慢整理并从ruby开始一直装到cocopods，如果遇到问题的朋友可以看下我之前的文章，我有空在一起整理好，反正我会慢慢更新</p>
+		<p>或许说我们常用的一些控件,我们经常会使用一些常用的功能!</p>
+<hr>
+<ol>
+<li><p><strong>我们常常使用nonatomic</strong>，很多人只知道它的效率较高，却不知道其含义，其含义是非线程安全的，也就是说多线程修改时不加锁，可能出现多个线程先后修改而成为脏数据的情况。</p>
 </li>
-<li><p>注意如果删除了ruby，cocopods等插件都会被删除，所以要重新开始装ruby～</p>
+<li><p><strong>unsafe_unretained和assign</strong>的作用是一致的，如果对象数据也采用这种方式，这个property就只是指向数据的指针而已，这样说来，似乎assign和weak是一样的，但他们有个很大的区别，在下一条中说明。</p>
 </li>
-<li>经历了这几天坑爹的安装之旅，大大的感慨一番…<br>由于网上面都没有很详细的冲ruby安装到cocopods安装，要不就是都是复制粘贴的坑爹货，</li>
-<li>简单说下安装的思路，优胜美地和船长在XCODE安装下自带就有了ruby，我就是蛋疼自己删除了，正常情况下，只要更新下最新的ruby就可以安装cocopods，但是安装完cocopods使用过程会出现一堆坑爹的问题，希望大家耐得住寂寞，面包就会有的了！</li>
-</ul>
-<p>安装cocopods思路，自己百度ruby语言和gem的用法<br>注意：<strong>感谢国内大墙，我们要借助淘宝的镜像，万能的淘宝啊，下载cocopods并且安装，安装过程会出现很多次的超时，坚持就是胜利</strong></p>
-<blockquote>
-<p>安装流程</p>
-</blockquote>
-<ul>
-<li><strong>以下的方法适用于2016年7月20日</strong><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1、移除现有Ruby默认源	gem sources <span class="comment">--remove https://rubygems.org/</span></div><div class="line">2、使用新的源	gem sources -a https://ruby.taobao.org/</div><div class="line">3.验证新源是否替换成功	gem sources -l</div><div class="line">4.安装CocoaPods	sudo gem <span class="keyword">install</span> cocoapods </div><div class="line">这一步船长系统要用这句	sudo gem <span class="keyword">install</span> -n /usr/<span class="keyword">local</span>/<span class="keyword">bin</span> cocoapods</div><div class="line">安装	pod setup</div><div class="line"><span class="number">5</span>、更新gem	sudo gem <span class="keyword">update</span> <span class="comment">--system</span></div></pre></td></tr></table></figure>
+<li><p><strong>weak</strong>也只是指向数据而不retain，但是当weak指针指向的数据释放后，weak指针自动变为nil，而assign的不会。</p>
 </li>
-</ul>
-<p>使用方法</p>
-<p>//以下是我2016年7月20日<strong>安装ruby</strong>艰辛的过程，好久没装那么辛苦了！<br>自己安装流程<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、安装	</div><div class="line"><span class="number">2</span>、检查版本	rvm <span class="type">list</span> known </div><div class="line"><span class="number">3</span>、安装对应版本	rvm install <span class="number">2.2</span><span class="number">.4</span></div><div class="line"><span class="number">4</span>、检查是否安装成功	rvm -v</div><div class="line"><span class="number">4</span>、设置版本为默认版本	rvm use <span class="number">2.2</span><span class="number">.4</span> --<span class="section">default</span></div><div class="line"><span class="number">5</span>、转到安装cocopods</div><div class="line">```	</div><div class="line"></div><div class="line"></div><div class="line">如果上面遇到问题：重装的方法</div></pre></td></tr></table></figure></p>
-<p>1、移除对应版本      rvm remove 1.8.7<br>2、重装对应版本    rvm reinstall ruby-2.2.4</p>
-<p>3、全部删除    rvm  implode<br>4、更新    gem -v<br>    gem update –system<br>5、清除旧版本gem    gem cleanup<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*<span class="strong">*淘宝镜像*</span><span class="strong">*</span></div></pre></td></tr></table></figure></p>
-<p>列出    gem sources -l<br>添加镜像    gem sources -a <a href="http://ruby.taobao.org/" target="_blank" rel="external">http://ruby.taobao.org/</a><br>移除镜像    gem sources -r <a href="http://rubygems.org/" target="_blank" rel="external">http://rubygems.org/</a><br>安装rack测试    gem install rack</p>
-<p>安装rails<br>安装rails    gem install bundler rails<br>检查bundle路径    bundle -v<br>检查rails路径    rails -v<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*<span class="strong">*安装cocopods看顶部*</span>*</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&gt;自己遇到问题，慢慢更新</div><div class="line"></div><div class="line">问题1：</div></pre></td></tr></table></figure></p>
-<p>Setting up CocoaPods master repo<br>  $ /usr/bin/git pull –ff-only<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">原因： Cocoapods的分支不支持当前最新的Xcode版本</div><div class="line">解决办法: 删除<span class="literal">master</span>分支 重新建立新的分支</div><div class="line">sudo rm -fr ~/.cocoapods/repos/<span class="keyword">master</span></div><div class="line"> </div><div class="line"><span class="title">然后在: pod</span> setup</div></pre></td></tr></table></figure></p>
-<p>如果还有遇到一些cocopad使用上的坑可以看这一篇<br>连接：<a href="http://www.jianshu.com/p/a42bd9de1217" target="_blank" rel="external">[原创]安装cocopad的坑</a></p>
-<p>如果对上传git有什么不懂的朋友可以参考我这一篇文章：<br>文章链接：<a href="http://www.jianshu.com/p/81b60274a2bf" target="_blank" rel="external">微信个人技术公众号：大大家的IOS说</a></p>
-<p>如果遇到什么没有安装成功的地方，欢迎留言，我及时补充修改，提供给更多的朋友作为参考，欢迎在IOS路上的朋友一起探讨</p>
+<li><p><strong>copy和strong</strong>作用一致，但是系统会以拷贝的方式来生成新对象，copy常用于NSString等对象，注意要实现copy必须遵循NSCopying或者NSMutableCopying协议。有关NSString为何使用copy的深入探讨请看来自CocoaChina的文章：</p>
+</li>
+</ol>
+<p>NSString属性什么时候用copy，什么时候用strong?。</p>
+<ol>
+<li>方法名是selector用来查找方法的标识，它由method name和external name组成，而不包括internal part。</li>
+</ol>
+<p>例如下面的方法</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="params">(BOOL)</span>tableView:<span class="params">(UITableView *)</span>tableView canEditRowAtIndexPath:<span class="params">(NSIndexPath *)</span>indexPath</div></pre></td></tr></table></figure>
+<p>其中method name为tableView，external name为canEditRowAtIndexPath，internal part包括对象类型和对象名，因此方法名应该描述为：tableView:canEditRowAtIndexPath:。<br>利用这一点，可以方便很多事情，例如我们拖线实现按钮的点击事件时，默认生成的方法如下：</p>
+<p>我们需要先强转类型为UIButton*再进一步操作。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (<span class="keyword">IBAction</span>)btnClick:(<span class="keyword">id</span>)sender &#123;</div><div class="line">    </div><div class="line">    __unused <span class="built_in">UIButton</span> *btn = (<span class="built_in">UIButton</span> *)sender;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们知道方法名并不包括对象类型和对象名，因此我们可以直接修改如下：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (IBAction)<span class="selector-tag">btnClick</span><span class="selector-pseudo">:(UIButton</span> *)<span class="selector-tag">btn</span> &#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样可以避免一系列的不必要操作。<br>6.我们定义了变量后，如果不使用就会出现警告，如果在变量前加__unused前缀，就可以免除警告。其原理是告诉编译器，如果变量未使用就不参与编译。</p>
+<p>7.对于协议中的变量和方法，默认是@required，并且对于变量，必须要重新用property定义。</p>
 <blockquote>
 <p>作者信息</p>
 </blockquote>
@@ -168,6 +149,7 @@
 <p>个人iOS开发QQ群:365204530<br>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</p>
 <p>iOS开发类微信订阅号 ：<strong>大大家的IOS说</strong></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"></p>
+<p>喜欢的朋友可以赏我2块大洋买糖吃～和我一样屌丝的朋友希望能给我点个赞～需要我录制视频的请直接给我糖。一起做一个乐于分享的人吧</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -185,7 +167,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.hundredone.win/2016/11/20/A-OC的碎碎念/[原创]cocopods-2016-11月安装法（ruby完整版）/" data-title="MRC下的block的坑及解决思路 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.hundredone.win/2015/10/20/A-OC的碎碎念/[iOS入门]-property、selector细节、__unused/" data-title="iOS关键字说说你不知道的细节 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -198,11 +180,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/11/20/A-OC的碎碎念/NSError---自定义错误/" title="NSError自定义错误">
+  <strong>上一篇：</strong><br/>
+  <span>
+  NSError自定义错误</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2016/11/10/A-完全小白图文攻略/[iOS进阶]---iOS内购Demo篇/"  title="iOS内购Demo篇">
+<a href="/2015/10/20/A-iosOC项目仿写/[大大OC项目仿写]-小日子APP仿写/"  title="OC仿写-小日子APP仿写">
  <strong>下一篇：</strong><br/> 
- <span>iOS内购Demo篇
+ <span>OC仿写-小日子APP仿写
 </span>
 </a>
 </div>
@@ -211,7 +201,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/11/20/A-OC的碎碎念/[原创]cocopods-2016-11月安装法（ruby完整版）/" data-title="MRC下的block的坑及解决思路" data-url="http://www.hundredone.win/2016/11/20/A-OC的碎碎念/[原创]cocopods-2016-11月安装法（ruby完整版）/"></div>
+	<div class="ds-thread" data-thread-key="2015/10/20/A-OC的碎碎念/[iOS入门]-property、selector细节、__unused/" data-title="iOS关键字说说你不知道的细节" data-url="http://www.hundredone.win/2015/10/20/A-OC的碎碎念/[iOS入门]-property、selector细节、__unused/"></div>
 </section>
 
 
@@ -230,16 +220,6 @@
 <aside class="clearfix">
 
   
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
 <div class="categorieslist">
 	<p class="asidetitle">分类</p>
 		<ul>
@@ -249,21 +229,21 @@
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>40</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>17</sup></a></li>
 		  
 		
 		  
 		
 		  
-			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+			<li><a href="/categories/swift/" title="swift">swift<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>37</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>38</sup></a></li>
 		  
 		
 		  
@@ -286,7 +266,7 @@
 			
 		
 			
-				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>7</sup></a></li>
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>9</sup></a></li>
 			
 		
 			
@@ -294,7 +274,7 @@
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>6</sup></a></li>
 			
 		
 			
@@ -302,11 +282,11 @@
 			
 		
 			
-				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
 			
 		
 			
@@ -314,23 +294,11 @@
 			
 		
 			
-				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
 			
 		
 			
@@ -338,11 +306,7 @@
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -350,11 +314,27 @@
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -374,12 +354,6 @@
           <li>
             
             	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
             
           </li>
         
@@ -423,6 +397,16 @@
 </div>
 
 
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
 </aside>
 </div>
     </div>
@@ -444,7 +428,7 @@
 		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
-		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		<a href="https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
 		
 		
 		

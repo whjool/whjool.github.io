@@ -1,7 +1,7 @@
 10
 
 dir
-3
+28
 svn://hundred@123.207.120.92/opt/svn/hexo/Hexo/public/2016/11/13/%E5%AE%8C%E5%85%A8%E5%B0%8F%E7%99%BD%E5%9B%BE%E6%96%87%E6%94%BB%E7%95%A5
 svn://hundred@123.207.120.92/opt/svn/hexo
 
@@ -26,13 +26,13 @@ hundred
 
 870b640c-bb14-4ae2-a46f-c6cd87605df1
 
-[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）
+[IOS开发]---XCode更新后多了很多调试语句
 dir
 
 [IOS开发攻略]---js与OC交互(三)-(JavaScriptCore-framework)
 dir
 
-[IOS开发]---XCode更新后多了很多调试语句
+[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）
 dir
 
 无标题文章
@@ -56,19 +56,19 @@ dir
 [IOS开发攻略]---crash-log分析
 dir
 
-[iOS开发]---游戏-APP内购详细信息版本
+[IOS开发]---xcode8兼容IOS7
 dir
 
-[IOS开发]---xcode8兼容IOS7
+[iOS开发]---游戏-APP内购详细信息版本
 dir
 
 [IOS提交版本]---遇到的各种坑汇总
 dir
 
-[IOS开发攻略]---单元测试性能测试
+[MAC应用]---蛋疼的隐藏文件怎么显示出来
 dir
 
-[MAC应用]---蛋疼的隐藏文件怎么显示出来
+[IOS开发攻略]---单元测试性能测试
 dir
 
 [博客搭建(二)]---优雅的使用HEXO玩博客
