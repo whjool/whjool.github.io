@@ -76,39 +76,19 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/06/20/A-IOS黑魔法/[IOS黑魔法]---使用jspatch热更新(介绍篇)/" title="使用jspatch热更新(介绍篇)" itemprop="url">
+    <a href="/2016/06/20/A-IOS黑魔法/IOS开发---黑魔法之blocksKit分析(上)/" title="iOS开发---黑魔法之blocksKit分析(上)" itemprop="url">
   
-    <h1 itemprop="name">使用jspatch热更新(介绍篇)</h1>
+    <h1 itemprop="name">iOS开发---黑魔法之blocksKit分析(上)</h1>
     
      
-           <p itemprop="description" >感谢JSpatch:官网地址  作者的github原文:github本篇只是一个介绍,具体实现请转到我的另一篇文章看具体操作:使用jspatch热更新(实用Demo篇)
-JSPatch是什么
-JSPatch是一个开源项目，只需要在项目里引入极小的引擎文件，就可以使用 JavaSc</p>
-        
-    
-    <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
-  </a>
-</section>
+           <p itemprop="description" >目录
+上篇链接:IOS开发 - 黑魔法之blocksKit分析(上)
+下篇链接:IOS开发 - 黑魔法之blocksKit分析(下)
+应用篇含演示demo:IOS开发 - 黑魔法之blocksKit应用篇
 
+BlocksKit项目主页:BlocksKit-github主页
 
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/06/20/A-IOS黑魔法/IOS黑魔法---XAspect(第三方插件)/" title="iOS开发---XAspect(第三方插件)" itemprop="url">
-  
-    <h1 itemprop="name">iOS开发---XAspect(第三方插件)</h1>
-    
-     
-           <p itemprop="description" >首先啥都不说,先放上XAspect的连接:XAspect
-参考文章:哈哈
-
-背景
-
-这两天封装个推,遇到一个男人都会遇到的问题,不知道怎么入手,OK,反正都得弄出来,顺便做得漂漂亮亮的…然后故事就开始了…好吧,先把个推的demo下载:2016-8-15下载地址PS:过期了和我说下</p>
+1.</p>
         
     
     <time datetime="2016-06-19T22:49:50.000Z" itemprop="datePublished">2016-06-20</time>
@@ -172,28 +152,6 @@ BlocksKit项目主页:BlocksKit-github主页
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(A)/" title="iOS面试题集锦(C)" itemprop="url">
-  
-    <h1 itemprop="name">iOS面试题集锦(C)</h1>
-    
-     
-           <p itemprop="description" >其他面试题查看 : 面试题目录
-
-1.如何追踪app崩溃率，如何解决线上闪退当iOS设备上的App应用闪退时，操作系统会生成一个crash日志，保存在设备上。crash日志上有很多有用的信息，比如每个正在执行线程的完整堆栈跟踪信息和内存映像，这样就能够通过解析这些信息进而定位cr</p>
-        
-    
-    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
     <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(B)/" title="iOS面试题集锦(B)" itemprop="url">
   
     <h1 itemprop="name">iOS面试题集锦(B)</h1>
@@ -201,28 +159,6 @@ BlocksKit项目主页:BlocksKit-github主页
      
            <p itemprop="description" >其他面试题查看 : 面试题目录
 1. 反转二叉树，不用递归123456789/** * Definition for a binary tree node. * public class TreeNode &amp;#123; *     int val; *     TreeNode </p>
-        
-    
-    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(C)/" title="iOS面试题集锦(C)" itemprop="url">
-  
-    <h1 itemprop="name">iOS面试题集锦(C)</h1>
-    
-     
-           <p itemprop="description" >##其他面试题查看 : 面试题目录
-
-1. RuntimeObjective-C 是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚</p>
         
     
     <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
@@ -260,6 +196,50 @@ BlocksKit项目主页:BlocksKit-github主页
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(C)/" title="iOS面试题集锦(C)" itemprop="url">
+  
+    <h1 itemprop="name">iOS面试题集锦(C)</h1>
+    
+     
+           <p itemprop="description" >##其他面试题查看 : 面试题目录
+
+1. RuntimeObjective-C 是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚</p>
+        
+    
+    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/05/20/A-OC的碎碎念/IOS面试(转)---那些你没见过的问题(A)/" title="iOS面试题集锦(C)" itemprop="url">
+  
+    <h1 itemprop="name">iOS面试题集锦(C)</h1>
+    
+     
+           <p itemprop="description" >其他面试题查看 : 面试题目录
+
+1.如何追踪app崩溃率，如何解决线上闪退当iOS设备上的App应用闪退时，操作系统会生成一个crash日志，保存在设备上。crash日志上有很多有用的信息，比如每个正在执行线程的完整堆栈跟踪信息和内存映像，这样就能够通过解析这些信息进而定位cr</p>
+        
+    
+    <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2016/05/20/A-OC的碎碎念/[IOS开发]---常用技巧整理二/" title="常用技巧整理二" itemprop="url">
   
     <h1 itemprop="name">常用技巧整理二</h1>
@@ -272,6 +252,28 @@ BlocksKit项目主页:BlocksKit-github主页
         
     
     <time datetime="2016-05-20T02:49:50.000Z" itemprop="datePublished">2016-05-20</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/05/20/A-IOS黑魔法/IOS开发---网络状态检测（Reachability）含Demo/" title="网络状态检测（Reachability）含Demo" itemprop="url">
+  
+    <h1 itemprop="name">网络状态检测（Reachability）含Demo</h1>
+    
+     
+           <p itemprop="description" >文章最后附上本次讲解的Demo以及演示动态图：GithubDemo
+一、说明在网络应用中，需要对用户设备的网络状态进行实时监控，有两个目的：
+（1）让用户了解自己的网络状态，防止一些误会（比如怪应用无能）（2）根据用户的网络状态进行智能处理，节省用户流量，提高用户体验　　  WI</p>
+        
+    
+    <time datetime="2016-05-19T22:49:50.000Z" itemprop="datePublished">2016-05-20</time>
   </a>
 </section>
 
@@ -302,7 +304,7 @@ BlocksKit项目主页:BlocksKit-github主页
 
 
   <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
   </nav>
 
 </div>
@@ -311,16 +313,6 @@ BlocksKit项目主页:BlocksKit-github主页
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
 
   
 <div class="categorieslist">
@@ -332,21 +324,21 @@ BlocksKit项目主页:BlocksKit-github主页
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>40</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>17</sup></a></li>
 		  
 		
 		  
 		
 		  
-			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+			<li><a href="/categories/swift/" title="swift">swift<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>37</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>38</sup></a></li>
 		  
 		
 		  
@@ -369,7 +361,7 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>7</sup></a></li>
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>9</sup></a></li>
 			
 		
 			
@@ -377,7 +369,7 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>6</sup></a></li>
 			
 		
 			
@@ -385,11 +377,11 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
 			
 		
 			
@@ -397,23 +389,11 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
 			
 		
 			
@@ -421,11 +401,7 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -433,11 +409,27 @@ BlocksKit项目主页:BlocksKit-github主页
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -457,12 +449,6 @@ BlocksKit项目主页:BlocksKit-github主页
           <li>
             
             	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
             
           </li>
         
@@ -506,6 +492,16 @@ BlocksKit项目主页:BlocksKit-github主页
 </div>
 
 
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
 </aside>
 </div>
     </div>
@@ -527,7 +523,7 @@ BlocksKit项目主页:BlocksKit-github主页
 		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
-		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		<a href="https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
 		
 		
 		

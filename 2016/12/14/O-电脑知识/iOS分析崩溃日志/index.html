@@ -1,0 +1,670 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>iOS分析崩溃日志 | 香蕉的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="前言
+iOS分析定位崩溃问题有很多种方式，但是发布到AppStore的应用如果崩溃了，我们该怎么办呢？通常我们都会在系统中接入统计系统，在系统崩溃的时候记录下崩溃日志，下次启动时将日志发送到服务端，比较好的第三方有umeng之类的。今天我们来讲一下通过崩溃日志来分析定位我们的bug。
+dYSM文件
+分析崩溃日志的前提是我们需要有dYSM文件，这个文件是我们用archive打包时生成的.xcarc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS分析崩溃日志">
+<meta property="og:url" content="http://www.hundredone.win/2016/12/14/O-电脑知识/iOS分析崩溃日志/index.html">
+<meta property="og:site_name" content="香蕉的技术博客">
+<meta property="og:description" content="前言
+iOS分析定位崩溃问题有很多种方式，但是发布到AppStore的应用如果崩溃了，我们该怎么办呢？通常我们都会在系统中接入统计系统，在系统崩溃的时候记录下崩溃日志，下次启动时将日志发送到服务端，比较好的第三方有umeng之类的。今天我们来讲一下通过崩溃日志来分析定位我们的bug。
+dYSM文件
+分析崩溃日志的前提是我们需要有dYSM文件，这个文件是我们用archive打包时生成的.xcarc">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20161220/1482214791250787.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20161220/1482214600756814.png">
+<meta property="og:updated_time" content="2016-12-21T00:42:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS分析崩溃日志">
+<meta name="twitter:description" content="前言
+iOS分析定位崩溃问题有很多种方式，但是发布到AppStore的应用如果崩溃了，我们该怎么办呢？通常我们都会在系统中接入统计系统，在系统崩溃的时候记录下崩溃日志，下次启动时将日志发送到服务端，比较好的第三方有umeng之类的。今天我们来讲一下通过崩溃日志来分析定位我们的bug。
+dYSM文件
+分析崩溃日志的前提是我们需要有dYSM文件，这个文件是我们用archive打包时生成的.xcarc">
+<meta name="twitter:image" content="http://cc.cocimg.com/api/uploads/20161220/1482214791250787.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的技术博客" title="香蕉的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的技术博客">香蕉的技术博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">文章归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 244624813535589000 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/14/O-电脑知识/iOS分析崩溃日志/" title="iOS分析崩溃日志" itemprop="url">iOS分析崩溃日志</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-12-14T02:49:50.000Z" itemprop="datePublished"> 发表于 2016-12-14</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#崩溃日志"><span class="toc-number">2.</span> <span class="toc-text">崩溃日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找bug"><span class="toc-number">3.</span> <span class="toc-text">查找bug</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2></blockquote>
+<p>iOS分析定位崩溃问题有很多种方式，但是发布到AppStore的应用如果崩溃了，我们该怎么办呢？通常我们都会在系统中接入统计系统，在系统崩溃的时候记录下崩溃日志，下次启动时将日志发送到服务端，比较好的第三方有umeng之类的。今天我们来讲一下通过崩溃日志来分析定位我们的bug。</p>
+<p>dYSM文件</p>
+<p>分析崩溃日志的前提是我们需要有dYSM文件，这个文件是我们用archive打包时生成的.xcarchive后缀的文件包。一个良好的习惯是，在你打包提交审核的时候，将生成的.xcarchive与ipa文件一同拷贝一份，按照版本号保存下来，这样如果线上出现问题可以快速的找到你想要的文件来定位你的问题。</p>
+<p><img src="http://cc.cocimg.com/api/uploads/20161220/1482214791250787.png" alt=""></p>
+<blockquote>
+<h2 id="崩溃日志"><a href="#崩溃日志" class="headerlink" title="崩溃日志"></a>崩溃日志</h2></blockquote>
+<p>一般崩溃日志都会像下面这样:</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">NSConcreteMutableAttributedString addAttribute:value:<span class="symbol">range::</span> nil value</div><div class="line">(null)</div><div class="line">((</div><div class="line">CoreFoundation                      <span class="number">0x0000000185c642f4</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">160</span></div><div class="line">libobjc.A.dylib                     <span class="number">0x00000001974880e4</span> objc_exception_throw + <span class="number">60</span></div><div class="line">CoreFoundation                      <span class="number">0x0000000185c64218</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">0</span></div><div class="line">Foundation                          <span class="number">0x0000000186a9dfb4</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">152</span></div><div class="line">Xmen                                <span class="number">0x10073fb30</span> Xmen + <span class="number">7600944</span></div><div class="line">Xmen                                <span class="number">0x1006bbbf4</span> Xmen + <span class="number">7060468</span></div><div class="line">UIKit                               <span class="number">0x000000018a9a47fc</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">60</span></div><div class="line">UIKit                               <span class="number">0x000000018a9a512c</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">104</span></div><div class="line">UIKit                               <span class="number">0x000000018a6b2b6c</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">88</span></div><div class="line">UIKit                               <span class="number">0x000000018a9a4fd4</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">444</span></div><div class="line">UIKit                               <span class="number">0x000000018a78e274</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">1012</span></div><div class="line">UIKit                               <span class="number">0x000000018a999aac</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">2904</span></div><div class="line">UIKit                               <span class="number">0x000000018a785268</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">172</span></div><div class="line">UIKit                               <span class="number">0x000000018a6a1760</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">580</span></div><div class="line">QuartzCore                          <span class="number">0x0000000189fe9e1c</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">152</span></div><div class="line">QuartzCore                          <span class="number">0x0000000189fe4884</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">320</span></div><div class="line">QuartzCore                          <span class="number">0x0000000189fe4728</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">32</span></div><div class="line">QuartzCore                          <span class="number">0x0000000189fe3ebc</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">276</span></div><div class="line">QuartzCore                          <span class="number">0x0000000189fe3c3c</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">528</span></div><div class="line">QuartzCore                          <span class="number">0x0000000189fdd364</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">80</span></div><div class="line">CoreFoundation                      <span class="number">0x0000000185c1c2a4</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">32</span></div><div class="line">CoreFoundation                      <span class="number">0x0000000185c19230</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">360</span></div><div class="line">CoreFoundation                      <span class="number">0x0000000185c19610</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">836</span></div><div class="line">CoreFoundation                      <span class="number">0x0000000185b452d4</span> CFRunLoopRunSpecific + <span class="number">396</span></div><div class="line">GraphicsServices                    <span class="number">0x000000018f35b6fc</span> GSEventRunModal + <span class="number">168</span></div><div class="line">UIKit                               <span class="number">0x000000018a70afac</span> UIApplicationMain + <span class="number">1488</span></div><div class="line">Xmen                                <span class="number">0x1008cf9c0</span> Xmen + <span class="number">9238976</span></div><div class="line">libdyld.dylib                       <span class="number">0x0000000197b06a08</span> <span class="params">&lt;redacted&gt;</span> + <span class="number">4</span></div><div class="line">)</div><div class="line">dSYM UUID: <span class="number">30833</span>A40<span class="number">-0</span>F40<span class="number">-3980</span>-B76B-D6E86E4DBA85</div><div class="line">CPU Type: arm64</div><div class="line">Slide Address: <span class="number">0x0000000100000000</span></div><div class="line">Binary Image: Xmen</div><div class="line">Base Address: <span class="number">0x000000010007c000</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span><span class="params">&lt;/redacted&gt;</span></div></pre></td></tr></table></figure>
+<p>是不是看的一脸懵逼，下面我来教大家如何结合crash log 与 dYSM文件 来分析定位出代码崩溃在哪一个文件的哪一行代码</p>
+<p>提取崩溃日志中有用的信息<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSConcreteMutableAttributedString addAttribute:<span class="keyword">value</span>:range:: nil <span class="keyword">value</span> 崩溃的原因是<span class="keyword">value</span>为nil</div><div class="line"><span class="string">" 4 Xmen 0x10073fb30 Xmen + 7600944"</span> 它指出了应用名称，崩溃时的调用方法的地址，文件的地址以及方法所在的行的位置，我们需要的是这一个:<span class="string">"0x10073fb30"</span>。</div></pre></td></tr></table></figure></p>
+<p>“dSYM UUID: 30833A40-0F40-3980-B76B-D6E86E4DBA85”。<br>“CPU Type: arm64”。<br>开始分析</p>
+<p>打开终端进入到你的dYSM文件的目录下面:<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/Dandy/</span>XMEN<span class="regexp">/上线版本/</span><span class="number">2.0</span>.<span class="number">17</span>_105<span class="regexp">/aaaa.xcarchive/</span>dSYMs</div></pre></td></tr></table></figure></p>
+<p>验证下崩溃日志中的UUID与本地的dYSM文件是否是相匹配的：<br>“Xmen”为你的app名称<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dwarfdump --uuid Xmen<span class="selector-class">.app</span><span class="selector-class">.dSYM</span></div></pre></td></tr></table></figure></p>
+<p>结果是:<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">UUID:</span> BFF6AE00<span class="number">-8</span>B5F<span class="number">-39</span>BD-AFD0<span class="number">-27707</span>C489B25 (armv7) Xmen.app.dSYM<span class="regexp">/Contents/</span>Resources<span class="regexp">/DWARF/</span>Xmen</div><div class="line"><span class="string">UUID:</span> <span class="number">30833</span>A40<span class="number">-0</span>F40<span class="number">-3980</span>-B76B-D6E86E4DBA85 (arm64) Xmen.app.dSYM<span class="regexp">/Contents/</span>Resources<span class="regexp">/DWARF/</span>Xmen</div></pre></td></tr></table></figure></p>
+<p>发现与我们日志中的:UUID和CPU Type是相匹配的<br>查找错误信息<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dwarfdump --arch=arm64 --lookup <span class="number">0</span>x10073fb30  <span class="regexp">/Dandy/</span>XMEN<span class="regexp">/上线版本/</span><span class="number">2.0</span>.<span class="number">17</span>_105<span class="regexp">/aaaa.xcarchive/</span>dSYMs<span class="regexp">/Xmen.app.dSYM/</span>Contents<span class="regexp">/Resources/</span>DWARF<span class="regexp">/Xmen</span></div></pre></td></tr></table></figure></p>
+<p>“arm64”与”0x1008cf9c0”分别对应于上面我们从日志中提取出来的有用信息<br>“/Dandy/XMEN/上线版本/2.0.17_105/aaaa.xcarchive/dSYMs/Xmen.app.dSYM/Contents/Resources/DWARF/Xmen”对应于你本地dYSM文件目录<br>“Xmen”对应于你的app名称<br>结果像下面这样:</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">File:</span> /Dandy/XMEN/上线版本/<span class="number">2.0</span><span class="meta">.17_105</span>/aaaa.xcarchive/dSYMs/Xmen.app.dSYM/Contents/Resources/DWARF/Xmen (arm64)</div><div class="line">Looking <span class="meta">up</span> address: <span class="number">0x000000010073fb30</span> <span class="keyword">in</span> .debug_info... found!</div><div class="line"><span class="number">0x00219b05</span>: Compile Unit: length = <span class="number">0x00003dd0</span>  version = <span class="number">0x0002</span>  abbr_offset = <span class="number">0x00000000</span>  addr_size = <span class="number">0x08</span>  (next CU <span class="meta">at</span> <span class="number">0x0021d8d9</span>)</div><div class="line"><span class="number">0x00219b10</span>: TAG_compile_unit [<span class="number">107</span>] *</div><div class="line">AT_producer( <span class="string">"Apple LLVM version 8.0.0 (clang-800.0.42.1)"</span> )</div><div class="line">AT_language( DW_LANG_ObjC )</div><div class="line">AT_name( <span class="string">"/Dandy/checkSvn/IOS/xmen/Xmen/Modules/StoreManage/SellerOrder/View/DSSellerOrderSectionHeaderView.m"</span> )</div><div class="line">AT_stmt_list( <span class="number">0x001272a9</span> )</div><div class="line">AT_comp_dir( <span class="string">"/Dandy/checkSvn/IOS/xmen"</span> )</div><div class="line">AT_APPLE_major_runtime_vers( <span class="number">0x02</span> )</div><div class="line">AT_low_pc( <span class="number">0x000000010072b8ac</span> )</div><div class="line">AT_high_pc( <span class="number">0x000000010074e350</span> )</div><div class="line"><span class="number">0x0021aec5</span>:    TAG_subprogram [<span class="number">119</span>] *</div><div class="line">AT_low_pc( <span class="number">0x0000000100739810</span> )</div><div class="line">AT_high_pc( <span class="number">0x000000010074006c</span> )</div><div class="line">AT_frame_base( reg29 )</div><div class="line">AT_object_pointer( &#123;<span class="number">0x0021aee3</span>&#125; )</div><div class="line">AT_name( <span class="string">"-[DSSellerOrderSectionHeaderView updateContentWithOrderData:isEdit:]"</span> )</div><div class="line">AT_decl_file( <span class="string">"/Dandy/checkSvn/IOS/xmen/Xmen/Modules/StoreManage/SellerOrder/View/DSSellerOrderSectionHeaderView.m"</span> )</div><div class="line">AT_decl_line( <span class="number">248</span> )</div><div class="line">AT_prototyped( <span class="number">0x01</span> )</div><div class="line"><span class="number">0x0021af36</span>:        TAG_lexical_block [<span class="number">138</span>] *</div><div class="line">AT_ranges( <span class="number">0x00008640</span></div><div class="line">[<span class="number">0x000000010073cf90</span> - <span class="number">0x000000010073fb88</span>)</div><div class="line">[<span class="number">0x000000010073fbc0</span> - <span class="number">0x000000010073fbc4</span>)</div><div class="line">End )</div><div class="line">Line table dir : <span class="string">'/Dandy/checkSvn/IOS/xmen/Xmen/Modules/StoreManage/SellerOrder/View'</span></div><div class="line">Line table file: <span class="string">'DSSellerOrderSectionHeaderView.m'</span> line <span class="number">680</span>, column <span class="number">9</span> with start address <span class="number">0x000000010073faf8</span></div><div class="line">Looking <span class="meta">up</span> address: <span class="number">0x000000010073fb30</span> <span class="keyword">in</span> .debug_frame... <span class="keyword">not</span> found.</div></pre></td></tr></table></figure>
+<p>我们来从终端结果来分析出我们想要的结果:<br>这一行告诉我们崩溃的代码所在的文件的目录</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Line <span class="keyword">table</span> dir <span class="comment">:</span> <span class="comment">'/Dandy/checkSvn/IOS/xmen/Xmen/Modules/StoreManage/SellerOrder/View'</span></div></pre></td></tr></table></figure>
+<p>这一行告诉我们崩溃代码所在的具体文件</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">AT_decl_file</span><span class="params">( <span class="string">"/Dandy/checkSvn/IOS/xmen/Xmen/Modules/StoreManage/SellerOrder/View/DSSellerOrderSectionHeaderView.m"</span> )</span></span></div></pre></td></tr></table></figure>
+<p>这一行告诉我们崩溃代码是在哪一个方法里面</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">AT_name</span><span class="params">( <span class="string">"-[DSSellerOrderSectionHeaderView updateContentWithOrderData:isEdit:]"</span> )</span></span></div></pre></td></tr></table></figure>
+<p>这一行告诉我们崩溃代码具体在哪一行了</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Line table <span class="built_in">file</span>: <span class="string">'DSSellerOrderSectionHeaderView.m'</span> <span class="built_in">line</span> <span class="number">680</span>, column <span class="number">9</span> <span class="keyword">with</span> <span class="built_in">start</span> address <span class="number">0x000000010073faf8</span></div></pre></td></tr></table></figure>
+<p>好的，现在我们分析到了崩溃代码在哪一行了，下面我们来找一找bug</p>
+<blockquote>
+<h2 id="查找bug"><a href="#查找bug" class="headerlink" title="查找bug"></a>查找bug</h2></blockquote>
+<p>我们的代码都应该有托管平台，每个版本上线都需要打一个tag，这是一个好习惯。下面我拉下我崩溃的对应版本的tag，找到崩溃代码那一行：</p>
+<p><img src="http://cc.cocimg.com/api/uploads/20161220/1482214600756814.png" alt="崩溃处"></p>
+<p>结合崩溃日志中告诉我:崩溃的原因是value为nil,发现是因为receiverTelephone字段中有中文导致转url时为nil导致的，下面的解bug就看各自本领啦。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/其他/">其他</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/crash/">crash</a><a href="/tags/MAC-IOS基础/">MAC&&IOS基础</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/12/14/O-电脑知识/iOS分析崩溃日志/" data-title="iOS分析崩溃日志 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/20/O-电脑知识/2016年iOS技术圈回顾/" title="2016年iOS行业回顾">
+  <strong>上一篇：</strong><br/>
+  <span>
+  2016年iOS行业回顾</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/10/A-完全小白图文攻略/[IOS开发攻略]如何安装使用ijkPlayer---ios（附demo）/"  title="如何安装使用ijkPlayer(附demo)">
+ <strong>下一篇：</strong><br/> 
+ <span>如何安装使用ijkPlayer(附demo)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/12/14/O-电脑知识/iOS分析崩溃日志/" data-title="iOS分析崩溃日志" data-url="http://www.hundredone.win/2016/12/14/O-电脑知识/iOS分析崩溃日志/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#崩溃日志"><span class="toc-number">2.</span> <span class="toc-text">崩溃日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找bug"><span class="toc-number">3.</span> <span class="toc-text">查找bug</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>16</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/源码学习分享/" title="源码学习分享">源码学习分享<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单元测试/" title="单元测试">单元测试<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/控件/" title="控件">控件<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/p/ee3c96cee9cd" target="_blank" title="个人介绍">个人介绍</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+  <!-- /*<p class="asidetitle">微信公众号</p>*/-->
+    	<p align=center size:"16" color="red"><strong>常用工具下载网页</strong></p>
+	</br>
+    <a target="_blank" href="http://xclient.info/">
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool1.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+  	</br>
+  	<a target="_blank" href="http://www.waitsun.com/">
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/tool2.png" alt="Ballade" width=100% height=calc(width)/2>
+  	</a>
+
+</div>
+
+
+  <div >
+<!-- /*这一段写的jisuhi在属性部分,微信栏目*/-->
+<!--   <p class="asidetitle">微信公众号</p>-->
+  <p align=center size:"16" color="blue"><strong>微信公众号</strong></p>
+  </br>
+    <a target="_blank" href="http://www.jianshu.com/p/ee3c96cee9cd">
+		  <img src="https://raw.githubusercontent.com/whjool/whjool.github.io/master/img/weixin.jpg" alt="Ballade" width=100% height=calc(width)>
+  	</a>
+  	<p align=center>欢迎一起利用碎片时间</br>
+  		学习iOS技术开发
+  	</p>
+</div>
+
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"hundredone"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260805874'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1260805874' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -239,18 +239,18 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/04/20/O-电脑知识/[源代码管理]---CenOS6.5SVN搭建/" title="CenOS6.5 SVN搭建">
+ <a href="/2016/04/20/A-OC的碎碎念/[IOS问题答疑]JSON数据只返回-null-处理方法/" title="JSON数据只返回null">
   <strong>上一篇：</strong><br/>
   <span>
-  CenOS6.5 SVN搭建</span>
+  JSON数据只返回null</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/04/20/A-OC的碎碎念/[IOS开发入门]---NSProcessInfo类方法(进程)使用/"  title="NSProcessInfo类方法(进程)使用">
+<a href="/2016/04/20/A-OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/"  title="runtime系列二(Runtime的使用场景)">
  <strong>下一篇：</strong><br/> 
- <span>NSProcessInfo类方法(进程)使用
+ <span>runtime系列二(Runtime的使用场景)
 </span>
 </a>
 </div>
@@ -278,16 +278,6 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 <aside class="clearfix">
 
   
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
 <div class="categorieslist">
 	<p class="asidetitle">分类</p>
 		<ul>
@@ -297,21 +287,21 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 		  
 		
 		  
-			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>39</sup></a></li>
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>40</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>15</sup></a></li>
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>17</sup></a></li>
 		  
 		
 		  
 		
 		  
-			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+			<li><a href="/categories/swift/" title="swift">swift<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/其他/" title="其他">其他<sup>37</sup></a></li>
+			<li><a href="/categories/其他/" title="其他">其他<sup>38</sup></a></li>
 		  
 		
 		  
@@ -334,7 +324,7 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 			
 		
 			
-				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>7</sup></a></li>
+				<li><a href="/tags/MAC-IOS基础/" title="MAC&amp;&amp;IOS基础">MAC&amp;&amp;IOS基础<sup>9</sup></a></li>
 			
 		
 			
@@ -342,7 +332,7 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 			
 		
 			
-				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
+				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>6</sup></a></li>
 			
 		
 			
@@ -350,11 +340,11 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 			
 		
 			
-				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
+				<li><a href="/tags/iOS-Cocos2d-x/" title="iOS Cocos2d-x">iOS Cocos2d-x<sup>6</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>5</sup></a></li>
 			
 		
 			
@@ -362,23 +352,11 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 			
 		
 			
-				<li><a href="/tags/bug/" title="bug">bug<sup>3</sup></a></li>
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cocopods/" title="cocopods">cocopods<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+				<li><a href="/tags/HEXO/" title="HEXO">HEXO<sup>4</sup></a></li>
 			
 		
 			
@@ -386,11 +364,7 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 			
 		
 			
-				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
 			
 		
 			
@@ -398,11 +372,27 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 			
 		
 			
-				<li><a href="/tags/cocopod/" title="cocopod">cocopod<sup>2</sup></a></li>
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift基础/" title="swift基础">swift基础<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/APP-Store/" title="APP Store">APP Store<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/直播/" title="直播">直播<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
 			
 		
 		</ul>
@@ -422,12 +412,6 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
           <li>
             
             	<a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" title="香蕉简书">香蕉简书</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
             
           </li>
         
@@ -471,6 +455,16 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 </div>
 
 
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
 </aside>
 </div>
     </div>
@@ -492,7 +486,7 @@ objc_setAssociatedObject和objc_getAssociatedObject的使用两个函数名称�
 		<a href="http://weibo.com/6013257513" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
-		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		<a href="https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
 		
 		
 		
