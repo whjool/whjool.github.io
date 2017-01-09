@@ -1,0 +1,729 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="更新至8-26本文章转载+自己经验整理的文章,并自己会在以后不定时根据自己的开发近况更新感谢作者
+
+[判若两人丶]
+
+##前言:
+
+在上一篇文章中我相信帮助了很多的小伙伴, 那么在这篇文章希望还能帮助到你！相关文章:[IOS开发] - 常用技巧整理一
+
+1.在Block中一起使用weakSelf与strongSelf的含义我们都会声明一个弱引用在block中使用, 目的就是防止循环引用, 那么we">
+<meta property="og:type" content="article">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/2016/11/13/OC的碎碎念/[IOS开发]---常用技巧整理二/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="更新至8-26本文章转载+自己经验整理的文章,并自己会在以后不定时根据自己的开发近况更新感谢作者
+
+[判若两人丶]
+
+##前言:
+
+在上一篇文章中我相信帮助了很多的小伙伴, 那么在这篇文章希望还能帮助到你！相关文章:[IOS开发] - 常用技巧整理一
+
+1.在Block中一起使用weakSelf与strongSelf的含义我们都会声明一个弱引用在block中使用, 目的就是防止循环引用, 那么we">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-28744cd8b5a2948d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-63688e7819bcae8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-e300b9731a46b167.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-9836cbabba662d83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-fdc64af928f49695.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-04b11ed749e1f77f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-ce3b3b2847a9eac1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-c7feac99bfaa4f57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-85781a816eaa66df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-2beb95d924c448ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2016-11-13T00:46:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:description" content="更新至8-26本文章转载+自己经验整理的文章,并自己会在以后不定时根据自己的开发近况更新感谢作者
+
+[判若两人丶]
+
+##前言:
+
+在上一篇文章中我相信帮助了很多的小伙伴, 那么在这篇文章希望还能帮助到你！相关文章:[IOS开发] - 常用技巧整理一
+
+1.在Block中一起使用weakSelf与strongSelf的含义我们都会声明一个弱引用在block中使用, 目的就是防止循环引用, 那么we">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-28744cd8b5a2948d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/11/13/OC的碎碎念/[IOS开发]---常用技巧整理二/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-11-13T00:46:20.000Z" itemprop="datePublished"> 发表于 2016-11-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>更新至8-26<br>本文章转载+自己经验整理的文章,并自己会在以后不定时根据自己的开发近况更新<br>感谢作者</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/a924b4a17686" target="_blank" rel="external">[判若两人丶]</a></li>
+</ul>
+<p>##前言:</p>
+<blockquote>
+<p>在上一篇文章中我相信帮助了很多的小伙伴, 那么在这篇文章希望还能帮助到你！<br>相关文章:<br><a href="http://www.jianshu.com/p/460484788843" target="_blank" rel="external">[IOS开发] - 常用技巧整理一</a></p>
+</blockquote>
+<p><strong>1.在Block中一起使用weakSelf与strongSelf的含义</strong><br>我们都会声明一个弱引用在<code>block</code>中使用, 目的就是防止循环引用, 那么<code>weakSelf</code>与<code>strongSelf</code>一起使用目的是什么呢? 首先先定义2个宏:<br><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define LRWeakSelf(<span class="class"><span class="keyword">type</span>)  <span class="title">__weak</span> <span class="title">typeof</span></span>(<span class="class"><span class="keyword">type</span>) <span class="title">weak</span>##<span class="title">type</span> </span>= <span class="class"><span class="keyword">type</span>;</span></div><div class="line">#define LRStrongSelf(<span class="class"><span class="keyword">type</span>)  <span class="title">__strong</span> <span class="title">typeof</span></span>(<span class="class"><span class="keyword">type</span>) <span class="title">type</span> </span>= weak##<span class="class"><span class="keyword">type</span>;</span></div></pre></td></tr></table></figure></p>
+<p>我们创建一个<code>shop</code>并且在<code>shop.myBlock</code>代码块中使用弱引用<code>LRWeakSelf(shop);</code><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">LRShop *shop = [[LRShop alloc]init];</div><div class="line">shop.<span class="built_in">string</span> = @<span class="string">"welcome to our company"</span>;</div><div class="line"><span class="comment">//弱引用</span></div><div class="line">LRWeakSelf(shop);</div><div class="line">shop.myBlock = ^&#123;</div><div class="line">    NSLog(@<span class="string">"%@"</span>,weakshop.<span class="built_in">string</span>);</div><div class="line">&#125;;</div><div class="line">shop.myBlock();</div></pre></td></tr></table></figure></p>
+<p><code>LRWeakSelf(shop);</code>与<code>LRStrongSelf(shop);</code>一起使用<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">LRShop *shop = [[LRShop alloc]init];</div><div class="line">shop.<span class="built_in">string</span> = @<span class="string">"welcome to our company"</span>;</div><div class="line"><span class="comment">//弱引用</span></div><div class="line">LRWeakSelf(shop);</div><div class="line">shop.myBlock = ^&#123;</div><div class="line">    <span class="comment">//强引用</span></div><div class="line">    LRStrongSelf(shop)</div><div class="line">    NSLog(@<span class="string">"%@"</span>,shop.<span class="built_in">string</span>);</div><div class="line">&#125;;</div><div class="line">shop.myBlock();</div></pre></td></tr></table></figure></p>
+<p>这2个打印结果都是<code>shop.string</code>有值并且<code>shop</code>也销毁了, 看起来是没什么区别:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-28744cd8b5a2948d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="log"></p>
+<p>仅仅使用<code>LRWeakSelf(shop);</code>并且在<code>myBlock</code>中增加一个延迟3秒在输出就会出现问题, 虽然对象销毁了, 输出的值却是<code>null</code><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//弱引用</span></div><div class="line">LRWeakSelf(shop);</div><div class="line">shop.myBlock = ^&#123;</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (<span class="keyword">int64_t</span>)(<span class="number">3.0</span> * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</div><div class="line">        NSLog(@<span class="string">"%@"</span>,weakshop.<span class="built_in">string</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line">shop.myBlock();</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-63688e7819bcae8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="log"></p>
+<p>如果<code>LRWeakSelf(shop);</code>与<code>LRStrongSelf(shop);</code>一起使用输出的<code>shop.string</code>有值,对象也销毁了, 我就不再截图给大家看了!<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//弱引用</span></div><div class="line">LRWeakSelf(shop);</div><div class="line">shop.myBlock = ^&#123;</div><div class="line">    <span class="comment">//强引用</span></div><div class="line">    LRStrongSelf(shop)</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (<span class="keyword">int64_t</span>)(<span class="number">3.0</span> * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</div><div class="line">        NSLog(@<span class="string">"%@"</span>,shop.<span class="built_in">string</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line">shop.myBlock();</div></pre></td></tr></table></figure></p>
+<p>通过上面一堆的解释, 我们明显发现<code>LRWeakSelf(shop);</code>与<code>LRStrongSelf(shop);</code>一起使用的好处, 不但能打印出我想要的值,而且也不会造成循环引用 , 在开发中这两个方法可以根据实际情况进行使用!</p>
+<p><strong>2.使用UIAppearance注意的问题</strong><br>如果不熟悉可以<a href="https://developer.xamarin.com/guides/ios/user_interface/introduction_to_the_appearance_api/" target="_blank" rel="external">点击了解</a>, <code>UIAppearance</code>它的目的就是设置全局显示样式, 我们知道只要带<code>UI_APPEARANCE_SELECTOR</code>这个宏, 我们就可以使用<code>UIAppearance</code>比如这样设置:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-e300b9731a46b167.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UIAppearance"></p>
+<p>我们知道<code>UIBarButtonItem</code>它是有状态的比如<code>UIControlStateNormal</code>或者是<code>UIControlStateDisabled</code>状态<br>如果通过<code>UIAppearance</code>设置<code>UIControlStateDisabled</code>状态下的颜色是不好使的, 因为使用<code>appearance</code>会有一些延迟, 导致在不同状态下的颜色不好使, 我们只要强制刷新一下就可以了:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 刷新</span></div><div class="line"><span class="selector-attr">[self.navigationController.navigationBar layoutIfNeeded]</span>;</div><div class="line">所以以后使用UIAppearance在某个状态下设置颜色,字体等不好使, 只需要在对应的位置用layoutIfNeeded刷新一下就可以了!</div></pre></td></tr></table></figure></p>
+<p><strong>3. UITextField使用注意</strong><br>先贴一个<code>UITextField</code>如何设置占位文字的颜色, 如果不先设置占位文字, 占位文字的颜色是不管用的:<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//先设置占位文字</span></div><div class="line">textField.placeholder = @<span class="string">"设置了占位文字内容以后, 才能设置占位文字的颜色"</span>;</div><div class="line"><span class="comment">//占位文字颜色</span></div><div class="line">[textField <span class="string">setValue:</span>[UIColor redColor] <span class="string">forKeyPath:</span>@<span class="string">"_placeholderLabel.textColor"</span>];</div></pre></td></tr></table></figure></p>
+<p>大家监听<code>UITextField</code>文字的改变会用到代理:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;UITextFieldDelegate&gt;</span></span></div><div class="line">- (<span class="built_in">BOOL</span>)textField:(<span class="built_in">UITextField</span> *)textField shouldChangeCharactersInRange:(<span class="built_in">NSRange</span>)range replacementString:(<span class="built_in">NSString</span> *)string &#123;</div><div class="line">    <span class="comment">//这里监听文字改变</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但是这个代理方法监听会有问题如下图:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-9836cbabba662d83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-fdc64af928f49695.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2"></p>
+<p>所以我们要监听<code>UITextField</code>的文字改变不建议使用代理, 我们用<code>addTarget</code>监听文字<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[textField <span class="string">addTarget:</span>self <span class="string">action:</span><span class="meta">@selector</span>(textEditingChanged) <span class="string">forControlEvents:</span>UIControlEventEditingChanged];</div></pre></td></tr></table></figure></p>
+<p><strong>4.UITextView添加占位文字的正确方法</strong><br><code>UITextView</code>的占位文字属于它内部的一个功能, 我们在<code>控制器</code>或者用<code>代理</code>来处理占位文字一些功能是不合理的, 所以我们要自定义<code>UITextView</code>把相关内部的东西都封装起来!<br>(1)给外界提供占位文字与占位文字颜色:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 占位文字 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>)<span class="built_in">NSString</span> *placeholder;</div><div class="line"><span class="comment">/** 占位文字颜色 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)<span class="built_in">UIColor</span> *placeholderColor;</div></pre></td></tr></table></figure></p>
+<p>(2)设置占位文字的默认值, 如果不设置默认值,外界不用你提供的方法会有崩溃现象:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置默认字体</span></div><div class="line"><span class="keyword">self</span>.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">17</span>];</div><div class="line"><span class="comment">// 设置默认的占位文字颜色</span></div><div class="line"><span class="keyword">self</span>.placeholderColor = [<span class="built_in">UIColor</span> grayColor];</div></pre></td></tr></table></figure></p>
+<p>(3)内部添加占位文字的label ;<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 占位文字label */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="built_in">UILabel</span> *placeholderLabel;</div><div class="line"></div><div class="line"><span class="comment">//懒加载</span></div><div class="line">- (<span class="built_in">UILabel</span> *)placeholderLabel</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (_placeholderLabel == <span class="literal">nil</span>) &#123;</div><div class="line">        <span class="built_in">UILabel</span> *placeholderLabel = [[<span class="built_in">UILabel</span> alloc] init];</div><div class="line">        placeholderLabel.numberOfLines = <span class="number">0</span>;</div><div class="line">        [<span class="keyword">self</span> addSubview:placeholderLabel];</div><div class="line">        _placeholderLabel = placeholderLabel;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _placeholderLabel;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(4)通过监听文字改变,来显示或隐藏占位文字<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 监听文字</span></div><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(textDidChangeNotification) name:<span class="built_in">UITextViewTextDidChangeNotification</span> object:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">//监听的方法</span></div><div class="line">- (<span class="keyword">void</span>)textDidChangeNotification &#123;</div><div class="line">    <span class="comment">// 有文字就隐藏占位文字</span></div><div class="line">    <span class="keyword">self</span>.placeholderLabel.hidden = <span class="keyword">self</span>.hasText;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(5)如果占位文字被修改, 颜色被修改, 字体被修改, 我们在内部需要重写<code>set</code>方法, 如果通过代码修改了<code>textView</code>文字(不是占位文字)不会发通知也需要重写<code>set</code>方法:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-04b11ed749e1f77f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="textView"></p>
+<p>封装好的自定义TextView可以直接使用:<a href="https://github.com/luran2358/LRTextView" target="_blank" rel="external">Demo下载</a></p>
+<p>5.自定义控件里如何拿到导航控制器进行页面跳转？<br>(1)如果有<code>UITabBarController</code>我们会这样获取导航控制器:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIViewController</span> *viewC = [[<span class="built_in">UIViewController</span> alloc]init];</div><div class="line"><span class="comment">// 取出当前的导航控制器</span></div><div class="line"><span class="built_in">UITabBarController</span> *tabBarVc = (<span class="built_in">UITabBarController</span> *)[<span class="built_in">UIApplication</span> sharedApplication].keyWindow.rootViewController;</div><div class="line"><span class="comment">//The view controller associated with the currently selected tab item</span></div><div class="line"><span class="comment">//当前选择的导航控制器</span></div><div class="line"><span class="built_in">UINavigationController</span> *navC = (<span class="built_in">UINavigationController</span> *)tabBarVc.selectedViewController;</div><div class="line">[navC pushViewController:viewC animated:<span class="literal">YES</span>];</div></pre></td></tr></table></figure></p>
+<p>(2)如果通过<code>modal</code>出来的控制器并且用<code>UITabBarController</code>不好使, 我们会这样获取导航控制器:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIViewController</span> *viewC = [[<span class="built_in">UIViewController</span> alloc]init];</div><div class="line"><span class="comment">//获取最终的根控制器</span></div><div class="line"><span class="built_in">UIViewController</span> *rootC = [<span class="built_in">UIApplication</span> sharedApplication].keyWindow.rootViewController;</div><div class="line"><span class="comment">//如果是modal出来的控制器,它就会通过presentedViewController拿到上一个控制器</span></div><div class="line"><span class="built_in">UINavigationController</span> *navC = (<span class="built_in">UINavigationController</span> *)rootC.presentedViewController;</div><div class="line">[navC pushViewController:viewC animated:<span class="literal">YES</span>];</div></pre></td></tr></table></figure></p>
+<p><strong>6.修改了leftBarButtonItem如何恢复系统侧滑返回功能</strong><br>在开发中系统的<code>leftBarButtonItem</code>不是我们想要的, 如果我们修改了<code>leftBarButtonItem</code>那么系统自带的侧滑返回功能就不好使了!</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-ce3b3b2847a9eac1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="leftBarButtonItem"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置代理</span></div><div class="line"><span class="keyword">self</span>.interactivePopGestureRecognizer.delegate = <span class="keyword">self</span>;</div><div class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;UIGestureRecognizerDelegate&gt;</span></span></div><div class="line"><span class="comment">//实现代理方法:return YES :手势有效, NO :手势无效</span></div><div class="line">- (<span class="built_in">BOOL</span>)gestureRecognizerShouldBegin:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer</div><div class="line">&#123;</div><div class="line">    <span class="comment">//当导航控制器的子控制器个数 大于1 手势才有效</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.childViewControllers.count &gt; <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>7.重新认识Bounds</strong><br>我们之前对<code>Bounds</code>理解就是以自己的左上角为坐标原点, 也就是说<code>Bounds</code>的<code>x</code>值<code>y</code>值是<code>0</code>, 但是<code>Bounds</code>的<code>x</code>值<code>y</code>值有可能是正数也可能是负数, 不一定是<code>0</code>那么<code>Bounds</code>真正是什么意思呢 ?</p>
+<ul>
+<li><code>Bounds</code>: 是以自己<code>内容</code>的左上角为坐标原点, 计算出自己的位置和大小</li>
+<li><code>Frame</code>: 是以父类<code>内容</code>的左上角为坐标原点, 计算出自己的位置和大小<br>那什么是<code>内容</code>呢 ? 首先<code>内容</code>是抽象的, 一个控件不仅仅只有一层矩形框的, 他有很多<code>图层</code>的, 这个<code>内容</code>其实就可以抽象成一个控件的内部<code>图层</code><br><code>内容</code>:就是<code>内部</code>的东西, 它的子控件也属于内容,也就是说修改了<code>Buonds</code>子控件的位置也会跟着改变</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-c7feac99bfaa4f57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Buonds"></p>
+<p>上图蓝色和绿色是属于一个控件, 只不过蓝色是控件本身, 绿色是控件的<code>内容</code>, 我们改变这个控件的<code>Bounds</code>的<code>x</code>值<code>y</code>值为<code>-20</code>, 内容位置改变, 控件本身位置不变!<br><strong>8.枚举中使用&lt;&lt;(左移)</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-85781a816eaa66df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="&lt;&lt;"></p>
+<p>上图是一个苹果官方的一个枚举, 我们主要是看<code>&lt;&lt;</code>(它是c语言中的位运算左移的意思)的用处, 如果在枚举中只要<code>&lt;&lt;</code>那它的含义就是可以通过<code>|</code>进行<code>组合使用</code>:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//随便添加一个UITextField</span></div><div class="line"><span class="built_in">UITextField</span> *field = [<span class="built_in">UITextField</span> new];</div><div class="line"><span class="comment">//可以通过 | 组合使用UIControlEventEditingDidBegin, UIControlEventValueChanged,UIControlEventEditingDidEnd</span></div><div class="line">[field addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(textFieldDidChanged) forControlEvents:<span class="built_in">UIControlEventEditingDidBegin</span> | <span class="built_in">UIControlEventValueChanged</span> | <span class="built_in">UIControlEventEditingDidEnd</span>];</div><div class="line">[<span class="keyword">self</span>.view addSubview:field];</div></pre></td></tr></table></figure></p>
+<p>如果枚举没有<code>&lt;&lt;</code>就不能组合使用, 那它有什么规律呢<code>1 &lt;&lt; n 代表:2的n次方</code>:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1 &lt;&lt; 16 代表:2的16次方</span></div><div class="line">UIControlEventEditingDidBegin = <span class="number">1</span> &lt;&lt; <span class="number">16</span>,</div><div class="line"><span class="comment">//1 &lt;&lt; 17 代表:2的17次方</span></div><div class="line">UIControlEventEditingChanged  = <span class="number">1</span> &lt;&lt; <span class="number">17</span>,</div><div class="line"><span class="comment">//1 &lt;&lt; 18 代表:2的18次方</span></div><div class="line">UIControlEventEditingDidEnd  = <span class="number">1</span> &lt;&lt; <span class="number">18</span>,</div><div class="line"><span class="comment">//1 &lt;&lt; 19 代表:2的19次方</span></div><div class="line">UIControlEventEditingDidEndOnExit  = <span class="number">1</span> &lt;&lt; <span class="number">19</span>,</div></pre></td></tr></table></figure></p>
+<p>原来这样的枚举可以组合使用, 那苹果官方是怎么知道我们多个条件组合使用了呢 ?<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSUInteger</span> controlEvents = <span class="built_in">UIControlEventEditingDidBegin</span> | <span class="built_in">UIControlEventValueChanged</span> | <span class="built_in">UIControlEventEditingDidEnd</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"> //通过 &amp; 符号来判断是否包含:</div><div class="line"> UIControlEventEditingDidBegin,</div><div class="line"> UIControlEventValueChanged,</div><div class="line"> UIControlEventEditingDidEnd</div><div class="line"> */</div><div class="line"><span class="keyword">if</span> (controlEvents &amp; <span class="built_in">UIControlEventEditingDidBegin</span>) &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"UIControlEventEditingDidBegin"</span>);</div><div class="line">    </div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (controlEvents &amp; <span class="built_in">UIControlEventValueChanged</span>) &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"UIControlEventValueChanged"</span>);</div><div class="line">    </div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (controlEvents &amp; <span class="built_in">UIControlEventEditingDidEnd</span>) &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"UIControlEventEditingDidEnd"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过以上方法就能判断组合的状态, 在开发中这个<code>&lt;&lt;</code>意义很大的, 如果多个条件中, 任何一个条件满足我们也可用带<code>&lt;&lt;</code>的枚举给外界组合使用, 就像苹果官方添加<code>&lt;&lt;</code>使用是一样的!</p>
+<p><strong>9.Xib相关的一些问题</strong></p>
+<p>下图我们可以看出来, 如果通过<code>xib</code>加载出来的<code>view</code>尺寸是不正确的, 在<code>xib</code>中这个<code>view</code>不管你怎么设置都是治标不治本,我们会在<code>layoutSubviews</code>通过自己的宽度来计算子控件的尺寸!<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在这里拿出的宽度是不正确的</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">awakeFromNib</span> &#123;&#125;</div><div class="line"><span class="comment">//对尺寸计算我们一般拿到这个方法中计算(拿到自己宽度计算子控件的尺寸)</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">layoutSubviews</span> &#123;</div><div class="line">    <span class="selector-attr">[super layoutSubviews]</span>;</div><div class="line">    <span class="comment">//在这里拿到自己的宽度是正确的</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-2beb95d924c448ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="xlb"></p>
+<p>那我们也会想到, 如果控制器的<code>view</code>也是<code>xib</code>创建的, 我们该怎么办 ? 其实不管控制器是在哪里创建的, 我们只要只在<code>viewDidLayoutSubviews</code>方法中拿到控制器尺寸来计算子控件尺寸都是正确的, 所以说建议大家以后在<code>viewDidLayoutSubviews</code>计算尺寸:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">viewDidLayoutSubviews</span> &#123;</div><div class="line">    <span class="selector-attr">[super viewDidLayoutSubviews]</span>;</div><div class="line">    <span class="comment">//在这里计算尺寸</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>10.设置导航栏的背景颜色用barTintColor</strong><br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.navigationBar.barTintColor = [UIColor colorWithRed:<span class="number">3</span>/<span class="number">255.0f</span> green:<span class="number">101</span>/<span class="number">255.0f</span> blue:<span class="number">100</span>/<span class="number">255.0f</span> alpha:<span class="number">1.0f</span>] ;</div></pre></td></tr></table></figure></p>
+<p><strong>11.获取.plist文件:</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.从本地文件中读取数据(在实际项目开发中在这写网络请求)</span></div><div class="line"><span class="comment">// 获取文件本地的路径</span></div><div class="line"><span class="built_in">NSString</span> *filePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:fileName ofType:<span class="string">@"json"</span>];</div><div class="line"><span class="comment">// 把本地数据读取出来，不需要任何转换，就是二进制数据</span></div><div class="line"><span class="built_in">NSData</span> *jsonData = [[<span class="built_in">NSData</span> alloc] initWithContentsOfFile:filePath];</div></pre></td></tr></table></figure></p>
+<p><strong>12.NSString字符串转换成NSData类型的数据:</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// NSString字符串转换成NSData类型的数据</span></div><div class="line"><span class="built_in">NSData</span> *jsondata = [result dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>] ;</div><div class="line"><span class="built_in">NSDictionary</span> *dic = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:jsondata options:<span class="built_in">NSJSONReadingMutableContainers</span> error:<span class="literal">nil</span>] ;</div></pre></td></tr></table></figure></p>
+<p><strong>13.获取文本的高度:</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Label中文字的大小默认是18</span></div><div class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    WeiBoModel *weiboModel = _dataList[indexPath.row] ;</div><div class="line">    <span class="built_in">NSString</span> *textString = weiboModel.text ;</div><div class="line">    <span class="built_in">CGSize</span> size = [textString sizeWithFont:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">18</span>] constrainedToSize:<span class="built_in">CGSizeMake</span>(kScreenWidth, <span class="number">1000</span>)] ;</div><div class="line">    <span class="keyword">return</span> size.height +<span class="number">20</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>14.设置图片拉伸:</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置图片拉伸</span></div><div class="line">UIImage *bgImage = [UIImage <span class="string">imageNamed:</span>@<span class="string">"userinfo_shadow_pic.png"</span>];</div><div class="line">_bgImageView.image = [bgImage <span class="string">stretchableImageWithLeftCapWidth:</span><span class="number">15</span> <span class="string">topCapHeight:</span><span class="number">15</span>];</div><div class="line">设置图片圆角:</div><div class="line"><span class="comment">// 设置圆角</span></div><div class="line">_userImageView.layer.cornerRadius = <span class="number">25</span>;</div><div class="line">_userImageView.layer.masksToBounds = YES;</div><div class="line">设置点击cell然后不留下点击的痕迹:</div><div class="line"><span class="comment">// 设置没有痕迹</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">tableView:</span>(UITableView *)tableView <span class="string">didSelectRowAtIndexPath:</span>(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    [tableView <span class="string">deselectRowAtIndexPath:</span>indexPath <span class="string">animated:</span>YES] ;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>15.设置button中图片和文本的位置</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">button.imageEdgeInsets = UIEdgeInsetsMake(<span class="number">0</span>, <span class="number">-100</span>, <span class="number">0</span>, <span class="number">0</span>) ;</div><div class="line">button.titleEdgeInsets = UIEdgeInsetsMake(<span class="number">0</span>, <span class="number">-100</span>, <span class="number">0</span>, <span class="number">0</span>) ;</div></pre></td></tr></table></figure></p>
+<p><strong>16.延迟调用</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 延迟两秒钟调用yanchiAction方法</span></div><div class="line">[self <span class="string">performSelector:</span><span class="meta">@selector</span>(yanchiAction) <span class="string">withObject:</span>nil <span class="string">afterDelay:</span><span class="number">0.2</span>] ;</div></pre></td></tr></table></figure></p>
+<p><strong>17.刷新UICollectionView视图</strong><br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="section">[cell setNeedsLayout]</span> <span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p><strong>18.设置内填充</strong></p>
+<p><code>self.contentInset = UIEdgeInsetsMake(0, 0, 0, 0) ;</code></p>
+<p><strong>19.设置tabBarView 的标签栏没有内填充效果</strong><br><code>self.automaticallyAdjustsScrollViewInsets = NO ;</code></p>
+<p><strong>20.判断字符串是否的开头</strong><br><code>if([context hasPrefix:@&quot;@&quot;]) ;</code></p>
+<p><strong>21.请求数据从控制台打印成data类型的数据方便进行json解析</strong><br><code>po operation.responseString</code></p>
+<p><strong>22.禁止滑动视图滑动</strong><br><code>scrollView.scrollEnabled = NO;</code></p>
+<p><strong>23.设置超出父视图部分不减切</strong><br>_scrollView.clipsToBounds = NO ;</p>
+<p><strong>24.取消UIScrollView的弹性效果</strong><br><code>scrollView.bounces = NO;</code></p>
+<p><strong>25.ScrollView禁止滑动</strong><br><code>scrollView.scrollEnabled = YES;</code></p>
+<p><strong>26.判断点击的是哪个视图，返回值是个视图</strong><br><code>tap.view.tap</code></p>
+<p><strong>27.这是tableView没有默认的分割线</strong><br><code>self.separatorStyle = NO ;</code></p>
+<p><strong>28.子视图超过父视图点击没反应</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(注意：如果父视图是<span class="built_in">UIScrollView</span>，需要设置<span class="keyword">self</span>.bgScrollView.clipsToBounds = <span class="literal">NO</span>;，因为<span class="built_in">UIScrollView</span>默认会进行裁剪，会导致超出的部分没有了。)</div><div class="line"></div><div class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</div><div class="line">    <span class="built_in">CGPoint</span> hitPoint = [<span class="keyword">self</span>.cardView.dayRateHelp convertPoint:point fromView:<span class="keyword">self</span>];</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.cardView.dayRateHelp pointInside:hitPoint withEvent:event])</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.cardView.dayRateHelp;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> hitTest:point withEvent:event];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>29.用KVC修改UIPageControl的选中图片和默认图片（系统默认是不允许修改的）</strong><br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="literal">self</span>.pageControl <span class="built_in">set</span>Value:currentImage <span class="keyword">for</span>Key:@<span class="string">"_currentPageImage"</span>];</div><div class="line">[<span class="literal">self</span>.pageControl <span class="built_in">set</span>Value:pageImage <span class="keyword">for</span>Key:@<span class="string">"_pageImage"</span>];</div></pre></td></tr></table></figure></p>
+<p><strong>30.清除文本视图按钮</strong><br><code>textField.clearButtonMode = UITextFieldViewModeWhileEditing;</code></p>
+<p><strong>31.点击单元格不留下点击的痕迹</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">tableView</span><span class="selector-pseudo">:(UITableView</span> *)<span class="selector-tag">tableView</span> <span class="selector-tag">didSelectRowAtIndexPath</span><span class="selector-pseudo">:(NSIndexPath</span> *)<span class="selector-tag">indexPath</span></div><div class="line">&#123;</div><div class="line">    <span class="selector-attr">[tableView deselectRowAtIndexPath:indexPath animated:YES]</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>32.设置单元格选中的样式（无样式）</strong><br><code>cell.selectionStyle = UITableViewCellSelectionStyleNone ;</code></p>
+<p><strong>33.设置标签栏的选种文字和图片颜色</strong><br><code>self.tabBar.tintColor = [UIColor redColor] ;</code></p>
+<p><strong>34.故事版创建静态单元格，注意创建的UITableViewControl 文件。m文件中有部分自动创建的代码时需要删除的，如果是集成于baseTableViewControl也要删除代码</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取故事版</span></div><div class="line">UIStoryboard *board = [UIStoryboard <span class="string">storyboardWithName:</span>@<span class="string">"Main"</span> <span class="string">bundle:</span>nil];</div><div class="line"><span class="comment">// 获取视图</span></div><div class="line">MyTableViewController *myView = [board <span class="string">instantiateViewControllerWithIdentifier:</span>@<span class="string">"MyID"</span>] ;</div></pre></td></tr></table></figure>
+<p><strong>35.判断一个字典里是否有某个key</strong><br><code>if([[dic allKeys]containsObject:@&quot;key&quot;])</code></p>
+<p><strong>36.随机数</strong><br><code>long price = arc4random()%10*1000 ;</code></p>
+<p><strong>37.刷新视图</strong><br><code>[label setNeedsDisplay] ;</code></p>
+<p><strong>38.延迟几秒钟执行</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self <span class="string">performSelector:</span><span class="meta">@selector</span>(delayMethod) <span class="string">withObject:</span>nil <span class="string">afterDelay:</span><span class="number">1.0</span>f];</div></pre></td></tr></table></figure></p>
+<p><strong>39.去掉cell的分割线(如果是用xib做的，右边也有这个属性，设置为none即可)</strong><br><code>tableView.separatorStyle = UITableViewCellSeparatorStyleNone;</code></p>
+<p><strong>40.取消cell选中效果</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">tableView.selectionStyle = <span class="built_in">UITableViewCellSelectionStyleNone</span>;</div><div class="line">-   数据发生改变后一定要重新刷新数据</div><div class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</div><div class="line">    </div><div class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *  clearsSelectionOnViewWillAppear</div><div class="line">     *  这个是它的一个属性，默认是yes 返回列表页面的时候，默认取消这行的选中状态，可是我们已经把这条数据删除的话，会出问题</div><div class="line">     *  如果你点击了一行cell，进入下一个页面，在这个页面中，我们把本该属于这行cell的数据给删了</div><div class="line">     *  如果  self.clearsSelectionOnViewWillAppear = yes，返回前一页时，会刷新这一行cell，执行cellForRow方法，结果数据却没了，就崩溃了</div><div class="line">     *  如果  self.clearsSelectionOnViewWillAppear = no，不会刷新这一行cell，就没事儿了</div><div class="line">     */</div><div class="line">    <span class="keyword">self</span>.clearsSelectionOnViewWillAppear =<span class="literal">NO</span>;</div><div class="line">    [<span class="keyword">self</span>.tableView reloadData];----&gt;并不一定要放在这里,看取得数据在什么位置,刷新数据在什么位置</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>41.awakeFromNib(storyboard)和 viewDidLoad的区别</strong><br><figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">awakeFromNib</div><div class="line">当.nib文件被加载的时候，会发送一个awakeFromNib的消息到.nib文件中的每个对象，每个对象都可以定义自己的 awakeFromNib函数来响应这个消息，执行一些必要的操作。也就是说通过nib文件创建<span class="keyword">view</span>对象是执行awakeFromNib 。</div><div class="line">viewDidLoad</div><div class="line">当<span class="keyword">view</span>对象被加载到内存是就会执行viewDidLoad，所以不管通过nib文件还是代码的方式创建对象都会执行viewDidLoad。awakeFromNib和viewDidLoad的区别</div></pre></td></tr></table></figure></p>
+<p><strong>42.将汉字转换为不带音调的拼音</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    - (<span class="built_in">NSString</span> *)transformMandarinToLatin:(<span class="built_in">NSString</span> *)string</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSMutableString</span> *preString = [string mutableCopy];</div><div class="line">    <span class="comment">/*转换成成带音 调的拼音*/</span></div><div class="line">    <span class="built_in">CFStringTransform</span>((<span class="built_in">CFMutableStringRef</span>)preString, <span class="literal">NULL</span>, kCFStringTransformMandarinLatin, <span class="literal">NO</span>);</div><div class="line">    <span class="comment">/*去掉音调*/</span></div><div class="line">    <span class="built_in">CFStringTransform</span>((<span class="built_in">CFMutableStringRef</span>)preString, <span class="literal">NULL</span>, kCFStringTransformStripDiacritics, <span class="literal">NO</span>);</div><div class="line">    <span class="keyword">return</span> preString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>43.图片适应问题(超出部分裁剪)</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">有两个view： view1,view2</div><div class="line">view2添加view1到中，如果view2大于view1，或者view2的坐标不全在view1的范围内，view2是盖着view1的，意思就是超出的部份也会画出来</div><div class="line"><span class="built_in">UIView</span>有一个属性，clipsTobounds 默认情况下是<span class="literal">NO</span>。</div><div class="line">如果，我们想要view2把超出的那部份隐藏起来的话，就得改变它的父视图也就view1的clipsTobounds属性值。</div><div class="line">view1.clipsTobounds = <span class="literal">YES</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>44.第三方FMDB数据库操作问题</strong><br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Unknown <span class="built_in">error</span> finalizing <span class="keyword">or</span> resetting statement \(<span class="number">5</span>: database <span class="built_in">is</span> locked\)</div><div class="line">在使用fmdb时有时候一不小心没写好代码就会这样子啦，为什么呢，其实呢，应该是在前面代码中有调用数据库而且并没有调用[db <span class="built_in">close</span>]就直接跳出结果来了，所以在前面的数据库操作中先运行[db <span class="built_in">close</span>]再返回数据即可；</div></pre></td></tr></table></figure></p>
+<p><strong>45.通过注册键盘显示的消息</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] <span class="string">addObserver:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(<span class="string">keyboardWillShown:</span>)</div><div class="line"><span class="string">name:</span>UIKeyboardWillShowNotification <span class="string">object:</span>nil];</div><div class="line">- (<span class="keyword">void</span>)<span class="string">keyboardWillShown:</span>(NSNotification *)aNotification&#123;</div><div class="line">    <span class="comment">// 键盘信息字典</span></div><div class="line">    NSDictionary *info = [aNotification userInfo];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>46.改变导航栏中间标题颜色</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIColor</span> * color = [<span class="built_in">UIColor</span> whiteColor];</div><div class="line"><span class="built_in">NSDictionary</span> * dict = [<span class="built_in">NSDictionary</span> dictionaryWithObject: colorforKey:<span class="built_in">NSForegroundColorAttributeName</span>];</div><div class="line"><span class="keyword">self</span>.navigationController.navigationBar.titleTextAttributes = dict;</div><div class="line"><span class="built_in">UIWebView</span>要实现横向滑动，跟<span class="built_in">UIWebview</span>的增高没有关系，你需要设定<span class="built_in">UIWebView</span>的属性scrollView的contentsize.width大于<span class="built_in">UIWebView</span>的frame.size.width.</div></pre></td></tr></table></figure></p>
+<p><strong>47.如何监测系统键盘的弹出(有第三方框架很方便)</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">通过注册键盘显示的消息</div><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyboardWillShown:)</div><div class="line"></div><div class="line">name:<span class="built_in">UIKeyboardWillShowNotification</span> object:<span class="literal">nil</span>];</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)keyboardWillShown:(<span class="built_in">NSNotification</span>*)aNotification&#123;</div><div class="line">    <span class="comment">// 键盘信息字典</span></div><div class="line">    <span class="built_in">NSDictionary</span>* info = [aNotification userInfo];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>48.改变状态栏颜色</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">在Info<span class="selector-class">.plist</span> 添加</div><div class="line"></div><div class="line"><span class="selector-tag">UIViewControllerBasedStatusBarAppearance</span>, 设置值为 <span class="selector-tag">NO</span></div><div class="line"></div><div class="line">然后再<span class="selector-tag">didFinishLaunchingWithOptions</span>的<span class="selector-tag">AppDelegate</span>， 添加这些代码：</div><div class="line"></div><div class="line"><span class="selector-attr">[application setStatusBarHidden:NO]</span>;</div><div class="line"><span class="selector-attr">[application setStatusBarStyle:UIStatusBarStyleLightContent]</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>49.路径截取字符串的一些处理</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span> 从路径中获得完整的文件名（带后缀）</div><div class="line"></div><div class="line">exestr = [filePath lastPathComponent];</div><div class="line"></div><div class="line"><span class="regexp">//</span> 获得文件名（不带后缀）</div><div class="line"></div><div class="line">exestr = [exestr stringByDeletingPathExtension];</div><div class="line"></div><div class="line"><span class="regexp">//</span> 获得文件的扩展类型（不带<span class="string">'.'</span>）</div><div class="line"></div><div class="line">exestr = [filePath pathExtension];</div></pre></td></tr></table></figure></p>
+<p><strong>50.第三方库不支持64位造成编译错误</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Xcode升级到<span class="number">5.1</span>，apple默认让所有app都通过<span class="number">64</span>位编译器编译。通过下面的方式可以关闭： 选中Targets—&gt;Build Settings—&gt;Architectures。双击Architectures，选择other，删除$(ARCH_STANDARD)(点’-’)，然后增加armv7和armv7s(点‘+’)。clean一下再编译就行了。</div></pre></td></tr></table></figure></p>
+<p><strong>51.移动导航栏的方法:</strong><br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;QuartzCore/QuartzCore.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kNavBarDefaultPosition CGPointMake(160, 22)</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (contentOffsetY &gt; _scrollViewContentOffsetYThreshold) &#123;</div><div class="line">    </div><div class="line">    layer.<span class="built_in">position</span> = CGPointMake(layer.<span class="built_in">position</span>.x,</div><div class="line">                                 </div><div class="line">                                 <span class="number">22</span> - <span class="built_in">MIN</span>((contentOffsetY - _scrollViewContentOffsetYThreshold), <span class="number">48.0</span>));</div><div class="line">    </div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="keyword">else</span></div><div class="line">    </div><div class="line">&#123;</div><div class="line">    </div><div class="line">    layer.<span class="built_in">position</span> = kNavBarDefaultPosition;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>52.CGRect的一些相关方法:</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIView</span> *view = [[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">120</span>, <span class="number">120</span>, <span class="number">120</span>)];</div><div class="line"></div><div class="line"><span class="comment">// 获取矩形左边缘的x坐标</span></div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MinX = %f"</span>,<span class="built_in">CGRectGetMinX</span>(view.frame));</div><div class="line"></div><div class="line"><span class="comment">// 获取矩形顶部的y坐标</span></div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MinY = %f"</span>,<span class="built_in">CGRectGetMinY</span>(view.frame));</div><div class="line"></div><div class="line"><span class="comment">// 获取矩形中心点的坐标</span></div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MidX = %f"</span>,<span class="built_in">CGRectGetMidX</span>(view.frame));</div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MidY = %f"</span>,<span class="built_in">CGRectGetMidY</span>(view.frame));</div><div class="line"></div><div class="line"><span class="comment">// 获取矩形右边缘的x坐标</span></div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MaxX = %f"</span>,<span class="built_in">CGRectGetMaxX</span>(view.frame));</div><div class="line"></div><div class="line"><span class="comment">// 获取矩形底部的y坐标</span></div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MaxY = %f"</span>,<span class="built_in">CGRectGetMaxY</span>(view.frame));</div><div class="line"></div><div class="line"><span class="comment">// 返回手势在一个UIView上的触摸点坐标</span></div><div class="line"></div><div class="line">- (<span class="built_in">CGPoint</span>)locationInView:(<span class="built_in">UIView</span> *)view：</div><div class="line"></div><div class="line"><span class="comment">// 判断矩形是否包含了一个点</span></div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"isRectContainPoint = %d"</span>,<span class="built_in">CGRectContainsPoint</span>(view.frame, <span class="built_in">CGPointMake</span>(<span class="number">160</span>, <span class="number">180</span>)));</div><div class="line"></div><div class="line"><span class="built_in">CGRectInset</span> <span class="built_in">CGRect</span> <span class="built_in">CGRectInset</span> (</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> rect,</div><div class="line"></div><div class="line"><span class="built_in">CGFloat</span> dx,</div><div class="line"></div><div class="line"><span class="built_in">CGFloat</span> dy</div><div class="line"></div><div class="line">);</div><div class="line"></div><div class="line">该结构体的应用是以原rect为中心，再参考dx，dy，进行缩放或者放大。</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> r1 = <span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> r3 = <span class="built_in">CGRectInset</span>(r1, <span class="number">10</span>, <span class="number">8</span>);<span class="comment">//结果应为:110,108,30,34 具体小多少都是要参照dx和dy来判定的。</span></div><div class="line"></div><div class="line"><span class="built_in">CGRectOffset</span> <span class="built_in">CGRect</span> <span class="built_in">CGRectOffset</span>(</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> rect,</div><div class="line"></div><div class="line"><span class="built_in">CGFloat</span> dx,</div><div class="line"></div><div class="line"><span class="built_in">CGFloat</span> dy</div><div class="line"></div><div class="line">); 相对于源矩形原点rect（左上角的点）沿x轴和y轴偏移, 再rect基础上沿x轴和y轴偏移</div><div class="line"></div><div class="line"><span class="keyword">float</span> offset = <span class="number">125.0</span>;</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> r1 = <span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">5</span>);</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> r2 = <span class="built_in">CGRectOffset</span>(r1, offset, offset);</div><div class="line"></div><div class="line">结果：</div><div class="line"></div><div class="line">&#123;&#123;<span class="number">225</span>, <span class="number">225</span>&#125;, &#123;<span class="number">5</span>, <span class="number">5</span>&#125;&#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 将像素point由point所在视图转换到目标视图view中，返回在目标视图view中的像素值</span></div><div class="line">    </div><div class="line">    - (<span class="built_in">CGPoint</span>)convertPoint:(<span class="built_in">CGPoint</span>)point toView:(<span class="built_in">UIView</span> *)view;</div><div class="line"></div><div class="line"><span class="comment">// 将像素point从view中转换到当前视图中，返回在当前视图中的像素值</span></div><div class="line"></div><div class="line">- (<span class="built_in">CGPoint</span>)convertPoint:(<span class="built_in">CGPoint</span>)point fromView:(<span class="built_in">UIView</span> *)view;</div><div class="line"></div><div class="line"><span class="comment">// 将rect由rect所在视图转换到目标视图view中，返回在目标视图view中的rect</span></div><div class="line"></div><div class="line">- (<span class="built_in">CGRect</span>)convertRect:(<span class="built_in">CGRect</span>)rect toView:(<span class="built_in">UIView</span> *)view;</div><div class="line"></div><div class="line"><span class="comment">// 将rect从view中转换到当前视图中，返回在当前视图中的rect</span></div><div class="line"></div><div class="line">- (<span class="built_in">CGRect</span>)convertRect:(<span class="built_in">CGRect</span>)rect fromView:(<span class="built_in">UIView</span> *)view;</div><div class="line"></div><div class="line">例把<span class="built_in">UITableViewCell</span>中的subview(btn)的frame转换到 controllerA中</div><div class="line"></div><div class="line"><span class="comment">// controllerA 中有一个UITableView, UITableView里有多行UITableVieCell，cell上放有一个button</span></div><div class="line"></div><div class="line"><span class="comment">// 在controllerA中实现:</span></div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> rc = [cell convertRect:cell.btn.frame toView:<span class="keyword">self</span>.view];</div><div class="line"></div><div class="line">或</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> rc = [<span class="keyword">self</span>.view convertRect:cell.btn.frame fromView:cell];</div><div class="line"></div><div class="line"><span class="comment">// 此rc为btn在controllerA中的rect</span></div><div class="line"></div><div class="line">或当已知btn时：</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> rc = [btn.superview convertRect:btn.frame toView:<span class="keyword">self</span>.view];</div><div class="line"></div><div class="line">或</div><div class="line"></div><div class="line"><span class="built_in">CGRect</span> rc = [<span class="keyword">self</span>.view convertRect:btn.frame fromView:btn.superview];</div></pre></td></tr></table></figure></p>
+<p><strong>53.弱引用的几种写法</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">weak</span> <span class="keyword">typeof</span>(&amp;_<span class="keyword">self</span>)weakSelf = <span class="keyword">self</span>;</div><div class="line"></div><div class="line">__<span class="keyword">weak</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</div><div class="line"></div><div class="line">__<span class="keyword">weak</span> XxxViewController _weakSelf = <span class="keyword">self</span>;</div><div class="line"></div><div class="line">__<span class="keyword">weak</span> <span class="keyword">id</span> weakSelf = <span class="keyword">self</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>54.CGImageRef与UIImage的互转</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGImage</span>和<span class="built_in">CGImageRef</span>这两个应当是用来重绘图形的类，它们在应用时是按照图像的像素矩阵来绘制图片的，它们可以用来处理bitmap。</div><div class="line"></div><div class="line"><span class="built_in">CGImageRef</span>与<span class="built_in">UIImage</span>的互转</div><div class="line"></div><div class="line"><span class="comment">// CGImageRef转换成UIImage CGImageRef</span></div><div class="line"></div><div class="line">iOffscreen = <span class="built_in">CGBitmapContextCreateImage</span>(context);</div><div class="line"></div><div class="line"><span class="built_in">UIImage</span>* image = [<span class="built_in">UIImage</span> imageWithCGImage: iOffscreen];</div><div class="line"></div><div class="line"><span class="comment">// UIImage转换成CGImageRef</span></div><div class="line"></div><div class="line"><span class="built_in">UIImage</span> *loadImage=[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"888.png"</span>];</div><div class="line"></div><div class="line"><span class="built_in">CGImageRef</span> cgimage=loadImage.CGImage;</div></pre></td></tr></table></figure></p>
+<p><strong>55.jpg和png图片存储沙盒</strong><br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="type">NSData</span> *<span class="class"><span class="keyword">data</span>;</span></div><div class="line"></div><div class="line"><span class="title">if</span> (<span class="type">UIImagePNGRepresentation</span>(image) == nil) &#123;</div><div class="line">    </div><div class="line">    <span class="class"><span class="keyword">data</span> = <span class="type">UIImageJPEGRepresentation</span>(<span class="title">image</span>, 1);</span></div><div class="line">    </div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    </div><div class="line">    <span class="class"><span class="keyword">data</span> = <span class="type">UIImagePNGRepresentation</span>(<span class="title">image</span>);</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>55.UIImagePNGRepresentation转换PNG格式的图片为二进制，如果图片的格式为JPEG则返回nil；</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[fileManager <span class="string">createFileAtPath:</span>[filePath <span class="string">stringByAppendingString:</span>@<span class="string">"/image.png"</span>] <span class="string">contents:</span>data <span class="string">attributes:</span>nil];</div></pre></td></tr></table></figure></p>
+<p><strong>56.  将图片保存为PNG格式</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[fileManager <span class="string">createFileAtPath:</span>[filePath <span class="string">stringByAppendingString:</span>@<span class="string">"/image.jpg"</span>] <span class="string">contents:</span>data <span class="string">attributes:</span>nil];</div></pre></td></tr></table></figure></p>
+<p><strong>57.  将图片保存为JPEG格式</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">我们也可以写成下面的格式存储图片</div><div class="line"></div><div class="line">NSString *pngImage = [filePath <span class="string">stringByAppendingPathComponent:</span>@<span class="string">"Documents/image.png"</span>];</div><div class="line"></div><div class="line">NSString *jpgImage = [filePath <span class="string">stringByAppendingPathComponent:</span>@<span class="string">"Documents/image.jpg"</span>];</div><div class="line"></div><div class="line">[data <span class="string">writeToFile:</span>pngImage <span class="string">atomically:</span>YES];</div><div class="line"></div><div class="line">[data <span class="string">writeToFile:</span>jpgImage <span class="string">atomically:</span>YES];</div></pre></td></tr></table></figure></p>
+<p><strong>58.修改button上字体大小</strong><br><code>button.titleLabel.font = [UIFont systemFontOfSize: 28.0];</code></p>
+<p><strong>59.两个经纬度之间的相对距离</strong><br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CLLocation *orig=<span class="string">[[CLLocation alloc] initWithLatitude:[mainDelegate.latitude_self doubleValue]  longitude:[mainDelegate.longitude_self doubleValue]]</span>;</div><div class="line"></div><div class="line">CLLocation* dist=<span class="string">[[CLLocation alloc] initWithLatitude:[tmpNewsModel.latitude doubleValue] longitude:[tmpNewsModel.longitude doubleValue]]</span>;</div><div class="line"></div><div class="line">CLLocationDistance kilometers=[orig distanceFromLocation:dist]/<span class="number">1000</span>;</div><div class="line"></div><div class="line">NSLog(@<span class="string">"距离:"</span>,kilometers);</div></pre></td></tr></table></figure></p>
+<p><strong>60.真机调试错误</strong><br>获得开发签名后在真机器上部署测试，在点击Build And Run后，提示The executable was signed with invalid entitlements.（The entitlements specified in your application’s Code Signing Entitlements file do not match those specified in your provisioning profile.）错误-&gt;(0xE8008016)，<br>解决方法如下：</p>
+<p>第一步：在工程中添加文件new file，选择Code Signing 中的Entitlements，添加后名称为Entitlements.plist。</p>
+<p>第二步：点击Entitlements.plist进行编辑，删除所有Root下的Key，然后添加一个Boolean类型，名称为get-task-allow的Key，状态为CHECKED</p>
+<p>第三步：在Targets中的Info中的Build选项卡中的Code Signing Entitlements的值设为Entitlements.plist，重新Build即可解决</p>
+<p><strong>61.获取视频的第一帧图片（用来在视频列表默认显示一个图片）</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">+ (<span class="built_in">UIImage</span> *)getFirstFrameOfVideoWithVideoURL:(<span class="built_in">NSURL</span> *)videoURL</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="built_in">AVURLAsset</span> *asset = [[<span class="built_in">AVURLAsset</span> alloc] initWithURL:videoURL options:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSParameterAssert</span>(asset);</div><div class="line">    </div><div class="line">    <span class="built_in">AVAssetImageGenerator</span> *assetIG = [[<span class="built_in">AVAssetImageGenerator</span> alloc] initWithAsset:asset];</div><div class="line">    </div><div class="line">    assetIG.appliesPreferredTrackTransform = <span class="literal">YES</span>;</div><div class="line">    </div><div class="line">    assetIG.apertureMode = <span class="built_in">AVAssetImageGeneratorApertureModeEncodedPixels</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">CGImageRef</span> thumbnailImageRef = <span class="literal">NULL</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">CFTimeInterval</span> thumbnailImageTime = <span class="number">60</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">NSError</span> *igError = <span class="literal">nil</span>;</div><div class="line">    </div><div class="line">    thumbnailImageRef = [assetIG copyCGImageAtTime:<span class="built_in">CMTimeMake</span>(thumbnailImageTime, <span class="number">60</span>) actualTime:<span class="literal">NULL</span> error:&amp;igError];</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (!thumbnailImageRef)</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"thumbnailImageGenerationError %@"</span>, igError );</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *thumbnailImage = thumbnailImageRef ? [[<span class="built_in">UIImage</span> alloc] initWithCGImage:thumbnailImageRef] : <span class="literal">nil</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> thumbnailImage;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>62.storyboard中放置ScrollView无法滚动的情况</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">    - (<span class="keyword">void</span>)viewDidLayoutSubviews</div><div class="line">        </div><div class="line">        &#123;</div><div class="line">            </div><div class="line">            [<span class="keyword">super</span> viewDidLayoutSubviews];</div><div class="line">            </div><div class="line">            <span class="keyword">self</span>.mScrollView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, kScreenWidth, kScreenHeight);</div><div class="line">            </div><div class="line">            <span class="keyword">self</span>.mScrollView.contentSize = <span class="built_in">CGSizeMake</span>(kScreenWidth, <span class="number">568</span>);</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        - (<span class="keyword">void</span>) viewDidAppear:(<span class="built_in">BOOL</span>)animated</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.scrollView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">320</span>, <span class="number">480</span>);</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.scrollView setContentSize:<span class="built_in">CGSizeMake</span>(<span class="number">320</span>, <span class="number">1000</span>)];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>63.16进制颜色转UIColor</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">+ (UIColor *)<span class="string">colorFromHexString:</span>(NSString *)hexString</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([[hexString <span class="string">substringToIndex:</span><span class="number">1</span>] <span class="string">isEqualToString:</span>@<span class="string">"#"</span>]) &#123;</div><div class="line">        </div><div class="line">        hexString = [hexString <span class="string">substringFromIndex:</span><span class="number">1</span>];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    unsigned rgbValue = <span class="number">0</span>;</div><div class="line">    </div><div class="line">    NSScanner *scanner = [NSScanner <span class="string">scannerWithString:</span>hexString];</div><div class="line">    </div><div class="line">    [scanner <span class="string">scanHexInt:</span>&amp;rgbValue];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> [UIColor <span class="string">colorWithRed:</span>((rgbValue &amp; <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>)<span class="regexp">/255.0 green:((rgbValue &amp; 0xFF00) &gt;&gt; 8)/</span><span class="number">255.0</span> <span class="string">blue:</span>(rgbValue &amp; <span class="number">0xFF</span>)/<span class="number">255.0</span> <span class="string">alpha:</span><span class="number">1.0</span>];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>64.按对应的尺寸缩放图片</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    + (<span class="built_in">UIImage</span> *)compressImage:(<span class="built_in">UIImage</span> *)imgSrc withSize:(<span class="built_in">CGSize</span>)size</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="built_in">UIGraphicsBeginImageContext</span>(size);</div><div class="line">    </div><div class="line">    <span class="built_in">CGRect</span> rect = &#123;&#123;<span class="number">0</span>,<span class="number">0</span>&#125;, size&#125;;</div><div class="line">    </div><div class="line">    [imgSrc drawInRect:rect];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *compressedImg = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">    </div><div class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> compressedImg;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>65.gif图片转化成一个存储image对象的数组</strong><br>frame（帧）：一个gif可以简单认为是多张image组成的动画，一帧就是其中一张图片image.<br>frameCount（帧数）： 就是一个gif有多少帧<br>loopCount（播放次数）：有些gif播放到一定次数就停止了，如果为0就代表gif一直循环播放。<br>delayTime（延迟时间）：每一帧播放的时间，也就是说这帧显示到delayTime就转到下一帧。<br>所以gif播放主要就是把每一帧image解析出来，然后每一帧显示它对应的delaytime，然后再显示下一张。如此循环下去。<br>下面是纯粹实现由系统提供的解码：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)decodeWithFilePath:(<span class="built_in">NSString</span> *)filePath</div><div class="line">&#123;</div><div class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^() &#123;</div><div class="line">        </div><div class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:<span class="keyword">self</span>.path];</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span> decodeWithData:data];</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    - (<span class="keyword">void</span>)decodeWithData:(<span class="built_in">NSData</span> *)data</div><div class="line">&#123;</div><div class="line">    <span class="built_in">CGImageSourceRef</span> src = <span class="built_in">CGImageSourceCreateWithData</span>((<span class="built_in">CFDataRef</span>) data, <span class="literal">NULL</span>);</div><div class="line">    <span class="keyword">if</span> (src)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">//获取gif的帧数</span></div><div class="line">        <span class="built_in">NSUInteger</span> frameCount = <span class="built_in">CGImageSourceGetCount</span>(src);</div><div class="line">        <span class="comment">//获取GfiImage的基本数据</span></div><div class="line">        <span class="built_in">NSDictionary</span> *gifProperties = (<span class="built_in">NSDictionary</span> *) <span class="built_in">CGImageSourceCopyProperties</span>(src, <span class="literal">NULL</span>);</div><div class="line">        <span class="keyword">if</span>(gifProperties)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">//由GfiImage的基本数据获取gif数据</span></div><div class="line">            </div><div class="line">            <span class="built_in">NSDictionary</span> *gifDictionary =[gifProperties objectForKey:(<span class="built_in">NSString</span>*)kCGImagePropertyGIFDictionary];</div><div class="line">            </div><div class="line">            <span class="comment">//获取gif的播放次数</span></div><div class="line">            </div><div class="line">            <span class="built_in">NSUInteger</span> loopCount = [[gifDictionary objectForKey:(<span class="built_in">NSString</span>*)kCGImagePropertyGIFLoopCount] integerValue];</div><div class="line">            </div><div class="line">            <span class="keyword">for</span> (<span class="built_in">NSUInteger</span> i = <span class="number">0</span>; i &lt; frameCount; i++)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">//得到每一帧的CGImage</span></div><div class="line">                <span class="built_in">CGImageRef</span> img = <span class="built_in">CGImageSourceCreateImageAtIndex</span>(src, (size_t) i, <span class="literal">NULL</span>);</div><div class="line">                <span class="keyword">if</span> (img)</div><div class="line">                &#123;</div><div class="line">                    <span class="comment">//把CGImage转化为UIImage</span></div><div class="line">                    <span class="built_in">UIImage</span> *frameImage = [<span class="built_in">UIImage</span> imageWithCGImage:img];</div><div class="line">                    <span class="comment">//获取每一帧的图片信息</span></div><div class="line">                    <span class="built_in">NSDictionary</span> *frameProperties = (<span class="built_in">NSDictionary</span> *) <span class="built_in">CGImageSourceCopyPropertiesAtIndex</span>(src, (size_t) i, <span class="literal">NULL</span>);</div><div class="line">                    <span class="keyword">if</span> (frameProperties)</div><div class="line">                    &#123;</div><div class="line">                        <span class="comment">//由每一帧的图片信息获取gif信息</span></div><div class="line">                        <span class="built_in">NSDictionary</span> *frameDictionary = [frameProperties objectForKey:(<span class="built_in">NSString</span>*)kCGImagePropertyGIFDictionary];</div><div class="line">                        <span class="comment">//取出每一帧的delaytime</span></div><div class="line">                        <span class="built_in">CGFloat</span> delayTime = [[frameDictionary objectForKey:(<span class="built_in">NSString</span>*)kCGImagePropertyGIFDelayTime] floatValue];</div><div class="line">                        <span class="comment">//TODO 这里可以实现边解码边回调播放或者把每一帧image和delayTime存储起来</span></div><div class="line">                        <span class="built_in">CFRelease</span>(frameProperties);</div><div class="line">                    &#125;</div><div class="line">                    <span class="built_in">CGImageRelease</span>(img);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">CFRelease</span>(gifProperties);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">CFRelease</span>(src);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>66.使用NSCountedSet 统计重复元素的个数</strong><br>可能你会发现这个类的父类是NSMutableSet。纳尼？不是说NSMutableSet是不可以储存重复对象的吗。其实NSCountedSet也是不能储存重复的对象的，查看Apple文档中对这个类的描述有这么一句：</p>
+<p><code>Each distinct object inserted into an NSCountedSet object has a counter associated with it.</code></p>
+<p>插入NSCountedSet对象的每个不同的对象都有一个与之相关的计数器</p>
+<p>也就是说如果遇到重复对象的加入，这个对象的计数器就会+1。所以可以到这个类有个名叫<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    - (NSUInteger)countForObject:(id)object    的方法来统计重复对象的个数。</div><div class="line"></div><div class="line">NSArray *array = @[@<span class="number">1</span>, @<span class="number">2</span>, @<span class="number">2</span>, @<span class="number">1</span>];</div><div class="line"></div><div class="line">NSCountedSet *<span class="keyword">set</span> = [[NSCountedSet <span class="comment">alloc]initWithArray:array]</span>;</div><div class="line"></div><div class="line">[<span class="keyword">set</span> enumerateObjectsUsingBlock:^(id <span class="comment">obj, BOOLBOOL *stop) &#123;</span></div><div class="line"></div><div class="line">NSLog(@<span class="string">"%@ =&gt; %d"</span>, obj, [<span class="keyword">set</span> <span class="comment">countForObject:obj])</span>;</div><div class="line"></div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
+<p><strong>67.导航条返回键带的title太讨厌了,怎么让它消失</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[[UIBarButtonItem appearance]</span> <span class="selector-tag">setBackButtonTitlePositionAdjustment</span><span class="selector-pseudo">:UIOffsetMake(0</span>, <span class="selector-tag">-60</span>)</div><div class="line"><span class="selector-tag">forBarMetrics</span><span class="selector-pseudo">:UIBarMetricsDefault</span>];</div></pre></td></tr></table></figure></p>
+<p><strong>68.截屏转化为image</strong><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIGraphicsBeginImageContext</span>(<span class="keyword">self</span>.view.bounds.size);</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.view.layer renderInContext:<span class="built_in">UIGraphicsGetCurrentContext</span>()];</div><div class="line"></div><div class="line"><span class="built_in">UIImage</span> *image= <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line"></div><div class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line"></div><div class="line"><span class="built_in">UIImageWriteToSavedPhotosAlbum</span>(image, <span class="keyword">self</span>, <span class="literal">nil</span>, <span class="literal">nil</span>);</div><div class="line"></div><div class="line">- (<span class="built_in">UIImage</span> *)creatImageWithView:(<span class="built_in">UIView</span> *)view rect:(<span class="built_in">CGRect</span>)rect</div><div class="line"></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    <span class="built_in">CGSize</span> size = view.bounds.size;</div><div class="line">    </div><div class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="literal">NO</span>, <span class="number">0</span>);</div><div class="line">    </div><div class="line">    [view.layer renderInContext:<span class="built_in">UIGraphicsGetCurrentContext</span>()];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *viewImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">    </div><div class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">    </div><div class="line">    <span class="built_in">CGImageRef</span> viewImageRef = viewImage.CGImage;</div><div class="line">    </div><div class="line">    <span class="built_in">CGImageRef</span> imageRef = <span class="built_in">CGImageCreateWithImageInRect</span>(viewImageRef, rect);</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *image = [[<span class="built_in">UIImage</span> alloc] initWithCGImage:imageRef];</div><div class="line">    </div><div class="line">    <span class="built_in">CGImageRelease</span>(imageRef);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> image;  </div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>作者信息</p>
+</blockquote>
+<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">具体信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">QQ/微信</td>
+<td style="text-align:center">hundreda</td>
+</tr>
+<tr>
+<td style="text-align:center">简书号连接</td>
+<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GitHub个人开源主页</td>
+<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
+</tr>
+<tr>
+<td style="text-align:center">好心人赏我个<code>赞</code></td>
+<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
+</tr>
+<tr>
+<td style="text-align:center">个人iOS开发QQ讨论群</td>
+<td style="text-align:center"><strong>365204530</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>群内规矩</code></td>
+<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iOS开发类微信订阅号</td>
+<td style="text-align:center"><strong>大大家的IOS说</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
+<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"><br>喜欢的朋友可以赏我2块大洋买糖吃～你的打赏是我前进的动力~一起做一个乐于分享的人吧~</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/11/13/OC的碎碎念/[IOS开发]---常用技巧整理二/" data-title="香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/11/13/OC的碎碎念/[IOS开发]---runtime系列二(Runtime的使用场景)/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/13/OC的碎碎念/[IOS入门]---cookie三大常见用法/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>11</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS工具/" title="iOS工具">iOS工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

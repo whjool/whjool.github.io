@@ -1,0 +1,552 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>香蕉的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hundred Wang">
+    
+
+    
+    <meta name="description" content="我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里但是iOS开发就是这样 他是封闭的 本身就是在雾里…关于iOS开发的学习 打个比方就像把汽车分解最底层的原料有塑料 钢铁再用这些底层的东西造出来发动机 座椅最后再加上写螺丝 胶水等 把汽车就拼起来了
+123iOS基本都是英文的资料 也由于封闭 文档写的相当好在遇到新框架的时候弄明白框架的功能去文档里搜搜 框架的 Pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="香蕉的个人博客">
+<meta property="og:url" content="http://www.hundredone.win/2016/11/13/OC的碎碎念/[转载]IOS底层学习了解1/index.html">
+<meta property="og:site_name" content="香蕉的个人博客">
+<meta property="og:description" content="我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里但是iOS开发就是这样 他是封闭的 本身就是在雾里…关于iOS开发的学习 打个比方就像把汽车分解最底层的原料有塑料 钢铁再用这些底层的东西造出来发动机 座椅最后再加上写螺丝 胶水等 把汽车就拼起来了
+123iOS基本都是英文的资料 也由于封闭 文档写的相当好在遇到新框架的时候弄明白框架的功能去文档里搜搜 框架的 Pro">
+<meta property="og:updated_time" content="2016-11-13T00:46:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="香蕉的个人博客">
+<meta name="twitter:description" content="我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里但是iOS开发就是这样 他是封闭的 本身就是在雾里…关于iOS开发的学习 打个比方就像把汽车分解最底层的原料有塑料 钢铁再用这些底层的东西造出来发动机 座椅最后再加上写螺丝 胶水等 把汽车就拼起来了
+123iOS基本都是英文的资料 也由于封闭 文档写的相当好在遇到新框架的时候弄明白框架的功能去文档里搜搜 框架的 Pro">
+
+    
+    <link rel="alternative" href="/atom.xml" title="香蕉的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/fauthor32.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/author114.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/author114.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="香蕉的个人博客" title="香蕉的个人博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="香蕉的个人博客">香蕉的个人博客</a></h1>
+				<h2 class="blog-motto">用卑微的视角,为浩瀚的科技大海共享一份绵薄之力</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.hundredone.win">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/11/13/OC的碎碎念/[转载]IOS底层学习了解1/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-11-13T00:46:19.000Z" itemprop="datePublished"> 发表于 2016-11-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里但是iOS开发就是这样 他是封闭的 本身就是在雾里…关于iOS开发的学习 打个比方就像把汽车分解最底层的原料有塑料 钢铁<br>再用这些底层的东西造出来发动机 座椅<br>最后再加上写螺丝 胶水等 把汽车就拼起来了</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">iOS基本都是英文的资料 也由于封闭 文档写的相当好在遇到新框架的时候弄明白框架的功能</div><div class="line">去文档里搜搜 框架的 Programming Guide 很有用</div><div class="line">要弄明白框架类的继承结构</div></pre></td></tr></table></figure>
+<p>写iOS的程序不一定都是用OBJC 很多框架是用C写的学习iOS开发基础可以按照下面两个方面学基础 (原料 钢铁 塑料)<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">OBJ-C --- 语法弄明白 <span class="class"><span class="keyword">@interface</span> @<span class="title">property</span> 这些东西总要知道是干嘛的 怎么用</span></div><div class="line">基础库 --- <span class="built_in">NSString</span> <span class="built_in">NSArray</span> <span class="built_in">NSDictionary</span>等 这些东西在所有的框架里都会出现</div><div class="line">iOS大部分类都是继承自<span class="built_in">NSObject</span> (我还没见过不是继承自<span class="built_in">NSObject</span>的..)</div><div class="line">还有一些 像<span class="built_in">NSCopying</span>的接口(经@李禹龙提醒 应该叫协议) 不是特别用到开始不用了解</div><div class="line"><span class="built_in">NSObject</span> 创建对象的时候用 + (<span class="keyword">id</span>)alloc 方法 创建后需要init方法初始化 这个init指的是所有前面是init的方法比如<span class="built_in">UIView</span>的初始化方法是 - (<span class="keyword">id</span>)initWithFrame:(<span class="built_in">CGRect</span>)aRect 在Objc里有很多这样关于函数命名的约定 类似于在python中的函数__xxx</div><div class="line"><span class="built_in">NSString</span> 字符串 <span class="built_in">NSArray</span> 数组 <span class="built_in">NSDictionary</span> 字典 这些都需要弄很清楚 其他的类都是一个套路</div><div class="line"><span class="built_in">NSMutableArray</span> 这样带Mutable的类代表可变的 继承自相应的不可变类 比如<span class="built_in">NSMutableArray</span>继承自<span class="built_in">NSArray</span> 他们都添加了可以改变对象内容的方法比如</div><div class="line">- (<span class="keyword">void</span>)addObject:(<span class="keyword">id</span>)anObject 添加对象</div><div class="line">- (<span class="keyword">void</span>)removeObject:(<span class="keyword">id</span>)anObject 删除对象</div></pre></td></tr></table></figure></p>
+<p>上面只是一个大概的总结 还有很多东西需要学 iOS5的SDK已经支持ARC 可以自动进行release 但是对iOS4的支持还有一个小问题 现在要开发应用 可能还需要按照之前的MRC的方式alloc release retain autorelease 之类的内存管理方法 不过如果你现在开始学 到编出像样的APP iOS5可能已经普及了 可以直接用ARC (另 之前对ARC的了解很粗浅 现在开发程序完全可以直接ARC iOS4不支持的weak是有办法替代的 用unsafe_unretained 如果同时支持iOS5和iOS4 用宏判断下就可以 当然也可以直接用assign)<br>还有一点开始学习的时候肯定很疑惑 内存管理是基于函数名称的 比如带alloc copy的函数 用了之后返回的对象一定要release 这个不用疑惑 照做就行了<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">文档: [<span class="string">http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html**</span>](<span class="link">//link.zhihu.com/?target=http%3A//developer.apple.com/library/mac/%23documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html</span>)</div><div class="line">高级库(发动机)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>UIKit — UI库 OBJC</p>
+</blockquote>
+<p>UIResponder 父类是NSObject UIKit里最底层的库 可以响应一些触摸事件 设置焦点等功能<br>UIView 父类是UIResponder 所有View的父类 方法太多了 大部分很有用 这个不赘述了 中文的资料也很多了<br>比如: <a href="//link.zhihu.com/?target=http%3A//www.cnblogs.com/likwo/archive/2011/06/18/2084192.html">http://www.cnblogs.com/likwo/archive/2011/06/18/2084192.html**</a><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">文档: [<span class="string">http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html**</span>](<span class="link">//link.zhihu.com/?target=http%3A//developer.apple.com/library/ios/%23documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html</span>)</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<p>关于UIView的子类 有很多 UIButton UITableView 这个都需要各个击破 看看文档从名字上就很容易理解是做什么的<br>UIViewController 是管理View 和 Model的类 (@张开 说UIViewController是用来管理view的，管理model 的类自己写，当然，model也可以用UIViewController来管理，不过恐怕成为不好的代码。 的确是这样的 Model的改变最好通过Notification来传播 之前吃过这样的亏 最好不要用delegate模式)<br>UIViewController 管理所有设备发生的事件 比如屏幕旋转 屏幕关闭 或者一些其他的 程序的控制逻辑也应该写在这里<br>他的初始化函数是- (id)initWithNibName:(NSString <em>)nibName bundle:(NSBundle </em>)nibBundle 后面那个NibName 是Interface Builder 里设计的界面<br>现在IB已经集成到XCode里了 打开.xib的文件打开的就是IB<br>IB和代码交互用的是IBAction IBOutlet 这些标记 这些标记追踪到他们的定义其实对编译器来说什么都不表示 只能IB识别<br>IB也没那么高深 XIB文件解开之后就是一堆代码<br>之前面过一家小公司 看我当时写的程序里面用到了IB 一脸不屑 说他们都是用代码控制view 意思他们玩的都是高科技 IB都是垃圾 很多人也纠结到底用不用IB 的确 很多时候IB灵活度不行 但是不需要灵活度的时候还不用IB 那不是装X吗 要是没人用苹果还开发IB干嘛 早去掉了 IB在很多时候节省很多工作量</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UINavigationController</span> 再说说NavigationController</div><div class="line">刚接触开发的时候 不明白 View和View之间怎么切换的 最重要的就是<span class="built_in">UINavigationController</span> 他是一层一层推进view的 打开iPhone里的联系人 每点一个联系人屏幕就会像右推到下一个界面 这就是<span class="built_in">UINavigationController</span>在做的事</div><div class="line"><span class="built_in">UINavigationController</span> 维护一个堆栈</div><div class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated 是像堆栈里压一个<span class="built_in">UIViewController</span></div><div class="line">- (<span class="built_in">UIViewController</span> *)popViewControllerAnimated:(<span class="built_in">BOOL</span>)animated 是从堆栈里弹出来一个<span class="built_in">UIViewController</span></div><div class="line">就算你的程序不是像联系人那样 向右推进 也可以用<span class="built_in">UINavigationController</span> 管理你的ViewController的层次 可以自己写View切换的动画 关掉他默认的动画</div></pre></td></tr></table></figure>
+<p>文档: <a href="//link.zhihu.com/?target=http%3A//developer.apple.com/library/ios/%23featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html">http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html**</a></p>
+<p>UIWindow 还有个蛋疼的UIWindow 都快忘了他了 因为iOS是从Mac os X过来的 很多东西直接拿来用 这个UIWindow就是 在iOS里 每个App独占屏幕 所以同时存在的只有一个UIWindow 除了在程序加载的时候把我的view 加载到他上 目前我还没用到过其他的</p>
+<p>苹果一直很推崇MVC的程序结构 视图 模型 控制器 简单说就是 视图负责显示内容 模型负责所有数据的保存结构或者一些其他数据操作 控制器是用来协调 视图和模型 举车的发动机系统的例子 视图是仪表盘 模型是发动机 控制器是控制芯片</p>
+<p>Core Data — 管理数据 OBJC<br>刚学的时候觉得 CD很高深 其实他是最容易用的库之一 他麻烦之处在于多线程问题 还有胶水代码的问题<br>建立一个 基于Core Data的工程 你会看到他自动创建3个类的对象<br>NSManagedObjectModel<br>管理数据的存储结构文件 扩展名是 xcdatamodeld</p>
+<p>NSPersistentStoreCoordinator<br>用来管理底层数据的存储 用官方的话说Core Data is not a relational database or a relational database management system (RDBMS).</p>
+<p>所以你可以用很多方法存储数据 比如最长用的sqlite 当然如果另类也可以用plist文件 或者其他</p>
+<p>NSManagedObjectContext<br>NSManagedObjectContext 把上面两个对象连在一起 把他们变成一个整体<br>所有的CD操作都是通过这个类的 这个需要仔细看文档了</p>
+<p>举个不恰当的例子 就像三个人收拾衣服 一个人负责衣服的存放位置(NSManagedObjectModel) 一个人负责把衣服分类 冬天穿 夏天穿等(NSPersistentStoreCoordinator) 一个人负责协调他们的工作 并且如果有新增加的衣服或者要移除之前的衣服 通知他俩(NSManagedObjectContext)</p>
+<p>NSManagedObject 这个类是具体的数据对象 用上面的例子说就是衣服<br>一般都是继承这个对象 XCode 可以帮你做 具体搜搜 这种文章很多</p>
+<p>NSFetchRequest<br>用来执行CD请求的 相当与select语句外壳</p>
+<p>NSEntityDescription<br>用来描述实体的 对应sql里的table</p>
+<p>NSPredicate<br>谓语 类似select语句中的条件</p>
+<p>上面这三个类就可以用来请求数据了 具体看教程吧<br>中文介绍:<a href="//link.zhihu.com/?target=http%3A//c.gzl.name/archives/tag/core-data">http://c.gzl.name/archives/tag/core-data**</a> (访问需要点技术…)<br>文档: <a href="//link.zhihu.com/?target=http%3A//developer.apple.com/library/mac/%23documentation/cocoa/conceptual/coredata/cdprogrammingguide.html">http://developer.apple.com/library/mac/#documentation/cocoa/conceptual/coredata/cdprogrammingguide.html**</a></p>
+<p>掌握上面的内容 差不多就能写个APP了 最好的学习方法就是边写边学 自己构想一个小的APP 在做的时候遇到问题 去找找资料 我觉得这样学习比较快 也比较扎实下面这些库都是有专门功能的库Core Animation — 制作动画 很强大 很喜欢的框架 可以用少量的代码写出漂亮的动画 C<br>Quartz 2D — 强大的2D绘图库 C<br>OpenGL — 不用介绍了 超级强大的3D库 C<br>Core Image — 听说 iOS5开始支持Core Image 了 还没去看 Mac 上的CI是很强大的<br>CFNetwork — 从来没用过 我一般都会用ASIHttpRequset 封装好的高层网络库 OBJC实现的 CFNetwork 好像是C实现<br>Core Location — 获取位置的库 东西很少 很简单 OBJC<br>AVFoundation — 播放视频相关的库 最近正在学习</p>
+<p>这些算是学iOS开发的一些方法 当时要是有人告诉我这些 估计少走不少弯路还有提醒各位初学者 刚开始学的时候 会有几个月的低谷期 很容易放弃 如果挺过最开始的几个月 后来就越学越容易了</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.hundredone.win/2016/11/13/OC的碎碎念/[转载]IOS底层学习了解1/" data-title="香蕉的个人博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/11/13/完全小白图文攻略/好用的筛选IOS开发工程师的4道题/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/13/完全小白图文攻略/创建自己的-FrameWork(含demo)-Xcode7环境/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/OneHundredSir" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS入门/" title="iOS入门">iOS入门<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS进阶/" title="iOS进阶">iOS进阶<sup>11</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/iOS黑魔法/" title="iOS黑魔法">iOS黑魔法<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS项目/" title="iOS项目">iOS项目<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS进阶拓展/" title="iOS进阶拓展">iOS进阶拓展<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blockKit/" title="blockKit">blockKit<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/项目仿写/" title="项目仿写">项目仿写<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS开发/" title="iOS开发">iOS开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS热更新/" title="iOS热更新">iOS热更新<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS工具/" title="iOS工具">iOS工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS造轮子/" title="iOS造轮子">iOS造轮子<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS拓展资料/" title="iOS拓展资料">iOS拓展资料<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 成长之路,厚积薄发 <br/>
+			一起成长QQ群:365204530,微信技术公众号:大大家的IOS说</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://http://weibo.com/hundredWin" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/OneHundredSir" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:15507596877@139.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Hundred Wang">Hundred Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
