@@ -4,63 +4,33 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>单元测试异步测试 | 香蕉的技术博客</title>
+    <title>如何正确理解 Bitcode | 香蕉的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Hundred Wang">
     
 
     
-    <meta name="description" content="目录
-
-
-[IOS开发攻略] - 单元测试入门
-[IOS开发攻略] - A.异步测试
-[IOS开发攻略] - B.性能测试
-[IOS开发攻略] - C.逻辑测试
-
-
-操作流程
-
-1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
-2.我们来测试Person文件中的字典转模型这个方法：+ (instancetype)personWithDict:(NSDiction">
+    <meta name="description" content="前言昨天去美团吹水，聊到 BitCode 话题，朋友说他们发现美团没有开启 Bitcode，下载下来的包还是二进制文件只有一个架构的状态。我感到非常不可思议，晚上就去越狱了我的 iPad mini，刚好上周 9.1 越狱出了。结果发现果真如此。今天早晨和 SunnyXX 提及此事，都倍感神奇，研究了一番，SunnyXX 又去查了苹果文档，发现大家都把 Bitcode 理解错了
+BitCode 是什">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单元测试异步测试">
-<meta property="og:url" content="http://www.hundredone.win/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/index.html">
+<meta property="og:title" content="如何正确理解 Bitcode">
+<meta property="og:url" content="http://www.hundredone.win/2017/01/10/A-完全小白图文攻略/如何正确理解Bitcode/index.html">
 <meta property="og:site_name" content="香蕉的技术博客">
-<meta property="og:description" content="目录
-
-
-[IOS开发攻略] - 单元测试入门
-[IOS开发攻略] - A.异步测试
-[IOS开发攻略] - B.性能测试
-[IOS开发攻略] - C.逻辑测试
-
-
-操作流程
-
-1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
-2.我们来测试Person文件中的字典转模型这个方法：+ (instancetype)personWithDict:(NSDiction">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-66a6583490ecd456.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-54ee71b151b2550e.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-01-03T02:02:38.000Z">
+<meta property="og:description" content="前言昨天去美团吹水，聊到 BitCode 话题，朋友说他们发现美团没有开启 Bitcode，下载下来的包还是二进制文件只有一个架构的状态。我感到非常不可思议，晚上就去越狱了我的 iPad mini，刚好上周 9.1 越狱出了。结果发现果真如此。今天早晨和 SunnyXX 提及此事，都倍感神奇，研究了一番，SunnyXX 又去查了苹果文档，发现大家都把 Bitcode 理解错了
+BitCode 是什">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-6d349ac3f8affd6e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-cc8b4bf0c870a5a6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-4cc0a3546e70c0a2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-a8b468dc3fa31242?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-21537c1752d18ab0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1730495-e937d13fbc55c4bf?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-01-22T10:36:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单元测试异步测试">
-<meta name="twitter:description" content="目录
-
-
-[IOS开发攻略] - 单元测试入门
-[IOS开发攻略] - A.异步测试
-[IOS开发攻略] - B.性能测试
-[IOS开发攻略] - C.逻辑测试
-
-
-操作流程
-
-1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间
-2.我们来测试Person文件中的字典转模型这个方法：+ (instancetype)personWithDict:(NSDiction">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-66a6583490ecd456.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:title" content="如何正确理解 Bitcode">
+<meta name="twitter:description" content="前言昨天去美团吹水，聊到 BitCode 话题，朋友说他们发现美团没有开启 Bitcode，下载下来的包还是二进制文件只有一个架构的状态。我感到非常不可思议，晚上就去越狱了我的 iPad mini，刚好上周 9.1 越狱出了。结果发现果真如此。今天早晨和 SunnyXX 提及此事，都倍感神奇，研究了一番，SunnyXX 又去查了苹果文档，发现大家都把 Bitcode 理解错了
+BitCode 是什">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1730495-6d349ac3f8affd6e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
     
     <link rel="alternative" href="/atom.xml" title="香蕉的技术博客" type="application/atom+xml">
@@ -121,14 +91,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" title="单元测试异步测试" itemprop="url">单元测试异步测试</a>
+      <a href="/2017/01/10/A-完全小白图文攻略/如何正确理解Bitcode/" title="如何正确理解 Bitcode" itemprop="url">如何正确理解 Bitcode</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Hundred Wang" target="_blank" itemprop="author">Hundred Wang</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-05T02:49:50.000Z" itemprop="datePublished"> 发表于 2016-05-05</time>
+    <time datetime="2017-01-10T01:49:50.000Z" itemprop="datePublished"> 发表于 2017-01-10</time>
     
   </p>
 </header>
@@ -137,85 +107,35 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BitCode-是什么"><span class="toc-number">2.</span> <span class="toc-text">BitCode 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-Thinning-in-Xcode"><span class="toc-number">3.</span> <span class="toc-text">App Thinning in Xcode</span></a></li></ol>
 		
 		</div>
 		
-		<blockquote>
-<p>目录</p>
-</blockquote>
-<ul>
-<li><a href="http://www.jianshu.com/p/e1b3fab18651" target="_blank" rel="external">[IOS开发攻略] - 单元测试入门</a></li>
-<li><a href="http://www.jianshu.com/p/4e9abc903829" target="_blank" rel="external">[IOS开发攻略] - A.异步测试</a></li>
-<li><a href="http://www.jianshu.com/p/dd11335a7c16" target="_blank" rel="external">[IOS开发攻略] - B.性能测试</a></li>
-<li><a href="http://www.jianshu.com/p/ec678d9b460b" target="_blank" rel="external">[IOS开发攻略] - C.逻辑测试</a></li>
-</ul>
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天去美团吹水，聊到 BitCode 话题，朋友说他们发现美团没有开启 Bitcode，下载下来的包还是二进制文件只有一个架构的状态。我感到非常不可思议，晚上就去越狱了我的 iPad mini，刚好上周 9.1 越狱出了。结果发现果真如此。今天早晨和 SunnyXX 提及此事，都倍感神奇，研究了一番，SunnyXX 又去查了苹果文档，发现大家都把 Bitcode 理解错了</p>
+<h2 id="BitCode-是什么"><a href="#BitCode-是什么" class="headerlink" title="BitCode 是什么"></a>BitCode 是什么</h2><p>我们最近聚会总说，xxx SDK 不求上进，一年了还不支持 Bitcode。一旦支持了，ipa 大小能少了不小。然而今天看完文档发现<strong>并不是这么回事</strong>。</p>
+<p>Bitcode，干的事情是指令集优化。根据你设备的状态去做编译优化，进而提升性能，但这对包的大小优化<strong>起不到什么本质上的作用</strong></p>
+<p>那么美团那个事件是怎么回事呢？</p>
+<h2 id="App-Thinning-in-Xcode"><a href="#App-Thinning-in-Xcode" class="headerlink" title="App Thinning in Xcode"></a>App Thinning in Xcode</h2><p>在查文档之前，我干了这么样一件事。对比了一下 iOS 8、iOS 9 上的美团占手机大小。结果发现了一个问题，如图。<br><img src="http://upload-images.jianshu.io/upload_images/1730495-6d349ac3f8affd6e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1730495-cc8b4bf0c870a5a6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我确定美团是 Universial 版本，也确定这两个美团是同一版本号。然而体积差了 40+ MB。直接把 iOS 8 上的二进制包拿出来（需越狱），在命令行下<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">file</span> imeituan</div></pre></td></tr></table></figure></p>
+<p>我们发现，他是同时存在 armv7 和 arm64 两个指令集的。<br><img src="http://upload-images.jianshu.io/upload_images/1730495-4cc0a3546e70c0a2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我又在 iOS 7 上干了同样的事情，与 iOS 8 结果一致。于是我们能得出一个推论：<strong>这个 ipa 变小的事情是 iOS 9 的 feature</strong>。</p>
+<p>知道是 iOS 9 的问题了，就回过头来去看 WWDC 2015 Session 404，App Thinning in Xcode，我当初看这篇睡着了。官方有这么一张 PPT。<br><img src="http://upload-images.jianshu.io/upload_images/1730495-a8b468dc3fa31242?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>说明，APP Thining 这件事并不只是 Bitcode，而是由: <code>App Slicing</code>、<code>On Demand Resources</code>, <code>Bitcode</code> 组成</p>
+<p>其中，<code>App Slicing</code> 干的事情是如下图这样，根据你设备型号，生成对应资源的 ipa，以节省空间。<br><img src="http://upload-images.jianshu.io/upload_images/1730495-21537c1752d18ab0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>并且我们在文档里看到了这么一句话：</p>
 <blockquote>
-<p>操作流程</p>
+<p>In fact, app slicing handles the majority of the app thinning process. ‘App Slicing’ feature finally switched on in iOS 9.0.2</p>
 </blockquote>
-<p>1.找到系统为我们提供的性能测试的方法，此方法可以测试出一个方法运行过程的耗时时间</p>
-<p>2.我们来测试Person文件中的字典转模型这个方法：+ (instancetype)personWithDict:(NSDictionary *)dict；的耗时性能</p>
-<p>3..代码写完，点击左侧调试按钮，console控制台输出结果<br>(流程请看图文解析)</p>
-<blockquote>
-<p>图文解析</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-66a6583490ecd456.gif?imageMogr2/auto-orient/strip" alt="异步测试"></p>
-<blockquote>
-<p>源码部分</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-54ee71b151b2550e.gif?imageMogr2/auto-orient/strip" alt="异步测试实例"></p>
-<p>这里只是测试部分,具体实例部分请自行下载demo查阅<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这里用Command+U运行</span></div><div class="line"><span class="comment">// 测试异步加载person</span></div><div class="line">- (<span class="keyword">void</span>)testLoadPersonAsync &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">XCTestExpectation</span> *expectation = [<span class="keyword">self</span> expectationWithDescription:<span class="string">@"异步加载 Person"</span>];</div><div class="line">    </div><div class="line">    [Person loadPersonAsync:^(Person *person) &#123;</div><div class="line">        <span class="comment">//        NSLog(@"%@",person);</span></div><div class="line">        </div><div class="line">        <span class="built_in">XCTAssertNotNil</span>(person.name, <span class="string">@"名字不能为空"</span>);</div><div class="line">        <span class="built_in">XCTAssert</span>(person.age &gt;  <span class="number">0</span>, <span class="string">@"年龄不正确"</span>);</div><div class="line">        </div><div class="line">        <span class="comment">// 标注预期达成</span></div><div class="line">        [expectation fulfill];</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="comment">// 等待 5s 期望预期达成</span></div><div class="line">    [<span class="keyword">self</span> waitForExpectationsWithTimeout:<span class="number">5</span> handler:<span class="literal">nil</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>香蕉家githubDemo下载,记得给我点赞哈</p>
-</blockquote>
-<p>demo地址:<a href="https://github.com/OneHundredSir/Objective-C/tree/master/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" target="_blank" rel="external">本项目githubDemo开源地址</a></p>
-<blockquote>
-<p>作者信息</p>
-</blockquote>
-<p>如果有不足或者错误的地方还望各位读者批评指正，可以评论留言，笔者收到后第一时间回复。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">具体信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">QQ/微信</td>
-<td style="text-align:center">hundreda</td>
-</tr>
-<tr>
-<td style="text-align:center">简书号连接</td>
-<td style="text-align:center"><a href="http://www.jianshu.com/users/a3ae6d7c68b6/latest_articles" target="_blank" rel="external">iOS-香蕉大大</a></td>
-</tr>
-<tr>
-<td style="text-align:center">GitHub个人开源主页</td>
-<td style="text-align:center"><a href="https://github.com/OneHundredSir" target="_blank" rel="external">GitHub连接</a></td>
-</tr>
-<tr>
-<td style="text-align:center">好心人赏我个<code>赞</code></td>
-<td style="text-align:center"><code>欢迎各位前来查看，star,感谢各位的阅读</code></td>
-</tr>
-<tr>
-<td style="text-align:center">个人iOS开发QQ讨论群</td>
-<td style="text-align:center"><strong>365204530</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>群内规矩</code></td>
-<td style="text-align:center"><code>聊天扯淡，讨论技术都行，没有什么群规，不懂就问</code></td>
-</tr>
-<tr>
-<td style="text-align:center">iOS开发类微信订阅号</td>
-<td style="text-align:center"><strong>大大家的IOS说</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><em>微信扫一扫下面二维码</em></td>
-<td style="text-align:center"><code>一起用碎片时间学习IOS吧</code></td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://upload-images.jianshu.io/upload_images/1730495-755d908f00d77cf8.gif?imageMogr2/auto-orient/strip" alt="微信个人技术订阅号"></p>
+<p>也就是说，对于 ipa 减肥，主要是由拆分架构、资源文件来起到绝对性作用。而这个功能 iOS 9.0.2 之前的用户都享受不到。</p>
+<p>再来说一下<code>On Demand Resource</code>的作用，苹果的示意图很清晰。<br><img src="http://upload-images.jianshu.io/upload_images/1730495-e937d13fbc55c4bf?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>作为游戏，只需要下载公共资源文件、初始关卡。每过一关，再下载对应资源文件可以大幅减少包的大小。这对安装包只有 200M 限制的 Apple TV 格外重要。</p>
+<p>那么，我们知道。开了 Bitcode 后，会根据不同设备来分包。会不会能起到 iOS 8 缩减体积的作用呢？事实上并不是如此，大家可以去下载一下手机百度。会发现 iOS 8，比 iOS 9 大得多。</p>
+<p>所以我们能得出来 2 个不大不小的结论：</p>
+<ol>
+<li>如果想给 ipa 减肥，Bitcode 乃至 App Thinning 都对 iOS 9.0.2 以下用户无效。</li>
+<li>其实Bitcode 对 ipa 减肥起不到什么作用。</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -227,18 +147,13 @@
 </div>
 
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/单元测试/">单元测试</a>
-  </div>
-
 </div>
 
 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.hundredone.win/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" data-title="单元测试异步测试 | 香蕉的技术博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.hundredone.win/2017/01/10/A-完全小白图文攻略/如何正确理解Bitcode/" data-title="如何正确理解 Bitcode | 香蕉的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -252,18 +167,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试入门/" title="单元测试入门">
+ <a href="/2017/01/19/A-OC的碎碎念/[原创]cocopods-2016-11月安装法（ruby完整版）/" title="cocopods安装法（ruby完整版)201701">
   <strong>上一篇：</strong><br/>
   <span>
-  单元测试入门</span>
+  cocopods安装法（ruby完整版)201701</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/04/20/B-swift/[swift3-0]---说说你知道的传值方式/"  title="说说你知道的传值方式写(Swift3.0)">
+<a href="/2017/01/09/O-电脑知识/使用 Xcode Source Editor Extension开发Xcode 8 插件/"  title="使用 Xcode Source Editor Extension开发Xcode 8 插件">
  <strong>下一篇：</strong><br/> 
- <span>说说你知道的传值方式写(Swift3.0)
+ <span>使用 Xcode Source Editor Extension开发Xcode 8 插件
 </span>
 </a>
 </div>
@@ -272,7 +187,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/" data-title="单元测试异步测试" data-url="http://www.hundredone.win/2016/05/05/A-完全小白图文攻略/[IOS开发攻略]---单元测试异步测试/"></div>
+	<div class="ds-thread" data-thread-key="2017/01/10/A-完全小白图文攻略/如何正确理解Bitcode/" data-title="如何正确理解 Bitcode" data-url="http://www.hundredone.win/2017/01/10/A-完全小白图文攻略/如何正确理解Bitcode/"></div>
 </section>
 
 
@@ -282,7 +197,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BitCode-是什么"><span class="toc-number">2.</span> <span class="toc-text">BitCode 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-Thinning-in-Xcode"><span class="toc-number">3.</span> <span class="toc-text">App Thinning in Xcode</span></a></li></ol>
  
   </div>
 
